@@ -1,0 +1,108 @@
+\newcommand{\noopsort}[1]{} \newcommand{\singleletter}[1]{#1}
+  \newcommand{\etal}{et al.}
+\begin{thebibliography}{10}
+
+\bibitem{Ashby:1956}
+W.~R. Ashby.
+\newblock {\em An introduction to cybernetics}.
+\newblock Chapman \& Hall, 1956.
+
+\bibitem{Berstel&Perrin&Reutenauer:2009}
+J.~Berstel, D.~Perrin, and C.~Reutenauer.
+\newblock {\em Codes and automata}.
+\newblock Number 129 in Encyclopedia of Mathematics and its Applications.
+  Cambridge University Press, 2009.
+
+\bibitem{Boppana&Rajan&Takayama&Fujita:1999}
+V.~Boppana, S.~Rajan, K.~Takayama, and M.~Fujita.
+\newblock Model checking based on sequential atpg.
+\newblock In {\em Computer Aided Verification, Proc.\ 11th International
+  Conference}, Lecture Notes in Comput. Sci., pages 418--430. Springer-Verlag,
+  1999.
+
+\bibitem{Capocelli&Gargano&Vaccaro:1988}
+R.~M. Capocelli, L.~Gargano, and U.~Vaccaro.
+\newblock On the characterization of statistically synchronizable
+  variable-length codes.
+\newblock {\em IEEE Transactions on Information Theory}, 34(4):817--825, 1988.
+
+\bibitem{Chen&Ierardi:1995}
+Y.-B. Chen and D.~J. Ierardi.
+\newblock The complexity of oblivious plans for orienting and distinguishing
+  polygonal parts.
+\newblock {\em Algoritmica}, 14:367--397, 1995.
+
+\bibitem{Cho&Jeong&Somenzi&Pixley:1993}
+H.~Cho, S.-W. Jeong, F.~Somenzi, and C.~Pixley.
+\newblock Synchronizing sequences and symbolic traversal techniques in test
+  generation.
+\newblock {\em J. Electronic Testing}, 4:19--31, 1993.
+
+\bibitem{Eppstein:1990}
+D.~Eppstein.
+\newblock Reset sequences for monotonic automata.
+\newblock {\em SIAM J. Comput.}, 19:500--510, 1990.
+
+\bibitem{Gill:1961}
+A.~Gill.
+\newblock State-identification experiments in finite automata.
+\newblock {\em Inform. Control}, 4(2-3):132–--154, 1961.
+
+\bibitem{Ginsburg:1958}
+S.~Ginsburg.
+\newblock On the length of the smallest uniform experiment which distinguishes
+  the terminal states of a machine.
+\newblock {\em J. Assoc. Comput. Mach.}, 5:266--280, 1958.
+
+\bibitem{Goldberg:1993}
+K.~Goldberg.
+\newblock Orienting polygonal parts without sensors.
+\newblock {\em Algorithmica}, 10:201--225, 1993.
+
+\bibitem{Hennie:1964}
+F.~C. Hennie.
+\newblock Fault detecting experiments for sequential circuits.
+\newblock In {\em {S}witching {C}ircuit {T}heory and {L}ogical {D}esign,
+  Proceedings of the {F}ifth {A}nnual {S}ymposium}, pages 95--110. IEEE Press,
+  1964.
+
+\bibitem{Moore:1956}
+E.~F. Moore.
+\newblock Gedanken experiments on sequential machines.
+\newblock In C.~E. Shannon and J.~McCarthy, editors, {\em Automata Studies},
+  pages 129--153. Princeton Universty Press, 1956.
+
+\bibitem{Natarajan:1986}
+B.~K. Natarajan.
+\newblock An algorithmic approach to the automated design of parts orienters.
+\newblock In {\em Proc.\ 27th Annual Symp.\ Foundations Comput.\ Sci.}, pages
+  132--142. IEEE Press, 1986.
+
+\bibitem{Natarajan:1989}
+B.~K. Natarajan.
+\newblock Some paradigms for the automated design of parts feeders.
+\newblock {\em Internat.\ J. Robotics Research}, 8(6):89--109, 1989.
+
+\bibitem{Sandberg:2005}
+S.~Sandberg.
+\newblock Homing and synchronizing sequences.
+\newblock In M.~Broy, B.~Jonsson, J.-P. Katoen, M.~Leucker, and A.~Pretschner,
+  editors, {\em Model-Based Testing of Reactive Systems}, volume 3472 of {\em
+  Lecture Notes in Comput. Sci.}, pages 5--33. Springer-Verlag, 2005.
+
+\bibitem{Cerny:1964}
+J.~\v{C}ern\'{y}.
+\newblock Pozn\'{a}mka k homog\'{e}nnym eksperimentom s kone\v{c}n\'{y}mi
+  automatami.
+\newblock {\em Matematicko-fyzikalny \v{C}asopis Slovenskej Akad\'emie Vied},
+  14(3):208--216, 1964.
+\newblock in Slovak.
+
+\bibitem{Volkov:2008}
+M.~Volkov.
+\newblock Synchronizing automata and the \v{C}ern\'{y} conjecture.
+\newblock In C.~Mart\'{\i}n-Vide, F.~Otto, and H.~Fernau, editors, {\em
+  Language and Automata Theory and Applications}, volume 5196 of {\em Lecture
+  Notes in Comput. Sci.}, pages 11--27. Springer-Verlag, 2008.
+
+\end{thebibliography}
