@@ -1,0 +1,7 @@
+\contentsline {section}{\numberline {1}Synchronizing automata, their origins and importance}{1}{section.1}
+\contentsline {section}{\numberline {2}Algorithmic and complexity issues}{4}{section.2}
+\contentsline {section}{\numberline {3}The \v {C}ern\'{y} conjecture}{4}{section.3}
+\contentsline {section}{\numberline {4}The Road Coloring Problem}{4}{section.4}
+\contentsline {section}{\numberline {5}Generalizations}{4}{section.5}
+\contentsline {section}{References}{4}{section.5}
+\contentsline {section}{Index}{5}{section*.5}

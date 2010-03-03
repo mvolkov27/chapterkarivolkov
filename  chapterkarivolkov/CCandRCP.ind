@@ -1,0 +1,20 @@
+\begin{theindex}
+
+  \item automaton
+    \subitem synchronizing, \hyperpage{1}
+
+  \indexspace
+
+  \item prefix code, \hyperpage{2}
+    \subitem maximal, \hyperpage{3}
+    \subitem synchronized, \hyperpage{3}
+
+  \indexspace
+
+  \item reset word, \hyperpage{1}
+
+  \indexspace
+
+  \item synchronizing word of a code, \hyperpage{3}
+
+\end{theindex}
