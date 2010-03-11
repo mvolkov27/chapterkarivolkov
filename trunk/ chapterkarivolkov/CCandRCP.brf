@@ -13,3 +13,10 @@
 \backcite {Natarajan:1986, Natarajan:1989}{{4}{1}{figure.caption.4}}
 \backcite {Volkov:2008}{{4}{1}{figure.caption.4}}
 \backcite {Eppstein:1990,Goldberg:1993,Chen&Ierardi:1995}{{4}{1}{figure.caption.4}}
+\backcite {Rabin&Scott:1959}{{4}{2}{figure.caption.5}}
+\backcite {Cormen&Leiserson&Rivest&Stein:2001}{{5}{2}{figure.caption.5}}
+\backcite {Cerny:1964}{{5}{2}{figure.caption.5}}
+\backcite {Eppstein:1990}{{5}{2}{theorem.2.1}}
+\backcite {Sandberg:2005}{{5}{2}{theorem.2.1}}
+\backcite {Rho&Somenzi&Pixley:1993,Trahtman:2006}{{6}{2}{theorem.2.1}}
+\backcite {Garey&Johnson:1979,Papadimitriou:1994}{{6}{2}{theorem.2.1}}

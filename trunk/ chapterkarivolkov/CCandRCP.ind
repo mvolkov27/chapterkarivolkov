@@ -5,7 +5,7 @@
 
   \indexspace
 
-  \item prefix code, \hyperpage{2}
+  \item prefix code, \hyperpage{3}
     \subitem maximal, \hyperpage{3}
     \subitem synchronized, \hyperpage{3}
 
@@ -15,6 +15,7 @@
 
   \indexspace
 
+  \item subset automaton, \hyperpage{4}
   \item synchronizing word of a code, \hyperpage{3}
 
 \end{theindex}

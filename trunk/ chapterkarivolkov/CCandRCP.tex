@@ -344,7 +344,8 @@ The solid/dashed lines correspond to (the action of) 0/1.
 \caption{A synchronized code (on the left) and its automaton (on the right)}\label{KV:fig:huffman}
 \end{figure}
 
-Thus,
+Thus, \textbf{(to be continued and supplied by some historical
+references).}
 
 An additional source of problems related to \sa\ has come from
 \emph{robotics} or, more precisely, from part handling problems
@@ -361,6 +362,122 @@ amongst them there are papers of significant theoretical importance
 such as \cite{Eppstein:1990,Goldberg:1993,Chen&Ierardi:1995}.
 
 \section{Algorithmic and complexity issues}
+
+It should be clear that not every DFA is synchronizing. Therefore,
+the very first question that we should address is the following
+one: \emph{given an automaton $\mathcal{A}$, how to determine
+whether or not $\mathcal{A}$ is synchronizing?}
+
+\begin{figure}[htb]
+\begin{center}
+\unitlength=.9mm
+\begin{picture}(85,88)(-10,20)
+\node(A)(-20,57){0} \node(B)(0,57){1} \node(C)(0,38){2}
+\node(D)(-20,38){3} \drawedge(A,B){$a,b$} \drawedge(B,C){$b$}
+\drawedge(C,D){$b$} \drawedge(D,A){$b$}
+\drawloop[loopangle=45](B){$a$} \drawloop[loopangle=-45](C){$a$}
+\drawloop[loopangle=-135](D){$a$} \node(AD)(20,38){03}
+\node(AB)(20,57){01} \node(BC)(40,57){12} \node(CD)(40,38){23}
+\node(AC)(60,57){02} \node(BD)(80,57){13}
+\drawloop[loopangle=0](CD){$a$} \drawloop[loopangle=0](BD){$a$}
+\drawloop[loopangle=45](BC){$a$}
+\drawedge[linewidth=.5,AHLength=2,ELside=r](CD,AD){$b$}
+\drawedge[linewidth=.5,AHLength=2](AD,AB){$b$}
+\drawedge(AB,BC){$b$}
+\drawedge[linewidth=.5,AHLength=2](BC,CD){$b$}
+\drawedge[linewidth=.5,AHLength=2,curvedepth=5](AB,B){$a$}
+\gasset{Nadjust=w,Nadjustdist=1.5,Nh=6,Nmr=2}
+\node(ABC)(40,76){012} \node(ABD)(70,76){013}
+\node(BCD)(40,95){123} \node(ACD)(70,95){023}
+\node(ABCD)(10,95){0123} \drawloop(ABCD){$b$} \drawloop(BCD){$a$}
+\drawedge[linewidth=.5,AHLength=2](ABCD,BCD){$a$}
+\drawedge[linewidth=.5,AHLength=2,ELside=r](BCD,ACD){$b$}
+\drawedge[curvedepth=-5,ELside=r](ACD,BCD){$a$}
+\drawedge[linewidth=.5,AHLength=2](ACD,ABD){$b$}
+\drawedge(ABC,BCD){$b$}
+\drawedge[linewidth=.5,AHLength=2,ELside=r](ABD,ABC){$b$}
+\drawedge[linewidth=.5,AHLength=2,curvedepth=-5,ELside=r](ABC,BC){$a$}
+\drawedge[curvedepth=5](ABD,BD){$a$}
+\drawedge[curvedepth=5](AC,BC){$a$}
+\drawedge[curvedepth=5](BD,AC){$b$} \drawedge(AC,BD){$b$}
+\drawedge[curvedepth=-20,ELside=r](AD,BD){$a$}
+\end{picture}
+\caption{The power automaton
+$\mathcal{P}(\mathcal{C}_4$)}\label{KV:fig:power automaton}
+\end{center}
+\end{figure}
+
+This question is in fact quite easy, and the most straightforward
+solution to it can be achieved via the classic subset construction
+by Rabin and Scott~\cite{Rabin&Scott:1959}. Given a DFA
+$\mathcal{A}$ with input alphabet $A$ and state set $Q$, we define
+its \emph{subset automaton}\index{subset automaton}
+$\mathcal{P}(\mathcal{A})$ on the set of the non-empty subsets of
+$Q$ by setting $P\cdot a=\{p\cdot a\mid p\in P\}$ for each
+non-empty subset $P$ of $Q$ and each $a\in\A$. (Since we start
+with a deterministic automaton, we do not need adding the empty
+set to the state set of $\mathcal{P}(\mathcal{A})$.)
+Figure~\ref{KV:fig:power automaton} presents the subset automaton
+for the DFA $\mathcal{C}_4$ shown in Figure~\ref{KV:fig:C4}.
+
+Now it is obvious that a word $w\in A^*$ is a reset word for the
+DFA $\mathcal{A}$ if and only if $w$ labels a path in
+$\mathcal{P}(\mathcal{A})$ starting at $Q$ and ending at a
+singleton. (For instance, the bold path in
+Figure~\ref{KV:fig:power automaton} represents the shortest reset
+word $ab^3ab^3a$ of the automaton $\mathcal{C}_4$.) Thus, the
+question of whether or not a given DFA $\mathcal{A}$ is
+synchronizing reduces to the following reachability question in
+the underlying digraph of the subset automaton
+$\mathcal{P}(\mathcal{A})$: is there a path from $Q$ to a
+singleton? The latter question can be easily answered by
+breadth-first search,  see, e.g.,
+\cite[Section~22.2]{Cormen&Leiserson&Rivest&Stein:2001}.
+
+The described procedure is conceptually very simple but rather
+inefficient because the power automaton $\mathcal{P}(\mathcal{A})$
+is exponentially larger than $\mathcal{A}$. However, the following
+criterion of synchronizability~\cite[Theorem~2]{Cerny:1964} gives
+rise to a polynomial algorithm.
+\begin{proposition}
+\label{KV:prop:quadratic} A DFA $\mathcal{A}$ with input alphabet
+$A$ and state set $Q$ is synchronizing if and only if for every
+$q,q'\in Q$ there exists a word $w\in A^*$ such that $q\cdot
+w=q'\cdot w$.
+\end{proposition}
+One can treat Proposition~\ref{KV:prop:quadratic} as a reduction
+of the synchronizability problem to a reachability problem in the
+subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ of
+$\mathcal{P}(\mathcal{A})$ whose states are 2-element and
+1-element subsets of $Q$. Since the subautomaton has
+$\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this
+problem in $O(|Q|^2\cdot|A|)$ time. This complexity bound assumes
+that no reset word is explicitly calculated. If one requires that,
+whenever $\mathcal{A}$ turns out to be synchronizing, a reset word
+is produced, then the best of the known algorithms (which is
+basically due to Eppstein \cite[Theorem~6]{Eppstein:1990}, see
+also \cite[Theorem~1.15]{Sandberg:2005}) has an implementation
+that consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and $O(|Q|^2 +
+|Q|\cdot|A|)$ working space, not counting the space for the output
+which is $O(|Q|^3)$.
+
+For a \san, the subset automaton can be used to construct shortest
+reset words which correspond to shortest paths from the whole
+state set to a singleton. Of course, this requires exponential (of
+$|Q|$) time in the worst case. Nevertheless, there were attempts
+to implement this approach, see, e.g.,
+\cite{Rho&Somenzi&Pixley:1993,Trahtman:2006}. One may hope that,
+as above, a suitable calculation in the ``polynomial''
+subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ may yield a
+polynomial algorithm. However, it is not the case, and moreover,
+as we will see, it is very unlikely that any reasonable algorithm
+may exist for finding shortest reset words in general \sa. In the
+following discussion we assume the reader's acquaintance with some
+basics of computational complexity (such as the definitions of the
+complexity classes \textsf{NP}, \textsf{coNP} and \textsf{PSPACE})
+that can be found, e.g.,
+in~\cite{Garey&Johnson:1979,Papadimitriou:1994}.
+
 
 \section{The \v{C}ern\'{y} conjecture}
 

@@ -38,10 +38,21 @@ H.~Cho, S.-W. Jeong, F.~Somenzi, and C.~Pixley.
   generation.
 \newblock {\em J. Electronic Testing}, 4:19--31, 1993.
 
+\bibitem{Cormen&Leiserson&Rivest&Stein:2001}
+T.~H. Cormen, C.~E. Leiserson, R.~L. Rivest, and C.~Stein.
+\newblock {\em Introduction to algorithms}.
+\newblock MIT Press and McGraw-Hill, 2001.
+
 \bibitem{Eppstein:1990}
 D.~Eppstein.
 \newblock Reset sequences for monotonic automata.
 \newblock {\em SIAM J. Comput.}, 19:500--510, 1990.
+
+\bibitem{Garey&Johnson:1979}
+M.~R. Garey and D.~S. Johnson.
+\newblock {\em Computers and intractability: a guide to the theory of
+  {NP}-completeness}.
+\newblock Freeman, 1979.
 
 \bibitem{Gill:1961}
 A.~Gill.
@@ -83,12 +94,36 @@ B.~K. Natarajan.
 \newblock Some paradigms for the automated design of parts feeders.
 \newblock {\em Internat.\ J. Robotics Research}, 8(6):89--109, 1989.
 
+\bibitem{Papadimitriou:1994}
+C.~H. Papadimitriou.
+\newblock {\em Computational complexity}.
+\newblock Addison-Wesley, 1994.
+
+\bibitem{Rabin&Scott:1959}
+M.~O. Rabin and D.~Scott.
+\newblock Finite automata and their decision problems.
+\newblock {\em IBM J. Res. Develop.}, 3(2):114--125, 1959.
+
+\bibitem{Rho&Somenzi&Pixley:1993}
+J.-K. Rho, F.~Somenzi, and C.~Pixley.
+\newblock Minimum length synchronizing sequences of finite state machine.
+\newblock In {\em Proc.\ 30th Design Automation Conf.}, pages 463--468. ACM,
+  1993.
+
 \bibitem{Sandberg:2005}
 S.~Sandberg.
 \newblock Homing and synchronizing sequences.
 \newblock In M.~Broy, B.~Jonsson, J.-P. Katoen, M.~Leucker, and A.~Pretschner,
   editors, {\em Model-Based Testing of Reactive Systems}, volume 3472 of {\em
   Lecture Notes in Comput. Sci.}, pages 5--33. Springer-Verlag, 2005.
+
+\bibitem{Trahtman:2006}
+A.~Trahtman.
+\newblock An efficient algorithm finds noticeable trends and examples
+  concerning the \v{C}ern\'{y} conjecture.
+\newblock In R.~Kr\'alovi\v{c} and P.~Urzyczyn, editors, {\em 31st Int.\ Symp.\
+  Math.\ Foundations of Comput.\ Sci.}, number 4162 in Lecture Notes in Comput.
+  Sci., pages 789--800. Springer-Verlag, 2006.
 
 \bibitem{Cerny:1964}
 J.~\v{C}ern\'{y}.
