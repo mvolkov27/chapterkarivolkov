@@ -78,8 +78,7 @@
 %====================================================
 \begin{document}
 %========== Headers =============================
-\markboth{J.~Kari, M.~Volkov}{\v{C}ern\'{y}'s Conjecture and the
-Road Coloring Problem}
+\markboth{J.~Kari, M.~Volkov}{\v{C}ern\'{y}'s conjecture and the road coloring problem}
 
 %=====================================================
 \title{\v{C}ern\'{y}'s conjecture and the road coloring problem}
@@ -241,8 +240,10 @@ If $X$ is a finite prefix code over a finite alphabet $A$, then its decoding
 can be implemented by a deterministic automaton that is defined as follows.
 Let $Q$ be the set of all proper prefixes of the words in $X$ (including the empty word
 $\varepsilon$). For $q\in Q$ and $a\in A$, define
-$$q\cdot a =\begin{cases} qa & \text{if $qa$ is a proper prefix of a word of $X$},\\
-\varepsilon & \text{if $qa \in X$}.\end{cases}$$
+\begin{displaymath}
+q\cdot a =\begin{cases} qa & \text{if $qa$ is a proper prefix of a word of $X$}\,,\\
+\varepsilon & \text{if $qa \in X$}\,.\end{cases}
+\end{displaymath}
 The resulting automaton $\mathcal{A}_X$ is complete whenever the code $X$
 is maximal and it is easy to see that $\mathcal{A}_X$ is a \san\ if and only
 if $X$ is a synchronized code. Moreover, a word $x$ is synchronizing for $X$
@@ -262,19 +263,19 @@ The solid/dashed lines correspond to (the action of) 0/1.
 \SqrState[0011]{(4,0)}{15}%
 \SqrState[0110]{(6,0)}{16}%
 \SqrState[0111]{(8,0)}{17}%
-\State[4]{(3,2)}{4}%
+\StateVar[001]{(3,2)}{4}%
 \SqrState[000]{(1,2)}{9}%
-\State[7]{(7,2)}{7}%
+\StateVar[011]{(7,2)}{7}%
 \SqrState[010]{(5,2)}{10}%
 \SqrState[110]{(11,2)}{11}%
 \SqrState[111]{(13,2)}{12}%
-\State[3]{(2,4)}{3}%
-\State[6]{(6,4)}{6}%
-\State[8]{(12,4)}{8}%
+\State[00]{(2,4)}{3}%
+\State[01]{(6,4)}{6}%
+\State[11]{(12,4)}{8}%
 \SqrState[10]{(10,4)}{13}%
-\State[2]{(4,6)}{2}%
-\State[5]{(11,6)}{5}%
-\State[1]{(8,8)}{1}%
+\State[0]{(4,6)}{2}%
+\State[1]{(11,6)}{5}%
+\State[\varepsilon]{(8,8)}{1}%
 \ChgEdgeLineWidth{2}
 \ChgEdgeLineColor{black}
 \ChgEdgeLineStyle{solid}
@@ -299,16 +300,16 @@ The solid/dashed lines correspond to (the action of) 0/1.
 \EdgeL[.5]{6}{7}{}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\VCPut{(16,-2)}{
+\VCPut{(17,-2)}{
  \RstStateFillColor
-\State[4]{(3,2)}{4}%
-\State[7]{(7,2)}{7}%
-\State[3]{(2,4)}{3}%
-\State[6]{(6,4)}{6}%
-\State[8]{(12,4)}{8}%
-\State[2]{(4,6)}{2}%
-\State[5]{(11,6)}{5}%
-\State[1]{(8,8)}{1}%
+\State[00]{(2,4)}{3}%
+\State[01]{(6,4)}{6}%
+\State[11]{(12,4)}{8}%
+\StateVar[001]{(3,2)}{4}%
+\StateVar[011]{(7,2)}{7}%
+\State[0]{(4,6)}{2}%
+\State[1]{(11,6)}{5}%
+\State[\varepsilon]{(8,8)}{1}%
 \ChgEdgeLineWidth{2}
 \ChgEdgeLineColor{black}
 \ChgEdgeLineStyle{solid}
@@ -343,6 +344,7 @@ The solid/dashed lines correspond to (the action of) 0/1.
 \caption{A synchronized code (on the left) and its automaton (on the right)}\label{KV:fig:huffman}
 \end{figure}
 
+Thus,
 
 An additional source of problems related to \sa\ has come from
 \emph{robotics} or, more precisely, from part handling problems
@@ -360,9 +362,123 @@ such as \cite{Eppstein:1990,Goldberg:1993,Chen&Ierardi:1995}.
 
 \section{Algorithmic and complexity issues}
 
+It should be clear that not every DFA is synchronizing. Therefore,
+the very first question that we should address is the following
+one: \emph{given an automaton $\mathcal{A}$, how to determine
+whether or not $\mathcal{A}$ is synchronizing?}
+
+\begin{figure}[hb]
+\begin{center}
+\unitlength=.9mm
+\begin{picture}(85,85)(-10,20)
+\node(A)(-20,57){0} \node(B)(0,57){1} \node(C)(0,38){2}
+\node(D)(-20,38){3} \drawedge(A,B){$a,b$} \drawedge(B,C){$b$}
+\drawedge(C,D){$b$} \drawedge(D,A){$b$}
+\drawloop[loopangle=45](B){$a$} \drawloop[loopangle=-45](C){$a$}
+\drawloop[loopangle=-135](D){$a$} \node(AD)(20,38){03}
+\node(AB)(20,57){01} \node(BC)(40,57){12} \node(CD)(40,38){23}
+\node(AC)(60,57){02} \node(BD)(80,57){13}
+\drawloop[loopangle=0](CD){$a$} \drawloop[loopangle=0](BD){$a$}
+\drawloop[loopangle=45](BC){$a$}
+\drawedge[linewidth=.5,AHLength=2,ELside=r](CD,AD){$b$}
+\drawedge[linewidth=.5,AHLength=2](AD,AB){$b$}
+\drawedge(AB,BC){$b$}
+\drawedge[linewidth=.5,AHLength=2](BC,CD){$b$}
+\drawedge[linewidth=.5,AHLength=2,curvedepth=5](AB,B){$a$}
+\gasset{Nadjust=w,Nadjustdist=1.5,Nh=6,Nmr=2}
+\node(ABC)(40,76){012} \node(ABD)(70,76){013}
+\node(BCD)(40,95){123} \node(ACD)(70,95){023}
+\node(ABCD)(10,95){0123} \drawloop(ABCD){$b$} \drawloop(BCD){$a$}
+\drawedge[linewidth=.5,AHLength=2](ABCD,BCD){$a$}
+\drawedge[linewidth=.5,AHLength=2,ELside=r](BCD,ACD){$b$}
+\drawedge[curvedepth=-5,ELside=r](ACD,BCD){$a$}
+\drawedge[linewidth=.5,AHLength=2](ACD,ABD){$b$}
+\drawedge(ABC,BCD){$b$}
+\drawedge[linewidth=.5,AHLength=2,ELside=r](ABD,ABC){$b$}
+\drawedge[linewidth=.5,AHLength=2,curvedepth=-5,ELside=r](ABC,BC){$a$}
+\drawedge[curvedepth=5](ABD,BD){$a$}
+\drawedge[curvedepth=5](AC,BC){$a$}
+\drawedge[curvedepth=5](BD,AC){$b$} \drawedge(AC,BD){$b$}
+\drawedge[curvedepth=-20,ELside=r](AD,BD){$a$}
+\end{picture}
+\caption{The power automaton
+$\mathcal{P}(\mathcal{C}_4$)}\label{power automaton}
+\end{center}
+\end{figure}
+
+This question is in fact quite easy, and the most straightforward
+solution to it can be achieved via the classic subset construction
+by Rabin and Scott~\cite{Rabin&Scott:1959}. Recall that the
+\emph{power automaton} $\mathcal{P}(\mathcal{A})$ of a given DFA
+$\mathcal{A}=\langle Q,\Sigma,\delta\rangle$ has the collection
+$\mathcal{P}'(Q)$ of the non-empty subsets of $Q$ as the state set
+and the natural extension of $\delta$ to the set
+$\mathcal{P}'(Q)\times\Sigma$ as the transition function (still
+denoted by $\delta$). In other words, for $P$ being a non-empty
+subset of $Q$ and $a\in\Sigma$, one sets
+$\delta(P,a)=\{\delta(p,a)\mid p\in P\}$. Fig.\,\ref{power
+automaton} presents the power automaton for the DFA
+$\mathcal{C}_4$ shown in Fig.\,1.
+
+Now it is obvious that a word $w\in\Sigma^*$ is a reset word for
+the DFA $\mathcal{A}$ if and only if $w$ labels a path in
+$\mathcal{P}(\mathcal{A})$ starting at $Q$ and ending at a
+singleton. (For instance, the bold path in Fig.\,\ref{power
+automaton} represents the shortest reset word $ab^3ab^3a$ of the
+automaton $\mathcal{C}_4$.) Thus, the question of whether or not a
+given DFA $\mathcal{A}$ is synchronizing reduces to the following
+reachability question in the underlying digraph of the power
+automaton $\mathcal{P}(\mathcal{A})$: is there a path from $Q$ to
+a singleton? The latter question can be easily answered by
+breadth-first search \citep[see, e.g.,][Section~22.2]{CoAl01}.
+
+The described procedure is conceptually very simple but rather
+inefficient because the power automaton $\mathcal{P}(\mathcal{A})$
+is exponentially larger than $\mathcal{A}$. However, the following
+criterion of synchronizability~\citep[Theorem~2]{Ce64} gives rise
+to a polynomial algorithm.
+\begin{proposition}
+\label{quadratic} A DFA $\mathcal{A}=\langle
+Q,\Sigma,\delta\rangle$ is synchronizing if and only if for every
+$q,q'\in Q$ there exists a word $w\in\Sigma^*$ such that
+$\delta(q,w)=\delta(q',w)$.
+\end{proposition}
+One can treat Proposition~\ref{quadratic} as a reduction of the
+synchronizability problem to a reachability problem in the
+subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ of
+$\mathcal{P}(\mathcal{A})$ whose states are 2-element and
+1-element subsets of $Q$. Since the subautomaton has
+$\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this
+problem in $O(|Q|^2\cdot|\Sigma|)$ time. This complexity bound
+assumes that no reset word is explicitly calculated. If one
+requires that, whenever $\mathcal{A}$ turns out to be
+synchronizing, a reset word is produced, then the best of the
+known algorithms (which is due to \cite[Theorem~6]{Ep90}, see also
+\cite[Theorem~1.15]{Sa05}) has an implementation that consumes
+$O(|Q|^3 + |Q|^2\cdot|\Sigma|)$ time and $O(|Q|^2 +
+|Q|\cdot|\Sigma|)$ working space, not counting the space for the
+output which is $O(|Q|^3)$.
+
+For a \san, the power automaton can be used to construct shortest
+reset words which correspond to shortest paths from the whole
+state set to a singleton. Of course, this requires exponential (of
+$|Q|$) time in the worst case. Nevertheless, there were attempts
+to implement this approach \citep[see, e.g.,][]{RSP93,Tr06}. One
+may hope that, as above, a suitable calculation in the
+``polynomial'' subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ may
+yield a polynomial algorithm. However, it is not the case, and
+moreover, as we will see, it is very unlikely that any reasonable
+algorithm may exist for finding shortest reset words in general
+\sa. In the following discussion we assume the reader's
+acquaintance with some basics of computational complexity (such as
+the definitions of the complexity classes \textsf{NP},
+\textsf{coNP} and \textsf{PSPACE}) that can be found, e.g.,
+in~\citep{GJ79,Pa94}.
+
+
 \section{The \v{C}ern\'{y} conjecture}
 
-\section{The Road Coloring Problem}
+\section{The road coloring problem}
 
 \section{Generalizations}
 
