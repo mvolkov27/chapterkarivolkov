@@ -70,6 +70,11 @@ K.~Goldberg.
 \newblock Orienting polygonal parts without sensors.
 \newblock {\em Algorithmica}, 10:201--225, 1993.
 
+\bibitem{Goralcik&Koubek:1995}
+P.~Goral\v{c}ik and V.~Koubek.
+\newblock Rank problems for composite transformations.
+\newblock {\em Internat. J. Algebra Comput.}, 5:309--316, 1995.
+
 \bibitem{Hennie:1964}
 F.~C. Hennie.
 \newblock Fault detecting experiments for sequential circuits.
@@ -109,6 +114,26 @@ J.-K. Rho, F.~Somenzi, and C.~Pixley.
 \newblock Minimum length synchronizing sequences of finite state machine.
 \newblock In {\em Proc.\ 30th Design Automation Conf.}, pages 463--468. ACM,
   1993.
+
+\bibitem{Rystsov:1980}
+I.~K. Rystsov.
+\newblock On minimizing length of synchronizing words for finite automata.
+\newblock In {\em Theory of {D}esigning of {C}omputing {S}ystems}, pages
+  75--82. Institute of Cybernetics of Ukrainian Acad. Sci., 1980.
+\newblock in Russian.
+
+\bibitem{Salomaa:2003}
+A.~Salomaa.
+\newblock Composition sequences for functions over a finite domain.
+\newblock {\em Theoret. Comput. Sci.}, 292:263--281, 2003.
+
+\bibitem{Samotij:2007}
+W.~Samotij.
+\newblock A note on the complexity of the problem of finding shortest
+  synchronizing words.
+\newblock In {\em Proc.\ AutoMathA 2007, Automata: from Mathematics to
+  Applications.} Univ.\ Palermo, 2007.
+\newblock CD.
 
 \bibitem{Sandberg:2005}
 S.~Sandberg.
