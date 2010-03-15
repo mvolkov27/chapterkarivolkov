@@ -4,4 +4,4 @@
 \contentsline {section}{\numberline {4}The road coloring problem}{6}{section.4}
 \contentsline {section}{\numberline {5}Generalizations}{6}{section.5}
 \contentsline {section}{References}{6}{section.5}
-\contentsline {section}{Index}{7}{section*.6}
+\contentsline {section}{Index}{8}{section*.6}

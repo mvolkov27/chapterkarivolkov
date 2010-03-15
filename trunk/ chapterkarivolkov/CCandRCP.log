@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  11 MAR 2010 21:46
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  15 MAR 2010 22:38
 **CCandRCP.tex
 (./CCandRCP.tex
 LaTeX2e <2001/06/01>
@@ -626,19 +626,20 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 \tf@brf=\write7
 \openout7 = `CCandRCP.brf'.
 
+ [6]
 Missing character: There is no – in font ptmr7t!
- [6]) (./CCandRCP.ind
-[7] [8
+ [7]) (./CCandRCP.ind
+[8] [9
 
 
 ]) (./CCandRCP.aux) ) 
 Here is how much of TeX's memory you used:
- 9433 strings out of 50491
- 129919 string characters out of 1189754
- 294663 words of memory out of 1500001
- 12170 multiletter control sequences out of 10000+15000
- 23530 words of font info for 77 fonts, out of 400000 for 1000
+ 9459 strings out of 50491
+ 130369 string characters out of 1189754
+ 294811 words of memory out of 1500001
+ 12195 multiletter control sequences out of 10000+15000
+ 24176 words of font info for 78 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  38i,13n,38p,255b,594s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on CCandRCP.dvi (8 pages, 125524 bytes).
+Output written on CCandRCP.dvi (9 pages, 129224 bytes).

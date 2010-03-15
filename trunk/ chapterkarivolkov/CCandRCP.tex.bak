@@ -344,7 +344,8 @@ The solid/dashed lines correspond to (the action of) 0/1.
 \caption{A synchronized code (on the left) and its automaton (on the right)}\label{KV:fig:huffman}
 \end{figure}
 
-Thus,
+Thus, \textbf{(to be continued and supplied by some historical
+references).}
 
 An additional source of problems related to \sa\ has come from
 \emph{robotics} or, more precisely, from part handling problems
@@ -367,10 +368,10 @@ the very first question that we should address is the following
 one: \emph{given an automaton $\mathcal{A}$, how to determine
 whether or not $\mathcal{A}$ is synchronizing?}
 
-\begin{figure}[hb]
+\begin{figure}[htb]
 \begin{center}
 \unitlength=.9mm
-\begin{picture}(85,85)(-10,20)
+\begin{picture}(85,88)(-10,20)
 \node(A)(-20,57){0} \node(B)(0,57){1} \node(C)(0,38){2}
 \node(D)(-20,38){3} \drawedge(A,B){$a,b$} \drawedge(B,C){$b$}
 \drawedge(C,D){$b$} \drawedge(D,A){$b$}
@@ -402,79 +403,99 @@ whether or not $\mathcal{A}$ is synchronizing?}
 \drawedge[curvedepth=-20,ELside=r](AD,BD){$a$}
 \end{picture}
 \caption{The power automaton
-$\mathcal{P}(\mathcal{C}_4$)}\label{power automaton}
+$\mathcal{P}(\mathcal{C}_4$)}\label{KV:fig:power automaton}
 \end{center}
 \end{figure}
 
 This question is in fact quite easy, and the most straightforward
 solution to it can be achieved via the classic subset construction
-by Rabin and Scott~\cite{Rabin&Scott:1959}. Recall that the
-\emph{power automaton} $\mathcal{P}(\mathcal{A})$ of a given DFA
-$\mathcal{A}=\langle Q,\Sigma,\delta\rangle$ has the collection
-$\mathcal{P}'(Q)$ of the non-empty subsets of $Q$ as the state set
-and the natural extension of $\delta$ to the set
-$\mathcal{P}'(Q)\times\Sigma$ as the transition function (still
-denoted by $\delta$). In other words, for $P$ being a non-empty
-subset of $Q$ and $a\in\Sigma$, one sets
-$\delta(P,a)=\{\delta(p,a)\mid p\in P\}$. Fig.\,\ref{power
-automaton} presents the power automaton for the DFA
-$\mathcal{C}_4$ shown in Fig.\,1.
+by Rabin and Scott~\cite{Rabin&Scott:1959}. Given a DFA
+$\mathcal{A}$ with input alphabet $A$ and state set $Q$, we define
+its \emph{subset automaton}\index{subset automaton}
+$\mathcal{P}(\mathcal{A})$ on the set of the non-empty subsets of
+$Q$ by setting $P\cdot a=\{p\cdot a\mid p\in P\}$ for each
+non-empty subset $P$ of $Q$ and each $a\in\A$. (Since we start
+with a deterministic automaton, we do not need adding the empty
+set to the state set of $\mathcal{P}(\mathcal{A})$.)
+Figure~\ref{KV:fig:power automaton} presents the subset automaton
+for the DFA $\mathcal{C}_4$ shown in Figure~\ref{KV:fig:C4}.
 
-Now it is obvious that a word $w\in\Sigma^*$ is a reset word for
-the DFA $\mathcal{A}$ if and only if $w$ labels a path in
+Now it is obvious that a word $w\in A^*$ is a reset word for the
+DFA $\mathcal{A}$ if and only if $w$ labels a path in
 $\mathcal{P}(\mathcal{A})$ starting at $Q$ and ending at a
-singleton. (For instance, the bold path in Fig.\,\ref{power
-automaton} represents the shortest reset word $ab^3ab^3a$ of the
-automaton $\mathcal{C}_4$.) Thus, the question of whether or not a
-given DFA $\mathcal{A}$ is synchronizing reduces to the following
-reachability question in the underlying digraph of the power
-automaton $\mathcal{P}(\mathcal{A})$: is there a path from $Q$ to
-a singleton? The latter question can be easily answered by
-breadth-first search \citep[see, e.g.,][Section~22.2]{CoAl01}.
+singleton. (For instance, the bold path in
+Figure~\ref{KV:fig:power automaton} represents the shortest reset
+word $ab^3ab^3a$ of the automaton $\mathcal{C}_4$.) Thus, the
+question of whether or not a given DFA $\mathcal{A}$ is
+synchronizing reduces to the following reachability question in
+the underlying digraph of the subset automaton
+$\mathcal{P}(\mathcal{A})$: is there a path from $Q$ to a
+singleton? The latter question can be easily answered by
+breadth-first search,  see, e.g.,
+\cite[Section~22.2]{Cormen&Leiserson&Rivest&Stein:2001}.
 
 The described procedure is conceptually very simple but rather
 inefficient because the power automaton $\mathcal{P}(\mathcal{A})$
 is exponentially larger than $\mathcal{A}$. However, the following
-criterion of synchronizability~\citep[Theorem~2]{Ce64} gives rise
-to a polynomial algorithm.
+criterion of synchronizability~\cite[Theorem~2]{Cerny:1964} gives
+rise to a polynomial algorithm.
 \begin{proposition}
-\label{quadratic} A DFA $\mathcal{A}=\langle
-Q,\Sigma,\delta\rangle$ is synchronizing if and only if for every
-$q,q'\in Q$ there exists a word $w\in\Sigma^*$ such that
-$\delta(q,w)=\delta(q',w)$.
+\label{KV:prop:quadratic} A DFA $\mathcal{A}$ with input alphabet
+$A$ and state set $Q$ is synchronizing if and only if for every
+$q,q'\in Q$ there exists a word $w\in A^*$ such that $q\cdot
+w=q'\cdot w$.
 \end{proposition}
-One can treat Proposition~\ref{quadratic} as a reduction of the
-synchronizability problem to a reachability problem in the
+One can treat Proposition~\ref{KV:prop:quadratic} as a reduction
+of the synchronizability problem to a reachability problem in the
 subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ of
 $\mathcal{P}(\mathcal{A})$ whose states are 2-element and
 1-element subsets of $Q$. Since the subautomaton has
 $\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this
-problem in $O(|Q|^2\cdot|\Sigma|)$ time. This complexity bound
-assumes that no reset word is explicitly calculated. If one
-requires that, whenever $\mathcal{A}$ turns out to be
-synchronizing, a reset word is produced, then the best of the
-known algorithms (which is due to \cite[Theorem~6]{Ep90}, see also
-\cite[Theorem~1.15]{Sa05}) has an implementation that consumes
-$O(|Q|^3 + |Q|^2\cdot|\Sigma|)$ time and $O(|Q|^2 +
-|Q|\cdot|\Sigma|)$ working space, not counting the space for the
-output which is $O(|Q|^3)$.
+problem in $O(|Q|^2\cdot|A|)$ time. This complexity bound assumes
+that no reset word is explicitly calculated. If one requires that,
+whenever $\mathcal{A}$ turns out to be synchronizing, a reset word
+is produced, then the best of the known algorithms (which is
+basically due to Eppstein \cite[Theorem~6]{Eppstein:1990}, see
+also \cite[Theorem~1.15]{Sandberg:2005}) has an implementation
+that consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and $O(|Q|^2 +
+|Q|\cdot|A|)$ working space, not counting the space for the output
+which is $O(|Q|^3)$.
 
-For a \san, the power automaton can be used to construct shortest
+For a \san, the subset automaton can be used to construct shortest
 reset words which correspond to shortest paths from the whole
 state set to a singleton. Of course, this requires exponential (of
 $|Q|$) time in the worst case. Nevertheless, there were attempts
-to implement this approach \citep[see, e.g.,][]{RSP93,Tr06}. One
-may hope that, as above, a suitable calculation in the
-``polynomial'' subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ may
-yield a polynomial algorithm. However, it is not the case, and
-moreover, as we will see, it is very unlikely that any reasonable
-algorithm may exist for finding shortest reset words in general
-\sa. In the following discussion we assume the reader's
-acquaintance with some basics of computational complexity (such as
-the definitions of the complexity classes \textsf{NP},
-\textsf{coNP} and \textsf{PSPACE}) that can be found, e.g.,
-in~\citep{GJ79,Pa94}.
+to implement this approach, see, e.g.,
+\cite{Rho&Somenzi&Pixley:1993,Trahtman:2006}. One may hope that,
+as above, a suitable calculation in the ``polynomial''
+subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ may yield a
+polynomial algorithm. However, it is not the case, and moreover,
+as we will see, it is very unlikely that any reasonable algorithm
+may exist for finding shortest reset words in general \sa. In the
+following discussion we assume the reader's acquaintance with some
+basics of computational complexity (such as the definitions of the
+complexity classes \textsf{NP} and \textsf{coNP}) that can be
+found, e.g., in~\cite{Garey&Johnson:1979,Papadimitriou:1994}.
 
+Consider the following decision problem:
+
+\smallskip
+
+\hangindent=\parindent \noindent\textsc{Short-Reset-Word:}
+\emph{Given a \san\ $\mathcal{A}$ and a positive integer $\ell$,
+is it true that $\mathcal{A}$ has a reset word of length $\ell$?}
+
+\smallskip
+
+Clearly, \textsc{Short-Reset-Word} belongs to the complexity class
+\textsf{NP}: one can non-deterministically guess a word $w\in\A^*$
+of length $\ell$ and then check if $w$ is a reset word for
+$\mathcal{A}$ in time $\ell|Q|$. Several
+authors~\cite{Rystsov:1980,Eppstein:1990} has proved that
+\textsc{Short-Reset-Word} is \textsf{NP}-hard by a polynomial
+reduction from \textsc{SAT} (the satisfiability problem for a
+system of clauses, that is, formulae in conjunctive normal form).
+Eppstein~\cite{Eppstein:90}
 
 \section{The \v{C}ern\'{y} conjecture}
 
@@ -495,119 +516,9 @@ in~\citep{GJ79,Pa94}.
 
 \end{document}
 
-\begin{figure}[htbp]
-%\SmallPicture
-\FixVCScale{0.4}
-\VCDraw{%
-\begin{VCPicture}{(0,-1)(16,12)}
-% etats
-\MediumState
-\ChgEdgeArrowWidth{6.5pt}
-\VCPut{(0,0)}{
- \RstStateFillColor
-\SqrState[a]{(2,0)}{14}%
-\SqrState[b]{(4,0)}{15}%
-\SqrState[d]{(6,0)}{16}%
-\SqrState[e]{(8,0)}{17}%
-\State[4]{(3,2)}{4}%
-\SqrState[c]{(1,2)}{9}%
-\State[7]{(7,2)}{7}%
-\SqrState[f]{(5,2)}{10}%
-\SqrState[g]{(11,2)}{11}%
-\SqrState[h]{(13,2)}{12}%
-\State[3]{(2,4)}{3}%
-\State[6]{(6,4)}{6}%
-\State[8]{(12,4)}{8}%
-\SqrState[i]{(10,4)}{13}%
-\State[2]{(4,6)}{2}%
-\State[5]{(11,6)}{5}%
-\State[1]{(8,8)}{1}%
-\ChgEdgeLineWidth{2}
-\ChgEdgeLineColor{black}
-\ChgEdgeLineStyle{solid}
-\EdgeL[.5]{1}{2}{}
-\EdgeL[.5]{2}{3}{}
-\EdgeL[.5]{5}{13}{}
-\EdgeL[.5]{3}{9}{}
-\EdgeL[.5]{6}{10}{}
-\EdgeL[.5]{8}{11}{}
-\EdgeL[.5]{4}{14}{}
-\EdgeL[.5]{7}{16}{}
-\ChgEdgeLineWidth{2}
-\ChgEdgeLineColor{black}
-%\ChgEdgeLineStyle{solid}
-\ChgEdgeLineStyle{dashed}
-\EdgeL[.5]{1}{5}{}
-\EdgeL[.5]{2}{6}{}
-\EdgeL[.5]{8}{12}{}
-\EdgeL[.5]{4}{15}{}
-\EdgeL[.5]{7}{17}{}
-\EdgeL[.5]{5}{8}{}
-\EdgeL[.5]{3}{4}{}
-\EdgeL[.5]{6}{7}{}
-}
-%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%
-\VCPut{(16,-2)}{
- \RstStateFillColor
-%\SqrState[a]{(0,0)}{14}%
-%\SqrState[b]{(2,0)}{15}%
-%\SqrState[d]{(4,0)}{16}%
-%\SqrState[e]{(6,0)}{17}%
-\State[4]{(1,2)}{4}%
-%\SqrState[c]{(3,2)}{9}%
-\State[7]{(5,2)}{7}%
-%\SqrState[f]{(7,2)}{10}%
-%\SqrState[g]{(9,2)}{11}%
-%\SqrState[h]{(11,2)}{12}%
-\State[3]{(2,4)}{3}%
-\State[6]{(6,4)}{6}%
-\State[8]{(10,4)}{8}%
-%\SqrState[i]{(12,4)}{13}%
-\State[2]{(4,6)}{2}%
-\State[5]{(11,6)}{5}%
-\State[1]{(8,8)}{1}%
-\ChgEdgeLineWidth{2}
-\ChgEdgeLineColor{black}
-\ChgEdgeLineStyle{solid}
-\EdgeL[.5]{1}{2}{}
-\EdgeL[.5]{2}{3}{}
-\VCurveR[0.5]{angleA=90,angleB=2,ncurv=1.2}{5}{1}{}
-\VArcR[.5]{arcangle=60,ncurv=0.7}{3}{1}{}
-\ArcR[.5]{6}{1}{}
-%\EdgeL[.5]{8}{11}{}
-%\EdgeL[.5]{4}{14}{}
-%\EdgeL[.5]{7}{16}{}
-\ChgEdgeLineWidth{2}
-\ChgEdgeLineColor{black}
-%\ChgEdgeLineStyle{solid}
-\ChgEdgeLineStyle{dashed}
-\EdgeL[.5]{1}{5}{}
-\EdgeL[.5]{2}{6}{}
-%\EdgeL[.5]{5}{13}{}
-%\EdgeL[.5]{3}{9}{}
-%\EdgeL[.5]{6}{10}{}
-%\EdgeL[.5]{8}{12}{}
-%\EdgeL[.5]{4}{15}{}
-%\EdgeL[.5]{7}{17}{}
-\ChgEdgeLineWidth{2}
-\ChgEdgeLineColor{black}
-\ChgEdgeLineStyle{solid}
-\VArcR[.5]{arcangle=70,ncurv=1.3}{4}{1}{}
-\VCurveR[0.5]{angleA=0,angleB=30,ncurv=1.9}{8}{1}{}
-\VCurveR[0.5]{angleA=-10,angleB=40,ncurv=3.3}{7}{1}{}
-\ChgEdgeLineWidth{2}
-\ChgEdgeLineColor{black}
-%\ChgEdgeLineStyle{solid}
-\ChgEdgeLineStyle{dashed}
-\VArcR[.5]{arcangle=90,ncurv=1.3}{4}{1}{}
-\EdgeL[.5]{3}{4}{}
-\EdgeL[.5]{6}{7}{}
-\EdgeL[.5]{5}{8}{}
-\VCurveR[0.5]{angleA=-10,angleB=40,ncurv=2.2}{8}{1}{}
-\VCurveR[0.5]{angleA=-20,angleB=50,ncurv=3.7}{7}{1}{}
-%\VArcR[.5]{arcangle=50,ncurv=1.2}{5}{1}{}
-%\VArcR[.5]{arcangle=50,ncurv=1.5}{8}{1}{}
-}
-\end{VCPicture}%
-}
+\hangindent=\parindent \noindent \textsc{Shortest-Reset-Word:}
+\emph{Given a \san\ $\mathcal{A}$ and a positive integer $\ell$,
+is it true that the minimum length of a reset word for
+$\mathcal{A}$ is equal to $\ell$?}
+
+\smallskip
