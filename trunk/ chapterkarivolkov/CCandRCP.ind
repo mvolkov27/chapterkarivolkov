@@ -1,5 +1,10 @@
 \begin{theindex}
 
+  \item \textsc{Short-Reset-Word}, \hyperpage{6}
+  \item \textsc{Shortest-Reset-Word}, \hyperpage{7}
+
+  \indexspace
+
   \item automaton
     \subitem synchronizing, \hyperpage{1}
 
