@@ -7,6 +7,13 @@ W.~R. Ashby.
 \newblock {\em An introduction to cybernetics}.
 \newblock Chapman \& Hall, 1956.
 
+\bibitem{Berlinkov:2010}
+M.~Berlinkov.
+\newblock Approximating the minimum length of synchronizing words is hard.
+\newblock In F.~Ablayev and E.~W. Mayr, editors, {\em Computer Science in
+  Russia, CSR'10}, number 6072 in Lecture Notes in Comput. Sci.
+  Springer-Verlag, 2010.
+
 \bibitem{Berstel&Perrin&Reutenauer:2009}
 J.~Berstel, D.~Perrin, and C.~Reutenauer.
 \newblock {\em Codes and automata}.
@@ -53,6 +60,11 @@ M.~R. Garey and D.~S. Johnson.
 \newblock {\em Computers and intractability: a guide to the theory of
   {NP}-completeness}.
 \newblock Freeman, 1979.
+
+\bibitem{Gawrychowski:2008}
+P.~Gawrychowski.
+\newblock Complexity of shortest synchronizing word.
+\newblock Private communiction, 2008.
 
 \bibitem{Gill:1961}
 A.~Gill.
@@ -104,6 +116,18 @@ C.~H. Papadimitriou.
 \newblock {\em Computational complexity}.
 \newblock Addison-Wesley, 1994.
 
+\bibitem{Papadimitriou&Yannakakis:1984}
+C.~H. Papadimitriou and M.~Yannakakis.
+\newblock The complexity of facets (and some facets of complexity).
+\newblock {\em J. Comput. System Sci.}, 28(2):244--259, 1984.
+
+\bibitem{Pixley&Jeong&Hachtel:1992}
+C.~Pixley, S.-W. Jeong, and G.~D. Hachtel.
+\newblock Exact calculation of synchronization sequences based on binary
+  decision diagrams.
+\newblock In {\em Proc.\ 29th Design Automation Conf.}, pages 620--623. IEEE
+  Press, 1992.
+
 \bibitem{Rabin&Scott:1959}
 M.~O. Rabin and D.~Scott.
 \newblock Finite automata and their decision problems.
@@ -115,12 +139,17 @@ J.-K. Rho, F.~Somenzi, and C.~Pixley.
 \newblock In {\em Proc.\ 30th Design Automation Conf.}, pages 463--468. ACM,
   1993.
 
+\bibitem{Roman:2009}
+A.~Roman.
+\newblock Synchronizing finite automata with short reset words.
+\newblock {\em Applied Mathematics and Computation}, 209(1):125--136, 2009.
+
 \bibitem{Rystsov:1980}
 I.~K. Rystsov.
 \newblock On minimizing length of synchronizing words for finite automata.
 \newblock In {\em Theory of {D}esigning of {C}omputing {S}ystems}, pages
   75--82. Institute of Cybernetics of Ukrainian Acad. Sci., 1980.
-\newblock in Russian.
+\newblock (in Russian).
 
 \bibitem{Salomaa:2003}
 A.~Salomaa.
@@ -133,7 +162,7 @@ W.~Samotij.
   synchronizing words.
 \newblock In {\em Proc.\ AutoMathA 2007, Automata: from Mathematics to
   Applications.} Univ.\ Palermo, 2007.
-\newblock CD.
+\newblock (CD).
 
 \bibitem{Sandberg:2005}
 S.~Sandberg.
@@ -156,7 +185,7 @@ J.~\v{C}ern\'{y}.
   automatami.
 \newblock {\em Matematicko-fyzikalny \v{C}asopis Slovenskej Akad\'emie Vied},
   14(3):208--216, 1964.
-\newblock in Slovak.
+\newblock (in Slovak).
 
 \bibitem{Volkov:2008}
 M.~Volkov.
@@ -164,5 +193,11 @@ M.~Volkov.
 \newblock In C.~Mart\'{\i}n-Vide, F.~Otto, and H.~Fernau, editors, {\em
   Language and Automata Theory and Applications}, volume 5196 of {\em Lecture
   Notes in Comput. Sci.}, pages 11--27. Springer-Verlag, 2008.
+
+\bibitem{Yang:1991}
+S.~Yang.
+\newblock Logic synthesis and optimization benchmarks.
+\newblock Technical Report User Guide Version 3.0, Microelectronics Center of
+  North Carolina, Research Triangle Park, NC, 1991.
 
 \end{thebibliography}
