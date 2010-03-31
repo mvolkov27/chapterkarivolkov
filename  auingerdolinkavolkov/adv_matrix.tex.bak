@@ -1666,10 +1666,12 @@ $A\mapsto A^{\si T}$ for any automorphism $\si$ of $\mathcal{K}$,
 where $(a_{ij})^{\si T}:=(a_{ij}^\si)^T$.
 \end{Rmk}
 
-We are ready to formulate another highlight of this section. With
-the exception of the `only if' part of item (2), this is a summary
-of Theorems \ref{Theorem 3.6}, \ref{inherently degree 2}, and
-\ref{inherently degree 3}.
+We are ready to prove the result announced in Section 1 as
+Theorem~\ref{main result involution} (for the reader's convenience
+we reproduce this result here as Theorem~\ref{main result matrix
+involution}). With the exception of the `only if' part of item
+(2), this is a summary of Theorems \ref{Theorem 3.6},
+\ref{inherently degree 2}, and \ref{inherently degree 3}.
 \begin{Thm}\label{main result matrix involution} Let $n\ge 2$ and
 $\mathcal{K}=\langle K,+,\cdot\rangle$ be a finite field. Then
 \begin{enumerate}
