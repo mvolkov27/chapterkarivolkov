@@ -1,0 +1,1987 @@
+%Part 1 (of 2) of a new version obtained by splitting
+%the version of 25/04/2009 into two independent papers
+\documentclass[11pt,reqno]{amsart}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{eepic}
+\usepackage{gastex}
+\usepackage{rotating}
+\usepackage{amsthm}
+\usepackage{amsgen}
+\usepackage{amsmath}
+\usepackage[dvips]{color}
+
+
+\DeclareMathOperator{\dom}{dom} \DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\rk}{rk} \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\var}{\mathsf{var}}
+\DeclareMathOperator{\Id}{Eq}
+
+\DeclareSymbolFont{rsfscript}{OMS}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathrsfs}{rsfscript}
+
+
+\numberwithin{equation}{section}
+
+\def\bb{\mathbb}
+
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{Prop}[Thm]{Proposition}
+\newtheorem{Lemma}[Thm]{Lemma}
+\newtheorem{Def}{Definition}[section]
+\newtheorem{Res}[Thm]{Result}
+\newtheorem{Cor}[Thm]{Corollary}
+\newtheorem{Example}[Thm]{Example}
+\newtheorem{Examples}[Thm]{Examples}
+\newtheorem{Conjecture}[Thm]{Conjecture}
+\newtheorem{Not}[Thm]{Notation}
+
+\theoremstyle{remark}
+\newtheorem{Rmk}{Remark}[section]
+\newtheorem{Problem}{Problem}[section]
+
+\def\eq{\simeq}
+\def\La{\Lambda}
+\def\om{\omega}
+\def\cd{\cdot}
+\def\wh{\widehat}
+\def\pv#1{{\bf #1}}
+\def\cal{\mathcal}
+\def\Ac{{\cal A}}
+\def\Bc{{\cal B}}
+\def\Cc{{\cal C}}
+\def\Dc{\mathrsfs{D}}
+\def\Ec{{\cal E}}
+\def\Fc{{\cal F}}
+\def\Gc{{\cal G}}
+\def\Hc{\mathrsfs{H}}
+\def\Ic{{\cal I}}
+\def\Jc{{\cal J}}
+\def\Kc{{\cal K}}
+\def\Lc{\mathrsfs{L}}
+\def\Mc{{\cal M}}
+\def\Nc{{\cal N}}
+\def\Oc{{\cal O}}
+\def\Pc{{\cal P}}
+\def\Qc{{\cal Q}}
+\def\Rc{\mathrsfs{R}}
+\def\Sc{{\cal S}}
+\def\Tc{{\cal T}}
+\def\Uc{{\cal U}}
+\def\Vc{\mathbf{V}}
+\def\Wc{\mathbf{W}}
+\def\Xc{{\cal X}}
+\def\Yc{{\cal Y}}
+\def\Zc{{\cal Z}}
+\def\es{{\Ec\Sc}}
+\def\cs{{\Cc\Sc}}
+\def\si{\sigma}
+\def\Si{\Sigma}
+\def\al{\alpha}
+\def\ga{\gamma}
+\def\de{\delta}
+\def\ep{\varepsilon}
+\def\be{\beta}
+\def\la{\lambda}
+\def\te{\theta}
+\def\ka{\kappa}
+\def\rh{\rho}
+\def\ta{\tau_\alpha}
+
+\def\m{\mathrel}
+\def\ol{\overline}
+\def\mo{\models}
+
+
+\def\s{\sigma}
+\def\De{\Delta}
+
+\def\ze{\zeta}
+\def\io{\iota}
+\def\fx{F(X)}
+\def\ka{\kappa}
+\def\we{\wedge}
+
+\def\bp{\bar\phi}
+\def\bps{\bar\psi}
+\def\Co{{\mathrm C}}
+\def\Ko{\Cal K}
+\def\H{\mathrm H}
+\def\P{\mathrm P\!}
+
+\def\he#1{#1#1^*}
+\def\re{regular $*$-}
+\def\wi{weakly invertible}
+\def\ig{idempotent-generated}
+\def\Rm{Rees matrix}
+\def\sm{semi\-group}
+\def\va{variet}
+\def\evar{\mathsf{evar}}
+\def\A{\mathfrak{A}}
+\def\C{\mathfrak{C}}
+\def\B{\mathfrak{B}}
+\def\Sim{\mathfrak{S}}
+\def\ov{\overline}
+\def\inv{^{-1}}
+\def\wt{\widetilde}
+\def\id{identit}
+\def\fb{finitely based}
+\def\TB{\ensuremath{\mathcal{T\kern-1pt B}_2^1}}
+\def\TA{\ensuremath{\mathcal{T\kern-1pt A}_2^1}}
+
+\title[Matrix Semigroups with Unary Operations]{The Finite Basis Problem\\ for Semigroups of Matrices\\
+with Natural Unary Operations}
+
+\author{K.~Auinger}
+\address{Fakult\"at f\"ur Mathematik, Universit\"at Wien,
+Nordbergstrasse 15,  A-1090 Wien, Austria}
+\email{karl.auinger@univie.ac.at}
+\author{I.~Dolinka}
+\address{Department of Mathematics and Informatics, University of Novi Sad,
+Trg Dositeja Obradovi\'ca 4, 21000 Novi Sad, Serbia}
+\email{dosz@eunet.rs}
+\author {M.~V.~Volkov}
+\address{Faculty of Mathematics and Mechanics, Ural State University,
+Lenina 51, 620083 Ekaterinburg, Russia}
+\email{mikhail.volkov@usu.ru}
+
+\begin{document}
+
+\begin{abstract}
+We study equational theories of matrices in the language involving
+multiplication and natural unary operations such as transposition
+or Moore-Penrose inversion. We prove that in many cases such
+theories are not finitely axiomatizable.
+\end{abstract}
+
+\maketitle
+
+\section{Background and motivation}
+A fundamental and widely studied question connected with an
+algebraic structure is whether its equational theory is finitely
+axiomatizable. This question is often referred to as the
+\emph{finite basis problem} because structures for which it is
+answered in the affirmative are usually said to be \emph{finitely
+based}. Being very natural by itself, the finite basis problem has
+also revealed a number of interesting and unexpected relations to
+many issues of theoretical and practical importance ranging from
+feasible algorithms for membership in certain classes of formal
+languages (see \cite{Alm95}) to classical number-theoretic
+conjectures (such as the Twin Prime, Goldbach, existence of odd
+perfect numbers and the infinitude of even perfect numbers: see
+\cite{Per89} where it is shown that each of these conjectures is
+equivalent to the finite basability of a particular groupoid).
+
+Since matrices play a distinguished role in mathematics, algebraic
+structures whose carriers are sets of matrices form important and
+popular objects of study. In particular, the finite basis problem
+has been exhaustively investigated for the semigroup
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot\rangle$ of all $n\times
+n$-matrices\footnote{In order to avoid boring trivialities, we
+always assume $n\ge 2$ when speaking about $n\times n$-matrices.}
+over a field $\mathcal{K}$. Corresponding results can be
+summarized in the following statement.
+\begin{Thm}\label{Theorem 1.1}
+Let $\mathcal{K}$ be a field, $n\ge2$. The semigroup
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot\rangle$ is finitely based
+if and only if $\mathcal{K}$ is infinite.
+\end{Thm}
+The ``if'' part of Theorem~\ref{Theorem 1.1} is a straightforward
+corollary of the general fact that the semigroup of all $n\times
+n$-matrices over an infinite field satisfies only trivial
+identities, that is, consequences of the associative law, see
+\cite[Lemma~2]{GoMi78}. The ``only if'' part, that is, the claim
+that the semigroup $\langle\mathrm{M}_n(\mathcal{K}),\cdot\rangle$
+over a finite field is non-finitely based, was proved in the
+mid-1980s by the third author~\cite[Proposition~3]{V} and
+Sapir~\cite[Corollary 6.2]{sapirburnside}. For a forthcoming
+discussion it is worth noting that methods used in~\cite{V}
+and~\cite{sapirburnside} were rather different but each of them
+sufficed to cover all finite semigroups of the form
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot\rangle$. Moreover, Sapir's
+approach implied that all these semigroups are even inherently
+non-finitely based, where a finite semigroup is called
+\emph{inherently non-finitely based} if it is not contained in any
+finitely based locally finite variety.
+
+Matrices admit several fairly natural unary operations such as
+transposition, for instance. Here is the starting point of the
+present paper: we shall treat the finite basis problem for
+\textbf{unary semigroups of matrices} where a \emph{unary
+semigroup} is merely a semigroup equipped with some additional
+unary operation. For this we first have to adapt to the unary
+environment the methods of~\cite{V} and~\cite{sapirburnside}. We
+present the corresponding results in Section~2 while Section~3
+collects several applications to the finite basis problem for
+unary semigroups of matrices. Both methods of Section~2 are used
+here, and it turns out that they in some sense complement each
+other since, in contrast to the plain semigroup case, none of them
+alone suffice to cover, say, all finite unary semigroups of the
+form $\langle\mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$ where
+the unary operation $A\mapsto A^T$ is the usual transposition of
+matrices. For this particular case our main result is the
+following.
+\begin{Thm}\label{main result involution}
+Let $\mathcal{K}=\langle K,+,\cdot\rangle$
+be a finite field and $n\ge 2$. Then
+\begin{enumerate}
+\item the involutory semigroup $\langle \mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$
+is not finitely based;
+\item the involutory semigroup $\langle \mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$
+is inherently non-finitely based if and only if either $n\ge 3$ or
+$n=2$ and $\vert K\vert\mathrel{\not\equiv 3} (\bmod\ 4)$.
+\end{enumerate}
+\end{Thm}
+Other types of unary operations with matrices studied in this
+paper include, for instance, Moore-Penrose inversion and
+symplectic transposition. We also consider unary semigroups of
+Boolean matrices under transposition.
+
+We mention in passing that tools developed in Section~2 admit many
+further applications that will be published in a separate paper.
+
+We assume the reader's acquaintance with basic concepts of
+equational logic and the theory of varieties such as the
+HSP-theorem, see, e.g., \cite[Chapter~II]{BuSa81}. As far as \sm\
+notions are concerned, we adopt the standard terminology and
+notation from~\cite{CP}. It should be noted, however, that the
+presentation is to a reasonable extent self-contained so that most
+of the material  should be accessible to readers without any
+specific \sm-theoretic background.
+
+\section{Tools}\label{mainresult}
+
+\subsection{Preliminaries}
+As mentioned, by a \emph{unary semigroup} we mean an algebraic
+structure $\mathcal{S}=\langle S,\cdot,{}^*\rangle$ of type
+$(2,1)$ such that the binary operation $\cdot$ is associative,
+i.\,e.\ $\langle S,\cdot\rangle$ is a semigroup. In general, we do
+not assume any additional identities involving the unary operation
+${}^*$. If the identities $(xy)^* = y^*x^*$ and $(x^*)^* = x$
+happen to hold in $\mathcal{S}$, in other words, if the unary
+operation $x\mapsto x^*$ is an involutory anti-automorphism of the
+semigroup $\langle S,\cdot\rangle$, we call $\mathcal{S}$ an
+\emph{involutory semigroup}. If, in addition, the identity
+$x=xx^*x$ holds, $\mathcal{S}$ is said to be a \emph{regular
+$*$-semigroup}. Each group, subject to its inverse operation
+$x\mapsto x^{-1}$ is an involutory semigroup, even a regular
+$*$-semigroup; throughout the paper, any group is considered as a
+unary semigroup with respect to this inverse unary operation.
+
+A wealth of examples of involutory semigroups and regular
+$*$-semigroups can be obtained via the following `unary' version
+of the well known \Rm\ construction (see \cite[Section~3.1]{CP}
+for a description of the construction in the plain semigroup
+case). Let $\mathcal{G}=\langle G,\cdot,{}^{-1}\rangle$ be a
+group, $0$ a symbol beyond $G$, and $I$ a non-empty set. We
+formally set $0^{-1}=0$. Given an $I\times I$-matrix $P=(p_{ij})$
+over $G\cup\{0\}$ such that $p_{ij}=p_{ji}^{-1}$ for all $i,j\in
+I$, we define a multiplication~$\cdot$ and a unary operation
+${}^*$ on the set $(I\times G\times I)\cup\{0\}$ by the following
+rules:
+\begin{gather*}
+a\cdot 0=0\cdot a=0\ \text{ for all $a\in (I\times G\times I)\cup \{0\}$},\\
+(i,g,j)\cdot(k,h,\ell)=\left\{\begin{array}{cl}
+(i,gp_{jk}h,\ell)&\ \text{if}\ p_{jk}\ne0,\\
+0 &\ \text{if}\ p_{jk}=0;
+\end{array}\right.\\
+(i,g,j)^* = (j,g^{-1},i),\ 0^* = 0.
+\end{gather*}
+It can be easily checked that $\langle(I\times G\times I)\cup
+\{0\},\cdot,{}^*\rangle$ becomes  an involutory semigroup; it will
+be a regular $*$-semigroup precisely when $p_{ii}=e$ (the identity
+element of the group $\mathcal{G}$) for all $i\in I$. We denote
+this unary semigroup  by $\Mc^0(I,\mathcal{G},I;P)$ and call it
+the \emph{unary \Rm\ \sm\ over $\mathcal{G}$ with the sandwich
+matrix $P$}. If the involved group $\mathcal G$ happens to be the
+trivial group $\mathcal{E}=\{e\}$ then we usually shall ignore the
+group entry and represent the non-zero elements of such a Rees
+matrix semigroup by the pairs $(i,j)$ with $i,j\in I$.
+
+In this paper, the 10-element unary \Rm\ semigroup over the
+trivial group $\mathcal{E}=\{e\}$ with the sandwich matrix
+$$\begin{pmatrix}
+e & e & e\\
+e & e & 0\\
+e & 0 & e
+\end{pmatrix}$$
+plays a key role; we denote this \sm\ by $\mathcal{K}_3$. Thus,
+subject to the convention mentioned above, $\mathcal{K}_3$
+consists of the nine pairs $(i,j)$, $i,j\in\{1,2,3\}$, and the
+element $0$, and the operations restricted to its non-zero
+elements can be described as follows:
+\begin{gather}
+\label{operations in C3}
+(i,j)\cdot(k,\ell)=\left\{\begin{array}{cl}
+(i,\ell)&\ \text{if}\ (j,k)\ne(2,3),(3,2),\\
+0 &\ \text{otherwise};
+\end{array}\right.\\
+(i,j)^* = (j,i)\notag.
+\end{gather}
+
+Another unary semigroup that will be quite useful in the sequel is
+the \emph{free involutory semigroup} $\mathrm{FI}(X)$ on a given
+alphabet $X$. It can be constructed as follows. Let
+$\overline{X}=\{x^*\mid x\in X\}$ be a disjoint copy of $X$ and
+define $(x^*)^*=x$ for all $x^*\in \overline{X}$. Then
+$\mathrm{FI}(X)$ is the free semigroup $(X\cup\overline{X})^+$
+endowed with an involution ${}^*$ defined by
+$$(x_1\cdots x_m)^* = x_m^*\cdots x_1^*$$
+for all $x_1,\dots,x_m\in X\cup \overline{X}$. We will refer to
+elements of $\mathrm{FI}(X)$ as to \emph{involutory words over
+$X$} while elements of the free semigroup $X^+$ will be referred
+to as (plain semigroup) words over $X$.
+
+\subsection{A unary version of the critical semigroup method}
+Here we present a `unary' modification of the approach used
+in~\cite{V}. According to a classification proposed
+in~\cite{volkovjaponicae}, this approach is referred to as the
+\emph{critical semigroup method}.
+
+The formulation of the corresponding result involves two simple
+operators on unary semigroup varieties. For any unary semigroup
+$\mathcal{S}=\langle S,\cdot,{}^*\rangle$ we denote by
+$\H(\mathcal{S})$ the unary subsemigroup of $\mathcal{S}$ which is
+generated by all elements of the form $xx^*$, where $x\in S$. We
+call $\H(\mathcal{S})$ the \emph{Hermitian subsemigroup} of
+$\mathcal{S}$. For any variety $\Vc$ of unary semigroups, let
+$\H(\Vc)$ be the subvariety of $\Vc$ generated by all Hermitian
+subsemigroups of members of $\Vc$. Likewise, given a positive
+integer $n$, let $\P_n(\mathcal{S})$ be the unary subsemigroup of
+$\mathcal{S}$ which is generated by all elements of the form
+$x^n$, where $x\in S$, and let $\P_n(\Vc)$ be the subvariety of
+$\Vc$ generated by all subsemigroups $\P_n(\mathcal{S})$, where
+$\mathcal{S}\in \Vc$.
+
+Denote by $\var\Sc$ the variety generated by a given unary
+semigroup $\Sc$. The following easy observation will be useful in
+the sequel as it helps calculating the effect of the operators
+$\H$ and $\P_n$.
+
+\begin{Lemma}\label{Lemma 3.1}
+$\H(\var\Sc)=\var\H(\Sc)$ and $\P_n(\var\Sc)= \var\P_n(\Sc)$ for
+every unary semigroup $\Sc$ and for each $n\in \bb N$.
+\end{Lemma}
+
+\begin{proof}
+The non-trivial part of the first claim is the inclusion
+$\H(\var\Sc)\subseteq\var\H(\Sc)$. Let $\Tc\in\var\Sc$, then $\Tc$
+is a homomorphic image of a unary subsemigroup $\Uc$ of a direct
+product of several copies of $\Sc$. But then $\H(\Tc)$ is a
+homomorphic image of $\H(\Uc)$. As is easy to see, $\H(\Uc)$ is a
+unary subsemigroup of a direct product of several copies of
+$\H(\Sc)$. Thus $\H(\Tc)\in\var\H(\Sc)$. Since this holds for an
+arbitrary $\Tc\in\var\Sc$, we conclude that
+$\H(\var\Sc)\subseteq\var\H(\Sc)$. The second assertion can be
+treated in a completely similar way.
+\end{proof}
+
+We are now ready to state the main result of this subsection.
+
+\begin{Thm}\label{Theorem 2.1}
+Let $\Vc$ be any unary semigroup variety such that
+$\mathcal{K}_3\in\Vc$. If either
+\begin{itemize}
+\item there exists a group $\mathcal{G}$  such that $\mathcal{G}\in\Vc$ but
+$\mathcal{G}\notin\H(\Vc)$
+\end{itemize}
+or
+\begin{itemize}
+\item there exist a positive integer $d$ and a group $\mathcal{G}$ of exponent
+dividing $d$ such that $\mathcal{G}\in\Vc$ but
+$\mathcal{G}\notin\P_d(\Vc)$,
+\end{itemize}
+then $\Vc$ has no finite basis of identities.
+\end{Thm}
+
+\begin{proof}
+Assume first that there exists a group $\mathcal{G}\in\Vc$ for
+which $\mathcal{G}\notin\H(\Vc)$.
+
+\medskip
+
+1. First we recall the basic idea of `the critical semigroup
+method' in the unary setting. Suppose that ${\Vc}$ is \fb. If
+$\Si$ is a finite identity basis of the variety ${\Vc}$ then there
+exists a positive integer $\ell$ such that all identities from
+$\Si$ depend on at most $\ell$ letters. Therefore identities from
+$\Si$ hold in a unary semigroup $\mathcal{S}$ whenever all
+$\ell$-generated unary subsemigroups of $\mathcal{S}$ satisfy
+$\Si$. In other words, $\mathcal{S}$ belongs to $\Vc$ whenever all
+of its $\ell$-generated unary subsemigroups are in ${\Vc}$. We see
+that in order to prove our theorem it is sufficient to construct,
+for any given positive integer $k$, a unary \sm\
+$\mathcal{T}_k\notin{\Vc}$ for which all $k$-generated unary
+sub\sm s of $\mathcal{T}_k$ belong to ${\Vc}$.
+
+\medskip
+
+ 2. Fix an \id y $u(x_1,\ldots,x_m) = v(x_1,\ldots,x_m)$ that holds in ${\H(\Vc)}$
+but fails in the group $\mathcal{G}$. The latter means that, for
+some $g_1,\dots,g_m\in G$, substitution of $g_i$ for $x_i$ yields
+\begin{equation}\label{2.1}
+u(g_1,\ldots,g_m) \ne v(g_1,\ldots,g_m).
+\end{equation}
+Now, for each positive integer $k$, let $n =\max\{4,2k+1\}$,
+$I=\{1,\dots,nm\}$ and consider the unary \Rm\ \sm \
+$\mathcal{T}_k=\Mc^0(I,\mathcal{G},I;P_k)$ over the group
+$\mathcal{G}$ with the sandwich matrix
+$$P_k=\left(\begin{array}{ccccccc}
+M_n(g_1) & E_n & O_n & O_n & \cdots & O_n & E_n^T \\
+E_n^T & M_n(g_2) & E_n & O_n & \cdots & O_n & O_n \\
+O_n & E_n^T & M_n(g_3) & E_n & \cdots & O_n & O_n \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+O_n & O_n & O_n & O_n & \cdots & E_n & O_n\\
+O_n & O_n & O_n & O_n & \cdots & M_n(g_{m-1}) & E_n \\
+E_n & O_n & O_n & O_n & \cdots & E_n^T & M_n(g_m)
+\end{array}\right),$$
+where $O_n$ is the zero $n\times n$-matrix, $E_n$ is the $n\times
+n$-matrix having $e$ (the identity of $\mathcal{G}$) in the
+position $(n,1)$ and 0 in all other positions, $E_n^T$ is the
+transpose of $E_n$, and $M_n(g)$ denotes the $n\times n$-matrix of
+the form
+$$M_n(g)=\left(\begin{array}{ccccccc}
+e & g &  0 & \cdots & 0 & 0 & e \\
+g^{-1} & e & e & \cdots & 0 & 0 & 0 \\
+0 & e & e & \cdots & 0 & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & e & e & 0 \\
+0 & 0 & 0 & \cdots & e & e & e \\
+e & 0 & 0 & \cdots & 0 & e & e
+\end{array} \right).$$
+(This construction is in a sense a combination of those of the
+first and the third authors' papers \cite{A1} and \cite{V}.) We
+are going to prove that $\mathcal{T}_k$ enjoys the two properties
+needed, namely, it does not belong to ${\Vc}$, but each
+$k$-generated unary sub\sm \ of $\mathcal{T}_k$ lies in ${\Vc}$.
+
+\medskip
+
+3. In order to prove that $\mathcal{T}_k\notin\Vc$, we construct
+an identity that holds in ${\Vc}$, but fails in $\mathcal{T}_k$.
+Consider the following $m$ terms in $mn$ letters
+$x_1,\dots,x_{mn}$:
+
+\smallskip
+
+\leftline{$w_1=[\he{x_1}\cdots\he{x_n}] [\he{(x_{n+1}\cdots
+x_{2n})}\he{x_{2n}}]\cdots$} \rightline{[$\he{(x_{(m-1)n+1}\cdots
+x_{mn})}\he{x_{mn}}]$,}
+
+\leftline{$w_2=[\he{(x_1\cdots x_n)}\he{x_n}]
+[\he{x_{n+1}}\cdots\he{x_{2n}}]\times$}
+\centerline{$[\he{(x_{2n+1}\cdots x_{3n})}\he{x_{3n}}]\cdots$}
+\rightline{$[\he{(x_{(m-1)n+1}\cdots x_{mn})}\he{x_{mn}}]$,}
+
+\leftline{$w_3=[\he{(x_1\cdots x_n)}\he{x_n}] [\he{(x_{n+1}\cdots
+x_{2n})}\he{x_{2n}}]\times$}
+\rightline{$[\he{x_{2n+1}}\cdots\he{x_{3n}}]\cdots[\he{(x_{(m-1)n+1}\ldots
+x_{mn})}\he{x_{mn}}]$,}
+
+\hbox to 5.0 in{\dotfill }
+
+\leftline{$w_m=[\he{(x_1\cdots x_n)}\he{x_n}] [\he{(x_{n+1}\cdots
+x_{2n})}\he{x_{2n}}]\ldots$} \centerline{$[\he{(x_{(m-2)n+1}\cdots
+x_{(m-1)n})} \he{x_{(m-1)n}}]\times$}
+\rightline{$[\he{x_{(m-1)n+1}}\cdots\he{x_{mn}}]$.}
+
+\smallskip
+
+\noindent Substituting $w_i$ for $x_i$ in $u$ respectively $v$, we
+get the identity
+\begin{equation}\label{2.2}
+u(w_1,\ldots,w_m) = v(w_1,\ldots,w_m) \end{equation} which holds
+in the \va y ${\Vc}$. Indeed, if we take any
+$\mathcal{S}\in{\Vc}$, then, since $\he{s}\in\H(\mathcal{S})$ for
+any $s\in\mathcal{S}$, all the values of $w_i$ belong to the
+Hermitian sub\sm\ $\H(\mathcal{S})$ of $\mathcal{S}$. This sub\sm,
+however, lies in ${\H(\Vc)}$, and therefore, satisfies the \id y
+$u = v$.
+
+Now we shall show that \eqref{2.2} fails in $\mathcal{T}_k$.
+Indeed, substituting $(i,e,i)\in\mathcal{T}_k$ for $x_i$, we
+calculate that the value of every term of the form
+$$\he{(x_{(j-1)n+1}\cdots x_{jn})}\he{x_{jn}}$$
+is equal to $((j-1)n+1,e,jn)$ while the value of each term of the
+form
+$$\he{x_{(j-1)n+1}}\cdots \he{x_{jn}}$$
+is equal to  $((j-1)n+1,g_j,jn)$. Hence the value of $w_j$ is just
+$(1,g_j,mn)$. Therefore, under this substitution, the left hand
+part of (\ref{2.2}) takes the value $(s,u(g_1,\ldots,g_m),t)$ for
+suitable $s,t\in \{1,mn\}$ while the value of the right hand part
+of (\ref{2.2}) is $(s',v(g_1,\ldots,g_m),t')$ (again for suitable
+$s',t'\in\{1,mn\}$). In view of the inequality (\ref{2.1}), these
+elements do not coincide in $\mathcal{T}_k$.
+
+\smallskip
+
+4. It remains to prove that each $k$-generated unary sub\sm\ of
+$\mathcal{T}_k$ lies in ${\Vc}$. For every $m$-tuple
+$(\la_1,\ldots,\la_m)$ of positive integers satisfying
+\begin{equation} \label{2.3}
+1\leq\la_1\leq n<\la_2\leq 2n<\la_3\leq\ldots (m-1)n <\la_m\leq
+mn,
+\end{equation}
+consider the unary sub\sm \ $\mathcal{T}_k(\la_1,\ldots,\la_m)$ of
+$\mathcal{T}_k$ consisting of 0 and all triples $(i,g,j)$ such
+that $g\in \mathcal{G}$ and $i,j\not\in\{\la_1,\ldots,\la_m\}$.
+Using that $2k<n$ according to our choice of $n$, one concludes
+that any given $k$ elements of $\mathcal{T}_k$ must be contained
+in $\mathcal{T}_k(\la_1,\ldots,\la_m)$ for suitable
+$\la_1,\ldots,\la_m$. Thus it is sufficient to prove that each
+semigroup  of the form $\mathcal{T}_k(\la_1,\ldots,\la_m)$ belongs
+to the variety ${\Vc}$.
+
+Let us fix positive integers $\la_1,\ldots,\la_m$ satisfying
+(\ref{2.3}). When multiplying triples from
+$\mathcal{T}_k(\la_1,\ldots,\la_m)$, the
+$\la_1^{\mathrm{th}},\dots,\la_m^{\mathrm{th}}$ rows and columns
+of the sandwich matrix $P_k$ are never involved. Therefore we can
+identify $\mathcal{T}_k(\la_1,\ldots,\la_m)$ with the unary \Rm\
+\sm\ $\Mc^0(I',\mathcal{G},I';P'_k)$ over the group $\mathcal{G}$
+where $I'=I\setminus\{\la_1,\dots, \la_m\}$ and the sandwich
+matrix $P'_k= P_k(\la_1,\ldots,\la_m)$ is obtained from $P_k$ by
+deleting its $\la_1^{\mathrm{th}},\dots,\la_m^{\mathrm{th}}$ rows
+and columns. Note that by \eqref{2.3} exactly one row and one
+column of each block $M_n(g_i)$ is deleted.
+
+Now we transform the matrix $P_k(\la_1,\ldots,\la_m)$ as follows.
+For each $i$ such that $(i-1)n+2<\la_i$, we multiply successively
+\begin{align}
+\label{transform}
+&\text{the row $((i-1)n+2)$ by $g_i$ from the left and}\notag\\[-1ex]
+&\text{the column $((i-1)n+2)$ by $g_i^{-1}$ from the right;}\notag\\[-.5ex]
+&\text{the row $((i-1)n+3)$ by $g_i$ from the left and}\notag\\[-1ex]
+&\text{the column $((i-1)n+3)$ by $g_i^{-1}$ from the right;}\\[-.5ex]
+&\hbox to 3.0 in{\dotfill }\notag\\[-.5ex]
+&\text{the row $(\la_i-1)$ by $g_i$ from the left and}\notag\\[-1ex]
+&\text{the column $(\la_i-1)$ by $g_i^{-1}$ from the right.}\notag
+\end{align}
+
+In order to help the reader to understand the effect of the
+transformations~\eqref{transform}, we illustrate their action on
+the block obtained from $M_n(g_i)$ by removing the
+$\la_i^{\mathrm{th}}$ row and column in the following scheme in
+which $\lambda_i$ has been chosen to be equal to $(i-1)n+5$. (The
+transformations have no effect beyond $M_n(g_i)$ because all the
+rows and columns of $P_k(\la_1,\ldots,\la_m)$ involved
+in~\eqref{transform} have non-zero entries only within
+$M_n(g_i)$.)
+
+{\small
+\begin{center}
+\begin{tabular}{cc}
+The block obtained from $M_n(g_i)$ by erasing  & After the first\\
+the $((i-1)n+5)^{\mathrm{th}}$ row and column  & transformation \\[1ex]
+$\begin{pmatrix}
+e        & g_i & 0 & 0 &  0 &\cdots & 0 & e \\
+g_i^{-1} & e   & e & 0 &  0 &\cdots & 0 & 0 \\
+0        & e   & e & e &  0 &\cdots & 0 & 0 \\
+0        & 0   & e & e &  0 &\cdots & 0 & 0 \\
+0        & 0   & 0 & 0 &  e &\cdots & 0 & 0 \\
+\vdots   & \vdots & \vdots & \vdots & \vdots &\ddots & \vdots & \vdots \\
+0        & 0   & 0 & 0 &  0 &\cdots & e & e \\
+e        & 0   & 0 & 0 &  0 &\cdots & e & e
+\end{pmatrix}$
+& $\begin{pmatrix}
+e        & e   & 0 & 0 &  0 &\cdots & 0 & e \\
+e   & e  & g_i & 0 &  0 &\cdots & 0 & 0 \\
+0   & g_i^{-1} & e & e &  0 &\cdots & 0 & 0 \\
+0        & 0   & e & e &  0 &\cdots & 0 & 0 \\
+0        & 0   & 0 & 0 &  e &\cdots & 0 & 0 \\
+\vdots   & \vdots & \vdots & \vdots & \vdots &\ddots & \vdots & \vdots \\
+0        & 0   & 0 & 0 &  0 &\cdots & e & e \\
+e        & 0   & 0 & 0 &  0 &\cdots & e & e
+\end{pmatrix}$\\
+&\\
+After the second & After the third\\
+transformation   & transformation\\[1ex]
+$\begin{pmatrix}
+e        & e   & 0 & 0 &  0 &\cdots & 0 & e \\
+e        & e   & e & 0 &  0 &\cdots & 0 & 0 \\
+0        & e & e & g_i &  0 &\cdots & 0 & 0 \\
+0 & 0   & g_i^{-1} & e &  0 &\cdots & 0 & 0 \\
+0        & 0   & 0 & 0 &  e &\cdots & 0 & 0 \\
+\vdots   & \vdots & \vdots & \vdots & \vdots &\ddots & \vdots & \vdots \\
+0        & 0   & 0 & 0 &  0 &\cdots & e & e \\
+e        & 0   & 0 & 0 &  0 &\cdots & e & e
+\end{pmatrix}$
+& $\begin{pmatrix}
+e        & e   & 0 & 0 &  0 &\cdots & 0 & e \\
+e        & e   & e & 0 &  0 &\cdots & 0 & 0 \\
+0        & e   & e & e &  0 &\cdots & 0 & 0 \\
+0        & 0   & e & e &  0 &\cdots & 0 & 0 \\
+0        & 0   & 0 & 0 &  e &\cdots & 0 & 0 \\
+\vdots   & \vdots & \vdots & \vdots & \vdots &\ddots & \vdots & \vdots \\
+0        & 0   & 0 & 0 &  0 &\cdots & e & e \\
+e        & 0   & 0 & 0 &  0 &\cdots & e & e
+\end{pmatrix}$\\
+\end{tabular}
+\end{center}
+
+} \noindent Now it should be clear that also in general the
+transformations~\eqref{transform} result in a matrix $Q_k$ all of
+whose non-zero entries are equal to $e$. On the other hand, it is
+known (see, e.\,g., \cite[Proposition~6.2]{A1}) that the
+transformations~\eqref{transform} of the sandwich matrix do not
+change the unary \sm\ $\mathcal{T}_k(\la_1,\ldots,\la_m)$; in
+other words $\mathcal{T}_k(\la_1,\ldots,\la_m)$ is isomorphic to
+the $I'\times I'$ unary \Rm \ \sm \ $\mathcal{R}_k$ over
+$\mathcal{G}$ with the sandwich matrix $Q_k$. Let $\mathcal{U}_k$
+be the $I'\times I'$ unary \Rm \ \sm\ over the trivial group
+$\mathcal{E}$ with the sandwich matrix $Q_k$. It is easy to check
+that the mapping $\mathcal{G}\times \mathcal{U}_k\rightarrow
+\mathcal{R}_k$ defined by
+$$(g,(i,e,j))\mapsto (i,g,j),\quad  (g,0)\mapsto 0$$
+for all $g\in \mathcal{G}$, $i,j\in I'$, is a unary semigroup
+homomorphism onto $\mathcal{R}_k$. Now we note that $\mathcal{G}
+\in {\Vc}$ and $\mathcal{U}_k$ belongs to the \va y generated by
+$\mathcal{K}_3$ (see \cite[Theorem 5.2]{A1}). This yields
+$\mathcal{T}_k(\la_1,\ldots,\la_m)\cong\mathcal{R}_k\in{\Vc}$.
+
+\smallskip
+
+The case when there exist a positive integer $d$ and a group
+$\mathcal{G}$ of exponent dividing $d$ such that
+$\mathcal{G}\in\Vc$ but $\mathcal{G}\notin\P_d(\Vc)$ can be
+treated in a very similar way. The construction of the critical
+semigroups remains the same, and the only modification to be made
+in the rest of the proof is to replace the terms $w_i$ above by
+the following plain semigroup words:
+
+\smallskip
+
+\leftline{$w_1=[x_1^d\cdots x_n^d][x_{n+1}\cdots x_{2n}]^d\cdots
+[x_{(m-1)n+1}\cdots x_{mn}]^d$,} \leftline{$w_2=[x_1\cdots
+x_n]^d[x_{n+1}^d\cdots x_{2n}^d]\cdots [x_{(m-1)n+1}\cdots
+x_{mn}]^d$,}
+
+\hbox to 3.3 in {\dotfill }
+
+\leftline{$w_m=[x_1\cdots x_n]^d[x_{n+1}\cdots
+x_{2n}]^d\cdots[x_{(m-1)n+1}^d\cdots x_{mn}^d]$.}
+
+\smallskip
+
+\noindent (These words already have been used in the plain
+semigroup case by the third author~\cite{V}.)
+\end{proof}
+
+\subsection{A unary version of the method of inherently
+non-finitely based semigroups} Recall that a finite algebraic
+structure of type $\tau$ is called \emph{inherently non-finitely
+based} if it is not contained in any finitely based locally finite
+variety of type $\tau$. Here we prove a sufficient condition for
+an involutory semigroup to be inherently non-finitely based and
+exhibit two concrete examples of involutory semigroups satisfying
+this condition. These examples will be essentially in our
+applications in Section~3.
+
+Let $x_1,x_2,\dots,x_n,\dots$ be a sequence of letters. The
+sequence $\{Z_n\}_{n=1,2,\dots}$ of \emph{Zimin words} is defined
+inductively by $Z_1=x_1$, $Z_{n+1}=Z_nx_{n+1}Z_n$. We say that an
+involutory word $v$ is an \emph{involutory isoterm for a unary
+semigroup $\mathcal{S}$} if the only involutory word $v'$ such
+that $\mathcal{S}$ satisfies the involutory semigroup identity
+$v=v'$ is the word $v$ itself.
+
+\begin{Thm}
+\label{Theorem 2.2} Let $\mathcal{S}$ be a finite involutory
+semigroup. If all Zimin words are involutory isoterms for
+$\mathcal{S}$, then $\mathcal{S}$ is inherently non-finitely
+based.
+\end{Thm}
+
+\begin{proof}
+Arguing by contradiction, suppose that $\mathcal{S}$ belongs to a
+\fb\ locally finite variety $\Vc$. If $\Si$ is a finite identity
+basis of $\Vc$, then there exists a positive integer $\ell$ such
+that all identities from $\Si$ depend on at most $\ell$ letters.
+Clearly, all identities in $\Si$  hold in $\mathcal{S}$. In the
+following, our aim will be to construct, for any given positive
+integer $k$, an infinite, finitely generated involutory \sm\
+$\mathcal{T}_k$ which satisfies all identities in at most $k$
+variables that hold in $\mathcal{S}$. In particular,
+$\mathcal{T}_k$ will satisfy all identities from $\Si$. This
+yields a contradiction, as then we must conclude that
+$\mathcal{T}_\ell\in\Vc$, which is impossible by the local
+finiteness of $\Vc$.
+
+We shall employ a construction invented by
+Sapir~\cite{sapirburnside}, see also his lecture
+notes~\cite{Sapir}. We fix $k$ and let $r=6k+2$. Consider the
+$r^2\times r$-matrix $M$ shown in Fig.~\ref{matrices} on the left.
+\begin{figure}[th]
+$$M=\begin{pmatrix}
+  1 & 1 & \cdots & 1 & 1\\
+
+  \vdots & \vdots & \ddots & \vdots & \vdots \\
+  1 & r & \cdots & 1 & r\\
+  2 & 1 & \cdots & 2 & 1\\
+
+  \vdots & \vdots & \ddots & \vdots & \vdots\\
+  2 & r & \cdots & 2 & r\\
+  \vdots & \vdots & \ddots & \vdots & \vdots\\
+  r & 1 & \cdots & r & 1\\
+
+  \vdots & \vdots & \ddots & \vdots & \vdots\\
+  r & r & \cdots & r & r\\
+\end{pmatrix} \qquad
+ M_{A}=\begin{pmatrix}
+  a_{11} & a_{12} & \cdots & a_{1r-1} & a_{1 r} \\
+
+  \vdots & \vdots & \ddots & \vdots & \vdots \\
+  a_{11} & a_{r2} & \cdots & a_{1r-1} & a_{rr}\\
+  a_{21} & a_{12} & \cdots & a_{2r-1} & a_{1r}\\
+
+  \vdots & \vdots & \ddots & \vdots & \vdots \\
+  a_{21} & a_{r2} & \cdots & a_{2r-1} & a_{rr}\\
+  \vdots & \vdots & \ddots & \vdots & \vdots \\
+  a_{r1} & a_{12} & \cdots & a_{rr-1} & a_{1r}\\
+
+  \vdots & \vdots & \ddots & \vdots & \vdots \\
+  a_{r1} & a_{r2} & \cdots & a_{rr-1} & a_{rr}\\
+\end{pmatrix}$$
+\caption{The matrices $M$ and $M_A$}\label{matrices}
+\end{figure}
+All odd columns of $M$ are identical and equal to the transpose of
+the row $(1,1,\ldots,1,2,2,\ldots,2,\ldots,r,r,\ldots,r)$ where
+each number occurs $r$ times. All even columns of $M$ are
+identical and equal to the transpose of the row
+$(1,2,\ldots,r,1,2,\ldots,r,\ldots,1,2,\ldots,r)$ in which the
+block $1,2,\dots,r$ occurs $r$ times.
+
+Now consider the alphabet $A=\{a_{ij}\mid 1\leq i,j\leq r\}$ of
+cardinality $r^2$. We convert the matrix $M$ to the matrix $M_{A}$
+(shown in Fig.~\ref{matrices} on the right) by replacing numbers
+by letters according to the following rule: whenever the number
+$i$ occurs in the column $j$ of $M$, we substitute it with the
+letter $a_{ij}$ to get the corresponding entry in $M_A$.
+
+Let $v_{t}$ be the word in the $t^{\mathrm{th}}$ row of the matrix
+$M_A$. Consider the endomorphism $\gamma:A^+\rightarrow A^+$
+defined by
+$$\gamma(a_{ij})=v_{(i-1)r+j}.$$
+Let $V_k$ be the set of all factors of the words in the sequence
+$\{\gamma^m(a_{11})\}_{m=1,2,\dots}$ and let $0$ be a symbol
+beyond $V_k$. We define a multiplication $\cdot$ on the set
+$V_k\cup\{0\}$ as follows:
+$$
+u\cdot v=\left\{\begin{array}{cl}
+uv&\ \text{if}\ u,v,uv\in V_k,\\
+0 &\ \text{otherwise}.
+\end{array}\right.
+$$
+Clearly, $\langle V_k\cup\{0\},\cdot\rangle$ becomes a semigroup
+which we denote by $\mathcal{V}_k^0$. Using this semigroup, we can
+conveniently reformulate two major combinatorial results by Sapir:
+
+\begin{Prop} {\rm\cite[Proposition 2.1]{Sapir}}
+\label{avoidable words} Let $X_k=\{x_1,\dots,x_k\}$ and $w\in
+X_k^+$. Assume that there exists a homomorphism
+$\varphi:X_k^+\to\mathcal{V}_k^0$ for which $\varphi(w)\ne0$. Then
+there is an endomorphism $\psi:X_k^+\to X_k^+$ such that the word
+$\psi(w)$ appears as a factor in the Zimin word $Z_k$.
+\end{Prop}
+
+\begin{Prop} {\rm\cite[Lemma 4.14]{Sapir}}
+\label{avoidable identities} Let $X_k=\{x_1,\dots,x_k\}$ and
+$w,w'\in X_k^+$. Assume that there exists a homomorphism
+$\varphi:X_k^+\to\mathcal{V}_k^0$ for which
+$\varphi(w)\ne\varphi(w')$. Then the identity $w=w'$ implies a
+non-trivial semigroup identity of the form $Z_{k+1}=z$.
+\end{Prop}
+
+Now let $\overline{\mathcal{V}}_k^0$ denote the semigroup
+anti-isomorphic to $\mathcal{V}_k^0$; we shall use the notation
+$x\mapsto x^*$ for the mutual anti-isomorphisms between
+$\mathcal{V}_k^0$ and $\overline{\mathcal{V}}_k^0$ in both
+directions and denote $\{v^*\mid v\in V_k\}$ by $\overline{V}_k$.
+Let
+$$\mathcal{T}_k=\langle V_k\cup\overline{V}_k\cup\{0\},\cdot,{}^*\rangle$$
+be the 0-direct union of $\mathcal{V}_k^0$ and
+$\overline{\mathcal{V}}_k^0$; this means that we identify $0$ with
+$0^*$, preserve the multiplication in both $\mathcal{V}_k^0$ and
+$\overline{\mathcal{V}}_k^0$, and set $u\cdot v^*=u^*\cdot v=0$
+for all $u,v\in V_k$. This is the unary semigroup we need.
+
+It is clear that $\mathcal{T}_k$ is infinite and is generated (as
+a unary semigroup) by the set $A$ which is finite. It remains to
+verify that $\mathcal{T}_k$ satisfies every identity in at most
+$k$ variables that holds in our initial unary semigroup
+$\mathcal{S}$. So, let $p,q\in\mathrm{FI}(X_k)$ and suppose that
+the identity $p=q$ holds in $\mathcal{S}$ but fails in
+$\mathcal{T}_k$. Then there exists a unary semigroup homomorphism
+$\varphi:\mathrm{FI}(X_k)\to\mathcal{T}_k$ for which
+$\varphi(p)\ne\varphi(q)$. Hence, at least one of the elements
+$\varphi(p)$ and $\varphi(q)$ is not equal to $0$; (without loss
+of generality) assume that $\varphi(p)\ne 0$. Then we may also
+assume $\varphi(p)\in V_k$; otherwise we may consider the identity
+$p^*=q^*$ instead of $p=q$. Since $\varphi(p)\ne0$, there is no
+letter $x\in X_k$ such that $p$ contains both $x$ and $x^*$. Now
+we define a substitution
+$\sigma:\mathrm{FI}(X_k)\to\mathrm{FI}(X_k)$ as follows:
+$$\sigma(x)=\left\{\begin{array}{ll}
+x^* & \text{if } p \text{ contains } x^*,\\
+x & \text{otherwise}.\end{array}\right.$$ Then $\sigma(p)$ does
+not contain any starred letter, thus being a plain word in
+$X_k^+$. Since $\sigma^2$ is the identity mapping, we have
+$\varphi(p)= (\varphi\sigma)(\sigma(p))$, and $\varphi\sigma$ maps
+$X_k^+$ into $\mathcal{V}_k^0$. Now we consider two cases.
+
+\emph{\textbf{Case 1:} $\sigma(q)$ contains a starred letter.} We
+apply Proposition~\ref{avoidable words} to the plain word
+$\sigma(p)$ and the semigroup homomorphism
+$X_k^+\to\mathcal{V}_k^0$ obtained by restricting $\varphi\sigma$
+to $X_k^+$. We conclude that there is an endomorphism $\psi$ of
+$X_k^+$ such that the word $\psi(\sigma(p))$ appears as a factor
+in the Zimin word $Z_k$. Thus, $Z_k=z'\psi(\sigma(p))z''$ for some
+$z',z''$ (that may be empty). The endomorphism $\psi$ extends in a
+natural way to an endomorphism of the free involutory semigroup
+$\mathrm{FI}(X_k)$ and there is no harm in denoting the extension
+by $\psi$ as well. The identity $p=q$ implies the identity
+\begin{equation}
+\label{consequence of p=q}
+z'\psi(\sigma(p))z''=z'\psi(\sigma(q))z''.
+\end{equation}
+The left hand side of~\eqref{consequence of p=q} is $Z_k$ and the
+identity is not trivial because its right hand side involves a
+starred letter. Since $p=q$ holds in our initial semigroup
+$\mathcal{S}$, so does~\eqref{consequence of p=q}. But this
+contradicts the assumption that all Zimin words are involutory
+isoterms for $\mathcal{S}$.
+
+\emph{\textbf{Case 2:} $\sigma(q)$ contains no starred letter.} In
+this case $\sigma(q)$ is a plain word in $X_k^+$, and we are in a
+position to apply Proposition~\ref{avoidable identities} to the
+semigroup identity $\sigma(p)=\sigma(q)$ and the semigroup
+homomorphism $X_k^+\to\mathcal{V}_k^0$ obtained by restricting
+$\varphi\sigma$ to $X_k^+$. We conclude that $\sigma(p)=\sigma(q)$
+implies a non-trivial semigroup identity $Z_{k+1}=z$. Therefore
+the identity $p=q$ implies $Z_{k+1}=z$, and we again get a
+contradiction.
+\end{proof}
+
+As a concrete example of an inherently non-finitely based
+involutory semigroup, consider the \emph{twisted Brandt monoid}
+$\TB=\langle B_2^1,\cdot,{}^*\rangle$, where $B_2^1$ is the set of
+the following six $2\times 2$-matrices:
+$$\begin{pmatrix} 0 & 0\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 1 & 0\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 1\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 0\\ 1 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 0\\ 0 & 1\end{pmatrix},\
+\begin{pmatrix} 1 & 0\\ 0 & 1\end{pmatrix},$$
+the binary operation $\cdot$ is the usual matrix multiplication
+and the unary operation ${}^*$ fixes the matrices
+$$\begin{pmatrix} 0 & 0\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 1\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 0\\ 1 & 0\end{pmatrix},\
+\begin{pmatrix} 1 & 0\\ 0 & 1\end{pmatrix}$$
+and swaps each of the matrices
+$$\begin{pmatrix} 1 & 0\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 0\\ 0 & 1\end{pmatrix}$$
+with the other one.
+
+\begin{Cor}
+\label{twisted Brandt} The twisted Brandt monoid $\TB$ is
+inherently non-\fb.
+\end{Cor}
+
+\begin{proof}
+By Theorem~\ref{Theorem 2.2} we only have to show that $\TB$
+satisfies no non-trivial involutory semigroup identity of the form
+$Z_n=z$. If $z$ is a plain semigroup word, we can refer to
+\cite[Lemma~3.7]{sapirburnside} which shows that the semigroup
+$\langle B_2^1,\cdot\rangle$ does not satisfy any non-trivial
+\textbf{semigroup} identity of the form $Z_n=z$. If we suppose
+that the involutory word $z$ contains a starred letter, we can
+substitute the matrix $\left(\begin{smallmatrix}1 & 0\\ 0 &
+0\end{smallmatrix}\right)$ for all letters occurring in $Z_n$ and
+$z$. Since this matrix is idempotent, the value of the word $Z_n$
+under this substitution equals $\left(\begin{smallmatrix}1 & 0\\ 0
+& 0\end{smallmatrix}\right)$. On the other hand, $z$ evaluates to
+a product involving the matrix $\left(\begin{smallmatrix}1 & 0\\ 0
+& 0\end{smallmatrix}\right)^*= \left(\begin{smallmatrix}0 & 0\\ 0
+& 1\end{smallmatrix}\right)$, and it is easy to see that such a
+product is equal to either $\left(\begin{smallmatrix}0 & 0\\ 0 &
+1\end{smallmatrix}\right)$ or $\left(\begin{smallmatrix}0 & 0\\ 0
+& 0\end{smallmatrix}\right)$. Thus, the identity $Z_n=z$ cannot
+hold in $\TB$ in this case as well.
+\end{proof}
+
+An equivalent way to define $\TB$ is to consider the 5-element
+unary \Rm\ semigroup over the trivial group $\mathcal{E}=\{e\}$
+with the sandwich matrix
+$$\begin{pmatrix}
+0 & e\\
+e & 0
+\end{pmatrix}$$
+and then to adjoin to this unary \Rm\ semigroup an identity
+element. For convenience and later use we note that $\TB$ can thus
+be realized as the set
+$$\{(1,1),(1,2),(2,1),(2,2),0,1\}$$ endowed with the operations
+\begin{gather}
+\label{operations in TB}
+(i,j)\cdot(k,\ell)=\left\{\begin{array}{cl}
+(i,\ell)&\ \text{if}\ (j,k)\in \{(1,2),(2,1)\},\\
+0 &\ \text{otherwise};
+\end{array}\right.\\
+1\cdot x=x=x\cdot 1,\ 0\cdot x=0=x\cdot 0 \text{ for all }x; \notag\\
+ (i,j)^* = (j,i),\ 1^*=1,\ 0^*=0\notag.
+\end{gather}
+
+Suppose that $\mathcal{A}$ is a finite algebraic structure for
+which the variety $\var\mathcal{A}$ contains an inherently
+non-finitely based algebraic structure. Immediately from the
+definition it follows that $\mathcal{A}$ is also inherently
+non-\fb. This observation is useful, in particular, for the
+justification of our second example of an involutory inherently
+non-\fb\ semigroup. This is a `twisted version' $\TA$ of another
+6-element semigroup that often shows up under the name $A_2^1$ in
+the theory of semigroup varieties. The unary semigroup $\TA$ is
+formed by the 6 matrices
+$$\begin{pmatrix} 0 & 0\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 1 & 0\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 1\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 1 & 0\\ 1 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 1\\ 0 & 1\end{pmatrix},\
+\begin{pmatrix} 1 & 0\\ 0 & 1\end{pmatrix}$$
+under the usual matrix multiplication and the unary operation that
+swaps each of the matrices
+$$\begin{pmatrix} 1 & 0\\ 0 & 0\end{pmatrix},\
+\begin{pmatrix} 0 & 1\\ 0 & 1\end{pmatrix}$$
+with the other one and fixes all other matrices. Alternatively,
+$\TA$ is obtained from the 5-element unary \Rm\ semigroup
+$\mathcal{A}_2$ over $\mathcal{E}=\{e\}$ with the sandwich matrix
+\begin{equation}
+\label{matrix for TA}
+\begin{pmatrix}
+0 & e\\
+e & e
+\end{pmatrix}
+\end{equation}
+by adjoining an identity element. Again, for later use, we note
+that $\TA$ can be realized as the set
+$$\{(1,1),(1,2),(2,1),(2,2),0,1\}$$ endowed with the operations
+\begin{gather}
+\label{operations in TA}
+(i,j)\cdot(k,\ell)=\left\{\begin{array}{cl}
+(i,\ell)&\ \text{if}\ (j,k)\ne (1,1)\\
+0 &\ \text{if}\ (j,k)=(1,1);
+\end{array}\right.\\
+1\cdot x=x=x\cdot 1,\ 0\cdot x=0=x\cdot 0 \text{ for all }x; \notag\\
+ (i,j)^* = (j,i),\ 1^*=1,\ 0^*=0\notag.
+\end{gather}
+
+\begin{Cor}
+\label{twisted A} The involutory monoid $\TA$ is inherently
+non-\fb.
+\end{Cor}
+
+\begin{proof}
+We represent $\TA$ as in \eqref{operations in TA} and $\TB$ as in
+\eqref{operations in TB} and consider the direct square
+$\TA\times\TA$. It is then easy to check that the twisted Brandt
+monoid $\TB$ is a homomorphic image of the unary subsemigroup of
+$\TA\times\TA$ generated by the pairs $(1,1)$,
+$\bigl((1,1),(2,2)\bigr)$ and $\bigl((2,2),(1,1)\bigr)$. Thus,
+$\TB$ belongs to $\var\TA$. Since by Corollary~\ref{twisted
+Brandt} $\TB$ is inherently non-\fb, so is $\TA$.
+\end{proof}
+
+Sapir~\cite[Proposition~7]{sapirburnside} has shown that a (plain)
+finite semigroup $\mathcal{S}$ is inherently non-\fb\ \textbf{if
+and only if} all Zimin words are isoterms for $\mathcal{S}$, that
+is, $\mathcal{S}$ satisfies no non-trivial semigroup identity of
+the form $Z_n=z$. Our Theorem~\ref{Theorem 2.2} models the `if'
+part of this statement but we do not know whether or not the `only
+if' part transfers to the involutory environment. Some partial
+results in this direction have been recently obtained by the
+second author \cite{Dolinka}. Here we present yet another special
+result which however suffices for our purposes.
+
+\begin{Prop}
+\label{NINFB} Let $\mathcal{S}=\langle S,\cdot,{}^*\rangle$ be a
+finite involutory semigroup and suppose that there exists an
+involutory word $\om(x)$ in one variable $x$ such that
+$\mathcal{S}$ satisfies the identity $x=x\om(x)x$. Then
+$\mathcal{S}$ is not inherently non-\fb.
+\end{Prop}
+
+\begin{proof}
+This is a consequence of some deep facts obtained by Margolis and
+Sapir in~\cite{margolissapir} and we shall follow their main
+arguments. The reason that these arguments apply here is that in
+$\mathcal{S}$, the Green relation $\Rc$ can be expressed in terms
+of equational logic. This ensures that we can construct a finite
+set of identities that defines a locally finite variety of
+involutory semigroups containing $\mathcal{S}$.
+
+First of all, we recall the definition of the relation $\Rc$. As
+usual, for a semigroup $a\in S$, the set $\{as\mid s\in
+S\}\cup\{a\}$ (that is, the right ideal generated by $a$) is
+denoted by $aS^1$. Now we say that elements $a,b\in S$ are
+$\Rc$-\emph{related} if $aS^1=bS^1$.
+
+Since $\mathcal{S}$ satisfies the identity $x=x\om(x)x$, we have
+$a\mathrel{\Rc}a\om(a)$ for each element $a\in S$. Thus, for
+$a,b\in S$, we have $a\mathrel{\Rc}b$ if and only if
+$a\om(a)\mathrel{\Rc}b\om(b)$. Since $a\om(a)$ and $b\om(b)$ are
+idempotents, that latter condition is equivalent to the two
+equalities $a\om(a)\cdot b\om(b)=b\om(b)$ and $b\om(b)\cdot
+a\om(a)=a\om(a)$. In particular, for $u,v\in S$ we have
+$uv\mathrel{\Rc}u$ if and only if $uv\om(uv)\cdot u\om(u)=u\om(u)$
+(since the second equality $u\om(u)\cdot uv\om(uv)=uv\om(uv)$ is
+always true).
+
+Let $Z_n'$ be the word obtained from the Zimin word $Z_n$ by
+deleting the last letter (which is $x_1$), that is, $Z_n'x_1=Z_n$.
+Further let $h$ denote the $\Rc$-\emph{height} of $\mathcal{S}$,
+that is, $h$ is the length of the longest possible $\Rc$-chain
+$$s_1\mathrel{{<}_{\Rc}}s_2\mathrel{{<}_{\Rc}}\cdots\mathrel{{<}_{\Rc}}s_k$$
+where $a\mathrel{{<}_{\Rc}}b$ means that $aS^1\subseteq bS^1$ but
+$bS^1\nsubseteq aS^1$. Set $n=h+1$; Lemma~7 in
+\cite{margolissapir} shows that $\mathcal{S}$ satisfies
+$Z_n'\mathrel{\Rc}Z_n$ whence it satisfies the identity
+\begin{equation}
+\label{ziminR} Z_n\om(Z_n)\cdot Z_n'\om(Z_n')=Z_n'\om(Z_n').
+\end{equation}
+On the other hand, each involutory semigroup $\mathcal{T}$ which
+satisfies $x=x\om(x)x$ and \eqref{ziminR} necessarily satisfies
+$Z_n'\mathrel{\Rc}Z_n$, hence (its semigroup reduct) belongs to
+the quasivariety $\mathbf{Q}_n$ of semigroups defined by the
+quasi-identity
+\begin{equation*}
+xZ_n=yZ_n\rightarrow xZ_n'=yZ_n'.
+\end{equation*}
+Lemma 8 in \cite{margolissapir} then shows that a finitely
+generated semigroup $\mathcal{T}\in\mathbf{Q}_n$ is finite if and
+only if it is periodic and all subgroups of $\mathcal{T}$ are
+locally finite. We note that an involutory semigroup is finitely
+generated if and only if so is its semigroup reduct. Hence it
+suffices to find a finite number of identities which hold in
+$\mathcal{S}$ and which force each (involutory) semigroup to be
+periodic and to have only locally finite subgroups.
+
+We can proceed as at the end of \cite{margolissapir}: first, since
+$\mathcal{S}$ is finite, it satisfies the identity
+$x^k=x^{k+\ell}$ for some $k,\ell\ge 1$. This identity definitely
+forces any (involutory) semigroup to be periodic. Next, let
+$\mathcal{G}$ be the direct product of all maximal subgroups of
+$\mathcal{S}$. By the Oates-Powell theorem~\cite{oatespowell}, see
+also \cite[\S5.2]{Ne}, the locally finite variety
+$\var\mathcal{G}$ generated by the finite group $\mathcal{G}$ can
+be defined by a single identity $v(x_1,\dots,x_m)=1$. The left
+hand side $v$ of this identity can be assumed to contain no
+negative letters, that is, $v$ is a plain semigroup word in the
+letters $x_1,\dots,x_m$. Now let
+$\mathcal{F}=\mathcal{F}(x_1,\dots,x_m)$ be the $m$-generated
+relatively free semigroup in the (locally finite) semigroup
+variety generated by the semigroup reduct of $\mathcal{S}$. Let
+$e$ be an idempotent in the minimal ideal of $\mathcal{F}$ and let
+$u(x_1,\dots,x_m)$ be a word  whose value in $\mathcal{F}$ is $e$.
+It follows that $\mathcal{F}$ (and therefore $\mathcal{S}$)
+satisfies the identity
+\begin{equation}
+\label{idempotent law} u=u^2.
+\end{equation}
+For every element $g\in\mathcal{F}$, the product $ege$ belongs to
+the maximal subgroup of $\mathcal{F}$ with idempotent $e$.
+Consequently, $\mathcal{F}$ (and therefore $\mathcal{S}$)
+satisfies the identity
+\begin{equation}
+\label{crucial law} v(ux_1u,\dots,ux_mu)=u.
+\end{equation}
+Note that both sides of that identity are plain semigroup words in
+the letters $x_1,\dots,x_m$.
+
+Now consider the variety of involutory semigroups defined by the
+identities $x=x\om(x)x$, $x^k=x^{k+\ell}$ together with
+\eqref{ziminR}, \eqref{idempotent law} and \eqref{crucial law}. By
+construction, $\mathcal{S}$ is a member of that variety. Let
+$\mathcal{T}$ be any finitely generated member; then, as already
+mentioned, the semigroup reduct of $\mathcal{T}$ is also finitely
+generated. The first and the third identity ensure that the
+semigroup reduct of $\mathcal{T}$ belongs to the quasivariety
+$\mathbf{Q}_n$, and therefore it is finite provided that it is
+periodic and all its subgroups are locally finite. Periodicity is,
+of course, guaranteed by the second identity. Finally, each group
+$\mathcal{H}$ that satisfies the identities \eqref{idempotent law}
+and \eqref{crucial law} satisfies the identity
+$v(x_1,\dots,x_m)=1$, whence $\mathcal{H}$ belongs to
+$\var\mathcal{G}$ and so is locally finite. Altogether,
+$\mathcal{T}$ is finite and the proposition is proved.
+\end{proof}
+
+Proposition \ref{NINFB} implies in particular that no finite
+regular $*$-semigroup can be inherently non-\fb\ as one can use
+$x^*$ in the role of the term $\om(x)$. In particular, the unary
+semigroup $\langle B_2^1,\cdot,{}^T\rangle$ where the unary
+operation is the usual matrix transposition is not inherently
+non-\fb\ (the fact first discovered by Sapir,
+see~\cite{sapirinverse}), even though it is not finitely
+based~\cite{kleiman}.
+
+\section{Applications}
+
+\subsection{A property of matrices of rank 1}
+Recall that, for a field $\mathcal{K}$, we denote the set of all
+$n\times n$-matrices over $\mathcal{K}$ by
+$\mathrm{M}_n(\mathcal{K})$. We start with registering a simple
+property of rank~1 matrices. This property is, of course, known,
+but we do provide a proof for the sake of completeness.
+\begin{Lemma}
+\label{rank 1} If $A\in\mathrm{M}_n(\mathcal{K})$, $n\ge2$, has
+rank $1$, then $A^nBA^{n-1}=A^{n-1}BA^n$ for any matrix
+$B\in\mathrm{M}_n(\mathcal{K})$.
+\end{Lemma}
+
+\begin{proof}
+By the Cayley-Hamilton theorem, $A$ satisfies the equation
+$$A^n-\tr(A)A^{n-1}=0,$$
+where $\tr(A)$ stands for the trace of the matrix $A$. Hence
+$$A^nBA^{n-1}=\tr(A)A^{n-1}BA^{n-1}=A^{n-1}B\tr(A)A^{n-1}=A^{n-1}BA^n,$$
+as required.
+\end{proof}
+
+Let $\mathrm{L}_n(\mathcal{K})$ denote the set of all $n\times
+n$-matrices of rank at most~1 over $\mathcal{K}$. Adding the
+identity matrix to $\mathrm{L}_n(\mathcal{K})$ we obtain the set
+which we denote by By $\mathrm{L}^1_n(\mathcal{K})$. Clearly, it
+is closed under matrix multiplication. From Lemma~\ref{rank 1} we
+immediately obtain
+\begin{Cor}
+\label{identity for rank 1} For any field $\mathcal{K}$ and
+$n\ge2$, the semigroup
+$\langle\mathrm{L}^1_n(\mathcal{K}),\cdot\rangle$ satisfies the
+identity
+\begin{equation}
+\label{abelian groups} x^nyx^{n-1}=x^{n-1}yx^n.
+\end{equation}
+\end{Cor}
+Observe that every group satisfying \eqref{abelian groups} is
+abelian.
+
+\subsection{Matrix semigroups with Moore-Penrose inverse}
+Certainly, the most common unary operation for matrices is
+transposition. However, it is convenient for us to start with
+analyzing matrix semigroups with Moore-Penrose inverse because
+this analysis will help us in considering semigroups with
+transposition.
+
+We first recall the notion of Moore-Penrose inverse. This has been
+discovered by Moore \cite{moore} and independently by Penrose
+\cite{P} for complex matrices, but has turned out to be a fruitful
+concept in a more general setting---see \cite{BIG} for a
+comprehensive treatment.
+
+The following results were obtained by Drazin \cite{D}.
+
+\begin{Prop}\label{Theorem 3.3} {\rm\cite[Proposition 1]{D}}
+Let $\mathcal{S}$ be an involutory semigroup. Then, for any given
+$a\in\mathcal{S}$, the four equations
+\begin{equation}
+\label{penrose} axa=a,\ xax=x,\ (ax)^*=ax,\ (xa)^*=xa
+\end{equation}
+have at most one common solution $x\in\mathcal{S}$.
+\end{Prop}
+
+For an element $a$ of  an involutory semigroup $\mathcal{S}$, we
+denote by $a^\dag$ the unique common solution $x$ of the equations
+\eqref{penrose}, provided it exists, and call $a^\dag$ the
+\emph{Moore-Penrose inverse} of $a$.
+
+Recall that an element $a\in\mathcal{S}$ is said to be
+\emph{regular}, if there is an $x\in\mathcal{S}$ such that
+$axa=a$. Concerning existence of the Moore-Penrose inverse, we
+have the following
+\begin{Prop}\label{Theorem 3.4} {\rm\cite[Proposition 2]{D}}
+Let $\mathcal{S}$ be an involutory semigroup satisfying the
+quasi-identity
+\begin{equation}
+\label{3.1} x^*x=x^*y=y^*x=y^*y\rightarrow x=y.
+\end{equation}
+Then for an arbitrary $a\in\mathcal{S}$, the Moore-Penrose inverse
+$a^\dag$ exists if and only if $a^*a$ and $aa^*$ are regular
+elements.
+\end{Prop}
+
+Let $\langle R,+,\cdot\rangle$ be a ring. An \emph{involution of
+the ring} is an involution $x\mapsto x^*$ of the semigroup
+$\langle R,\cdot\rangle$ satisfying in addition the identity
+$(x+y)^*=x^* +y^*$. For ring involutions, the
+quasi-identity~\eqref{3.1} is easily seen to be equivalent to
+\begin{equation}
+\label{3.2} x^*x=0\rightarrow x=0.
+\end{equation}
+Now suppose that $\mathcal{K}=\langle K,+,\cdot\rangle$ is a field
+that admits an involution $x\mapsto\ol x$. Then the matrix ring
+$\mathrm{M}_n(\mathcal{K})$ has an involution that naturally
+arises from the involution of $\mathcal{K}$, namely
+$(a_{ij})\mapsto(a_{ij})^*:=(\ol{a_{ij}})^T$. This involution of
+$\mathrm{M}_n(\mathcal{K})$ in general does not satisfy the
+quasi-identity \eqref{3.2}. However, it does satisfy \eqref{3.2}
+if and only if the equation
+\begin{equation} \label{3.3}
+x_1\ol{x_1}+x_2\ol{x_2}+\dots+x_n\ol{x_n}=0
+\end{equation}
+admits only the trivial solution $(x_1,\dots,x_n)=(0,\dots,0)$ in
+$K^n$. Since all elements of $\mathrm{M}_n(\mathcal{K})$ are
+regular, this means that the Moore-Penrose inverse exists ---
+subject to the  involution $(a_{ij})\mapsto
+(a_{ij})^*=(\ol{a_{ij}})^T$ --- whenever \eqref{3.3} admits only
+the trivial solution. (The classical Moore-Penrose inverse is
+thereby obtained by putting $\mathcal{K}=\bb C$, the field of
+complex numbers, endowed with the usual complex conjugation
+$z\mapsto \ol z$.) On the other hand, it is easy to see that the
+condition that \eqref{3.3} has only the trivial solution is
+necessary: if $(a_1,\dots,a_n)$ were a non-trivial solution to
+\eqref{3.3}, then the matrix formed by $n$ identical rows
+$(a_1,\dots,a_n)$ would have no Moore-Penrose inverse.
+
+The proof of the main result of this subsection requires an
+explicit calculation of the Moore-Penrose inverses of certain
+rank~1 matrices. Thus, we present a simple method for such a
+calculation. For a row vector $a=(a_1,\dots,a_n)\in K^n$, where
+$\mathcal{K}=\langle K,+,\cdot\rangle$ is a field with an
+involution $x\mapsto\ol x$, let $a^*$ denote the column vector
+$(\ol{a_1},\dots,\ol{a_n})^T$. It is easy to see that any $n\times
+n$-matrix $A$ of rank~1 over $\mathcal{K}$ can be represented as
+$A=b^*c$ for some non-zero row vectors $b,c\in K^n$. Provided that
+\eqref{3.3} admits only the trivial solution in $K^n$, one gets
+$A^\dag$ as follows:
+\begin{equation}
+\label{calculating MP inverse for rank 1}
+A^\dag=c^*(cc^*)^{-1}(bb^*)^{-1}b.
+\end{equation}
+Here $bb^*$ and $cc^*$ are non-zero elements of $\mathcal{K}$
+whence their inverses in $\mathcal{K}$ exist. In order to
+justify~\eqref{calculating MP inverse for rank 1}, it suffices to
+check that the right hand side of~\eqref{calculating MP inverse
+for rank 1} satisfies the simultaneous equations~\eqref{penrose}
+with the matrix $A$ in the role of $a$, and this is
+straightforward. Note that formula \eqref{calculating MP inverse
+for rank 1} immediately shows that $A^\dag$ is a scalar multiple
+of $A^*=c^*b$, namely
+\begin{equation}\label{MP is scalar multiple}
+A^\dag=\frac{1}{cc^*\cdot bb^*}A^*.
+\end{equation}
+
+So, we can formulate one of the highlights of the section --- a
+result that reveals an unexpected feature of a rather classical
+and well studied object.
+\begin{Thm} \label{Theorem 3.5}
+Let $\mathcal{K}=\langle K,+,\cdot\rangle$ be a field having an
+involution $x\mapsto \ol x$ for which the equation $x\ol x +y\ol y
+=0$ has only the trivial solution $(x,y)=(0,0)$ in $K^2$. Then the
+unary semigroup
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^\dag\rangle$ of all
+$2\times 2$-matrices over $\mathcal{K}$ endowed with Moore-Penrose
+inversion $^\dag$ --- subject to the involution $(a_{ij})\mapsto
+(a_{ij})^*= (\ol{a_{ij}})^T$
+--- has no finite basis of identities.
+\end{Thm}
+
+\begin{proof}
+Set $\Sc=\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^\dag\rangle$.
+By Theorem~\ref{Theorem 2.1} and Lemma~\ref{Lemma 3.1} it is
+sufficient to show that
+\renewcommand{\labelenumi}{\theenumi)}
+\begin{enumerate}
+\item $\mathcal{K}_3\in\var\Sc$,
+\item there exists a group $\mathcal{G}\in\var\Sc$
+such that $\mathcal{G}\notin\var\H(\Sc)$.
+\end{enumerate}
+
+In order to prove 1), consider the following sets of rank~1
+matrices in $\mathrm{M}_2(\mathcal{K})$:
+\begin{eqnarray}
+\notag H_{11}=\left\{\begin{pmatrix} x & x\\ x &
+x\end{pmatrix}\right\}, & H_{12}=\left\{\begin{pmatrix} x & 0\\ x
+& 0\end{pmatrix}\right\}, & H_{13}=\left\{\begin{pmatrix}
+0 & x\\ 0 & x\end{pmatrix}\right\}, \\
+\label{C3 is in M2} H_{21}=\left\{\begin{pmatrix} x & x\\ 0 &
+0\end{pmatrix}\right\}, & H_{22}=\left\{\begin{pmatrix} x & 0\\ 0
+& 0\end{pmatrix}\right\}, & H_{23}=\left\{\begin{pmatrix}
+0 & x\\ 0 & 0\end{pmatrix}\right\},\\
+\notag H_{31}=\left\{\begin{pmatrix} 0 & 0\\ x &
+x\end{pmatrix}\right\}, & H_{32}=\left\{\begin{pmatrix} 0 & 0\\ x
+& 0\end{pmatrix}\right\}, & H_{33}=\left\{\begin{pmatrix} 0 & 0\\
+0 & x\end{pmatrix}\right\},
+\end{eqnarray}
+where in each case $x$ runs over $K\setminus\{0\}$. Observe that
+$\mathcal{K}$ cannot be of characteristic $2$, since the equation
+$x\ol x+y\ol y=0$ has only the trivial solution in ${K}^2$. Taking
+this into account, a straightforward calculation shows that
+\begin{equation}
+\label{multiplication in M2} H_{ij}\cdot
+H_{k\ell}=\left\{\begin{array}{cl}
+H_{i\ell}&\ \text{if}\ (j,k)\ne(2,3),(3,2),\\
+0 &\ \text{otherwise}.
+\end{array}\right.
+\end{equation}
+Hence the set
+$$T=\bigcup_{1\le i,j\le3}H_{ij}\cup\{0\}$$
+is closed under multiplication so that this set forms a
+subsemigroup $\mathcal{T}$ of $\Sc$ and the partition $\Hc$ of $T$
+into the classes $H_{ij}$ and $\{0\}$ is a congruence on
+$\mathcal{T}$. Equation \eqref{MP is scalar multiple} shows that
+\begin{equation}
+\label{inversion in M2} H_{ij}^\dag=H_{ji}.
+\end{equation}
+We see that $T$ is closed under Moore-Penrose inversion and $\Hc$
+respects $^\dag$, thus is a congruence on the unary semigroup
+$\mathcal{T}'=\left<T,\cdot,{}^\dag\right>$. Now comparing
+\eqref{multiplication in M2} and \eqref{inversion in M2} with the
+multiplication and inversion rules in $\mathcal{K}_3$ (see
+\eqref{operations in C3}), we conclude that $\mathcal{T}'/\Hc$ and
+$\mathcal{K}_3$ are isomorphic as unary semigroups. Hence
+$\mathcal{K}_3$ is in $\var\Sc$.
+
+For 2) we merely let $\mathrm{GL}_2(\mathcal{K})$, the group of
+all invertible $2\times 2$-matrices over $\mathcal{K}$, play the
+role of $\mathcal{G}$. Since Moore-Penrose inversion on
+$\mathrm{GL}_2(\mathcal{K})$ coincides with usual matrix
+inversion, we observe that $\mathrm{GL}_2(\mathcal{K})$  is a
+unary subsemigroup of $\Sc$. Moreover, since $AA^\dag$ is the
+identity matrix for every invertible matrix $A$, we conclude that,
+with the exception of the identity matrix, the Hermitian
+subsemigroup $\H(\Sc)$ contains only matrices of rank~1, that is,
+$\H(\Sc)\subseteq\mathrm{L}^1_2(\mathcal{K})$, the unary semigroup
+of all matrices of rank at most~1 with the identity matrix
+adjoined. By Corollary~\ref{identity for rank 1} the monoid
+$\mathrm{L}^1_2(\mathcal{K})$ satisfies the identity
+$x^2yx=xyx^2$. Consequently, each group in $\var\H(\Sc)$ is
+abelian, while the group $\mathrm{GL}_2(\mathcal{K})$ is
+non-abelian. Thus, $\mathrm{GL}_2(\mathcal{K})$ is contained in
+$\var\Sc$ but is not contained in $\var\H(\Sc)$, as required.
+\end{proof}
+
+\begin{Rmk}\label{remark on MP inverse}
+Apart from any subfield of $\bb C$ closed under complex
+conjugation, Theorem~\ref{Theorem 3.5} applies, for instance, to
+finite fields $\mathcal{K}=\langle K,+,\cdot\rangle$ for which
+$|K|\equiv 3\!\pmod{4}$, endowed with the trivial involution
+$x\mapsto \ol x=x$; the latter follows from the fact that the
+equation $x^2+1=0$ admits no solution in $\mathcal{K}$ if and only
+if $|K|\equiv 3\!\pmod{4}$ (cf.\ \cite[Theorem
+3.75]{LidlNiederreiter}). Moreover, by slightly changing the
+arguments one can show an analogous result for $\mathcal{K}$ being
+any skew-field of quaternions closed under conjugation.
+\end{Rmk}
+
+The reader may ask whether or not the restriction on the size of
+matrices is essential in Theorem~\ref{Theorem 3.5}. For some
+fields, it definitely is. For instance, for finite fields with the
+trivial involution $x\mapsto \ol x=x$, no extension of
+Theorem~\ref{Theorem 3.5} to $n\times n$-matrices with $n>2$ is
+possible simply because the Moore-Penrose inverse is only a
+partial operation in this case. Indeed, it is a well known
+corollary of the Chevalley-Warning theorem (see, e.g.,
+\cite[Corollary 2 in \S1.2]{Serre}) that the equation
+$x_1^2+\dots+x_n^2=0$ (that is \eqref{3.3} with the trivial
+involution) admits a non-trivial solution in any finite field
+whenever $n>2$.
+
+The situation is somewhat more complicated for subfields of $\bb
+C$. Theorem~\ref{Theorem 2.1} does not apply here because of the
+following obstacle. It is well known (see, for example,
+\cite[p.\,101]{mks}) that the two matrices
+\begin{equation}
+\label{free subgroup} \zeta=\begin{pmatrix} 1 & 0\\ 2 &
+1\end{pmatrix} \ \text{ and } \ \eta=\begin{pmatrix} 1 & 2\\ 0 &
+1\end{pmatrix}
+\end{equation}
+generate a free subgroup of $\left<\mathrm{SL}_2(\bb
+Z),\cdot,{}^{-1}\right>$. On the other hand, it is easy to verify
+that for any subfield $\mathcal{K}$ of $\bb C$ closed under
+complex conjugation, the mapping $\langle\mathrm{SL}_2(\bb
+Z),\cdot,{}^{-1}\rangle\to\langle\mathrm{M}_3(\mathcal{K}),\cdot,{}^\dag\rangle$
+defined by $A\mapsto\left(\begin{matrix} \raisebox{-4.5pt}{$A$}\\
+\begin{smallmatrix} 0 & 0 \end{smallmatrix}\end{matrix}
+\begin{smallmatrix} 0 \\ 0\\ 0\end{smallmatrix}\right)$
+is an embedding of unary semigroups. Thus, for $n>2$, the unary
+semigroup
+$\langle\mathrm{Sing}_n(\mathcal{K}),\cdot,{}^\dag\rangle$ of
+singular $n\times n$-matrices contains a free non-abelian group,
+whence every group belongs to the unary semigroup variety
+generated by the unary monoid
+$\langle\mathrm{Sing}^1_n(\mathcal{K}),\cdot,{}^\dag\rangle$. Now
+we observe that $\mathrm{Sing}^1_n(\mathcal{K})$ is contained in
+(actually, coincides with) the Hermitian subsemigroup of
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot,{}^\dag\rangle$. Indeed,
+it was proved in \cite{Erdos} (see also \cite{AM} for a recent
+elementary proof) that the semigroup
+$\langle\mathrm{Sing}^1_n(\mathcal{K}),\cdot\rangle$ is generated
+by idempotent matrices. For an arbitrary idempotent matrix
+$A\in\mathrm{M}_n(\mathcal{K})$, let $$N(A)=\{x\in K^n\mid xA=0\}\
+\text{ and } \  F(A)=\{x\in K^n\mid xA=x\}$$ be the null-space and
+the fixed-point-space of $A$, respectively. Now consider two
+matrices of orthogonal projectors: $P_1$, the matrix of the
+orthogonal projector to the space $F(A)$, and $P_2$, the matrix of
+the orthogonal projector to the space $N(A)^\perp$. As any
+orthogonal projector matrix $P$ satisfies $P=P^2=P^\dag$, both
+$P_1=P_1P_1^\dag$ and $P_2=P_2P_2^\dag$ belong to the Hermitian
+subsemigroup $\H(\mathrm{M}_n(\mathcal{K}))$, but then $A$ also
+belongs to $\H(\mathrm{M}_n(\mathcal{K}))$ since
+$A=(P_1P_2)^\dag$, see \cite[Exercise~5.15.9a]{Meyer}. Thus,
+$\mathrm{Sing}^1_n(\mathcal{K})\subseteq
+\H(\mathrm{M}_n(\mathcal{K}))$, whence no group $\mathcal{G}$ can
+satisfy the condition of Theorem~\ref{Theorem 2.1}.
+
+However, the fact that Theorem~\ref{Theorem 2.1} cannot be applied
+to, say, the unary semigroup $\langle\mathrm{M}_3(\bb
+C),\cdot,{}^\dag\rangle$ does not yet mean that the identities of
+this semigroup are finitely based. We thus have the following open
+question.
+\begin{Problem}
+\label{problem on Moore-Penrose} Is the unary semigroup
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot,{}^\dag\rangle$ not
+finitely based for each subfield $\mathcal{K}$ of $\bb C$ closed
+under complex conjugation and for all $n>2$?
+\end{Problem}
+
+In connection with this problem, we observe that the proofs of
+Theorem~\ref{Theorem 3.5} and Corollary~\ref{identity for rank 1}
+readily yield the following:
+\begin{Rmk}
+\label{rank 1 + invertible} For each conjugation-closed subfield
+$\mathcal{K}$ of $\bb C$  and for all $n>2$, the unary semigroup
+$\langle\mathrm{L}_n(\mathcal{K})\cup\mathcal{G},\cdot,{}^\dag\rangle$
+consisting of all matrices of rank at most~1 and all matrices from
+some non-abelian subgroup $\mathcal{G}$ of
+$\mathrm{GL}_n(\mathcal{K})$ has no finite identity basis.
+\end{Rmk}
+
+Another natural related structure is the semigroup
+$\textrm{M}_n(\mathcal{K})$ endowed with \textbf{both} unary
+operations ${}^\dag$ and ${}^*$. Here our techniques produce a
+similar result.
+\begin{Thm}\label{both operations}
+Let $\mathcal{K}$ be a field as in Theorem~$\ref{Theorem 3.5}$;
+then $\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^\dag,{}^*\rangle$
+is not finitely based as an algebraic structure of type $(2,1,1)$.
+\end{Thm}
+
+\begin{proof}
+The characteristic of $\mathcal{K}$ is not $2$ whence the group
+$$\mathcal{G}=\{A\in \textrm{GL}_2(\mathcal{K})\mid A^\dag=A^*\}$$
+is non-abelian. Indeed, on the prime subfield of $\mathcal{K}$,
+the involution $x \mapsto \ol x$ is the identity automorphism; so,
+for matrices over the prime subfield, conjugation ${}^*$ coincides
+with transposition,
+and thus, for example, $(\begin{smallmatrix} 0 & 1\\
+1 & 0\end{smallmatrix})$ and $(\begin{smallmatrix} 0 & -1\\ 1 & 0
+\end{smallmatrix})$ are two non-commuting members of $\mathcal{G}$. Set
+$\Ac=\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^\dag,{}^*\rangle$;
+the algebraic structure $\langle G,\cdot,{}^\dag,{}^*\rangle$,
+that is, the group $\mathcal{G}$ with inversion taken twice as
+unary operation, belongs to $\var\Ac$. Now, as in the proof of
+Theorem~\ref{Theorem 3.5}, consider the set
+$$T=\bigcup_{1\le i,j\le3}H_{ij}\cup\{0\}$$
+where $H_{ij}$ are defined via \eqref{C3 is in M2}. Obviously,
+$H_{ij}^*=H_{ji}$ whence $\Tc=\langle T,\cdot,{}^\dag,{}^*\rangle$
+is a substructure of $\Ac$ and the partition $\Hc$ of $T$ into the
+classes $H_{ij}$ and $\{0\}$ is a congruence on this substructure.
+The quotient $\Tc/\Hc$ is then isomorphic to the semigroup
+$\mathcal{K}_3$ endowed twice with its unary operation. We
+conclude that  $\mathcal{K}_3$ treated this way also belongs to
+$\var\Ac$. By Corollary~\ref{identity for rank 1} the identity
+$x^2yx=xyx^2$ holds in $\H(\Ac)$ (by which we mean the
+substructure of $\Ac$ generated by all elements of the form
+$AA^\dag$). Now construct the semigroups $\Tc_k$ (by use of the
+identity $x^2yx=xyx^2$) as in Step~2 in the proof of
+Theorem~\ref{Theorem 2.1} and endow each of them twice with its
+unary operation. The arguments in Steps~3 and~4 in the proof then
+show that $\Tc_k$ does not belong to $\var \Ac$ while each
+$k$-generated substructure of $\Tc_k$ does belong to $\var\Ac$.
+Thus, $\Tc_k$ can play the role of critical structures for
+$\var\Ac$ whence the desired conclusion follows by the reasoning
+as in Step~1 in the proof of Theorem~\ref{Theorem 2.1}.
+\end{proof}
+
+Also in this setting, our result gives rise to a natural question.
+\begin{Problem}
+\label{problem on Moore-Penrose + conjugation} Is the algebraic
+structure
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot,{}^\dag,{}^*\rangle$ of
+type $(2,1,1)$ not finitely based for each subfield $\mathcal{K}$
+of $\bb C$ closed under complex conjugation and for all $n>2$?
+\end{Problem}
+
+Here an observation similar to Remark~\ref{rank 1 + invertible}
+can be stated: for each con\-jugation-closed subfield
+$\mathcal{K}\subseteq\bb C$ and for all $n>2$, the algebraic
+structure
+$\langle\mathrm{L}_n(\mathcal{K})\cup\mathrm{GL}_n(\mathcal{K}),\cdot,{}^\dag,{}^*\rangle$
+consisting of all matrices of rank at most~1 and all invertible
+matrices has no finite identity basis.
+
+
+\subsection{Matrix semigroups with transposition}
+First of all, wee observe that, for each field $\mathcal{K}$ of
+characteristic $0$, the involutory semigroup
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$ is finitely
+based. Indeed, we have already mentioned that the two matrices
+$\zeta$ and $\eta$ in~\eqref{free subgroup} generate a free
+subgroup of $\langle\mathrm{SL}_2(\bb Z),\cdot,{}^{-1}\rangle$ and
+hence a free subsemigroup of $\langle\mathrm{SL}_2(\bb Z),
+\cdot\rangle$. But $\eta=\zeta^T$ whence the unary subsemigroup in
+$\langle\mathrm{SL}_2(\bb Z),\cdot,{}^T\rangle$ generated by
+$\zeta$ is isomorphic to the free monogenic involutory semigroup
+$\mathrm{FI}(\{\zeta\})$. The latter semigroup is known to contain
+as a unary subsemigroup a free involutory semigroup on countably
+many generators, namely, $\mathrm{FI}(Z)$ where
+$$Z=\{\zeta \zeta ^T\zeta ,\ \zeta (\zeta ^T)^2\zeta ,\ \dots,\ \zeta (\zeta ^T)^n\zeta ,\ \dots\}.$$
+Hence all identities holding in
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$ with $n\ge 2$
+and $\mathcal{K}$ of characteristic $0$ follow from the
+associativity and the involution laws $(xy)^T = y^Tx^T$, $(x^T)^T
+= x$. Similarly, $\langle\mathrm{M}_n(R),\cdot,{}^*\rangle$ is
+finitely based for each $n \ge 2$ and each subring $R\subseteq \bb
+C$ closed under complex conjugation---here ${}^*$ stands for the
+complex-conjugate transposition $(a_{ij})^*= (\ol{a_{ij}})^T$.
+
+We note that Theorem~\ref{Theorem 2.1} and Corollary~\ref{identity
+for rank 1} prove the non-existence of a finite identity bases for
+the unary subsemigroup of $\langle\mathrm{M}_n(\bb
+C),\cdot,^*\rangle$ [respectively $\langle\mathrm{M}_n(\bb
+R),\cdot,{}^T\rangle$] that consists of all matrices of rank at
+most~1 together with all unitary [respectively all orthogonal]
+matrices.
+
+For the case of finite fields, one can show that Theorem
+~\ref{Theorem 2.1} solves the finite basis problem in the negative
+for the involutory semigroup
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$ for each
+finite field $\mathcal{K}$ except $\mathcal{K}=\mathbb{F}_2$, the
+$2$-element field. Indeed, it can be verified that the involutory
+semigroup $\langle\mathrm{M}_2(\bb F_2),\cdot,{}^T\rangle$
+satisfies the identity
+$$(xx^*)^3(yy^*)^3=(yy^*)^3(xx^*)^3$$
+which does not hold in $\mathcal{K}_3$; consequently,
+$\mathcal{K}_3$ is not in $\var\langle\mathrm{M}_2(\bb
+F_2),\cdot,{}^T\rangle$ and Theorem~\ref{Theorem 2.1} does not
+apply here. In the following theorem, we shall  demonstrate the
+application of Theorem \ref{Theorem 2.1} only in the case when
+$\mathcal{K}$ has odd characteristic. With some additional effort
+we could include also the case when the characteristic of
+$\mathcal{K}$ is $2$ and $\vert K\vert\ge 4$. We shall omit this
+since that case will be covered by a different kind of proof
+later.
+
+\begin{Thm}\label{Theorem 3.6}
+For each finite field $\mathcal{K}$ of odd characteristic, the
+involutory semigroup
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$ has no finite
+identity basis.
+\end{Thm}
+
+\begin{proof}
+Let $\Sc=\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$. As
+in the proof of Theorem \ref{Theorem 3.5} one shows that
+$\mathcal{K}_3$ is in $\var\Sc$.  Furthermore, let $d$ be the
+exponent of the group $\mathrm{GL}_2(\mathcal{K})$.  By
+Corollary~\ref{identity for rank 1}, each group in
+$\P_d(\var\Sc)=\var\P_d(\Sc)$ satisfies the law $x^2yx=xyx^2$ and
+therefore is abelian. On the other hand, as in the proof of
+Theorem \ref{both operations}, the group $\mathcal{G}=\{A\in
+\mathrm{GL}_2(\mathcal{K})\mid A^T=A^{-1}\}$ is in $\var\Sc$ but
+is non-abelian. Thus, Theorem~\ref{Theorem 2.1} applies.
+\end{proof}
+
+The next theorem contains the even characteristic case and proves,
+in fact, a stronger assertion.
+
+\begin{Thm}\label{inherently degree 2}
+For each finite field $\mathcal{K}=\langle K,+,\cdot\rangle$ with
+$\vert K\vert\mathrel{\not\equiv} 3\ (\bmod\ 4)$, the involutory
+semigroup $\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$ is
+inherently non-finitely based.
+\end{Thm}
+
+\begin{proof} As mentioned in Remark \ref{remark on MP inverse},
+there exists $x\in K$ for which $1+x^2=0$. Now consider the
+following matrices:
+\begin{gather*}
+H_{11}=\begin{pmatrix} 1 & x\\ x &x^2\end{pmatrix},\
+H_{12}=\begin{pmatrix} 1 & 0\\ x &0\end{pmatrix},\
+H_{21}=\begin{pmatrix} 1 & x\\ 0 & 0\end{pmatrix},\
+H_{22}=\begin{pmatrix} 1 & 0\\ 0 & 0\end{pmatrix},\\
+I=\begin{pmatrix}1 & 0\\ 0& 1\end{pmatrix},\ O=\begin{pmatrix} 0 &
+0 \\ 0 & 0 \end{pmatrix}.
+\end{gather*}
+Then the set $M=\{H_{11},H_{12},H_{21}, H_{22},I, O\}$ is closed
+under multiplication and transposition, hence $\mathcal{M}=\langle
+M, \cdot,{}^T\rangle$ is an involutory subsemigroup of
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$. The mapping
+$\TA\to \mathcal{M}$ given by
+$$(i,j)\mapsto H_{ij},\ 0\mapsto O,\ 1\mapsto I$$
+is an isomorphism of involutory semigroups. The result now follows
+from Corollary~\ref{twisted A}.
+\end{proof}
+
+The case of matrix semigroups of degree greater than 2 is similar.
+
+\begin{Thm} \label{inherently degree 3}
+For each $n\ge 3$ and each finite field $\mathcal{K}$, the
+involutory semigroup
+$\langle\mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$ is inherently
+non-finitely based.
+\end{Thm}
+
+\begin{proof} It follows from the Chevalley-Warning theorem
+\cite[Corollary~2 in \S1.2]{Serre} that there exist $x,y\in K$
+satisfying $1+x^2+y^2=0$. Now consider the following matrices:
+\begin{gather*}
+H_{11}=\begin{pmatrix} 1 & x & y\\ x &x^2& xy\\ y & xy &
+y^2\end{pmatrix},\ H_{12}=\begin{pmatrix} 1 & 0 & 0\\ x &0 &0\\ y
+& 0 & 0\end{pmatrix},\
+H_{21}=\begin{pmatrix} 1 & x & y\\ 0 & 0 & 0\\ 0 & 0&0\end{pmatrix},\\
+H_{22}=\begin{pmatrix} 1 & 0 & 0\\ 0 & 0&0\\0&0&0\end{pmatrix},\
+I=\begin{pmatrix} 1&0&0\\0&1&0\\0&0&1\end{pmatrix},\
+O=\begin{pmatrix} 0&0&0\\0&0&0\\0&0&0\end{pmatrix}.
+\end{gather*}
+Again, the set $M=\{H_{11},H_{12},H_{21},H_{22},I,O\}$ is closed
+under multiplication and transposition, and as in the previous
+proof, $\mathcal{M}=\langle M ,\cdot,{}^T\rangle$ forms an
+involutory subsemigroup of
+$\langle\mathrm{M}_3(\mathcal{K}),\cdot,{}^T\rangle$ that is
+isomorphic with $\TA$. Hence $\langle
+\mathrm{M}_3(\mathcal{K}),\cdot,{}^T\rangle$ is inherently
+non-finitely based. The assertion for $\mathrm{M}_n(\mathcal{K})$
+for $n\ge 3$ now follows in an obvious way.
+\end{proof}
+
+\begin{Rmk}
+The statements of Theorems \ref{Theorem 3.6}, \ref{inherently
+degree 2}, \ref{inherently degree 3} remain valid if the unary
+operation $A\mapsto A^T$ is replaced with an operation of the form
+$A\mapsto A^{\si T}$ for any automorphism $\si$ of $\mathcal{K}$,
+where $(a_{ij})^{\si T}:=(a_{ij}^\si)^T$.
+\end{Rmk}
+
+We are ready to prove the result announced in Section 1 as
+Theorem~\ref{main result involution} (for the reader's convenience
+we reproduce this result here as Theorem~\ref{main result matrix
+involution}). With the exception of the `only if' part of item
+(2), this is a summary of Theorems \ref{Theorem 3.6},
+\ref{inherently degree 2}, and \ref{inherently degree 3}.
+\begin{Thm}\label{main result matrix involution} Let $n\ge 2$ and
+$\mathcal{K}=\langle K,+,\cdot\rangle$ be a finite field. Then
+\begin{enumerate}
+\item the involutory semigroup $\langle \mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$
+is not finitely based;
+\item the involutory semigroup $\langle \mathrm{M}_n(\mathcal{K}),\cdot,{}^T\rangle$
+is inherently non-finitely based if and only if either $n\ge 3$ or
+$n=2$ and $\vert K\vert\mathrel{\not\equiv 3} (\bmod\ 4)$.
+\end{enumerate}
+\end{Thm}
+It remains to prove that
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$ is
+\textbf{not} inherently non-finitely based if $\vert K\vert\equiv
+3\ (\bmod\ 4)$. The assertion follows from
+Proposition~\ref{NINFB}.
+
+
+\begin{proof}[Proof of Theorem \ref{main result matrix involution}.]
+Suppose that $\vert K\vert\equiv 3\ (\bmod\ 4)$. This is precisely
+the case when each matrix $A$ in
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$ admits a
+Moore-Penrose inverse $A^\dag$ (Remark~\ref{remark on MP
+inverse}). Let $A$ be a matrix of rank 1; by (\ref{MP is scalar
+multiple}) there exists a scalar $\alpha\in
+\mathcal{K}\setminus\{0\}$ such that $\alpha A^\dag= A^T$. Let
+$r=\vert K\vert -1$; then $\alpha^r=1$. Since the multiplicative
+subgroup of $\mathcal{K}$ is a cyclic subgroup of
+$\mathrm{GL}_2(\mathcal{K})$, the number $r$ divides the exponent
+$d$ of $\mathrm{GL}_2(\mathcal{K})$ whence $\alpha^d=1$.
+Consequently,
+$$A(A^TA)^d= A(\alpha A^\dag A)^d=\alpha^d A(A^\dag A)^d=A.$$
+If $A\in\mathrm{GL}_2(\mathcal{K})$, we also have $A=A(A^TA)^d$
+because $(A^TA)^d$ is the identity matrix; clearly, the equality
+$A=A(A^TA)^d$ holds also for the case when $A$ is the zero matrix.
+Summarizing, we conclude that the identity $x=x(x^Tx)^d$ holds in
+the involutory \sm\
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$. Setting
+$\om(x):=x^T(xx^T)^{d-1}$, we see that
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$ satisfies the
+identity $x=x\om(x)x$, as required by Proposition~\ref{NINFB}.
+\end{proof}
+
+\begin{Rmk}
+It is known~\cite[Corollary~6.2]{sapirburnside} that the matrix
+semigroup $\langle\mathrm{M}_n(\mathcal{K}),\cdot\rangle$ is
+inherently non-\fb\ (as a plain \sm) for every $n\ge 2$ and every
+finite field $\mathcal{K}$. Thus, the involutory semigroups
+$\langle\mathrm{M}_2(\mathcal{K}),\cdot,{}^T\rangle$ over finite
+fields $\mathcal{K}$ such that $\vert K\vert\equiv 3\ (\bmod\ 4)$
+provide a natural series of unary semigroups whose equational
+properties essentially differ from the equational properties of
+their semigroup reducts.
+\end{Rmk}
+
+\subsection{Matrix semigroups with symplectic transpose}
+For a $2n\times 2n$-matrix
+$$X=\begin{pmatrix} A & B\\ C & D\end{pmatrix}$$ with $A,B,C, D$ being
+$n\times n$-matrices over any field $\mathcal{K}$, the
+\emph{symplectic transpose} $X^S$ is defined by
+$$X^S=\begin{pmatrix} D^T & -B^T\\ -C^T & A^T\end{pmatrix},$$
+see e.g. \cite[(5.1.1)]{Procesi}. This definition is similar to
+that of the involution in the twisted Brandt monoid
+$\mathcal{TB}^1_2$ (defined in terms of $2\times 2$-matrices) and
+leads to the following application.
+\begin{Thm}\label{symplecticinvolution}
+The involutory semigroup
+$\left<\mathrm{M}_{2n}(\mathcal{K}),\cdot,{}^S\right>$ is
+inherently non-finitely based for each $n\ge 1$ and each finite
+field $\mathcal{K}=\left<K,+,\cdot\right>$.
+\end{Thm}
+\begin{proof} Consider the following sets of $2n\times 2n$-matrices:
+\begin{gather*}
+H_{11}=\left\{\pm \begin{pmatrix}O_n & I_n \\ O_n&O_n
+\end{pmatrix}\right\},\
+H_{12}=\left\{\pm \begin{pmatrix}I_n & O_n \\ O_n&O_n \end{pmatrix}\right\},\\
+H_{21}=\left\{\pm \begin{pmatrix}O_n & O_n \\ O_n&I_n
+\end{pmatrix}\right\},\
+H_{22}=\left\{\pm \begin{pmatrix}O_n & O_n \\ I_n&O_n
+\end{pmatrix}\right\}
+\end{gather*}
+where for any positive integer $k$, we denote be $I_k$,
+respectively, $O_k$ the identity, respectively, zero $k\times
+k$-matrix. Let
+$$T=\bigcup_{1\le i,j\le 2}H_{ij}\cup \{O_{2n}, I_{2n}\}.$$
+The set $T$ is closed under multiplication and symplectic
+transposition whence $\mathcal{T}=\left<T,\cdot,{}^S\right>$ forms
+an involutory subsemigroup of
+$\left<\mathrm{M}_{2n}(\mathcal{K}),\cdot,{}^S\right>$. On the
+other hand, the mapping
+$$H_{ij}\mapsto (i,j),\ I_{2n}\mapsto 1,\ O_{2n}
+\mapsto 0$$ is a homomorphism of $\mathcal{T}$ onto
+$\mathcal{TB}^1_2$. Altogether, the twisted Brandt monoid
+$\mathcal{TB}^1_2$ divides
+$\left<\mathrm{M}_{2n}(\mathcal{K}),\cdot,{}^S\right>$.
+\end{proof}
+\subsection{Boolean matrices}
+Recall that a \emph{Boolean} matrix is a matrix with entries $0$
+and $1$ only. The multiplication of such matrices is as usual,
+except that addition and multiplication of the entries is defined
+as: $a+b=\max\{a,b\}$ and $a\cdot b=\min\{a,b\}$. Let $B_n$ denote
+the set of all Boolean $n\times n$-matrices. It is well known that
+the \sm\ $\langle B_n,\cdot\rangle$ is essentially the same as the
+semigroup of all binary relations on an $n$-element set subject to
+the usual composition of binary relations. The operation ${}^T$ of
+forming the matrix transpose then corresponds to the operation of
+forming the dual binary relation.
+
+\begin{Thm}
+\label{Theorem 3.7} For each integer $n\ge 2$, the involutory
+semigroup $\Bc_n=\langle B_n,\cdot,{}^T\rangle$ of all Boolean
+$n\times n$-matrices endowed with transposition is inherently
+non-finitely based.
+\end{Thm}
+
+\begin{proof} Consider the Boolean matrices
+\begin{gather*}
+B_{11}=\begin{pmatrix} 0&1\\1&1\end{pmatrix},\
+B_{12}=\begin{pmatrix} 1&0\\1&1 \end{pmatrix},\
+B_{21}=\begin{pmatrix} 1&1\\0&1 \end{pmatrix},\
+B_{22}=\begin{pmatrix} 1&1\\1&0\end{pmatrix},\\
+O=\begin{pmatrix} 1&1\\1&1 \end{pmatrix},\
+I=\begin{pmatrix}1&0\\0&1 \end{pmatrix}.
+\end{gather*}
+The set $M=\{B_{11}, B_{12}, B_{21}, B_{22},O,I\}$ is closed under
+multiplication and transposition whence $\mathcal{M}=\langle
+M,\cdot,{}^T\rangle$ is an involutory subsemigroup of $\Bc_2$. The
+mapping $\TB\to \mathcal{M}$ given by
+$$ (i,j)\mapsto B_{ij},\ 0\mapsto O,\ 1\mapsto I$$
+is an isomorphism of involutory semigroups. By
+Corollary~\ref{twisted Brandt} $\mathcal{M}$ is inherently
+non-finitely based whence so is $\Bc_2$. Since $\Bc_2$ can be
+embedded as an involutory semigroup into $\Bc_n$ for each $n$, the
+result follows.
+\end{proof}
+
+\begin{Rmk}
+We can unify Theorem~\ref{Theorem 3.7} and some results in
+Subsection~2.3 by considering matrix semigroups with transposition
+over \textbf{semirings}. A \emph{semiring} is an algebraic
+structure $\mathcal{L}=\langle L,+,\cdot\rangle$ of type $(2,2)$
+such that $\langle L,+\rangle$ is a commutative semigroup,
+$\langle L,\cdot\rangle$ is a semigroup and multiplication
+distributes over addition. From the proofs of
+Theorems~\ref{inherently degree 2} and~\ref{Theorem 3.7} we see
+that the involutory matrix semigroup
+$\langle\mathrm{M}_n(\mathcal{L}),\cdot,{}^T\rangle$ over a finite
+semiring is inherently non-finitely based whenever $n\ge 2$ and
+the semiring $\mathcal{L}$ has a zero 0 (that is, a neutral
+element for $\langle L,+\rangle$ which is at the same time an
+absorbing element for $\langle L,\cdot\rangle$) and satisfies
+either of the following two conditions:
+\begin{enumerate}
+\item there exist (not necessarily distinct) elements $e,x\ne 0$
+such that $e^2=e$, $ex=xe=x$, $e+x^2=0$;
+\item there exists an element $e\ne 0$ such that $e^2=e=e+e$.
+\end{enumerate}
+We have already met an infinite series of semirings satisfying
+(1): it consists of the finite fields $\mathcal{K}=\langle
+K,+,\cdot\rangle$ with $\vert K\vert\mathrel{\not\equiv 3}(\bmod\
+4)$. It should be noted that semirings satisfying (2) are even
+more plentiful: for example, finite distributive lattices as well
+as the power semirings of finite semigroups (with the subset union
+as addition and the subset product as multiplication) fall in this
+class.
+\end{Rmk}
+
+
+\noindent\textbf{Acknowledgement.} The second author was supported
+by Grant No.\ 144011 of the Ministry of Science and Technological
+Development of the Republic of Serbia. The third author
+acknowledges support from the Federal Education Agency of Russia,
+grant 2.1.1/3537, and from the Russian Foundation for Basic
+Research, grant 09-01-12142.
+
+\begin{thebibliography}{99}
+\bibitem{Alm95}
+J.\,Almeida, \emph{Finite Semigroups and Universal Algebra}, World
+Scientific, Singapore, 1995.
+
+\bibitem{AM}
+J.\,Ara\'ujo and J.\,D.\,Mitchell, \emph{An elementary proof that
+every singular matrix is a product of idempotent matrices}, Amer.\
+Math.\ Monthly \textbf{112} (2005), 641--645.
+
+\bibitem{A1}
+K.\,Auinger, \emph{Strict regular $*$-semigroups}, pp.190--204 in:
+Proceedings of the Conference on Semigroups with Applications, J.
+M. Howie, W. D. Munn and H.-J. Weinert (eds.), World Scientific,
+Singapore, 1992.
+
+\bibitem{BIG}
+A. Ben-Israel and Th.\ Greville, \emph{Generalized Inverses:
+Theory and Applications}, Springer-Verlag, Berlin--Heidelberg--New
+York, 2003.
+
+\bibitem{BuSa81}
+S. Burris and H. P. Sankappanavar, \emph{A Course in Universal
+Algebra}, Springer-Verlag, Berlin--Heidelberg--New York, 1981.
+
+\bibitem{CP}
+A.\,H.\,Clifford and G.\,B.\,Preston, \emph{The Algebraic Theory
+of Semigroups I}, Amer.\ Math.\ Soc., Providence, 1961.
+
+\bibitem{Dolinka}
+I. Dolinka, \emph{On identities of finite involution semigroups},
+Semigroup Forum, to appear.
+
+\bibitem{D}
+M.\,P.\,Drazin, \emph{Regular semigroups with involution},
+pp.29--46 in: Proceedings of the Symposium on Regular semigroups,
+Northern Illinois University, De Kalb, 1979.
+
+\bibitem{Erdos}
+J.\,A.\,Erdos, \emph{On products of idempotent matrices}, Glasgow
+Math.\ J. \textbf{8} (1967), 118--122.
+
+\bibitem{GoMi78}
+I.\,Z.\,Golubchik and A.\,V.\,Mikhalev, \emph{A note on varieties
+of semiprime rings with semigroup identities}, J. Algebra
+\textbf{54} (1978), 42--45.
+
+\bibitem{KR}
+K.\,H.\,Kim and F.\,Roush, \emph{On groups in varieties of
+semigroups}, Semigroup Forum \textbf{ 16} (1978), 201--202.
+
+\bibitem{kleiman}
+E.\,I.\,Kleiman, \emph{Bases of identities of varieties of inverse
+semigroups}, Sibirsk.\ Mat.\ Zh. \textbf{20} (1979), 760--777
+[Russian; English transl.\ Sib.\ Math. J. \textbf{20}, 530--543].
+
+\bibitem{LidlNiederreiter}
+R.\,Lidl and H.\,Niederreiter, \emph{Finite Fields},
+Addison-Wesley, Cambridge, 1997.
+
+\bibitem{mks}
+W.\,Magnus, A.\,Karras and D.\,Solitar, \emph{Combinatorial Group
+Theory}, Wiley, New York--London--Singapore, 1966.
+
+\bibitem{margolissapir}
+S.\,W.\,Margolis and M.\,V.\,Sapir, \emph{Quasi-identities of
+finite semigroups and symbolic dynamics}, Israel J. Math.
+\textbf{92} (1995), 317--331.
+
+\bibitem{Meyer}
+C.\,D.\,Meyer, \emph{Matrix Analysis and Applied Linear Algebra},
+SIAM, Philadelphia, 2000.
+
+\bibitem{moore}
+E.\,H.\,Moore, \emph{On the reciprocal of the general  algebraic
+matrix}, Bull.\ Amer.\ Math.\ Soc. \textbf{26} (1920),  394--395.
+
+\bibitem{Ne}
+H.\,Neumann, \emph{Varieties of Groups}, Springer-Verlag,
+Berlin--Heidelberg--New York, 1967.
+
+\bibitem{oatespowell}
+S.\,Oates and M.\,B.\, Powell, \emph{Identical relations in finite
+groups}, J. Algebra  \textbf{1} (1964), 11--39.
+
+\bibitem{P}
+R.\,Penrose, \emph{A generalized inverse for matrices}, Proc.\
+Cambridge Phil.\ Soc. \textbf{51} (1955), 406--413.
+
+\bibitem{Per89}
+P.\,Perkins, \emph{Finite axiomatizability for equational theories
+of computable groupoids}, J. Symbolic Logic \textbf{54} (1989),
+1018--1022.
+
+\bibitem{Procesi}
+C.\,Procesi, \emph{Lie Groups: an Approach through Invariants and
+Representations}, Springer-Verlag, Berlin--Heidelberg--New York,
+2006.
+
+\bibitem{sapirinherently}
+M.\,V.\,Sapir, \emph{Inherently non-finitely based finite
+semigroups}, Mat.\ Sb. \textbf{133}, no.2 (1987), 154--166
+[Russian; English transl.\ Math. USSR-Sb. \textbf{61} (1988),
+155--166].
+
+\bibitem{sapirburnside}
+M.\,V.\,Sapir, \emph{Problems of Burnside type and the finite
+basis property in varieties of semigroups}, Izv.\ Akad.\ Nauk
+SSSR, Ser.\ Mat. \textbf{51} (1987), 319--340 [Russian; English
+transl.\ Math.\ USSR-Izv. \textbf{30} (1987), 295--314].
+
+\bibitem{S}
+M.\,V.\,Sapir, \emph{On Cross semigroup varieties and related
+questions}, Semigroup Forum \textbf{ 42} (1991), 345--364.
+
+\bibitem{sapirinverse}
+M.\,V.\,Sapir, \emph{Identities of finite inverse semigroups},
+Internat.\ J. Algebra Comput. \textbf{3} (1993), 115--124.
+
+\bibitem{Sapir}
+M. V. Sapir, \emph{Combinatorics on words with applications},
+IBP-Litp 1995/32: Rapport de Recherche Litp, Universit\'e Paris 7,
+1995 (available online under\\
+\url{http://www.math.vanderbilt.edu/~msapir/ftp/course/course.pdf}).
+
+\bibitem{Serre}
+J.-P. Serre, \emph{Cours d'Arithmetique}, Presses Universitaires
+de France, Paris, 1980.
+
+\bibitem{V}
+M.\,V.\,Volkov, \emph{On finite basedness of semigroup varieties},
+Mat.\  Zametki \textbf{ 45}, no.3 (1989),  12--23 [Russian;
+English transl.\ Math.\ Notes \textbf{ 45} (1989), 187--194].
+
+\bibitem{volkovjaponicae}
+M.\,V.\,Volkov, \emph{The finite basis problem for finite
+semigroups}, Sci.\ Math.\ Jpn. \textbf{53} (2001), 171--199.
+\end{thebibliography}
+\end{document}
