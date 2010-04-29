@@ -527,9 +527,9 @@ $\mathcal{A}(\psi)$ build for the \textsc{SAT} instances
 \psi_2&=\{x_1 \vee x_2,\,\neg x_1 \vee x_2,\, \neg x_2 \vee
 x_3,\,\neg x_2 \vee \neg x_3\}.
 \end{align*}
-If at some state $q\in Q$ the picture has no outgoing arrow
-labelled $c\in\{a,b\}$, the arrow $q\stackrel{c}{\to}z$ is assumed
-(all those arrows are omitted in Figure~\ref{KV:fig:A2_example} to
+If at some state $q\in Q$ in Figure~\ref{KV:fig:A2_example} there
+is no outgoing arrow labelled $c\in\{a,b\}$, the arrow
+$q\stackrel{c}{\to}z$ is assumed (those arrows are omitted to
 improve readability). The two instances differ only in the first
 clause: in $\psi_1$ it contains the literal $x_3$ while in
 $\psi_2$ it does not. Correspondingly, the automata
@@ -615,7 +615,7 @@ $\mathcal{A}$ is equal to $\ell$?}
 
 \noindent Clearly, \textsc{Short-Reset-Word} reduces to
 \textsc{Shortest-Reset-Word} and by
-Proposition~\ref{KV:prop:complexity1} the latter problem is 
+Proposition~\ref{KV:prop:complexity1} the latter problem is
 \textsf{NP}-hard. Moreover, assigning the instance
 $(\mathcal{A}(\psi),n+1)$ of \textsc{Shortest-Reset-Word} to an
 arbitrary system $\psi$ of clauses, one sees that the answer to
@@ -650,6 +650,17 @@ satisfiable and $\chi$ is unsatisfiable.
 Proposition~\ref{KV:prop:complexity2} follows from mutual
 reductions between \textsc{Shortest-Reset-Word} and
 \textsc{SAT-UNSAT} obtained in~\cite{Gawrychowski:2008}.
+
+Recently  Berlinkov~\cite{Berlinkov:2010} has shown (assuming
+\textsf{P}\,$\ne$\,\textsf{NP}) that no polynomial algorithm can
+approximate the minimum length of \sws\ for a given \san\ within a
+constant factor. We mention that Pixley, Jeong and
+Hachtel~\cite{Pixley&Jeong&Hachtel:1992} suggested an heuristic
+algorithm for finding short reset words in \sa\ that was reported
+to perform rather satisfactory on a number of benchmarks from
+\cite{Yang:1991}; further algorithms yielding short (though not
+necessarily shortest) reset words have implemented by
+Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009}.
 
 \section{The \v{C}ern\'{y} conjecture}
 
