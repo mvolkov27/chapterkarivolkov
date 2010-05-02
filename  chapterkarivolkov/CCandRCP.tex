@@ -127,11 +127,12 @@ $q,q'\in Q$. Any word $w$ with this property is said to be a
 \emph{reset}\index{reset word} word for the automaton.
 
 \begin{figure}[ht]
+\unitlength=.75mm
 \begin{center}
 \begin{picture}(50,45)(-15,-10)
-\node(A)(0,20){0} \node(B)(20,20){1} \node(C)(20,0){2}
-\node(D)(0,0){3} \drawedge(A,B){$a,b$} \drawedge(B,C){$b$}
-\drawedge(C,D){$b$} \drawedge(D,A){$b$}
+\gasset{Nh=6,Nw=6,Nmr=3} \node(A)(0,20){0} \node(B)(20,20){1}
+\node(C)(20,0){2} \node(D)(0,0){3} \drawedge(A,B){$a,b$}
+\drawedge(B,C){$b$} \drawedge(C,D){$b$} \drawedge(D,A){$b$}
 \drawloop[loopangle=45](B){$a$} \drawloop[loopangle=-45](C){$a$}
 \drawloop[loopangle=-135](D){$a$}
 \end{picture}
@@ -191,11 +192,11 @@ contributions to the area and \cite{Sandberg:2005} for a recent survey.
 Another strong motivation comes from the coding theory. We refer
 to \cite[Chapters~3 and~10]{Berstel&Perrin&Reutenauer:2009} for a
 detailed account of profound connections between codes and
-automata; here we restrict ourselves to a brief introduction into
-a special (but still very important) case of maximal prefix codes.
-Recall that a \emph{prefix code}\index{prefix code} over a finite
-alphabet $A$ is a set $X$ of words in $A^*$ such that no word of
-$X$ is a prefix of another word of $X$. A prefix code is
+automata; here we restrict ourselves to a special (but still very
+important) case of maximal prefix codes. Recall that a
+\emph{prefix code}\index{prefix code} over a finite alphabet $A$
+is a set $X$ of words in $A^*$ such that no word of $X$ is a
+prefix of another word of $X$. A prefix code is
 \emph{maximal}\index{prefix code!maximal} if it is not contained
 in another prefix code over the same alphabet. A maximal prefix
 code $X$ over $A$ is \emph{synchronized}\index{prefix
@@ -207,14 +208,13 @@ recover after a loss of synchronization between the decoder and
 the coder caused by channel errors: in the case of such a loss, it
 suffices to transmit a synchronizing word and the following
 symbols will be decoded correctly. Moreover, since the probability
-that a word $v\in A^*$ contains a fixed word $x$ as a factor tends
-to 1 when the length of $v$ increases, synchronized codes
-eventually resynchronize by themselves, after sufficiently many
-symbols being sent. (As shown
-in~\cite{Capocelli&Gargano&Vaccaro:1988}, the latter property in
-fact characterizes synchronized codes.) The following simple
-example illustrates these ideas: let $A=\{0,1\}$ and
-$X=\{000,0010,0011,010,0110,0111,10,110,111\}$. Then $X$ is a
+that a word $v\in A^*$ contains a fixed factor $x$ tends to 1 as
+the length of $v$ increases, synchronized codes eventually
+resynchronize by themselves, after sufficiently many symbols being
+sent. (As shown in~\cite{Capocelli&Gargano&Vaccaro:1988}, the
+latter property in fact characterizes synchronized codes.) The
+following simple example illustrates these ideas: let $A=\{0,1\}$
+and $X=\{000,0010,0011,010,0110,0111,10,110,111\}$. Then $X$ is a
 maximal prefix code and one can easily check that each of the
 words 010, 011110, 011111110, \dots\ is a synchronizing word for
 $X$. For instance, if the code word 000 has been sent but, due to
@@ -244,10 +244,11 @@ Sent & $0\,0\,0\ \mid 0\,0\,1\,0\,\ \mid\mathbf{0\,1\,1\,1\mid\dots}$\\
 \end{center}
 \end{figure}
 
-If $X$ is a finite prefix code over a finite alphabet $A$, then its decoding
-can be implemented by a deterministic automaton that is defined as follows.
-Let $Q$ be the set of all proper prefixes of the words in $X$ (including the empty word
-$\varepsilon$). For $q\in Q$ and $a\in A$, define
+If $X$ is a finite prefix code over an alphabet $A$, then its
+decoding can be implemented by a deterministic automaton that is
+defined as follows. Let $Q$ be the set of all proper prefixes of
+the words in $X$ (including the empty word $\varepsilon$). For
+$q\in Q$ and $a\in A$, define
 \begin{displaymath}
 q\cdot a =\begin{cases} qa & \text{if $qa$ is a proper prefix of a word of $X$}\,,\\
 \varepsilon & \text{if $qa \in X$}\,.\end{cases}
@@ -378,11 +379,11 @@ whether or not $\mathcal{A}$ is synchronizing?}
 
 \begin{figure}[htb]
 \begin{center}
-\unitlength=.9mm
-\begin{picture}(85,88)(-10,20)
-\node(A)(-20,57){0} \node(B)(0,57){1} \node(C)(0,38){2}
-\node(D)(-20,38){3} \drawedge(A,B){$a,b$} \drawedge(B,C){$b$}
-\drawedge(C,D){$b$} \drawedge(D,A){$b$}
+\unitlength=.75mm
+\begin{picture}(85,88)(-10,25)
+\gasset{Nh=6,Nw=6,Nmr=3} \node(A)(-20,57){0} \node(B)(0,57){1}
+\node(C)(0,38){2} \node(D)(-20,38){3} \drawedge(A,B){$a,b$}
+\drawedge(B,C){$b$} \drawedge(C,D){$b$} \drawedge(D,A){$b$}
 \drawloop[loopangle=45](B){$a$} \drawloop[loopangle=-45](C){$a$}
 \drawloop[loopangle=-135](D){$a$} \node(AD)(20,38){03}
 \node(AB)(20,57){01} \node(BC)(40,57){12} \node(CD)(40,38){23}
@@ -471,9 +472,9 @@ which is $O(|Q|^3)$.
 
 For a \san, the subset automaton can be used to construct shortest
 reset words which correspond to shortest paths from the whole
-state set to a singleton. Of course, this requires exponential (of
-$|Q|$) time in the worst case. Nevertheless, there were attempts
-to implement this approach, see, e.g.,
+state set $Q$ to a singleton. Of course, this requires exponential
+(of $|Q|$) time in the worst case. Nevertheless, there were
+attempts to implement this approach, see, e.g.,
 \cite{Rho&Somenzi&Pixley:1993,Trahtman:2006}. One may hope that,
 as above, a suitable calculation in the ``polynomial''
 subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ may yield a
@@ -554,6 +555,7 @@ while $\mathcal{A}(\psi_2)$ is reset by no word of length~3 but by
 every word of length~4.
 
 \begin{figure}[t]
+\unitlength=.75mm
 \begin{center}
 \begin{picture}(110,90)(0,-5)
 \node(n478)(30,50){$q_{1,2}$} \node(n479)(30,10){$q_{1,4}$}
@@ -572,13 +574,13 @@ every word of length~4.
 \drawedge(n75,n32){$b$} \drawedge[ELdist=1.1](n172,n14){$a,b$}
 \drawedge(n14,n472){$a$}
 
-\node[Nw=10.32,Nh=9.0,Nmr=0.0](n1310)(105,60){$x_1$}
-\node[Nw=10.32,Nh=9.0,Nmr=0.0](n1316)(105,40){$x_2$}
-\node[Nw=10.32,Nh=9.0,Nmr=0.0](n1318)(105,20){$x_3$}
-\node[Nw=10.32,Nh=9.0,Nmr=0.0](n1367)(30,80){$c_1$}
-\node[Nw=10.32,Nh=9.0,Nmr=0.0](n1368)(50,80){$c_2$}
-\node[Nw=10.32,Nh=9.0,Nmr=0.0](n1369)(70,80){$c_3$}
-\node[Nw=10.32,Nh=9.0,Nmr=0.0](n1370)(90,80){$c_4$}
+\node[Nw=8.32,Nh=7.0,Nmr=0.0](n1310)(105,60){$x_1$}
+\node[Nw=8.32,Nh=7.0,Nmr=0.0](n1316)(105,40){$x_2$}
+\node[Nw=8.32,Nh=7.0,Nmr=0.0](n1318)(105,20){$x_3$}
+\node[Nw=8.32,Nh=7.0,Nmr=0.0](n1367)(30,83){$c_1$}
+\node[Nw=8.32,Nh=7.0,Nmr=0.0](n1368)(50,83){$c_2$}
+\node[Nw=8.32,Nh=7.0,Nmr=0.0](n1369)(70,83){$c_3$}
+\node[Nw=8.32,Nh=7.0,Nmr=0.0](n1370)(90,83){$c_4$}
 
 \node(n1646)(60,0){$z$}
 
@@ -689,16 +691,135 @@ Hachtel~\cite{Pixley&Jeong&Hachtel:1992} suggested an heuristic
 algorithm for finding short \sws\ in \sa\ that was reported to
 perform rather satisfactory on a number of benchmarks from
 \cite{Yang:1991}; further algorithms yielding short (though not
-necessarily shortest) \sws\ have implemented by
+necessarily shortest) \sws\ have been implemented by
 Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009}.
 
 \section{The \v{C}ern\'{y} conjecture}
 
 A very natural question to ask is the following: \emph{given a
-positive integer $n$, how long can be \sws\s for \sa\ with $n$
-states?} \v{C}ern\'{y}~\cite{Cerny:1964}
+positive integer $n$, how long can be \sws\ for \sa\ with $n$
+states?} \v{C}ern\'{y}~\cite{Cerny:1964} found a lower bound by
+constructing, for each $n>1$, a \san\ $\mathcal{C}_n$ with $n$
+states and 2 input letters whose shortest \sw\ has length
+$(n-1)^2$. We assume that the state set of $\mathcal{C}_n$ is
+$Q=\{0,1,2,\dots,n-1\}$ and the input letters are $a$ and $b$,
+subject to the following action on $Q$:
+\begin{displaymath}
+i\cdot a=\begin{cases}
+i &\text{if } i>0,\\
+1 &\text{if } i=0;
+\end{cases}\quad
+i\cdot b=i+1\!\!\pmod{n}.
+\end{displaymath}
+Our first example of \san\ (see Figure\,\ref{KV:fig:C4}) is, in
+fact, $\mathcal{C}_4$. A generic automaton $\mathcal{C}_n$ is
+shown in Figure\,\ref{KV:fig:cerny-n} on the left.
+
+\begin{figure}[ht]
+\begin{center}
+\unitlength .45mm
+\begin{picture}(72,76)(25,-86)
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){1}
+\node(n1)(4.0,-40.0){$0$} \node(n2)(68.0,-40.0){2}
+\node(n3)(16.0,-72.0){$n{-}1$} \node(n4)(56.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$a,b$}
+\drawedge[ELdist=1.5](n2,n4){$b$}
+\drawedge[ELdist=1.7](n0,n2){$b$}
+\drawedge[ELdist=1.7](n3,n1){$b$}
+\drawloop[ELdist=1.5,loopangle=30](n2){$a$}
+\drawloop[ELdist=2.4,loopangle=-30](n4){$a$}
+\drawloop[ELdist=1.5,loopangle=-90](n0){$a$}
+\drawloop[ELdist=1.5,loopangle=210](n3){$a$} \put(31,-73){$\dots$}
+\end{picture}
+\begin{picture}(72,76)(-25,-86)
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){1}
+\node(n1)(4.0,-40.0){$0$} \node(n2)(68.0,-40.0){2}
+\node(n3)(16.0,-72.0){$n{-}1$} \node(n4)(56.0,-72.0){3}
+\drawedge[ELdist=2.0](n1,n0){$b$}
+\drawedge[ELdist=1.5](n2,n4){$b,c$}
+\drawedge[ELdist=1.7](n0,n2){$b,c$}
+\drawedge[ELdist=1.7](n3,n1){$b,c$}
+\drawedge[ELdist=2.0](n1,n2){$c$} \put(31,-73){$\dots$}
+\end{picture}
+\end{center}
+\caption{The DFA $\mathcal{C}_n$ and the DFA $\mathcal{W}_n$
+induced by the actions of $b$ and $c=ab$}\label{KV:fig:cerny-n}
+\end{figure}
+
+The series $\mathcal{C}_n$ was rediscovered many times (see, e.g.,
+\cite{Laemmel&Rudner:1969,Fischler&Tannenbaum:1970,Eppstein:1990}.
+It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
+$n(n-2)+1=(n-1)^2$ is a reset word for $\mathcal{C}_n$. There are
+several nice proofs for \v{C}ern\'{y}'s result that
+$\mathcal{C}_n$ has no shorter \sws~ \cite[Lemma~1]{Cerny:1964}.
+Here we present a recent proof
+from~\cite{Ananichev&Gusev&Volkov:2010}; it is based on a
+transparent idea and reveals an interesting connection between
+\v{C}ern\'{y}'s automata $\mathcal{C}_n$ and an extremal series of
+digraphs discovered in Wielandt's classic
+paper~\cite{Wielandt:1950} (see Section~\ref{KV:sec:rcp}).
+
+
+Let $w$ be a \sw\ of minimum length for $\mathcal{C}_n$. Since the
+letter $b$ acts on $Q$ as a cyclic permutation, the word $w$
+cannot end with $b$. (Otherwise removing the last letter gives a
+shorter \sw.) Thus, we can write $w$ as $w = w'a$ for some
+$w'\in\{a,b\}^*$ such that the image of $Q$ under the action of
+$w'$ is precisely the set $\{0,1\}$.
+
+Since the letter $a$ fixes each state in its image
+$\{1,2,\dots,n-1\}$, every occurrence of $a$ in $w$ except the
+last one is followed by an occurrence of $b$. (Otherwise $a^2$
+occurs in $w$ as a factor and reducing this factor to just $a$
+results in a shorter \sw.) Therefore, if we let $c=ab$, then the
+word $w'$ can be rewritten into a word $v$ over the alphabet
+$\{b,c\}$. The actions of $b$ and $c$ induce a new DFA on the
+state set $Q$; we denote this induced DFA (shown in
+Figure\,\ref{KV:fig:cerny-n} on the right) by $\mathcal{W}_n$.
+Since $w'$ and $v$ act on $Q$ in the same way, the word $vc$ is a
+\sw\ for $\mathcal{W}_n$ and brings the automaton to the state~2.
+
+If $u\in\{b,c\}^*$, the word $uvc$ also is a \sw\ for
+$\mathcal{W}_n$ and it also brings the automaton to~2. Hence, for
+every $\ell\ge|vc|$, there is a path of length $\ell$ in
+$\mathcal{W}_n$ from any given state $i$ to~2. In particular,
+setting $i=2$, we conclude that for every $\ell\ge|w|$ there is a
+cycle of length $\ell$ in $\mathcal{W}_n$. The underlying digraph
+of $\mathcal{W}_n$ has simple cycles only of two lengths: $n$ and
+$n-1$. Each cycle of $\mathcal{W}_n$ must consist of simple cycles
+of these two lengths whence each number $\ell\ge|w|$ must be
+expressible as a non-negative integer combination of $n$ and
+$n-1$. Here we invoke the following well-known and elementary
+result from arithmetics:
+
+\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RamirezAlfonsin:2005}}]
+\label{KV:lemma:sylvester} If $k_1,k_2$ are relatively prime
+positive integers, then $k_1k_2-k_1-k_2$ is the largest integer
+that is not expressible as a non-negative integer combination of
+$k_1$ and $k_2$.
+\end{lemma}
+
+Lemma~\ref{KV:lemma:sylvester} implies that
+$|vc|>n(n-1)-n-(n-1)=n^2-3n+1$. Suppose that $|vc|=n^2-3n+2$. Then
+there should be a path of this length from the state~1 to the
+state~2. Every outgoing edge of~1 leads to~2, and thus, in the
+path it must be followed by a cycle of length $n^2-3n+1$. No cycle
+of such length may exist by Lemma~\ref{KV:lemma:sylvester}. Hence
+$|vc|\ge n^2-3n+3$.
+
+Since the action of $b$ on any set $S$ of states cannot change the
+cardinality of $S$ and the action of $c$ can decrease the
+cardinality by~1 at most, the word $vc$ must contain at least
+$n-1$ occurrences of $c$. Hence the length of $v$ over $\{b,c\}$
+is at least $n^2-3n+2$ and $v$ contain at least $n-2$ occurrences
+of $c$. Since each occurrence of $c$ in $v$ corresponds to an
+occurrence of the factor $ab$ in $w'$, we conclude that the length
+of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$. Thus,
+$|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
+
 
 \section{The road coloring problem}
+\label{KV:sec:rcp}
 
 \section{Generalizations}
 

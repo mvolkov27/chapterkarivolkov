@@ -2,6 +2,13 @@
   \newcommand{\etal}{et al.}
 \begin{thebibliography}{10}
 
+\bibitem{Ananichev&Gusev&Volkov:2010}
+D.~Ananichev, V.~Gusev, and M.~Volkov.
+\newblock Slowly synchronizing automata and digraphs.
+\newblock In {\em Mathematical Foundations of Computer Science, MFCS'10},
+  Lecture Notes in Comput. Sci. Springer-Verlag, 2010.
+\newblock (\url{http://arxiv.org/submit/33191}).
+
 \bibitem{Ashby:1956}
 W.~R. Ashby.
 \newblock {\em An introduction to cybernetics}.
@@ -55,6 +62,13 @@ D.~Eppstein.
 \newblock Reset sequences for monotonic automata.
 \newblock {\em SIAM J. Comput.}, 19:500--510, 1990.
 
+\bibitem{Fischler&Tannenbaum:1970}
+M.~A. Fischler and M.~Tannenbaum.
+\newblock Synchronizing and representation problems for sequential machines
+  with masked outputs.
+\newblock In {\em Proc.\ 11th Annual Symp.\ Foundations Comput.\ Sci}, pages
+  97--103. IEEE Press, 1970.
+
 \bibitem{Garey&Johnson:1979}
 M.~R. Garey and D.~S. Johnson.
 \newblock {\em Computers and intractability: a guide to the theory of
@@ -93,6 +107,12 @@ F.~C. Hennie.
 \newblock In {\em {S}witching {C}ircuit {T}heory and {L}ogical {D}esign,
   Proceedings of the {F}ifth {A}nnual {S}ymposium}, pages 95--110. IEEE Press,
   1964.
+
+\bibitem{Laemmel&Rudner:1969}
+A.~E. Laemmel and B.~Rudner.
+\newblock Study of the application of coding theory.
+\newblock Technical Report PIBEP-69-034, Dept.\ Electrophysics, Polytechnic
+  Inst.\ Brooklyn, Farmingdale, N.Y., 1969.
 
 \bibitem{Moore:1956}
 E.~F. Moore.
@@ -139,6 +159,11 @@ C.~Pixley, S.-W. Jeong, and G.~D. Hachtel.
 M.~O. Rabin and D.~Scott.
 \newblock Finite automata and their decision problems.
 \newblock {\em IBM J. Res. Develop.}, 3(2):114--125, 1959.
+
+\bibitem{RamirezAlfonsin:2005}
+J.~L. Ram\'{\i}rez~Alfons\'{\i}n.
+\newblock {\em The diophantine {F}robenius problem.}
+\newblock Oxford University Press, 2005.
 
 \bibitem{Rho&Somenzi&Pixley:1993}
 J.-K. Rho, F.~Somenzi, and C.~Pixley.
@@ -205,6 +230,12 @@ M.~Volkov.
 \newblock In C.~Mart\'{\i}n-Vide, F.~Otto, and H.~Fernau, editors, {\em
   Language and Automata Theory and Applications}, volume 5196 of {\em Lecture
   Notes in Comput. Sci.}, pages 11--27. Springer-Verlag, 2008.
+
+\bibitem{Wielandt:1950}
+H.~Wielandt.
+\newblock Unzerlegbare, nicht negative {M}atrizen.
+\newblock {\em Math. Z.}, 52:642--648, 1950.
+\newblock (in German).
 
 \bibitem{Yang:1991}
 S.~Yang.
