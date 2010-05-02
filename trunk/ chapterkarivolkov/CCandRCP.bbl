@@ -111,6 +111,13 @@ B.~K. Natarajan.
 \newblock Some paradigms for the automated design of parts feeders.
 \newblock {\em Internat.\ J. Robotics Research}, 8(6):89--109, 1989.
 
+\bibitem{Olschewski&Ummels:2010}
+J.~Olschewski and M.~Ummels.
+\newblock The complexity of finding reset words in finite automata.
+\newblock In {\em Mathematical Foundations of Computer Science, MFCS'10},
+  Lecture Notes in Comput. Sci. Springer-Verlag, 2010.
+\newblock (\url{http://arxiv.org/abs/1004.3246}).
+
 \bibitem{Papadimitriou:1994}
 C.~H. Papadimitriou.
 \newblock {\em Computational complexity}.
@@ -170,6 +177,11 @@ S.~Sandberg.
 \newblock In M.~Broy, B.~Jonsson, J.-P. Katoen, M.~Leucker, and A.~Pretschner,
   editors, {\em Model-Based Testing of Reactive Systems}, volume 3472 of {\em
   Lecture Notes in Comput. Sci.}, pages 5--33. Springer-Verlag, 2005.
+
+\bibitem{Selman:1994}
+A.~L. Selman.
+\newblock A taxonomy of complexity classes of functions.
+\newblock {\em J. Comput. System Sci.}, 42(1):357--381, 1994.
 
 \bibitem{Trahtman:2006}
 A.~Trahtman.
