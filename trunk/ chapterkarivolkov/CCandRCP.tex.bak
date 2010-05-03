@@ -130,11 +130,11 @@ $q,q'\in Q$. Any word $w$ with this property is said to be a
 \unitlength=.75mm
 \begin{center}
 \begin{picture}(50,45)(-15,-10)
-\gasset{Nh=6,Nw=6,Nmr=3} \node(A)(0,20){0} \node(B)(20,20){1}
-\node(C)(20,0){2} \node(D)(0,0){3} \drawedge(A,B){$a,b$}
-\drawedge(B,C){$b$} \drawedge(C,D){$b$} \drawedge(D,A){$b$}
-\drawloop[loopangle=45](B){$a$} \drawloop[loopangle=-45](C){$a$}
-\drawloop[loopangle=-135](D){$a$}
+\gasset{Nh=6,Nw=6,Nmr=3,loopdiam=6} \node(A)(0,20){0}
+\node(B)(20,20){1} \node(C)(20,0){2} \node(D)(0,0){3}
+\drawedge(A,B){$a,b$} \drawedge(B,C){$b$} \drawedge(C,D){$b$}
+\drawedge(D,A){$b$} \drawloop[loopangle=45](B){$a$}
+\drawloop[loopangle=-45](C){$a$} \drawloop[loopangle=-135](D){$a$}
 \end{picture}
 \caption{A synchronizing automaton}\label{KV:fig:C4}
 \end{center}
@@ -537,13 +537,13 @@ $\mathcal{A}(\psi)$ build for the \textsc{SAT} instances
 x_3,\,\neg x_2 \vee \neg x_3\}.
 \end{align*}
 If at some state $q\in Q$ in Figure~\ref{KV:fig:A2_example} there
-is no outgoing arrow labelled $c\in\{a,b\}$, the arrow
-$q\stackrel{c}{\to}z$ is assumed (those arrows are omitted to
+is no outgoing edge labelled $c\in\{a,b\}$, the edge
+$q\stackrel{c}{\to}z$ is assumed (those edges are omitted to
 improve readability). The two instances differ only in the first
 clause: in $\psi_1$ it contains the literal $x_3$ while in
 $\psi_2$ it does not. Correspondingly, the automata
 $\mathcal{A}(\psi_1)$ and $\mathcal{A}(\psi_2)$ differ only by the
-outgoing arrow labelled $a$ at the state $q_{1,3}$: in
+outgoing edge labelled $a$ at the state $q_{1,3}$: in
 $\mathcal{A}(\psi_1)$ it leads to $z$ (and therefore, it is not
 shown) while in $\mathcal{A}(\psi_2)$ it leads to the state
 $q_{1,4}$ and is shown by the dashed line.
@@ -609,10 +609,9 @@ is \textsf{NP}-complete.
 
 In fact, as observed by Samotij~\cite{Samotij:2007}, the above
 construction yields slightly more\footnote{Actually, the reduction
-proposed in~\cite{Samotij:2007} is not correct but the result
-claimed in that note can be easily recovered as shown below.}.
-Consider the following decision
-problem:\index{\textsc{Shortest-Reset-Word}}
+in~\cite{Samotij:2007} is not correct but the result claimed can
+be easily recovered as shown below.}. Consider the following
+decision problem:\index{\textsc{Shortest-Reset-Word}}
 
 \smallskip
 
@@ -731,9 +730,9 @@ shown in Figure\,\ref{KV:fig:cerny-n} on the left.
 \drawloop[ELdist=1.5,loopangle=-90](n0){$a$}
 \drawloop[ELdist=1.5,loopangle=210](n3){$a$} \put(31,-73){$\dots$}
 \end{picture}
-\begin{picture}(72,66)(-25,-76)
+\begin{picture}(72,76)(-25,-86)
 \gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){1}
-\node(n1)(4.0,-40.0){$n$} \node(n2)(68.0,-40.0){2}
+\node(n1)(4.0,-40.0){$0$} \node(n2)(68.0,-40.0){2}
 \node(n3)(16.0,-72.0){$n{-}1$} \node(n4)(56.0,-72.0){3}
 \drawedge[ELdist=2.0](n1,n0){$b$}
 \drawedge[ELdist=1.5](n2,n4){$b,c$}
@@ -742,27 +741,29 @@ shown in Figure\,\ref{KV:fig:cerny-n} on the left.
 \drawedge[ELdist=2.0](n1,n2){$c$} \put(31,-73){$\dots$}
 \end{picture}
 \end{center}
-\caption{The DFA $\mathcal{C}_n$ and the DFA induced by the
-actions of $b$ and $c=ab$}\label{KV:fig:cerny-n}
+\caption{The DFA $\mathcal{C}_n$ and the DFA $\mathcal{W}_n$
+induced by the actions of $b$ and $c=ab$}\label{KV:fig:cerny-n}
 \end{figure}
 
-Now we present a new simple proof for the following classic
-result.
-\begin{theorem}[{\mdseries\cite[Lemma~1]{Ce64}}]
-\label{theorem:cerny} The automaton $\mathcal{C}_n$ is
-synchronizing and its reset length is $(n-1)^2$.
-\end{theorem}
-
-\begin{proof}
+The series $\mathcal{C}_n$ was rediscovered many times (see, e.g.,
+\cite{Laemmel&Rudner:1969,Fischler&Tannenbaum:1970,Eppstein:1990}).
 It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
-$n(n-2)+1=(n-1)^2$ is a reset word for $\mathcal{C}_n$.
+$n(n-2)+1=(n-1)^2$ is a reset word for $\mathcal{C}_n$. There are
+several nice proofs for \v{C}ern\'{y}'s
+result~\cite[Lemma~1]{Cerny:1964} that $\mathcal{C}_n$ has no
+shorter \sws. Here we present a recent proof
+from~\cite{Ananichev&Gusev&Volkov:2010}; it is based on a
+transparent idea and reveals an interesting connection between
+\v{C}ern\'{y}'s automata $\mathcal{C}_n$ and an extremal series of
+digraphs discovered in Wielandt's classic
+paper~\cite{Wielandt:1950} (see Section~\ref{KV:sec:rcp}).
 
-Now let $w$ be a \sw\ of minimum length for $\mathcal{C}_n$. Since
-the letter $b$ acts on $Q$ as a cyclic permutation, the word $w$
+Let $w$ be a \sw\ of minimum length for $\mathcal{C}_n$. Since the
+letter $b$ acts on $Q$ as a cyclic permutation, the word $w$
 cannot end with $b$. (Otherwise removing the last letter gives a
 shorter \sw.) Thus, we can write $w$ as $w = w'a$ for some
 $w'\in\{a,b\}^*$ such that the image of $Q$ under the action of
-$w'$ is precisely the set $\{1,n\}$.
+$w'$ is precisely the set $\{0,1\}$.
 
 Since the letter $a$ fixes each state in its image
 $\{1,2,\dots,n-1\}$, every occurrence of $a$ in $w$ except the
@@ -770,25 +771,53 @@ last one is followed by an occurrence of $b$. (Otherwise $a^2$
 occurs in $w$ as a factor and reducing this factor to just $a$
 results in a shorter \sw.) Therefore, if we let $c=ab$, then the
 word $w'$ can be rewritten into a word $v$ over the alphabet
-$\{b,c\}$. The actions of $b$ and $c$ induce a new automaton on
-the state set $Q$; this induced automaton (shown in
-Fig.\,\ref{fig:cerny-n} on the right) is obviously isomorphic to
-the automaton $\mathcal{W}_n$. Since $w'$ and $v$ act on $Q$ in
-the same way, the word $vc$ is a \sw\ for the induced automaton.
-By Theorem~\ref{theorem:anan} the length of $vc$ (as a word over
-$\{b,c\}$) is at least $n^2-3n+3$. Since the action of $b$ on any
-set $S$ of states cannot change the cardinality of $S$ and the
-action of $c$ can decrease the cardinality by~1 at most, the word
-$vc$ must contain at least $n-1$ occurrences of $c$. Hence the
-length of $v$ over $\{b,c\}$ is at least $n^2-3n+2$ and $v$
-contain at least $n-2$ occurrences of $c$. Since each occurrence
-of $c$ in $v$ corresponds to an occurrence of the factor $ab$ in
-$w'$, we conclude that the length of $w'$ over $\{a,b\}$ is at
-least $n^2-3n+2+n-2=n^2-2n$. Thus, $|w|=|w'a|\ge
-n^2-2n+1=(n-1)^2$.
-\end{proof}
+$\{b,c\}$. The actions of $b$ and $c$ induce a new DFA on the
+state set $Q$; we denote this induced DFA (shown in
+Figure\,\ref{KV:fig:cerny-n} on the right) by $\mathcal{W}_n$.
+Since $w'$ and $v$ act on $Q$ in the same way, the word $vc$ is a
+\sw\ for $\mathcal{W}_n$ and brings the automaton to the state~2.
+
+If $u\in\{b,c\}^*$, the word $uvc$ also is a \sw\ for
+$\mathcal{W}_n$ and it also brings the automaton to~2. Hence, for
+every $\ell\ge|vc|$, there is a path of length $\ell$ in
+$\mathcal{W}_n$ from any given state $i$ to~2. In particular,
+setting $i=2$, we conclude that for every $\ell\ge|w|$ there is a
+cycle of length $\ell$ in $\mathcal{W}_n$. The underlying digraph
+of $\mathcal{W}_n$ has simple cycles only of two lengths: $n$ and
+$n-1$. Each cycle of $\mathcal{W}_n$ must consist of simple cycles
+of these two lengths whence each number $\ell\ge|w|$ must be
+expressible as a non-negative integer combination of $n$ and
+$n-1$. Here we invoke the following well-known and elementary
+result from arithmetics:
+
+\begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RamirezAlfonsin:2005}}]
+\label{KV:lemma:sylvester} If $k_1,k_2$ are relatively prime
+positive integers, then $k_1k_2-k_1-k_2$ is the largest integer
+that is not expressible as a non-negative integer combination of
+$k_1$ and $k_2$.
+\end{lemma}
+
+Lemma~\ref{KV:lemma:sylvester} implies that
+$|vc|>n(n-1)-n-(n-1)=n^2-3n+1$. Suppose that $|vc|=n^2-3n+2$. Then
+there should be a path of this length from the state~1 to the
+state~2. Every outgoing edge of~1 leads to~2, and thus, in the
+path it must be followed by a cycle of length $n^2-3n+1$. No cycle
+of such length may exist by Lemma~\ref{KV:lemma:sylvester}. Hence
+$|vc|\ge n^2-3n+3$.
+
+Since the action of $b$ on any set $S$ of states cannot change the
+cardinality of $S$ and the action of $c$ can decrease the
+cardinality by~1 at most, the word $vc$ must contain at least
+$n-1$ occurrences of $c$. Hence the length of $v$ over $\{b,c\}$
+is at least $n^2-3n+2$ and $v$ contain at least $n-2$ occurrences
+of $c$. Since each occurrence of $c$ in $v$ corresponds to an
+occurrence of the factor $ab$ in $w'$, we conclude that the length
+of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$. Thus,
+$|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
+
 
 \section{The road coloring problem}
+\label{KV:sec:rcp}
 
 \section{Generalizations}
 
