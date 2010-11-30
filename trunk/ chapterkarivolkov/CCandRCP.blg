@@ -5,42 +5,42 @@ Database file #1: abbrevs.bib
 Database file #2: SA.bib
 You've used 40 entries,
             2118 wiz_defined-function locations,
-            2045 strings with 32778 characters,
-and the built_in function-call counts, 13449 in all, are:
-= -- 1397
-> -- 483
-< -- 18
-+ -- 197
-- -- 148
-* -- 846
-:= -- 2177
-add.period$ -- 142
+            2047 strings with 32755 characters,
+and the built_in function-call counts, 13853 in all, are:
+= -- 1440
+> -- 499
+< -- 22
++ -- 201
+- -- 152
+* -- 884
+:= -- 2222
+add.period$ -- 140
 call.type$ -- 40
 change.case$ -- 181
 chr.to.int$ -- 0
 cite$ -- 40
-duplicate$ -- 572
-empty$ -- 1151
-format.name$ -- 148
-if$ -- 2917
+duplicate$ -- 588
+empty$ -- 1176
+format.name$ -- 152
+if$ -- 3015
 int.to.chr$ -- 0
 int.to.str$ -- 40
 missing$ -- 43
-newline$ -- 210
-num.names$ -- 90
+newline$ -- 208
+num.names$ -- 94
 pop$ -- 187
 preamble$ -- 2
 purify$ -- 147
 quote$ -- 0
-skip$ -- 388
+skip$ -- 411
 stack$ -- 0
-substring$ -- 912
-swap$ -- 147
-text.length$ -- 18
+substring$ -- 968
+swap$ -- 165
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 148
 warning$ -- 0
-while$ -- 149
+while$ -- 157
 width$ -- 42
-write$ -- 469
+write$ -- 467

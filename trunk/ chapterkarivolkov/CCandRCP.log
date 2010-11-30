@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  3 MAY 2010 12:12
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  24 NOV 2010 21:00
 **CCandRCP.tex
 (./CCandRCP.tex
 LaTeX2e <2001/06/01>
@@ -22,24 +22,24 @@ File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsmath.sty
+(c:/TeXLive/texmf/tex/latex/amslatex/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amstext.sty
+(c:/TeXLive/texmf/tex/latex/amslatex/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsgen.sty
+(c:/TeXLive/texmf/tex/latex/amslatex/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks14
 \ex@=\dimen103
 ))
-(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsbsy.sty
+(c:/TeXLive/texmf/tex/latex/amslatex/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen104
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/amslatex/amsopn.sty
+(c:/TeXLive/texmf/tex/latex/amslatex/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count87
@@ -80,17 +80,17 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/amssymb.sty
+(c:/TeXLive/texmf/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2002/01/22 v2.2d
 
-(c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/amsfonts.sty
+(c:/TeXLive/texmf/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2001/10/25 v2.2f
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
 ))
-(c:/Program Files/TeXLive/texmf/tex/latex/base/latexsym.sty
+(c:/TeXLive/texmf/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
@@ -120,13 +120,13 @@ LaTeX Warning: You have requested package `',
 
 Package: ha 2009/11/08 ver0.8  Additional constructs for "Handbook of automata"
 
-(c:/Program Files/TeXLive/texmf-local/tex/latex/caption/caption.sty
+(c:/TeXLive/texmf-local/tex/latex/caption/caption.sty
 Package: caption 2008/08/24 v3.1j Customizing captions (AR)
 
-(c:/Program Files/TeXLive/texmf-local/tex/latex/caption/caption3.sty
+(c:/TeXLive/texmf-local/tex/latex/caption/caption3.sty
 Package: caption3 2008/08/24 v3.1j caption3 kernel (AR)
 
-(c:/Program Files/TeXLive/texmf/tex/latex/graphics/keyval.sty
+(c:/TeXLive/texmf/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks25
 )
@@ -149,10 +149,10 @@ p \sbox \@tempboxa {\small #1. #2}\ifdim \wd \@tempboxa >\hsize \small #1. #2\e
 lse \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@tempboxa \hfil }\fi \v
 skip \belowcaptionskip .
 \c@ContinuedFloat=\count99
-) (c:/Program Files/TeXLive/texmf/tex/latex/psnfss/times.sty
+) (c:/TeXLive/texmf/tex/latex/psnfss/times.sty
 Package: times 2002/04/24 PSNFSS-v9.0 (SPQR) 
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/base/makeidx.sty
+(c:/TeXLive/texmf/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
 \@indexfile=\write3
@@ -163,19 +163,19 @@ Writing index file CCandRCP.idx
 \c@theorem=\count100
 \c@definition=\count101
 \c@example=\count102
-(c:/Program Files/TeXLive/texmf-local/tex/latex/url.sty
+(c:/TeXLive/texmf-local/tex/latex/url.sty
 Package: url 1996/10/19  ver 1.2  Verb mode for urls, email addresses, and file
  names
 )
-(c:/Program Files/TeXLive/texmf-local/tex/latex/xcolor.sty
+(c:/TeXLive/texmf-local/tex/latex/xcolor.sty
 Package: xcolor 2004/07/04 v2.00 LaTeX color extensions (UK)
 
-(c:/Program Files/TeXLive/texmf/tex/latex/texlive/color.cfg
+(c:/TeXLive/texmf/tex/latex/texlive/color.cfg
 File: color.cfg 2001/08/31 v1.1 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: dvips.def on input line 136.
 
-(c:/Program Files/TeXLive/texmf/tex/latex/graphics/dvips.def
+(c:/TeXLive/texmf/tex/latex/graphics/dvips.def
 File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 )
 Package xcolor Info: Color model `cmy' added on input line 972.
@@ -183,7 +183,7 @@ Package xcolor Info: Color model `HTML' added on input line 1000.
 Package xcolor Info: Color model `HSB' added on input line 1006.
 Package xcolor Info: Color model `Gray' added on input line 1012.
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/ltxmisc/ulem.sty
+(c:/TeXLive/texmf/tex/latex/ltxmisc/ulem.sty
 \UL@box=\box28
 \UL@hyphenbox=\box29
 \UL@skip=\skip52
@@ -194,10 +194,10 @@ Package xcolor Info: Color model `Gray' added on input line 1012.
 Package: ulem 2000/05/26
 \ULdepth=\dimen119
 ))
-(c:/Program Files/TeXLive/texmf-local/tex/latex/gastex.sty
+(c:/TeXLive/texmf-local/tex/latex/gastex.sty
 Package: gastex 2004/05/02 v2.7
 
-(c:/Program Files/TeXLive/texmf-local/tex/latex/calc.sty
+(c:/TeXLive/texmf-local/tex/latex/calc.sty
 Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
 \calc@Acount=\count104
 \calc@Bcount=\count105
@@ -209,7 +209,7 @@ LaTeX Info: Redefining \setlength on input line 55.
 LaTeX Info: Redefining \addtolength on input line 56.
 \calc@denominator=\count106
 )
-(c:/Program Files/TeXLive/texmf-local/tex/latex/trig.sty
+(c:/TeXLive/texmf-local/tex/latex/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
 \c@cnt@a=\count107
@@ -225,13 +225,13 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 ) (./vaucanson-g.sty
 Package: vaucanson-g 2008/10/27 package wrapper for VauCanSon-G v. 0.4
 
-(c:/Program Files/TeXLive/texmf/tex/latex/base/ifthen.sty
+(c:/TeXLive/texmf/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pstricks.sty
+(c:/TeXLive/texmf/tex/latex/pstricks/pstricks.sty
 Package: pstricks 1997/03/25 package wrapper for PSTricks pstricks.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pstricks.tex
+(c:/TeXLive/texmf/tex/generic/pstricks/pstricks.tex
 `PSTricks' v97 patch 14  <1999/12/23> (tvz)
 \pst@dima=\dimen125
 \pst@dimb=\dimen126
@@ -248,7 +248,7 @@ Package: pstricks 1997/03/25 package wrapper for PSTricks pstricks.tex
 \pst@cntg=\count117
 \pst@cnth=\count118
 \pst@toks=\toks27
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pstricks.con)
+(c:/TeXLive/texmf/tex/generic/pstricks/pstricks.con)
 \psunit=\dimen131
 \psxunit=\dimen132
 \psyunit=\dimen133
@@ -260,43 +260,37 @@ Package: pstricks 1997/03/25 package wrapper for PSTricks pstricks.tex
 \pslabelsep=\dimen137
 \theoverlaybox=\box34
 ))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-node.sty
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-node.sty
 Package: pst-node 1997/03/25 package wrapper for PSTricks pst-node.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-node.tex
- v97 patch 11, 2000/11/09
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-node.tex  v97 patch 11, 2000/11/09
 \psrow=\count119
 \pscol=\count120
 \psmatrixcnt=\count121
 \psrowsep=\skip55
 \pscolsep=\skip56
-))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-plot.sty
+)) (c:/TeXLive/texmf/tex/latex/pstricks/pst-plot.sty
 Package: pst-plot 1997/03/25 package wrapper for PSTricks pst-plot.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-plot.tex
- v97 patch 2, 1999/12/12
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/multido.tex
- v1.4, 93/01/14 <tvz>
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-plot.tex  v97 patch 2, 1999/12/12
+(c:/TeXLive/texmf/tex/generic/pstricks/multido.tex  v1.4, 93/01/14 <tvz>
 \multido@count=\count122
 \multidocount=\count123
 \multido@stuff=\toks30
 )))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-coil.sty
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-coil.sty
 Package: pst-coil 1997/03/25 package wrapper for PSTricks pst-coil.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-coil.tex
- v97 patch 2, 1998/03/19))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/multido.sty
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-coil.tex  v97 patch 2, 1998/03/19))
+(c:/TeXLive/texmf/tex/latex/pstricks/multido.sty
 Package: multido 1997/03/25 package wrapper for PSTricks multido.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/multido.tex
- v1.4, 93/01/14 <tvz>))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-3d.sty
+(c:/TeXLive/texmf/tex/generic/pstricks/multido.tex  v1.4, 93/01/14 <tvz>))
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-3d.sty
 Package: pst-3d 1997/03/25 package wrapper for PSTricks pst-3d.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-3d.tex
- v97, 1997/03/25)) (./Vaucanson-G.tex
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-3d.tex  v97, 1997/03/25))
+(./Vaucanson-G.tex
 \MediumStateDiameter=\skip57
 \SmallStateDiameter=\skip58
 \LargeStateDiameter=\skip59
@@ -314,18 +308,17 @@ Package: pst-3d 1997/03/25 package wrapper for PSTricks pst-3d.tex
 \TransLabelSep=\skip71
 \VertShiftH=\skip72
 LaTeX Font Info:    Try loading font information for U+msa on input line 206.
-
-(c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsa.fd
+ (c:/TeXLive/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 206.
 
-(c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/umsb.fd
+(c:/TeXLive/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 206.
 
-(c:/Program Files/TeXLive/texmf/tex/latex/base/ulasy.fd
+(c:/TeXLive/texmf/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 \VertShiftD=\skip73
@@ -350,8 +343,8 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 \TransLabelSP=\skip92
 \c@anglea=\count124
 \c@angleb=\count125
-) (./VCPref-default.tex)) (c:/Program Files/TeXLive/texmf/tex/latex/lineno/line
-no.sty
+) (./VCPref-default.tex))
+(c:/TeXLive/texmf/tex/latex/lineno/lineno.sty
 Package: lineno 2002/01/27 line numbers on paragraphs v3.08b
 \linenopenalty=\count126
 \output=\toks31
@@ -368,15 +361,13 @@ Package: lineno 2002/01/27 line numbers on paragraphs v3.08b
 \bframesep=\dimen142
 \bframebox=\box35
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/tools/showkeys.sty
+(c:/TeXLive/texmf/tex/latex/tools/showkeys.sty
 Package: showkeys 1997/06/12 v3.12 Show cite and label keys (DPC)
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/hyperref.
-sty
+(c:/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2008/01/09 v6.77i Hypertext links for LaTeX
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/latex/oberdiek/
-hycolor.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/latex/oberdiek/hycolor.sty
 Package: hycolor 2007/04/11 v1.1 Code for color options of hyperref/bookmark (H
 O)
 )
@@ -384,16 +375,14 @@ O)
 \Hy@linkcounter=\count133
 \Hy@pagecounter=\count134
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/pd1enc.de
-f
+(c:/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2008/01/09 v6.77i Hyperref: PDFDocEncoding definition (HO)
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/etexcmds.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/infwarerr.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/infwarerr.st
+y
 Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
 )
 Package etexcmds Info: Could not find \unexpanded.
@@ -404,12 +393,10 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
-)
-(c:/Program Files/TeXLive/texmf/tex/latex/texlive/hyperref.cfg
+) (c:/TeXLive/texmf/tex/latex/texlive/hyperref.cfg
 File: hyperref.cfg 2001/06/04 v1.0 hyperref configuration of TeXLive
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/latex/oberdiek/
-kvoptions.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2007/10/18 v3.0 Keyval support for LaTeX options (HO)
 )
 Package hyperref Info: Option `hyperindex' set `true' on input line 2686.
@@ -419,37 +406,32 @@ Package hyperref Info: Link nesting OFF on input line 2727.
 Package hyperref Info: Hyper index ON on input line 2730.
 Package hyperref Info: Plain pages OFF on input line 2737.
 Package hyperref Info: Backreferencing ON on input line 2740.
-
 Implicit mode ON; LaTeX internals redefined
 Package hyperref Info: Bookmarks ON on input line 2898.
-
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/backref.s
-ty
+(c:/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/backref.sty
 Package: backref 2006/09/05 v1.28 Bibliographical back referencing
 )
 LaTeX Info: Redefining \url on input line 3068.
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/bitset.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/bitset.sty
 Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/intcalc.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/intcalc.sty
 Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
 )
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/bigintcalc.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/bigintcalc.s
+ty
 Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/pdftexcmds.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/pdftexcmds.s
+ty
 Package: pdftexcmds 2007/12/12 v0.3 LuaTeX support for pdfTeX utility functions
  (HO)
 Package pdftexcmds Info: LuaTeX not detected on input line 139.
 Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
 )))
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/kvsetkeys.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/kvsetkeys.st
+y
 Package: kvsetkeys 2007/09/29 v1.3 Key value parser with default handler suppor
 t (HO)
 )
@@ -463,12 +445,9 @@ Package hyperref Info: Hyper index ON on input line 3957.
 Package hyperref Info: backreferencing ON on input line 3962.
 Package hyperref Info: Link coloring OFF on input line 3969.
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/atbegshi.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2007/09/09 v1.6 At begin shipout hook (HO)
-
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdie
-k/ifpdf.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2007/12/12 v1.6 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode not detected.
 ))
@@ -477,18 +456,17 @@ Package ifpdf Info: pdfTeX in pdf mode not detected.
 \c@Hfootnote=\count138
 )
 *hyperref using driver hypertex*
-
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/hypertex.
-def
+(c:/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/hypertex.def
 File: hypertex.def 2008/01/09 v6.77i Hyperref driver for HyperTeX specials
 )
 \c@hours=\count139
 \c@minutes=\count140
- (./algorithm.sty
+
+(./algorithm.sty
 Package: algorithm 
 
 Document Style `algorithm' - floating environment
-(c:/Program Files/TeXLive/texmf/tex/latex/float/float.sty
+(c:/TeXLive/texmf/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count141
 \float@exts=\toks33
@@ -508,7 +486,8 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 \algorithmicindent=\skip94
 )
 \commentspace=\skip95
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-all.sty
+
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-all.sty
 Package: pst-all 1997/03/25 all pstricks tools
  (./pstcol.sty
 Package: pstcol 2007/04/11 v1.3 LaTeX wrapper for `PSTricks' (RN,HV)
@@ -520,41 +499,35 @@ Package pstcol Warning: ************************************
 (pstcol)                    \usepackage{pstricks}
 (pstcol)                ************************************.
 
-) (c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-grad.sty
+) (c:/TeXLive/texmf/tex/latex/pstricks/pst-grad.sty
 Package: pst-grad 1997/03/25 package wrapper for PSTricks pst-grad.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-grad.tex
- v97 patch 1, 1997/04/28))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-text.sty
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-grad.tex  v97 patch 1, 1997/04/28))
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-text.sty
 Package: pst-text 1997/03/25 package wrapper for PSTricks pst-text.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-text.tex
- v97, 1997/03/25))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-char.sty
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-text.tex  v97, 1997/03/25))
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-char.sty
 Package: pst-char 1997/03/25 package wrapper for PSTricks pst-char.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-char.tex
- v97 patch 3, 1999/03/11))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-eps.sty
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-char.tex  v97 patch 3, 1999/03/11))
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-eps.sty
 Package: pst-eps 1997/03/25 package wrapper for PSTricks pst-eps.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-eps.tex
- v97 patch 1, 1997/05/05
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-eps.tex  v97 patch 1, 1997/05/05
 \pst@epsout=\write4
 \pst@tempout=\write5
 ))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-fill.sty
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-fill.sty
 Package: pst-fill 1997/04/08 package wrapper for PSTricks pst-fill package
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-fill.tex
- v97 patch 2, 1997/12/12
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-fill.tex  v97 patch 2, 1997/12/12
 \pst@fillbox=\box38
 ))
-(c:/Program Files/TeXLive/texmf/tex/latex/pstricks/pst-tree.sty
+(c:/TeXLive/texmf/tex/latex/pstricks/pst-tree.sty
 Package: pst-tree 1997/03/25 package wrapper for PSTricks pst-tree.tex
 
-(c:/Program Files/TeXLive/texmf/tex/generic/pstricks/pst-tree.tex
- v97 patch 5, 1999/10/28
+(c:/TeXLive/texmf/tex/generic/pstricks/pst-tree.tex  v97 patch 5, 1999/10/28
 \pstree@rootbox=\box39
 \pstree@box=\box40
 \psnodecnt=\count147
@@ -580,8 +553,7 @@ LaTeX Font Info:    ... okay on input line 79.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
 LaTeX Font Info:    ... okay on input line 79.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 79.
-
-(c:/Program Files/TeXLive/texmf/tex/latex/psnfss/ot1ptm.fd
+ (c:/TeXLive/texmf/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2000/01/12 PSNFSS-v8.1 font definitions for OT1/ptm.
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -590,12 +562,10 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 79.
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/nameref.s
-ty
+(c:/TeXLive/texmf/tex/latex/hyperref/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
-(c:/Program Files/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/latex/oberdiek/
-refcount.sty
+(c:/TeXLive/texmf/tex/latex/hyperref/oberdiek/tex/latex/oberdiek/refcount.sty
 Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
 )
 \c@section@level=\count152
@@ -606,12 +576,12 @@ LaTeX Info: Redefining \pageref on input line 79.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 97.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 97.
- (c:/Program Files/TeXLive/texmf/tex/latex/psnfss/ot1phv.fd
+(c:/TeXLive/texmf/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2000/01/12 PSNFSS-v8.1 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 97.
 
-(c:/Program Files/TeXLive/texmf/tex/latex/psnfss/ot1pcr.fd
+(c:/TeXLive/texmf/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2000/01/12 PSNFSS-v8.1 font definitions for OT1/pcr.
 ) (./CCandRCP.toc)
 \tf@toc=\write6
@@ -619,30 +589,30 @@ File: ot1pcr.fd 2000/01/12 PSNFSS-v8.1 font definitions for OT1/pcr.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 139.
+ [1
 
-[1
-
-] [2] [3] [4] [5]
+] [2] [3]
+[4] [5]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 608.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 609.
  [6] [7] [8] (./CCandRCP.bbl (./CCandRCP.brf)
 \tf@brf=\write7
 \openout7 = `CCandRCP.brf'.
 
  [9]
 Missing character: There is no – in font ptmr7t!
- [10]
-[11]) (./CCandRCP.ind [12] [13
+ [10] [11])
+(./CCandRCP.ind [12] [13
 
 
 ]) (./CCandRCP.aux) ) 
 Here is how much of TeX's memory you used:
- 9737 strings out of 50491
- 134379 string characters out of 1189754
- 295598 words of memory out of 1500001
- 12468 multiletter control sequences out of 10000+15000
- 26964 words of font info for 86 fonts, out of 400000 for 1000
+ 9734 strings out of 50491
+ 132021 string characters out of 1189754
+ 294598 words of memory out of 1500001
+ 12466 multiletter control sequences out of 10000+15000
+ 26350 words of font info for 84 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  38i,19n,38p,255b,594s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on CCandRCP.dvi (13 pages, 174892 bytes).
+Output written on CCandRCP.dvi (13 pages, 175028 bytes).
