@@ -519,12 +519,12 @@ and a special state $z$. The transitions are defined by
 \begin{cases}
     z \text{ if the literal $x_j$ occurs in $c_i$},\\
     q_{i,j+1} \text{ otherwise}
-\end{cases} && \text{ for $1 \le i \le m$, $1 \le j \le n+1$;} \\
+\end{cases} && \text{ for $1 \le i \le m$, $1 \le j \le n$;} \\
 &q_{i,j}\cdot b =
 \begin{cases}
     z \text{ if the literal $\neg x_j$ occurs in $c_i$},\\
     q_{i,j+1} \text{ otherwise}
-\end{cases} && \text{ for $1 \le i \le m$, $1 \le j \le n+1$;} \\
+\end{cases} && \text{ for $1 \le i \le m$, $1 \le j \le n$;} \\
 &q_{i,n+1}\cdot a=q_{i,n+1}\cdot b =z && \text{ for $1\le i\le
 m$;}\\  &z\cdot a=z\cdot b =z.&&
 \end{align*}
@@ -598,10 +598,11 @@ In general, it is easy to see that $\mathcal{A}(\psi)$ is reset by
 every word of length $n+1$ and is reset by a word of length $n$ if
 and only if $\psi$ is satisfiable. Therefore assigning the
 instance $(\mathcal{A}(\psi),n)$ of \textsc{Short-Reset-Word} to
-an arbitrary instance $\psi$ of \textsc{SAT}, one obtains a
-polynomial reduction of the latter problem to the former. Since
-\textsc{SAT} is \textsf{NP}-complete and \textsc{Short-Reset-Word}
-lies in \textsf{NP}, we obtain the following.
+an arbitrary $n$-variable instance $\psi$ of \textsc{SAT}, one
+obtains a polynomial reduction of the latter problem to the
+former. Since \textsc{SAT} is \textsf{NP}-complete and
+\textsc{Short-Reset-Word} lies in \textsf{NP}, we obtain the
+following.
 
 \begin{proposition}
 \label{KV:prop:complexity1} The problem \textsc{Short-Reset-Word}

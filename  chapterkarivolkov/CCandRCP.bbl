@@ -5,9 +5,9 @@
 \bibitem{Ananichev&Gusev&Volkov:2010}
 D.~Ananichev, V.~Gusev, and M.~Volkov.
 \newblock Slowly synchronizing automata and digraphs.
-\newblock In {\em Mathematical Foundations of Computer Science, MFCS'10},
-  Lecture Notes in Comput. Sci. Springer-Verlag, 2010.
-\newblock (\url{http://arxiv.org/submit/33191}).
+\newblock In P.~Hlin\v{en}\'y and A.~Ku\v{c}era, editors, {\em Mathematical
+  Foundations of Computer Science, MFCS'10}, number 6281 in Lecture Notes in
+  Comput. Sci., pages 55--64. Springer-Verlag, 2010.
 
 \bibitem{Ashby:1956}
 W.~R. Ashby.
@@ -134,9 +134,9 @@ B.~K. Natarajan.
 \bibitem{Olschewski&Ummels:2010}
 J.~Olschewski and M.~Ummels.
 \newblock The complexity of finding reset words in finite automata.
-\newblock In {\em Mathematical Foundations of Computer Science, MFCS'10},
-  Lecture Notes in Comput. Sci. Springer-Verlag, 2010.
-\newblock (\url{http://arxiv.org/abs/1004.3246}).
+\newblock In P.~Hlin\v{en}\'y and A.~Ku\v{c}era, editors, {\em Mathematical
+  Foundations of Computer Science, MFCS'10}, number 6281 in Lecture Notes in
+  Comput. Sci., pages 568--579. Springer-Verlag, 2010.
 
 \bibitem{Papadimitriou:1994}
 C.~H. Papadimitriou.
