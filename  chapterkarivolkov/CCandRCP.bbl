@@ -40,6 +40,14 @@ R.~M. Capocelli, L.~Gargano, and U.~Vaccaro.
   variable-length codes.
 \newblock {\em IEEE Transactions on Information Theory}, 34(4):817--825, 1988.
 
+\bibitem{Cerny:1964}
+J.~\Cerny.
+\newblock Pozn\'{a}mka k homog\'{e}nnym eksperimentom s kone\v{c}n\'{y}mi
+  automatami.
+\newblock {\em Matematicko-fyzikalny \v{C}asopis Slovenskej Akad\'emie Vied},
+  14(3):208--216, 1964.
+\newblock (in Slovak).
+
 \bibitem{Chen&Ierardi:1995}
 Y.-B. Chen and D.~J. Ierardi.
 \newblock The complexity of oblivious plans for orienting and distinguishing
@@ -215,14 +223,6 @@ A.~Trahtman.
 \newblock In R.~Kr\'alovi\v{c} and P.~Urzyczyn, editors, {\em 31st Int.\ Symp.\
   Math.\ Foundations of Comput.\ Sci.}, number 4162 in Lecture Notes in Comput.
   Sci., pages 789--800. Springer-Verlag, 2006.
-
-\bibitem{Cerny:1964}
-J.~\v{C}ern\'{y}.
-\newblock Pozn\'{a}mka k homog\'{e}nnym eksperimentom s kone\v{c}n\'{y}mi
-  automatami.
-\newblock {\em Matematicko-fyzikalny \v{C}asopis Slovenskej Akad\'emie Vied},
-  14(3):208--216, 1964.
-\newblock (in Slovak).
 
 \bibitem{Volkov:2008}
 M.~Volkov.
