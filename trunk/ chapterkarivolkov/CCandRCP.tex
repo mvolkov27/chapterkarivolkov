@@ -75,6 +75,9 @@
 \newcommand{\sws}{reset words}
 %========== Hyphenation =============================
 
+%========== For BiBTEX =============================
+\def\Cerny{\v{C}ern\'y}
+
 %====================================================
 \begin{document}
 %========== Headers =============================
@@ -139,49 +142,41 @@ $q,q'\in Q$. Any word $w$ with this property is said to be a
 \caption{A synchronizing automaton}\label{KV:fig:C4}
 \end{center}
 \end{figure}
-Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states.
-The reader can easily verify that the word $ab^3ab^3a$ resets the
-automaton leaving it in the state 1. With somewhat more effort one
-can also check that $ab^3ab^3a$ is the shortest reset word for
-this automaton. The example in Figure~\ref{KV:fig:C4} is due to
-\v{C}ern\'{y}, a Slovak computer scientist, in whose pioneering
-paper~\cite{Cerny:1964} the notion of a \san\ explicitly appeared
-for the first time. (\v{C}ern\'{y} called such automata
-\emph{directable}.  The word \emph{synchronizing} in this context
-was probably introduced by Hennie~\cite{Hennie:1964}.
-\marginpar{\textbf{Needs double-checking!!}}) Implicitly, however,
-this concept has been around since the earliest days of automata
-theory. The very first \san\ that we were able to trace back in
-the literature appeared in Ashby's classic
+Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states. The reader
+can easily verify that the word $ab^3ab^3a$ resets the automaton leaving it in
+the state 1. With somewhat more effort one can also check that $ab^3ab^3a$ is
+the shortest reset word for this automaton. The example in
+Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer scientist, in
+whose pioneering paper~\cite{Cerny:1964} the notion of a \san\ explicitly
+appeared for the first time. (\v{C}ern\'{y} called such automata
+\emph{directable}.  The word \emph{synchronizing} in this context was probably
+introduced by Hennie~\cite{Hennie:1964}.) \marginpar{\textbf{Needs
+double-checking!!}} Implicitly, however, this concept has been around since the
+earliest days of automata theory. The very first \san\ that we were able to
+trace back in the literature appeared in Ashby's classic
 book~\cite[pp.\,60--61]{Ashby:1956}.
 
-In~\cite{Cerny:1964} the notion of a \san\ arose within the
-classic framework of Moore's
-``Gedanken-experiments''~\cite{Moore:1956}. For Moore and his
-followers finite automata served as a mathematical model of
-devices working in discrete mode, such as computers or relay
-control systems. This leads to the following natural problem: how
-can we restore control over such a device if we do not know its
-current state but can observe outputs produced by the device under
-various actions? Moore~\cite{Moore:1956} has shown that under
-certain conditions one can uniquely determine the state at which
-the automaton arrives after a suitable sequence of actions (called
-an \emph{experiment}). Moore's experiments were adaptive, that is,
-each next action was selected on the basis of the outputs caused
-by the previous actions. Ginsburg~\cite{Ginsburg:1958} considered
-more restricted experiments that he called \emph{uniform}. A
-uniform experiment\footnote{After \cite{Gill:1961}, the name
-\emph{homing sequence} has become standard for the notion.} is
-just a fixed sequence of actions, that is, a word over the input
-alphabet; thus, in Ginsburg's experiments outputs were only used
-for calculating the resulting state at the end of an experiment.
-From this, just one further step was needed to come to the setting
-in which outputs were not used at all. It should be noted that
-this setting is by no means artificial---there exist many
-practical situations when it is technically impossible to observe
-output signals. (Think of a satellite which loops around the Moon
-and cannot be controlled from the Earth while ``behind'' the
-Moon.)
+In~\cite{Cerny:1964} the notion of a \san\ arose within the classic framework
+of Moore's ``Gedanken-experiments''~\cite{Moore:1956}. For Moore and his
+followers finite automata served as a mathematical model of devices working in
+discrete mode, such as computers or relay control systems. This leads to the
+following natural problem: how can we restore control over such a device if we
+do not know its current state but can observe outputs produced by the device
+under various actions? Moore~\cite{Moore:1956} has shown that under certain
+conditions one can uniquely determine the state at which the automaton arrives
+after a suitable sequence of actions (called an \emph{experiment}). Moore's
+experiments were adaptive, that is, each next action was selected on the basis
+of the outputs caused by the previous actions. Ginsburg~\cite{Ginsburg:1958}
+considered more restricted experiments that he called \emph{uniform}. A uniform
+experiment\footnote{After \cite{Gill:1961}, the name \emph{homing sequence} has
+become standard for the notion.} is just a fixed sequence of actions, that is,
+a word over the input alphabet; thus, in Ginsburg's experiments outputs were
+only used for calculating the resulting state at the end of an experiment. From
+this, just one further step was needed to come to the setting in which outputs
+were not used at all. It should be noted that this setting is by no means
+artificial---there exist many practical situations when it is technically
+impossible to observe output signals. (Think of a satellite which loops around
+the Moon and cannot be controlled from the Earth while ``behind'' the Moon.)
 
 The original ``Gedanken-experiments'' motivation for studying \sa\
 is still of importance, and reset words are frequently applied in

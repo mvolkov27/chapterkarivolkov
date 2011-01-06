@@ -139,20 +139,18 @@ $q,q'\in Q$. Any word $w$ with this property is said to be a
 \caption{A synchronizing automaton}\label{KV:fig:C4}
 \end{center}
 \end{figure}
-Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states.
-The reader can easily verify that the word $ab^3ab^3a$ resets the
-automaton leaving it in the state 1. With somewhat more effort one
-can also check that $ab^3ab^3a$ is the shortest reset word for
-this automaton. The example in Figure~\ref{KV:fig:C4} is due to
-\v{C}ern\'{y}, a Slovak computer scientist, in whose pioneering
-paper~\cite{Cerny:1964} the notion of a \san\ explicitly appeared
-for the first time. (\v{C}ern\'{y} called such automata
-\emph{directable}.  The word \emph{synchronizing} in this context
-was probably introduced by Hennie~\cite{Hennie:1964}.
-\marginpar{\textbf{Needs double-checking!!}}) Implicitly, however,
-this concept has been around since the earliest days of automata
-theory. The very first \san\ that we were able to trace back in
-the literature appeared in Ashby's classic
+Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states. The reader
+can easily verify that the word $ab^3ab^3a$ resets the automaton leaving it in
+the state 1. With somewhat more effort one can also check that $ab^3ab^3a$ is
+the shortest reset word for this automaton. The example in
+Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer scientist, in
+whose pioneering paper~\cite{Cerny:1964} the notion of a \san\ explicitly
+appeared for the first time. (\v{C}ern\'{y} called such automata
+\emph{directable}.  The word \emph{synchronizing} in this context was probably
+introduced by Hennie~\cite{Hennie:1964}.) \marginpar{\textbf{Needs
+double-checking!!}} Implicitly, however, this concept has been around since the
+earliest days of automata theory. The very first \san\ that we were able to
+trace back in the literature appeared in Ashby's classic
 book~\cite[pp.\,60--61]{Ashby:1956}.
 
 In~\cite{Cerny:1964} the notion of a \san\ arose within the
@@ -598,10 +596,11 @@ In general, it is easy to see that $\mathcal{A}(\psi)$ is reset by
 every word of length $n+1$ and is reset by a word of length $n$ if
 and only if $\psi$ is satisfiable. Therefore assigning the
 instance $(\mathcal{A}(\psi),n)$ of \textsc{Short-Reset-Word} to
-an arbitrary instance $\psi$ of \textsc{SAT}, one obtains a
-polynomial reduction of the latter problem to the former. Since
-\textsc{SAT} is \textsf{NP}-complete and \textsc{Short-Reset-Word}
-lies in \textsf{NP}, we obtain the following.
+an arbitrary $n$-variable instance $\psi$ of \textsc{SAT}, one
+obtains a polynomial reduction of the latter problem to the
+former. Since \textsc{SAT} is \textsf{NP}-complete and
+\textsc{Short-Reset-Word} lies in \textsf{NP}, we obtain the
+following.
 
 \begin{proposition}
 \label{KV:prop:complexity1} The problem \textsc{Short-Reset-Word}
