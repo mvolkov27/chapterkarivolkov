@@ -11,6 +11,10 @@
 
   \indexspace
 
+  \item coincidence condition, \hyperpage{4}
+
+  \indexspace
+
   \item prefix code, \hyperpage{3}
     \subitem maximal, \hyperpage{3}
     \subitem synchronized, \hyperpage{3}
@@ -21,7 +25,9 @@
 
   \indexspace
 
-  \item subset automaton, \hyperpage{4}
+  \item subset automaton, \hyperpage{5}
+  \item substitution, \hyperpage{4}
+    \subitem of finite length, \hyperpage{4}
   \item synchronizing word of a code, \hyperpage{3}
 
 \end{theindex}

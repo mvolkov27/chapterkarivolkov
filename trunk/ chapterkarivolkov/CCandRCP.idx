@@ -4,7 +4,10 @@
 \indexentry{prefix code!maximal|hyperpage}{3}
 \indexentry{prefix code!synchronized|hyperpage}{3}
 \indexentry{synchronizing word of a code|hyperpage}{3}
-\indexentry{subset automaton|hyperpage}{4}
-\indexentry{\textsc{Short-Reset-Word}|hyperpage}{5}
-\indexentry{\textsc{Shortest-Reset-Word}|hyperpage}{6}
-\indexentry{automaton!\v{C}ern\'{y}|hyperpage}{8}
+\indexentry{substitution|hyperpage}{4}
+\indexentry{substitution!of finite length|hyperpage}{4}
+\indexentry{coincidence condition|hyperpage}{4}
+\indexentry{subset automaton|hyperpage}{5}
+\indexentry{\textsc{Short-Reset-Word}|hyperpage}{6}
+\indexentry{\textsc{Shortest-Reset-Word}|hyperpage}{7}
+\indexentry{automaton!\v{C}ern\'{y}|hyperpage}{9}

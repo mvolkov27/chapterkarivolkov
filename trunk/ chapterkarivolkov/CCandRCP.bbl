@@ -65,6 +65,12 @@ T.~H. Cormen, C.~E. Leiserson, R.~L. Rivest, and C.~Stein.
 \newblock {\em Introduction to algorithms}.
 \newblock MIT Press and McGraw-Hill, 2001.
 
+\bibitem{Dekking:1978}
+F.~M. Dekking.
+\newblock The spectrum of dynamical systems arising from substitutions of
+  constant length.
+\newblock {\em Z. Wahrsch. Verw. Gebiete}, 41:221--239, 1978.
+
 \bibitem{Eppstein:1990}
 D.~Eppstein.
 \newblock Reset sequences for monotonic automata.
@@ -162,6 +168,13 @@ C.~Pixley, S.-W. Jeong, and G.~D. Hachtel.
   decision diagrams.
 \newblock In {\em Proc.\ 29th Design Automation Conf.}, pages 620--623. IEEE
   Press, 1992.
+
+\bibitem{PytheasFogg:2002}
+N.~Pytheas~Fogg.
+\newblock {\em Substitutions in dynamics, arithmetics and combinatorics},
+  volume 1794 of {\em Lecture Notes in Mathematics}.
+\newblock Springer-Verlag, 2002.
+\newblock Edited by V.\ Berth\'e, S.\ Ferenczi, C.\ Mauduit and A.\ Siegel.
 
 \bibitem{Rabin&Scott:1959}
 M.~O. Rabin and D.~Scott.
