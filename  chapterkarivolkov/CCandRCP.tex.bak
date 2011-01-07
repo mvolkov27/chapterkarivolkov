@@ -75,6 +75,9 @@
 \newcommand{\sws}{reset words}
 %========== Hyphenation =============================
 
+%========== For BiBTEX =============================
+\def\Cerny{\v{C}ern\'y}
+
 %====================================================
 \begin{document}
 %========== Headers =============================
@@ -136,50 +139,45 @@ $q,q'\in Q$. Any word $w$ with this property is said to be a
 \drawedge(D,A){$b$} \drawloop[loopangle=45](B){$a$}
 \drawloop[loopangle=-45](C){$a$} \drawloop[loopangle=-135](D){$a$}
 \end{picture}
-\caption{A synchronizing automaton}\label{KV:fig:C4}
+\caption{The automaton $\mathcal{C}_4$}\label{KV:fig:C4}
 \end{center}
 \end{figure}
-Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states. The reader
-can easily verify that the word $ab^3ab^3a$ resets the automaton leaving it in
-the state 1. With somewhat more effort one can also check that $ab^3ab^3a$ is
-the shortest reset word for this automaton. The example in
-Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer scientist, in
-whose pioneering paper~\cite{Cerny:1964} the notion of a \san\ explicitly
-appeared for the first time. (\v{C}ern\'{y} called such automata
+Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states denoted by
+$\mathcal{C}_4$. The reader can easily verify that the word $ab^3ab^3a$ resets
+the automaton leaving it in the state 1. With somewhat more effort one can also
+check that $ab^3ab^3a$ is the shortest reset word for $\mathcal{C}_4$. The
+example in Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer
+scientist, in whose pioneering paper~\cite{Cerny:1964} the notion of a \san\
+explicitly appeared for the first time. (\v{C}ern\'{y} called such automata
 \emph{directable}.  The word \emph{synchronizing} in this context was probably
 introduced by Hennie~\cite{Hennie:1964}.) \marginpar{\textbf{Needs
 double-checking!!}} Implicitly, however, this concept has been around since the
 earliest days of automata theory. The very first \san\ that we were able to
 trace back in the literature appeared in Ashby's classic
-book~\cite[pp.\,60--61]{Ashby:1956}.
+book~\cite[pp.\,60--61]{Ashby:1956}, see \cite[Section~1]{Volkov:2008} for a
+discussion.
 
-In~\cite{Cerny:1964} the notion of a \san\ arose within the
-classic framework of Moore's
-``Gedanken-experiments''~\cite{Moore:1956}. For Moore and his
-followers finite automata served as a mathematical model of
-devices working in discrete mode, such as computers or relay
-control systems. This leads to the following natural problem: how
-can we restore control over such a device if we do not know its
-current state but can observe outputs produced by the device under
-various actions? Moore~\cite{Moore:1956} has shown that under
-certain conditions one can uniquely determine the state at which
-the automaton arrives after a suitable sequence of actions (called
-an \emph{experiment}). Moore's experiments were adaptive, that is,
-each next action was selected on the basis of the outputs caused
-by the previous actions. Ginsburg~\cite{Ginsburg:1958} considered
-more restricted experiments that he called \emph{uniform}. A
-uniform experiment\footnote{After \cite{Gill:1961}, the name
-\emph{homing sequence} has become standard for the notion.} is
-just a fixed sequence of actions, that is, a word over the input
-alphabet; thus, in Ginsburg's experiments outputs were only used
-for calculating the resulting state at the end of an experiment.
-From this, just one further step was needed to come to the setting
-in which outputs were not used at all. It should be noted that
-this setting is by no means artificial---there exist many
-practical situations when it is technically impossible to observe
-output signals. (Think of a satellite which loops around the Moon
-and cannot be controlled from the Earth while ``behind'' the
-Moon.)
+In~\cite{Cerny:1964} the notion of a \san\ arose within the classic framework
+of Moore's ``Gedanken-experiments''~\cite{Moore:1956}. For Moore and his
+followers finite automata served as a mathematical model of devices working in
+discrete mode, such as computers or relay control systems. This leads to the
+following natural problem: how can we restore control over such a device if we
+do not know its current state but can observe outputs produced by the device
+under various actions? Moore~\cite{Moore:1956} has shown that under certain
+conditions one can uniquely determine the state at which the automaton arrives
+after a suitable sequence of actions (called an \emph{experiment}). Moore's
+experiments were adaptive, that is, each next action was selected on the basis
+of the outputs caused by the previous actions. Ginsburg~\cite{Ginsburg:1958}
+considered more restricted experiments that he called \emph{uniform}. A uniform
+experiment\footnote{After \cite{Gill:1961}, the name \emph{homing sequence} has
+become standard for the notion.} is just a fixed sequence of actions, that is,
+a word over the input alphabet; thus, in Ginsburg's experiments outputs were
+only used for calculating the resulting state at the end of an experiment. From
+this, just one further step was needed to come to the setting in which outputs
+were not used at all. It should be noted that this setting is by no means
+artificial---there exist many practical situations when it is technically
+impossible to observe output signals. (Think of a satellite which loops around
+the Moon and cannot be controlled from the Earth while ``behind'' the Moon.)
 
 The original ``Gedanken-experiments'' motivation for studying \sa\
 is still of importance, and reset words are frequently applied in
@@ -367,6 +365,66 @@ into a prolific research direction but it is fair to say that publications
 in this area deal mostly with implementation technicalities. However,
 amongst them there are papers of significant theoretical importance
 such as \cite{Eppstein:1990,Goldberg:1993,Chen&Ierardi:1995}.
+
+\marginpar{\textbf{To~be\\ checked\\ with\\ Jarrko!!}} Recently, it has been
+realized that a notion that arose in studying of \emph{substitution systems} is
+also closely related to \sa. A \emph{substitution}\index{substitution} on a
+finite alphabet $X$ is a map $\sigma:X\to X^+$; the substitution is said to be
+of \emph{constant length}\index{substitution!of finite length} if all words
+$\sigma(x)$, $x\in X$, have the same length. One says that $\sigma$ satisfies
+the \emph{coincidence condition}\index{coincidence condition} if there exist
+positive integers $m$ and $k$ such that all words $\sigma^k(x)$ have the same
+$m$-th letter. For an example, consider the substitution $\tau$ on
+$X=\{0,1,2\}$ defined by $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 20$. Calculating
+the iterations of $\tau$ up to $\tau^4$ (see Figure~\ref{KV:fig:substituion}),
+we observe that
+\begin{figure}[h]
+\begin{center}
+$\begin{matrix}
+0&\mapsto&11&\mapsto&1212&\mapsto&12201220&\mapsto&122020\mathbf{1}112202011\\
+1&\mapsto&12&\mapsto&1220&\mapsto&12202011&\mapsto&122020\mathbf{1}120111212\\
+2&\mapsto&20&\mapsto&2011&\mapsto&20111212&\mapsto&201112\mathbf{1}212201220
+\end{matrix}$ \caption{A substitution satisfying the coincidence
+condition} \label{KV:fig:substituion}
+\end{center}
+\end{figure}
+$\tau$ satisfies the coincidence condition (with $k=4$, $m=7$).
+
+The importance of the coincidence condition comes from the crucial fact
+(established by Dekking~\cite{Dekking:1978}) that it is this condition that
+completely characterizes the constant length substitutions which give rise to
+dynamical systems measure-theoretically isomorphic to a translation on a
+compact Abelian group, see \cite[Chapter~7]{PytheasFogg:2002} for a survey. For
+us, however, the coincidence condition is primarily interesting as yet another
+incarnation of synchronizability. Indeed, there is a straightforward bijection
+between DFAs and constant length substitutions. Each DFA with state set $Q$ and
+input alphabet $A=\{a_1,\dots,a_\ell\}$ defines a length $\ell$ substitution on
+$Q$ that maps every $q\in Q$ to the word $(q\cdot a_1)\dots (q\cdot a_\ell)\in
+Q^+$. (For instance, the automaton $\mathcal{C}_4$ in Figure~\ref{KV:fig:C4}
+induces the substitution $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 23,\ 3\mapsto
+30$.) Conversely, each substitution $\sigma:X\to X^+$ such that all words
+$\sigma(x)$, $x\in X$, have the same length $\ell$ gives rise to a DFA for
+which $X$ serves as the state set and which has $\ell$ input letters
+$a_1,\dots,a_\ell$, say, acting on $X$ as follows: $x\cdot a_i$ is the symbol
+in the $i$-th position of the word $\sigma(x)$. (For instance, the substitution
+$\tau$ considered in the previous paragraph defines the automaton shown in
+Figure~\ref{KV:fig:C3}.)
+\begin{figure}[ht]
+\unitlength=.75mm
+\begin{center}
+\begin{picture}(50,30)(-15,-10)
+\gasset{Nh=6,Nw=6,Nmr=3,loopdiam=6} \node(A)(10,20){0} \node(C)(20,0){1}
+\node(D)(0,0){2} \drawedge(A,C){$a_1,a_2$} \drawedge(C,D){$a_2$}
+\drawedge(D,A){$a_2$} \drawloop[loopangle=-45](C){$a_1$}
+\drawloop[loopangle=-135](D){$a_1$}
+\end{picture}
+\caption{The automaton induced by the substitution $0\mapsto 11,\ 1\mapsto 12,\
+2\mapsto 20$}\label{KV:fig:C3}
+\end{center}
+\end{figure}
+
+
+ \marginpar{\textbf{If space\\ permits!!}}
 
 \section{Algorithmic and complexity issues}
 
