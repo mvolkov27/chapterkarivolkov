@@ -120,14 +120,13 @@ email:\,\url{jkari@utu.fi,Mikhail.Volkov@usu.ru}\\[4mm]
 %=====================================================
 \section{Synchronizing automata, their origins and importance}
 %=====================================================
-A complete deterministic finite automaton (DFA) $\mathcal{A}$
-with input alphabet $A$ and state set $Q$ is called
-\emph{synchronizing}\index{automaton!synchronizing} if there
-exists a word $w\in A^*$ whose action resets $\mathcal{A}$, that
-is, $w$ leaves the automaton in one particular state no matter
-at which state in $Q$ it is applied: $q\cdot w=q'\cdot w$ for all
-$q,q'\in Q$. Any word $w$ with this property is said to be a
-\emph{reset}\index{reset word} word for the automaton.
+A complete deterministic finite automaton (DFA) $\mathcal{A}=(Q,A)$ (here and
+below $Q$ stands for the state set and $A$ for the input alphabet) is called
+\emph{synchronizing}\index{automaton!synchronizing} if there exists a word
+$w\in A^*$ whose action resets $\mathcal{A}$, that is, $w$ leaves the automaton
+in one particular state no matter at which state in $Q$ it is applied: $q\cdot
+w=q'\cdot w$ for all $q,q'\in Q$. Any word $w$ with this property is said to be
+a \emph{reset}\index{reset word} word for the automaton.
 
 \begin{figure}[ht]
 \unitlength=.75mm
@@ -142,13 +141,13 @@ $q,q'\in Q$. Any word $w$ with this property is said to be a
 \caption{The automaton $\mathcal{C}_4$}\label{KV:fig:C4}
 \end{center}
 \end{figure}
-Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states denoted by
-$\mathcal{C}_4$. The reader can easily verify that the word $ab^3ab^3a$ resets
-the automaton leaving it in the state 1. With somewhat more effort one can also
-check that $ab^3ab^3a$ is the shortest reset word for $\mathcal{C}_4$. The
-example in Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer
-scientist, in whose pioneering paper~\cite{Cerny:1964} the notion of a \san\
-explicitly appeared for the first time. (\v{C}ern\'{y} called such automata
+Figure~\ref{KV:fig:C4} shows a \san\ with 4~states denoted by $\mathcal{C}_4$.
+The reader can easily verify that the word $ab^3ab^3a$ resets the automaton
+leaving it in the state 1. With somewhat more effort one can also check that
+$ab^3ab^3a$ is the shortest reset word for $\mathcal{C}_4$. The example in
+Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer scientist, in
+whose pioneering paper~\cite{Cerny:1964} the notion of a \san\ explicitly
+appeared for the first time. (\v{C}ern\'{y} called such automata
 \emph{directable}.  The word \emph{synchronizing} in this context was probably
 introduced by Hennie~\cite{Hennie:1964}.) \marginpar{\textbf{Needs
 double-checking!!}} Implicitly, however, this concept has been around since the
@@ -397,12 +396,12 @@ dynamical systems measure-theoretically isomorphic to a translation on a
 compact Abelian group, see \cite[Chapter~7]{PytheasFogg:2002} for a survey. For
 us, however, the coincidence condition is primarily interesting as yet another
 incarnation of synchronizability. Indeed, there is a straightforward bijection
-between DFAs and constant length substitutions. Each DFA with state set $Q$ and
-input alphabet $A=\{a_1,\dots,a_\ell\}$ defines a length $\ell$ substitution on
-$Q$ that maps every $q\in Q$ to the word $(q\cdot a_1)\dots (q\cdot a_\ell)\in
-Q^+$. (For instance, the automaton $\mathcal{C}_4$ in Figure~\ref{KV:fig:C4}
-induces the substitution $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 23,\ 3\mapsto
-30$.) Conversely, each substitution $\sigma:X\to X^+$ such that all words
+between DFAs and constant length substitutions. Each DFA $\mathcal{A}=(Q,A)$
+with $A=\{a_1,\dots,a_\ell\}$ defines a length $\ell$ substitution on $Q$ that
+maps every $q\in Q$ to the word $(q\cdot a_1)\dots (q\cdot a_\ell)\in Q^+$.
+(For instance, the automaton $\mathcal{C}_4$ in Figure~\ref{KV:fig:C4} induces
+the substitution $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 23,\ 3\mapsto 30$.)
+Conversely, each substitution $\sigma:X\to X^+$ such that all words
 $\sigma(x)$, $x\in X$, have the same length $\ell$ gives rise to a DFA for
 which $X$ serves as the state set and which has $\ell$ input letters
 $a_1,\dots,a_\ell$, say, acting on $X$ as follows: $x\cdot a_i$ is the symbol
@@ -425,9 +424,30 @@ Figure~\ref{KV:fig:C3}.)
 It is clear that under the described bijection substitutions satisfying the
 coincidence condition correspond precisely to \sa, and moreover, given a
 substitution, the number of iterations at which the coincidence first occurs is
-equal to the minimum length of \sw\ for the corresponding automaton. 
+equal to the minimum length of \sw\ for the corresponding automaton.
 
- \marginpar{\textbf{If space\\ permits!!}}
+We mention in passing a purely algebraic framework\marginpar{\textbf{If space\\
+permits!!}} within which \sa\ also appear in a natural way. One may treat DFAs
+as unary algebras since each letter of the input alphabet defines a unary
+operation on the state set. A \emph{term}\index{unary term} in the language of
+such unary algebras is an expression $t$ of the form $x\cdot w$, where $x$ is a
+variable and $w$ is a word over an alphabet $A$. An
+\emph{identity}\index{identity of unary algebras} is a formal equality between
+two terms. A DFA $\mathcal{A}=(Q,A)$ \emph{satisfies} an identity $t_1=t_2$,
+where the words involved in the terms $t_1$ and $t_2$ are over $A$, if $t_1$
+and $t_2$ take the same value under each interpretation of their variables in
+the set $Q$. Identities of unary algebras can be of the from either $x\cdot
+u=x\cdot v$ (\emph{homotypical} identities\index{identity of unary
+algebras!homotypical}) or $x\cdot u=y\cdot v$ with $x\ne y$
+(\emph{heterotypical} identities\index{identity of unary
+algebras!heterotypical}). It is easy to realize that a DFA is synchronizing if
+and only if it satisfies a heterotypical identity, and thus, studying \sa\ may
+be considered as a part of the equational logic of unary algebras. See
+\cite{Bogdanovic&Imreh&Ciric&Petkovic:1999} for a survey of numerous
+publications in this direction; it is fair to say, however, that so far this
+algebraic approach has not proved to be really useful for understanding the
+combinatorial nature of \sa.
+
 
 \section{Algorithmic and complexity issues}
 
@@ -475,18 +495,16 @@ $\mathcal{P}(\mathcal{C}_4$)}\label{KV:fig:power automaton}
 \end{center}
 \end{figure}
 
-This question is in fact quite easy, and the most straightforward
-solution to it can be achieved via the classic subset construction
-by Rabin and Scott~\cite{Rabin&Scott:1959}. Given a DFA
-$\mathcal{A}$ with input alphabet $A$ and state set $Q$, we define
-its \emph{subset automaton}\index{subset automaton}
-$\mathcal{P}(\mathcal{A})$ on the set of the non-empty subsets of
-$Q$ by setting $P\cdot a=\{p\cdot a\mid p\in P\}$ for each
-non-empty subset $P$ of $Q$ and each $a\in\A$. (Since we start
-with a deterministic automaton, we do not need adding the empty
-set to the state set of $\mathcal{P}(\mathcal{A})$.)
-Figure~\ref{KV:fig:power automaton} presents the subset automaton
-for the DFA $\mathcal{C}_4$ shown in Figure~\ref{KV:fig:C4}.
+This question is in fact quite easy, and the most straightforward solution to
+it can be achieved via the classic subset construction by Rabin and
+Scott~\cite{Rabin&Scott:1959}. Given a DFA $\mathcal{A}=(Q,A)$, we define its
+\emph{subset automaton}\index{subset automaton} $\mathcal{P}(\mathcal{A})$ on
+the set of the non-empty subsets of $Q$ by setting $P\cdot a=\{p\cdot a\mid
+p\in P\}$ for each non-empty subset $P$ of $Q$ and each $a\in\A$. (Since we
+start with a deterministic automaton, we do not need adding the empty set to
+the state set of $\mathcal{P}(\mathcal{A})$.) Figure~\ref{KV:fig:power
+automaton} presents the subset automaton for the DFA $\mathcal{C}_4$ shown in
+Figure~\ref{KV:fig:C4}.
 
 Now it is obvious that a word $w\in A^*$ is a reset word for the
 DFA $\mathcal{A}$ if and only if $w$ labels a path in
@@ -508,9 +526,8 @@ is exponentially larger than $\mathcal{A}$. However, the following
 criterion of synchronizability~\cite[Theorem~2]{Cerny:1964} gives
 rise to a polynomial algorithm.
 \begin{proposition}
-\label{KV:prop:quadratic} A DFA $\mathcal{A}$ with input alphabet
-$A$ and state set $Q$ is synchronizing if and only if for every
-$q,q'\in Q$ there exists a word $w\in A^*$ such that $q\cdot
+\label{KV:prop:quadratic} A DFA $\mathcal{A}=(Q,A)$ is synchronizing if and
+only if for every $q,q'\in Q$ there exists a word $w\in A^*$ such that $q\cdot
 w=q'\cdot w$.
 \end{proposition}
 One can treat Proposition~\ref{KV:prop:quadratic} as a reduction

@@ -1,17 +1,23 @@
 \begin{theindex}
 
-  \item \textsc{Short-Reset-Word}, \hyperpage{6}
-  \item \textsc{Shortest-Reset-Word}, \hyperpage{7}
+  \item \textsc{Short-Reset-Word}, \hyperpage{7}
+  \item \textsc{Shortest-Reset-Word}, \hyperpage{8}
 
   \indexspace
 
   \item automaton
-    \subitem \v{C}ern\'{y}, \hyperpage{8}
+    \subitem \v{C}ern\'{y}, \hyperpage{9}
     \subitem synchronizing, \hyperpage{1}
 
   \indexspace
 
   \item coincidence condition, \hyperpage{4}
+
+  \indexspace
+
+  \item identity of unary algebras, \hyperpage{5}
+    \subitem heterotypical, \hyperpage{5}
+    \subitem homotypical, \hyperpage{5}
 
   \indexspace
 
@@ -29,5 +35,9 @@
   \item substitution, \hyperpage{4}
     \subitem of finite length, \hyperpage{4}
   \item synchronizing word of a code, \hyperpage{3}
+
+  \indexspace
+
+  \item unary term, \hyperpage{5}
 
 \end{theindex}

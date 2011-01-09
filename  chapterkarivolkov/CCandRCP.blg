@@ -3,44 +3,44 @@ The top-level auxiliary file: CCandRCP.aux
 The style file: abbrv.bst
 Database file #1: abbrevs.bib
 Database file #2: SA.bib
-You've used 42 entries,
+You've used 43 entries,
             2118 wiz_defined-function locations,
-            2063 strings with 33089 characters,
-and the built_in function-call counts, 14389 in all, are:
-= -- 1494
-> -- 513
-< -- 23
-+ -- 208
-- -- 156
-* -- 918
-:= -- 2312
-add.period$ -- 147
-call.type$ -- 42
-change.case$ -- 188
+            2072 strings with 33393 characters,
+and the built_in function-call counts, 14804 in all, are:
+= -- 1530
+> -- 536
+< -- 24
++ -- 217
+- -- 164
+* -- 963
+:= -- 2379
+add.period$ -- 151
+call.type$ -- 43
+change.case$ -- 195
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 612
-empty$ -- 1225
-format.name$ -- 156
-if$ -- 3126
+cite$ -- 43
+duplicate$ -- 627
+empty$ -- 1254
+format.name$ -- 164
+if$ -- 3204
 int.to.chr$ -- 0
-int.to.str$ -- 42
-missing$ -- 46
-newline$ -- 219
-num.names$ -- 98
-pop$ -- 195
+int.to.str$ -- 43
+missing$ -- 47
+newline$ -- 225
+num.names$ -- 100
+pop$ -- 203
 preamble$ -- 2
-purify$ -- 153
+purify$ -- 159
 quote$ -- 0
-skip$ -- 424
+skip$ -- 430
 stack$ -- 0
-substring$ -- 1004
-swap$ -- 169
-text.length$ -- 23
+substring$ -- 1028
+swap$ -- 175
+text.length$ -- 24
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 154
+type$ -- 158
 warning$ -- 0
-while$ -- 163
-width$ -- 44
-write$ -- 491
+while$ -- 167
+width$ -- 45
+write$ -- 504
