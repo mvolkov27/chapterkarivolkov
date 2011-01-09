@@ -6,8 +6,8 @@
 D.~Ananichev, V.~Gusev, and M.~Volkov.
 \newblock Slowly synchronizing automata and digraphs.
 \newblock In P.~Hlin\v{en}\'y and A.~Ku\v{c}era, editors, {\em Mathematical
-  Foundations of Computer Science, MFCS'10}, number 6281 in Lecture Notes in
-  Comput. Sci., pages 55--64. Springer-Verlag, 2010.
+  Foundations of Computer Science, MFCS'10}, volume 6281 of {\em Lecture Notes
+  in Comput. Sci.}, pages 55--64. Springer-Verlag, 2010.
 
 \bibitem{Ashby:1956}
 W.~R. Ashby.
@@ -18,7 +18,7 @@ W.~R. Ashby.
 M.~Berlinkov.
 \newblock Approximating the minimum length of synchronizing words is hard.
 \newblock In F.~Ablayev and E.~W. Mayr, editors, {\em Computer Science in
-  Russia, CSR'10}, number 6072 in Lecture Notes in Comput. Sci.
+  Russia, CSR'10}, volume 6072 of {\em Lecture Notes in Comput. Sci.}
   Springer-Verlag, 2010.
 
 \bibitem{Berstel&Perrin&Reutenauer:2009}
@@ -27,12 +27,18 @@ J.~Berstel, D.~Perrin, and C.~Reutenauer.
 \newblock Number 129 in Encyclopedia of Mathematics and its Applications.
   Cambridge University Press, 2009.
 
+\bibitem{Bogdanovic&Imreh&Ciric&Petkovic:1999}
+S.~Bogdanovi\'c, B.~Imreh, M.~\'Ciri\'c, and T.~Petkovi\'c.
+\newblock Directable automata and their generalizations: a survey.
+\newblock {\em Novi Sad J. Math.}, 29(2):29--69, 1999.
+\newblock Proc. 8th Int. Conf. ``Algebra \& Logic'' (Novi Sad, 1998).
+
 \bibitem{Boppana&Rajan&Takayama&Fujita:1999}
 V.~Boppana, S.~Rajan, K.~Takayama, and M.~Fujita.
-\newblock Model checking based on sequential atpg.
+\newblock Model checking based on sequential {ATPG}.
 \newblock In {\em Computer Aided Verification, Proc.\ 11th International
-  Conference}, Lecture Notes in Comput. Sci., pages 418--430. Springer-Verlag,
-  1999.
+  Conference}, volume 1622 of {\em Lecture Notes in Comput. Sci.}, pages
+  418--430. Springer-Verlag, 1999.
 
 \bibitem{Capocelli&Gargano&Vaccaro:1988}
 R.~M. Capocelli, L.~Gargano, and U.~Vaccaro.
@@ -234,8 +240,8 @@ A.~Trahtman.
 \newblock An efficient algorithm finds noticeable trends and examples
   concerning the \v{C}ern\'{y} conjecture.
 \newblock In R.~Kr\'alovi\v{c} and P.~Urzyczyn, editors, {\em 31st Int.\ Symp.\
-  Math.\ Foundations of Comput.\ Sci.}, number 4162 in Lecture Notes in Comput.
-  Sci., pages 789--800. Springer-Verlag, 2006.
+  Math.\ Foundations of Comput.\ Sci.}, volume 4162 of {\em Lecture Notes in
+  Comput. Sci.}, pages 789--800. Springer-Verlag, 2006.
 
 \bibitem{Volkov:2008}
 M.~Volkov.

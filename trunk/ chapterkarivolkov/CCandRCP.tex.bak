@@ -422,9 +422,16 @@ Figure~\ref{KV:fig:C3}.)
 2\mapsto 20$}\label{KV:fig:C3}
 \end{center}
 \end{figure}
+It is clear that under the described bijection substitutions satisfying the
+coincidence condition correspond precisely to \sa, and moreover, given a
+substitution, the number of iterations at which the coincidence first occurs is
+equal to the minimum length of \sw\ for the corresponding automaton.
 
-
- \marginpar{\textbf{If space\\ permits!!}}
+We mention in passing a purely algebraic framework\marginpar{\textbf{If space\\
+permits!!}} within which \sa\ also appear in a very natural way. One may treat
+DFAs as unary algebras since each letter of the input alphabet defines a unary
+operation on the state set. A \emph{term}\index{term} in the language of such
+unary algebras is an expression of the form $x\cdot 
 
 \section{Algorithmic and complexity issues}
 
