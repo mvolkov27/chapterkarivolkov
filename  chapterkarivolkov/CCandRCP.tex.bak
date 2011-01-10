@@ -120,14 +120,13 @@ email:\,\url{jkari@utu.fi,Mikhail.Volkov@usu.ru}\\[4mm]
 %=====================================================
 \section{Synchronizing automata, their origins and importance}
 %=====================================================
-A complete deterministic finite automaton (DFA) $\mathcal{A}$
-with input alphabet $A$ and state set $Q$ is called
-\emph{synchronizing}\index{automaton!synchronizing} if there
-exists a word $w\in A^*$ whose action resets $\mathcal{A}$, that
-is, $w$ leaves the automaton in one particular state no matter
-at which state in $Q$ it is applied: $q\cdot w=q'\cdot w$ for all
-$q,q'\in Q$. Any word $w$ with this property is said to be a
-\emph{reset}\index{reset word} word for the automaton.
+A complete deterministic finite automaton (DFA) $\mathcal{A}=(Q,A)$ (here and
+below $Q$ stands for the state set and $A$ for the input alphabet) is called
+\emph{synchronizing}\index{automaton!synchronizing} if there exists a word
+$w\in A^*$ whose action resets $\mathcal{A}$, that is, $w$ leaves the automaton
+in one particular state no matter at which state in $Q$ it is applied: $q\cdot
+w=q'\cdot w$ for all $q,q'\in Q$. Any word $w$ with this property is said to be
+a \emph{reset}\index{reset word} word for the automaton.
 
 \begin{figure}[ht]
 \unitlength=.75mm
@@ -142,13 +141,13 @@ $q,q'\in Q$. Any word $w$ with this property is said to be a
 \caption{The automaton $\mathcal{C}_4$}\label{KV:fig:C4}
 \end{center}
 \end{figure}
-Figure~\ref{KV:fig:C4} shows an example of a \san\ with 4~states denoted by
-$\mathcal{C}_4$. The reader can easily verify that the word $ab^3ab^3a$ resets
-the automaton leaving it in the state 1. With somewhat more effort one can also
-check that $ab^3ab^3a$ is the shortest reset word for $\mathcal{C}_4$. The
-example in Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer
-scientist, in whose pioneering paper~\cite{Cerny:1964} the notion of a \san\
-explicitly appeared for the first time. (\v{C}ern\'{y} called such automata
+Figure~\ref{KV:fig:C4} shows a \san\ with 4~states denoted by $\mathcal{C}_4$.
+The reader can easily verify that the word $ab^3ab^3a$ resets the automaton
+leaving it in the state 1. With somewhat more effort one can also check that
+$ab^3ab^3a$ is the shortest reset word for $\mathcal{C}_4$. The example in
+Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer scientist, in
+whose pioneering paper~\cite{Cerny:1964} the notion of a \san\ explicitly
+appeared for the first time. (\v{C}ern\'{y} called such automata
 \emph{directable}.  The word \emph{synchronizing} in this context was probably
 introduced by Hennie~\cite{Hennie:1964}.) \marginpar{\textbf{Needs
 double-checking!!}} Implicitly, however, this concept has been around since the
@@ -397,12 +396,12 @@ dynamical systems measure-theoretically isomorphic to a translation on a
 compact Abelian group, see \cite[Chapter~7]{PytheasFogg:2002} for a survey. For
 us, however, the coincidence condition is primarily interesting as yet another
 incarnation of synchronizability. Indeed, there is a straightforward bijection
-between DFAs and constant length substitutions. Each DFA with state set $Q$ and
-input alphabet $A=\{a_1,\dots,a_\ell\}$ defines a length $\ell$ substitution on
-$Q$ that maps every $q\in Q$ to the word $(q\cdot a_1)\dots (q\cdot a_\ell)\in
-Q^+$. (For instance, the automaton $\mathcal{C}_4$ in Figure~\ref{KV:fig:C4}
-induces the substitution $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 23,\ 3\mapsto
-30$.) Conversely, each substitution $\sigma:X\to X^+$ such that all words
+between DFAs and constant length substitutions. Each DFA $\mathcal{A}=(Q,A)$
+with $A=\{a_1,\dots,a_\ell\}$ defines a length $\ell$ substitution on $Q$ that
+maps every $q\in Q$ to the word $(q\cdot a_1)\dots (q\cdot a_\ell)\in Q^+$.
+(For instance, the automaton $\mathcal{C}_4$ in Figure~\ref{KV:fig:C4} induces
+the substitution $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 23,\ 3\mapsto 30$.)
+Conversely, each substitution $\sigma:X\to X^+$ such that all words
 $\sigma(x)$, $x\in X$, have the same length $\ell$ gives rise to a DFA for
 which $X$ serves as the state set and which has $\ell$ input letters
 $a_1,\dots,a_\ell$, say, acting on $X$ as follows: $x\cdot a_i$ is the symbol
@@ -428,10 +427,27 @@ substitution, the number of iterations at which the coincidence first occurs is
 equal to the minimum length of \sw\ for the corresponding automaton.
 
 We mention in passing a purely algebraic framework\marginpar{\textbf{If space\\
-permits!!}} within which \sa\ also appear in a very natural way. One may treat
-DFAs as unary algebras since each letter of the input alphabet defines a unary
-operation on the state set. A \emph{term}\index{term} in the language of such
-unary algebras is an expression of the form $x\cdot 
+permits!!}} within which \sa\ also appear in a natural way. One may treat DFAs
+as unary algebras since each letter of the input alphabet defines a unary
+operation on the state set. A \emph{term}\index{unary term} in the language of
+such unary algebras is an expression $t$ of the form $x\cdot w$, where $x$ is a
+variable and $w$ is a word over an alphabet $A$. An
+\emph{identity}\index{identity of unary algebras} is a formal equality between
+two terms. A DFA $\mathcal{A}=(Q,A)$ \emph{satisfies} an identity $t_1=t_2$,
+where the words involved in the terms $t_1$ and $t_2$ are over $A$, if $t_1$
+and $t_2$ take the same value under each interpretation of their variables in
+the set $Q$. Identities of unary algebras can be of the from either $x\cdot
+u=x\cdot v$ (\emph{homotypical} identities\index{identity of unary
+algebras!homotypical}) or $x\cdot u=y\cdot v$ with $x\ne y$
+(\emph{heterotypical} identities\index{identity of unary
+algebras!heterotypical}). It is easy to realize that a DFA is synchronizing if
+and only if it satisfies a heterotypical identity, and thus, studying \sa\ may
+be considered as a part of the equational logic of unary algebras. See
+\cite{Bogdanovic&Imreh&Ciric&Petkovic:1999} for a survey of numerous
+publications in this direction; it is fair to say, however, that so far this
+algebraic approach has not proved to be really useful for understanding the
+combinatorial nature of \sa.
+
 
 \section{Algorithmic and complexity issues}
 
@@ -479,18 +495,16 @@ $\mathcal{P}(\mathcal{C}_4$)}\label{KV:fig:power automaton}
 \end{center}
 \end{figure}
 
-This question is in fact quite easy, and the most straightforward
-solution to it can be achieved via the classic subset construction
-by Rabin and Scott~\cite{Rabin&Scott:1959}. Given a DFA
-$\mathcal{A}$ with input alphabet $A$ and state set $Q$, we define
-its \emph{subset automaton}\index{subset automaton}
-$\mathcal{P}(\mathcal{A})$ on the set of the non-empty subsets of
-$Q$ by setting $P\cdot a=\{p\cdot a\mid p\in P\}$ for each
-non-empty subset $P$ of $Q$ and each $a\in\A$. (Since we start
-with a deterministic automaton, we do not need adding the empty
-set to the state set of $\mathcal{P}(\mathcal{A})$.)
-Figure~\ref{KV:fig:power automaton} presents the subset automaton
-for the DFA $\mathcal{C}_4$ shown in Figure~\ref{KV:fig:C4}.
+This question is in fact quite easy, and the most straightforward solution to
+it can be achieved via the classic subset construction by Rabin and
+Scott~\cite{Rabin&Scott:1959}. Given a DFA $\mathcal{A}=(Q,A)$, we define its
+\emph{subset automaton}\index{subset automaton} $\mathcal{P}(\mathcal{A})$ on
+the set of the non-empty subsets of $Q$ by setting $P\cdot a=\{p\cdot a\mid
+p\in P\}$ for each non-empty subset $P$ of $Q$ and each $a\in\A$. (Since we
+start with a deterministic automaton, we do not need adding the empty set to
+the state set of $\mathcal{P}(\mathcal{A})$.) Figure~\ref{KV:fig:power
+automaton} presents the subset automaton for the DFA $\mathcal{C}_4$ shown in
+Figure~\ref{KV:fig:C4}.
 
 Now it is obvious that a word $w\in A^*$ is a reset word for the
 DFA $\mathcal{A}$ if and only if $w$ labels a path in
@@ -512,26 +526,34 @@ is exponentially larger than $\mathcal{A}$. However, the following
 criterion of synchronizability~\cite[Theorem~2]{Cerny:1964} gives
 rise to a polynomial algorithm.
 \begin{proposition}
-\label{KV:prop:quadratic} A DFA $\mathcal{A}$ with input alphabet
-$A$ and state set $Q$ is synchronizing if and only if for every
-$q,q'\in Q$ there exists a word $w\in A^*$ such that $q\cdot
+\label{KV:prop:quadratic} A DFA $\mathcal{A}=(Q,A)$ is synchronizing if and
+only if for every $q,q'\in Q$ there exists a word $w\in A^*$ such that $q\cdot
 w=q'\cdot w$.
 \end{proposition}
-One can treat Proposition~\ref{KV:prop:quadratic} as a reduction
-of the synchronizability problem to a reachability problem in the
-subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ of
-$\mathcal{P}(\mathcal{A})$ whose states are 2-element and
-1-element subsets of $Q$. Since the subautomaton has
-$\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this
-problem in $O(|Q|^2\cdot|A|)$ time. This complexity bound assumes
-that no reset word is explicitly calculated. If one requires that,
-whenever $\mathcal{A}$ turns out to be synchronizing, a reset word
-is produced, then the best of the known algorithms (which is
-basically due to Eppstein \cite[Theorem~6]{Eppstein:1990}, see
-also \cite[Theorem~1.15]{Sandberg:2005}) has an implementation
-that consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and $O(|Q|^2 +
-|Q|\cdot|A|)$ working space, not counting the space for the output
-which is $O(|Q|^3)$.
+
+\begin{proof}
+Of course, only sufficiency needs a proof. For this, take two states $q,q'\in
+Q$ and consider a word $w_1$ such that $q\cdot w_1=q'\cdot w_1$. Then $|Q\cdot
+w_1|<|Q|$. If $|Q\cdot w_1|=1$, then $w_1$ is a \sw\ and $\mathcal{A}$ is
+synchronizing. If $|Q\cdot w_1|>1$, take two states $p,p'\in Q\cdot w_1$ and
+consider a word $w_2$ such that $p\cdot w_2=q'\cdot w_2$. Then $|Q\cdot
+w_1w_2|<|Q\cdot w_1|$. $|Q\cdot w_1w_2|=1$, then $w_1w_2$ is a \sw; otherwise
+we repeat the process. Clearly, a \sw\ for $\mathcal{A}$ will be constructed in
+at most $|Q|-1$ steps.
+\end{proof}
+
+One can treat Proposition~\ref{KV:prop:quadratic} as a reduction of the
+synchronizability problem to a reachability problem in the subautomaton
+$\mathcal{P}^{[2]}(\mathcal{A})$ of $\mathcal{P}(\mathcal{A})$ whose states are
+2-element and 1-element subsets of $Q$. Since the subautomaton has
+$\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this problem in
+$O(|Q|^2\cdot|A|)$ time. This complexity bound assumes that no reset word is
+explicitly calculated. If one requires that, whenever $\mathcal{A}$ turns out
+to be synchronizing, a reset word is produced, then the best of the known
+algorithms (which is basically due to Eppstein \cite[Theorem~6]{Eppstein:1990},
+see also \cite[Theorem~1.15]{Sandberg:2005}) has an implementation that
+consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and $O(|Q|^2 + |Q|\cdot|A|)$ working
+space, not counting the space for the output which is $O(|Q|^3)$.
 
 For a \san, the subset automaton can be used to construct shortest
 reset words which correspond to shortest paths from the whole
@@ -668,8 +690,8 @@ former. Since \textsc{SAT} is \textsf{NP}-complete and
 following.
 
 \begin{proposition}
-\label{KV:prop:complexity1} The problem \textsc{Short-Reset-Word}
-is \textsf{NP}-complete.
+\label{KV:prop:complexity1} The problem \textsc{Short-Reset-Word} is
+\textsf{NP}-complete.\qed
 \end{proposition}
 
 In fact, as observed by Samotij~\cite{Samotij:2007}, the above
@@ -714,8 +736,8 @@ $\psi,\chi$, say, and whose question is whether $\psi$ is
 satisfiable and $\chi$ is unsatisfiable.
 
 \begin{proposition}
-\label{KV:prop:complexity2} The problem
-\textsc{Shortest-Reset-Word} is \textsf{DP}-complete.
+\label{KV:prop:complexity2} The problem \textsc{Shortest-Reset-Word} is
+\textsf{DP}-complete.\qed
 \end{proposition}
 
 Proposition~\ref{KV:prop:complexity2} follows from mutual
@@ -760,17 +782,16 @@ implemented by Trahtman~\cite{Trahtman:2006} and
 Roman~\cite{Roman:2009}. Some algorithms for finding \sws\ will be
 also discussed in the next section.
 
-\section{The \v{C}ern\'{y} conjecture}
+\section{Around the \v{C}ern\'{y} conjecture}
 
-A very natural question to ask is the following: \emph{given a
-positive integer $n$, how long can be \sws\ for \sa\ with $n$
-states?} \v{C}ern\'{y}~\cite{Cerny:1964} found a lower bound by
+\paragraph*{The \v{C}ern\'{y} conjecture.} A very natural question to ask
+is the following: \emph{given a positive integer $n$, how long can be \sws\ for
+\sa\ with $n$ states?} \v{C}ern\'{y}~\cite{Cerny:1964} found a lower bound by
 constructing, for each $n>1$, a \san\
-$\mathcal{C}_n$\index{automaton!\v{C}ern\'{y}} with $n$ states and
-2 input letters whose shortest \sw\ has length $(n-1)^2$. We
-assume that the state set of $\mathcal{C}_n$ is
-$Q=\{0,1,2,\dots,n-1\}$ and the input letters are $a$ and $b$,
-subject to the following action on $Q$:
+$\mathcal{C}_n$\index{automaton!\v{C}ern\'{y}} with $n$ states and 2 input
+letters whose shortest \sw\ has length $(n-1)^2$. We assume that the state set
+of $\mathcal{C}_n$ is $Q=\{0,1,2,\dots,n-1\}$ and the input letters are $a$ and
+$b$, subject to the following action on $Q$:
 \begin{displaymath}
 i\cdot a=\begin{cases}
 i &\text{if } i>0,\\
@@ -814,17 +835,15 @@ induced by the actions of $b$ and $c=ab$}\label{KV:fig:cerny-n}
 \end{figure}
 
 The series $\mathcal{C}_n$ was rediscovered many times (see, e.g.,
-\cite{Laemmel&Rudner:1969,Fischler&Tannenbaum:1970,Eppstein:1990}).
+\cite{Laemmel&Rudner:1969,Fischler&Tannenbaum:1970,Eppstein:1990,Frettloh&Sing2007}).
 It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
-$n(n-2)+1=(n-1)^2$ is a reset word for $\mathcal{C}_n$. There are
-several nice proofs for \v{C}ern\'{y}'s
-result~\cite[Lemma~1]{Cerny:1964} that $\mathcal{C}_n$ has no
-shorter \sws. Here we present a recent proof
-from~\cite{Ananichev&Gusev&Volkov:2010}; it is based on a
-transparent idea and reveals an interesting connection between
-\v{C}ern\'{y}'s automata $\mathcal{C}_n$ and an extremal series of
-digraphs discovered in Wielandt's classic
-paper~\cite{Wielandt:1950} (see Section~\ref{KV:sec:rcp}).
+$n(n-2)+1=(n-1)^2$ is a reset word for $\mathcal{C}_n$. There are several nice
+proofs for \v{C}ern\'{y}'s result~\cite[Lemma~1]{Cerny:1964} that
+$\mathcal{C}_n$ has no shorter \sws. Here we present a recent proof
+from~\cite{Ananichev&Gusev&Volkov:2010}; it is based on a transparent idea and
+reveals an interesting connection between \v{C}ern\'{y}'s automata
+$\mathcal{C}_n$ and an extremal series of digraphs discovered in Wielandt's
+classic paper~\cite{Wielandt:1950} (see Section~\ref{KV:sec:rcp}).
 
 Let $w$ be a \sw\ of minimum length for $\mathcal{C}_n$. Since the
 letter $b$ acts on $Q$ as a cyclic permutation, the word $w$
@@ -859,10 +878,9 @@ $n-1$. Here we invoke the following well-known and elementary
 result from arithmetics:
 
 \begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RamirezAlfonsin:2005}}]
-\label{KV:lemma:sylvester} If $k_1,k_2$ are relatively prime
-positive integers, then $k_1k_2-k_1-k_2$ is the largest integer
-that is not expressible as a non-negative integer combination of
-$k_1$ and $k_2$.
+\label{KV:lemma:sylvester} If $k_1,k_2$ are relatively prime positive integers,
+then $k_1k_2-k_1-k_2$ is the largest integer that is not expressible as a
+non-negative integer combination of $k_1$ and $k_2$.\qed
 \end{lemma}
 
 Lemma~\ref{KV:lemma:sylvester} implies that
@@ -883,6 +901,102 @@ occurrence of the factor $ab$ in $w'$, we conclude that the length
 of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$. Thus,
 $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 
+\smallskip
+
+If we define the \emph{\v{C}ern\'{y} function}\index{\v{C}ern\'{y} function}
+$\mathfrak{C}(n)$ as the maximum length of shortest reset words for \sa\ with
+$n$ states, the above property of the series $\{\mathcal{C}_{n}\}$,
+$n=2,3,\dotsc$, yields the inequality $C(n)\ge(n-1)^2$. The \emph{\v{C}ern\'{y}
+conjecture}\index{\v{C}ern\'{y} conjecture} is the claim that the equality
+$C(n)=(n-1)^2$ holds true.
+
+In the literature, one often refers to \v{C}ern\'{y}'s paper \cite{Cerny:1964}
+as the source of the \v{C}ern\'{y} conjecture. In fact, the conjecture was not
+yet formulated in that paper. There \v{C}ern\'{y} only observed that
+\begin{equation}
+\label{first bound} (n-1)^2\le \mathfrak{C}(n)\le 2^n-n-1
+\end{equation}
+and concluded the paper with the following remark:
+\begin{quote}
+``The difference between the bounds increases rapidly and it is necessary to
+sharpen them. One can expect an improvement mainly for the upper bound.''
+\end{quote}
+The conjecture in its present-day form was formulated a bit later, after the
+expectation in the above quotation was confirmed by \cite{Starke:1966}.
+(Namely, Starke improved the upper bound in~\eqref{first bound} to
+$1+\frac{n(n-1)(n-2)}2$, which was the first polynomial upper bound for
+$\mathfrak{C}(n)$.) \v{C}ern\'{y} explicitly stated the conjecture
+$\mathfrak{C}(n)=(n-1)^2$ in his talks in the second half of the 1960s; in
+print the conjecture first appeared in~\cite{Cerny&Piricka&&Rosenauerova:1971}.
+
+The best upper bound for the \v{C}ern\'{y} function achieved so far guarantees
+that for every \san\ with $n$ states there exists a reset word of length
+$\frac{n^3-n}6$. Such a reset word arises as the output of the following greedy
+algorithm.
+
+%=================================
+\begin{algorithm}
+  \setlength{\commentspace}{6cm}
+  \begin{algorithmic}[1]
+    \FUNC{GreedyResetWord$(\mathcal{A})$}
+    \STATE\algcomment{0}{Initializtion}$w\gets\varepsilon\, P\gets Q$
+    \WHILE{$|P|> 1$}
+    \STATE{}find a word $v\in A^*$ of minimum length with $|P\cdot v|<|P|$;
+    if none exists, \RETURN Failure
+    \STATE{}$w\gets wv\, P\leftarrow P\cdot v$
+    \ENDWHILE
+    \RETURN $w$
+  \end{algorithmic}
+\caption{Greedy algorithm}\label{KV:Greedy}
+\end{algorithm}
+%==================================
+
+If $|Q|=n$, then clearly the main loop of Algorithm~\ref{KV:Greedy} is executed
+at most $n-1$ times. In order to evaluate the length of the output word $w$, we
+estimate the length of each word $v$ produced by the main loop.
+
+Consider a generic step at which $|P|=k>1$ and let $v=a_1\cdots a_\ell$ with
+$a_i\in\Sigma$, $i=1,\dots,\ell$. Then it is easy to see that the sets
+$$P_1=P,\ P_2=\delta(P_1,a_1),\ \dotsc,\ P_\ell=\delta(P_{\ell-1},a_{\ell-1})$$
+are $k$-element subsets of $Q$. Furthermore, since
+$|\delta(P_{\ell},a_{\ell})|<|P_\ell|$, there exist two distinct states
+$q_\ell,q'_\ell\in P_\ell$ such that
+$\delta(q_{\ell},a_{\ell})=\delta(q'_{\ell},a_{\ell})$. Now define 2-element
+subsets $R_i=\{q_i,q'_i\}\subseteq P_i$, $i=1,\dots,\ell$, such that
+$\delta(q_i,a_i)=q_{i+1}$, $\delta(q'_i,a_i)=q'_{i+1}$ for $i=1,\dots,\ell-1$.
+Then the condition that $v$ is a word of minimum length with
+$|\delta(P,v)|<|P|$ implies that $R_i\nsubseteq P_j$ for $1\le j<i\le\ell$.
+Altogether, we arrive at the following purely combinatorial problem:
+
+\begin{question}
+\label{frankl} Let $Q$ be an $n$-element set, $P_1,\dots,P_\ell$ a sequence of
+its $k$-element subsets $(k>1)$ and $R_1,\dots,R_\ell$ a sequence of its
+$2$-element subsets. Suppose that $R_i\subseteq P_i$ for each $i=1,\dots,\ell$
+but $R_i\nsubseteq P_j$ for $1\le j<i\le\ell$. How big the number $\ell$ can
+be?
+\end{question}
+
+Question~\ref{frankl} was solved by~\cite{Frankl:1982} who found the tight
+bound $\ell\le\binom{n-k+2}2$. Summing up these inequalities from $k=n$ to
+$k=2$, one arrives at the aforementioned bound
+\begin{equation}
+\label{pin} C(n)\le\dfrac{n^3-n}6.
+\end{equation}
+In the literature the bound~\eqref{pin} is usually attributed to Pin who
+explained the above connection between Algorithm~3.1 and Question~\ref{frankl}
+and conjectured the estimation $\ell\le\binom{n-k+2}2$ in his talk at the
+Colloquium on Graph Theory and Combinatorics held in Marseille in 1981; Frankl
+learned Question~\ref{frankl} from that talk. Accordingly, the usual reference
+for~\eqref{pin} is the paper \citep{Pi83} based on the talk. The full story is
+however more complicated. Actually, the bound~\eqref{pin} first appeared
+in~\citep{FiTa70} where it was deduced from a combinatorial conjecture
+equivalent to Pin's one. \citeauthor{FiTa70} presented their paper at the 11th
+FOCS conference but that time there was no Frankl in the audience so that the
+conjecture remained unproved and the paper eventually got lost in limbo. The
+bound~\eqref{pin} then reoccurred in~\cite{KoWi71,KoWi73} but the argument
+justifying it in these papers was insufficient. Later both~\eqref{pin} and
+Frankl's solution to Question~\ref{frankl} were independently rediscovered
+in \citep{Kl87}.
 
 \section{The road coloring problem}
 \label{KV:sec:rcp}

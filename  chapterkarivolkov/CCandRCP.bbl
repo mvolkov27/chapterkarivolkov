@@ -54,6 +54,11 @@ J.~\Cerny.
   14(3):208--216, 1964.
 \newblock (in Slovak).
 
+\bibitem{Cerny&Piricka&Rosenauerova:1971}
+J.~\Cerny, A.~Pirick\'a, and B.~Rosenauerov\'a.
+\newblock On directable automata.
+\newblock {\em Kybernetika}, 7(4):289--298, 1971.
+
 \bibitem{Chen&Ierardi:1995}
 Y.-B. Chen and D.~J. Ierardi.
 \newblock The complexity of oblivious plans for orienting and distinguishing
@@ -88,6 +93,17 @@ M.~A. Fischler and M.~Tannenbaum.
   with masked outputs.
 \newblock In {\em Proc.\ 11th Annual Symp.\ Foundations Comput.\ Sci}, pages
   97--103. IEEE Press, 1970.
+
+\bibitem{Frankl:1982}
+P.~Frankl.
+\newblock An extremal problem for two families of sets.
+\newblock {\em European J. Combinatorics}, 3:125–--127, 1982.
+
+\bibitem{Frettloh&Sing2007}
+D.~Frettl\"oh and B.~Sing.
+\newblock Computing modular coincidences for substitution tilings and point
+  sets.
+\newblock {\em Discrete Comput. Geom.}, 37:381--–407, 2007.
 
 \bibitem{Garey&Johnson:1979}
 M.~R. Garey and D.~S. Johnson.
@@ -128,6 +144,25 @@ F.~C. Hennie.
   Proceedings of the {F}ifth {A}nnual {S}ymposium}, pages 95--110. IEEE Press,
   1964.
 
+\bibitem{Klyachko&Rystsov&Spivak:1987}
+A.~A. Klyachko, I.~K. Rystsov, and M.~A. Spivak.
+\newblock An extremal combinatorial problem associated with the bound of the
+  length of a synchronizing word in an automaton.
+\newblock {\em Cybernetics and Systems Analysis}, 23(2):165--171, 1987.
+\newblock translated from Kibernetika, No 2, 1987, pp. 16--20, 25.
+
+\bibitem{Kohavi&Winograd:1971}
+Z.~Kohavi and J.~Winograd.
+\newblock Bounds on the length of synchronizing sequences and the order of
+  information losslessness.
+\newblock In Z.~Kohavi and A.~Paz, editors, {\em Theory of Machines and
+  Computations}, pages 197--206. Academic Press, 1971.
+
+\bibitem{Kohavi&Winograd:1973}
+Z.~Kohavi and J.~Winograd.
+\newblock Establishing certain bounds concerning finite automata.
+\newblock {\em J. Comput. System Sci.}, 7(3):288--299, 1973.
+
 \bibitem{Laemmel&Rudner:1969}
 A.~E. Laemmel and B.~Rudner.
 \newblock Study of the application of coding theory.
@@ -167,6 +202,11 @@ C.~H. Papadimitriou.
 C.~H. Papadimitriou and M.~Yannakakis.
 \newblock The complexity of facets (and some facets of complexity).
 \newblock {\em J. Comput. System Sci.}, 28(2):244--259, 1984.
+
+\bibitem{Pin:1983}
+J.-E. Pin.
+\newblock On two combinatorial problems arising from automata theory.
+\newblock {\em Ann. Disc. Math.}, 17:535--548, 1983.
 
 \bibitem{Pixley&Jeong&Hachtel:1992}
 C.~Pixley, S.-W. Jeong, and G.~D. Hachtel.
@@ -234,6 +274,13 @@ S.~Sandberg.
 A.~L. Selman.
 \newblock A taxonomy of complexity classes of functions.
 \newblock {\em J. Comput. System Sci.}, 42(1):357--381, 1994.
+
+\bibitem{Starke:1966}
+P.~H. Starke.
+\newblock Eine {B}emerkung \"uber homogene {E}xperimente.
+\newblock {\em Elektronische Informationverarbeitung und Kybernetik},
+  2:257--259, 1966.
+\newblock (in German).
 
 \bibitem{Trahtman:2006}
 A.~Trahtman.
