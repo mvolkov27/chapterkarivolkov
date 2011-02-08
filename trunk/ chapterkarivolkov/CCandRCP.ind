@@ -4,6 +4,7 @@
   \item \textsc{Shortest-Reset-Word}, \hyperpage{8}
   \item \v{C}ern\'{y} conjecture, \hyperpage{11}
   \item \v{C}ern\'{y} function, \hyperpage{11}
+  \item 2-renewed sequence, \hyperpage{12}
 
   \indexspace
 
@@ -33,7 +34,7 @@
 
   \indexspace
 
-  \item subset automaton, \hyperpage{5}
+  \item subset automaton, \hyperpage{6}
   \item substitution, \hyperpage{4}
     \subitem of finite length, \hyperpage{4}
   \item synchronizing word of a code, \hyperpage{3}

@@ -550,15 +550,16 @@ at most $|Q|-1$ steps.
 One can treat Proposition~\ref{KV:prop:quadratic} as a reduction of the
 synchronizability problem to a reachability problem in the subautomaton
 $\mathcal{P}^{[2]}(\mathcal{A})$ of $\mathcal{P}(\mathcal{A})$ whose states are
-2-element and 1-element subsets of $Q$. Since the subautomaton has
-$\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this problem in
-$O(|Q|^2\cdot|A|)$ time. This complexity bound assumes that no reset word is
-explicitly calculated. If one requires that, whenever $\mathcal{A}$ turns out
-to be synchronizing, a reset word is produced, then the best of the known
-algorithms (which is basically due to Eppstein \cite[Theorem~6]{Eppstein:1990},
-see also \cite[Theorem~1.15]{Sandberg:2005}) has an implementation that
-consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and $O(|Q|^2 + |Q|\cdot|A|)$ working
-space, not counting the space for the output which is $O(|Q|^3)$.
+\emph{couples} (2-element subsets) and singletons of $Q$. Since the
+subautomaton has $\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this
+problem in $O(|Q|^2\cdot|A|)$ time. This complexity bound assumes that no reset
+word is explicitly calculated. If one requires that, whenever $\mathcal{A}$
+turns out to be synchronizing, a reset word is produced, then the best of the
+known algorithms (which is basically due to Eppstein
+\cite[Theorem~6]{Eppstein:1990}, see also \cite[Theorem~1.15]{Sandberg:2005})
+has an implementation that consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and
+$O(|Q|^2 + |Q|\cdot|A|)$ working space, not counting the space for the output
+which is $O(|Q|^3)$.
 
 For a \san, the subset automaton can be used to construct shortest
 reset words which correspond to shortest paths from the whole
@@ -968,9 +969,9 @@ $a_i\in\Sigma$, $i=1,\dots,\ell$. Then it is easy to see that the sets
 $$P_1=P,\ P_2=P_1\cdot a_1,\ \dotsc,\ P_\ell=P_{\ell-1}\cdot a_{\ell-1}$$
 are $k$-element subsets of $Q$. Furthermore, since $|P_{\ell}\cdot
 a_{\ell}|<|P_\ell|$, there exist two distinct states $q_\ell,q'_\ell\in P_\ell$
-such that $q_{\ell}\cdot a_{\ell}=q'_{\ell}\cdot a_{\ell}$. Now define
-2-element subsets $R_i=\{q_i,q'_i\}\subseteq P_i$, $i=1,\dots,\ell$, such that
-$q_i \cdot a_i=q_{i+1}$, $q'_i \cdot a_i=q'_{i+1}$ for $i=1,\dots,\ell-1$.
+such that $q_{\ell}\cdot a_{\ell}=q'_{\ell}\cdot a_{\ell}$. Now define couples
+$R_i=\{q_i,q'_i\}\subseteq P_i$, $i=1,\dots,\ell$, such that $q_i \cdot
+a_i=q_{i+1}$, $q'_i \cdot a_i=q'_{i+1}$ for $i=1,\dots,\ell-1$.
 \begin{figure}[ht]
 \begin{center}
 \unitlength=.85mm
@@ -997,18 +998,17 @@ a_ja_i\cdots a_\ell$ of length $j+\ell-i<\ell$ would satisfy $|P\cdot a_1\cdots
 a_ja_i\cdots a_\ell|<|P|$ contradicting the choice of $v$. Thus, we arrive at a
 problem from combinatorics of finite sets that can be stated as follows. Let
 $1<k\le n$. A sequence of $k$-element subsets $P_1,P_2,\dots$ of an $n$-element
-set is called 2-\emph{refreshing}\index{2-refreshing sequence} if each $P_i$
-contains a 2-element subset $R_i$ such that $R_i\nsubseteq P_j$ for each $j<i$.
-What is the maximum length of a 2-refreshing sequence as a function of $n$ and
-$k$?
+set is called 2-\emph{renewed}\index{2-renewed sequence} if each $P_i$ contains
+a couple $R_i$ such that $R_i\nsubseteq P_j$ for each $j<i$. What is the
+maximum length of a 2-renewed sequence as a function of $n$ and $k$?
 
 The problem was solved by Frankl~\cite{Frankl:1982} who proved the following
 result\footnote{Actually Frankl~\cite{Frankl:1982} considered and solved a more
 general problem concerning the maximum length of (analogously defined)
-$m$-refreshing sequences of $k$-element subsets in an $n$-element set for an
+$m$-renewed sequences of $k$-element subsets in an $n$-element set for an
 arbitrary fixed $m\le k$.}.
 \begin{proposition}
-\label{KV:prop:frankl} The maximum length of a $2$-refreshing sequence of
+\label{KV:prop:frankl} The maximum length of a $2$-renewed sequence of
 $k$-element subsets in an $n$-element set is equal to $\binom{n-k+2}2$.
 \end{proposition}
 Thus, if $\ell_k$ is the length of the word $v$ that Algorithm~\ref{KV:Greedy}
@@ -1022,7 +1022,7 @@ aforementioned bound
 \end{equation}
 In the literature the bound~\eqref{pin} is usually attributed to Pin who
 explained the above connection between Algorithm~\ref{KV:Greedy} and the
-combinatorial problem on the maximum length of 2-refreshing sequences and
+combinatorial problem on the maximum length of 2-renewed sequences and
 conjectured the estimation $\binom{n-k+2}2$ for this length in his talk at the
 Colloquium on Graph Theory and Combinatorics held in Marseille in 1981. (Frankl
 learned this conjecture from Pin---and proved it---during another colloquium on
@@ -1036,17 +1036,18 @@ in~\cite{Kohavi&Winograd:1971,Kohavi&Winograd:1973} but the argument justifying
 it in these papers was insufficient. In 1987 both~\eqref{pin} and
 Proposition~\ref{KV:prop:frankl} were independently rediscovered by Klyachko,
 Rystsov and Spivak~\cite{Klyachko&Rystsov&Spivak:1987} who were aware
-of~\cite{Fischler&Tannenbaum:1970,Kohavi&Winograd:1971,Kohavi&Winograd:1973} but
+of~\cite{Fischler&Tannenbaum:1970,Kohavi&Winograd:1971,Kohavi&Winograd:1973}
+but
 neither of~\cite{Pin:1983} nor of~\cite{Frankl:1982}.\marginpar{\textbf{If space\\
 permits!!}} We sketch here a proof of Frankl's result
 following~\cite{Klyachko&Rystsov&Spivak:1987}.
 
 \begin{proof}[Proof of Proposition~\ref{KV:prop:frankl}] Let $Q=\{1,2,\dots,n\}$.
-First, we exhibit a $2$-refreshing sequence of $k$-element subsets in $Q$ of
-length $\binom{n-k+2}2$. For this put $W=\{1,\dots,k-2\}$, list all
-$\binom{n-k+2}2$ 2-element subsets of $Q\setminus W$ and let $T_i$ be the union
-of $W$ with the $i$-th 2-element subset in the list. Clearly, the sequence
-$T_1,\dots,T_{\binom{n-k+2}2}$ is 2-refreshing.
+First, we exhibit a 2-renewed sequence of $k$-element subsets in $Q$ of length
+$\binom{n-k+2}2$. For this put $W=\{1,\dots,k-2\}$, list all $\binom{n-k+2}2$
+couples of $Q\setminus W$ in some order and let $T_i$ be the union of $W$ with
+the $i$-th couple in the list. Clearly, the sequence
+$T_1,\dots,T_{\binom{n-k+2}2}$ is 2-renewed.
 
 Now we assign to each $k$-element subset $S=\{s_1,\dots,s_k\}$ of $Q$ the
 following polynomial $D(S)$ in variables $x_{s_1},\dots,x_{s_k}$ over the field
@@ -1057,28 +1058,28 @@ $$D(S)=\begin{vmatrix}
 \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
 1 & s_k & s_k^2 & \cdots & s_k^{k-3} & x_{s_k} & x_{s_k}^2
 \end{vmatrix}_{k\times k}.$$
-Observe that for any 2-refreshing sequence $P_1,\dots,P_\ell$ of $k$-element
+Observe that for any 2-renewed sequence $P_1,\dots,P_\ell$ of $k$-element
 subsets in $Q$, the polynomials $D(P_1),\dots,D(P_\ell)$ are linearly
 independent. Indeed, if they were linearly dependent, then by a basic lemma of
 linear algebra, some polynomial $D(P_j)$ should be expressible as a linear
 combination of the preceding polynomials $D(P_1),\dots,D(P_{j-1})$. By the
-definition of a 2-refreshing sequence, $P_j$ contains a 2-element subset
-$\{s,s'\}$ such that $\{s,s'\}\nsubseteq P_i$ for all $i<j$. If we substitute
-$x_s=s$, $x_{s'}=s'$ and $x_t=0$ for $t\ne s,s'$ in each polynomial
+definition of a 2-renewed sequence, $P_j$ contains a couple $\{s,s'\}$ such
+that $\{s,s'\}\nsubseteq P_i$ for all $i<j$. If we substitute $x_s=s$,
+$x_{s'}=s'$ and $x_t=0$ for $t\ne s,s'$ in each polynomial
 $D(P_1),\dots,D(P_j)$, then the polynomials $D(P_1),\dots,D(P_{j-1})$ vanish
-since the two last columns in each of the resulting determinants become
-proportional. The value of $D(P_j)$ however is the determinant being the
-product of a Vandermonde $(k-2)\times(k-2)$-determinant with $\begin{vmatrix} s
-& s^2\\ s' & (s')^2\end{vmatrix}$, and thus, it is not 0. Hence $D(P_j)$ cannot
-be equal to a linear combination of $D(P_1),\dots,D(P_{j-1})$.
+(since the two last columns in each of the resulting determinants become
+proportional) and so does any linear combination of the polynomials. The value
+of $D(P_j)$ however is the determinant being the product of a Vandermonde
+$(k-2)\times(k-2)$-determinant with $\begin{vmatrix} s & s^2\\ s' &
+(s')^2\end{vmatrix}$, and thus, it is not 0. Hence $D(P_j)$ cannot be equal to
+a linear combination of $D(P_1),\dots,D(P_{j-1})$.
 
-We see that the length of any 2-refreshing sequence cannot exceed the dimension
-of the linear space over the field of rationals spanned by all polynomials of
-the form $D(S)$. In order to prove that the dimension is at most
-$\binom{n-k+2}2$, it suffices to show that the space is spanned by the
-polynomials $D(T_1),\dots,D(T_{\binom{n-k+2}2})$ where
-$T_1,\dots,T_{\binom{n-k+2}2}$ is the 2-refreshing sequence constructed in the
-first paragraph of the proof.
+We see that the length of any 2-renewed sequence cannot exceed the dimension of
+the linear space over the field of rationals spanned by all polynomials of the
+form $D(S)$. In order to prove that the dimension is at most $\binom{n-k+2}2$,
+it suffices to show that the space is spanned by the polynomials
+$D(T_1),\dots,D(T_{\binom{n-k+2}2})$ where $T_1,\dots,T_{\binom{n-k+2}2}$ is
+the 2-renewed sequence constructed in the first paragraph of the proof.
 \end{proof}
 
 \section{The road coloring problem}
