@@ -1043,7 +1043,7 @@ following~\cite{Klyachko&Rystsov&Spivak:1987}.
 
 \begin{proof}[Proof of Proposition~\ref{KV:prop:frankl}] Let $Q=\{1,2,\dots,n\}$.
 First, we exhibit a $2$-refreshing sequence of $k$-element subsets in $Q$ of
-length  $\binom{n-k+2}2$. For this put $W=\{1,\dots,k-2\}$, list all
+length $\binom{n-k+2}2$. For this put $W=\{1,\dots,k-2\}$, list all
 $\binom{n-k+2}2$ 2-element subsets of $Q\setminus W$ and let $T_i$ be the union
 of $W$ with the $i$-th 2-element subset in the list. Clearly, the sequence
 $T_1,\dots,T_{\binom{n-k+2}2}$ is 2-refreshing.
@@ -1063,8 +1063,22 @@ independent. Indeed, if they were linearly dependent, then by a basic lemma of
 linear algebra, some polynomial $D(P_j)$ should be expressible as a linear
 combination of the preceding polynomials $D(P_1),\dots,D(P_{j-1})$. By the
 definition of a 2-refreshing sequence, $P_j$ contains a 2-element subset
-$\{s,s'\}$ such that $\{s,s'\}\nsubseteq P_i$ for all $i<j$.
+$\{s,s'\}$ such that $\{s,s'\}\nsubseteq P_i$ for all $i<j$. If we substitute
+$x_s=s$, $x_{s'}=s'$ and $x_t=0$ for $t\ne s,s'$ in each polynomial
+$D(P_1),\dots,D(P_j)$, then the polynomials $D(P_1),\dots,D(P_{j-1})$ vanish
+since the two last columns in each of the resulting determinants become
+proportional. The value of $D(P_j)$ however is the determinant being the
+product of a Vandermonde $(k-2)\times(k-2)$-determinant with $\begin{vmatrix} s
+& s^2\\ s' & (s')^2\end{vmatrix}$, and thus, it is not 0. Hence $D(P_j)$ cannot
+be equal to a linear combination of $D(P_1),\dots,D(P_{j-1})$.
 
+We see that the length of any 2-refreshing sequence cannot exceed the dimension
+of the linear space over the field of rationals spanned by all polynomials of
+the form $D(S)$. In order to prove that the dimension is at most
+$\binom{n-k+2}2$, it suffices to show that the space is spanned by the
+polynomials $D(T_1),\dots,D(T_{\binom{n-k+2}2})$ where
+$T_1,\dots,T_{\binom{n-k+2}2}$ is the 2-refreshing sequence constructed in the
+first paragraph of the proof.
 \end{proof}
 
 \section{The road coloring problem}
