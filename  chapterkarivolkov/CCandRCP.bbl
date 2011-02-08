@@ -238,6 +238,13 @@ J.-K. Rho, F.~Somenzi, and C.~Pixley.
 \newblock In {\em Proc.\ 30th Design Automation Conf.}, pages 463--468. ACM,
   1993.
 
+\bibitem{Roman:2009a}
+A.~Roman.
+\newblock Genetic algorithm for synchronization.
+\newblock In A.~Dediu, A.~Ionescu, and C.~Mart\'{\i}n-Vide, editors, {\em
+  Language and Automata Theory and Applications}, volume 5457 of {\em Lecture
+  Notes in Comput. Sci.}, pages 684--695. Springer-Verlag, 2009.
+
 \bibitem{Roman:2009}
 A.~Roman.
 \newblock Synchronizing finite automata with short reset words.

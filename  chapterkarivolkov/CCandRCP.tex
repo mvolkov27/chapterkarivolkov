@@ -446,11 +446,12 @@ algebras!homotypical}) or $x\cdot u=y\cdot v$ with $x\ne y$
 (\emph{heterotypical} identities\index{identity of unary
 algebras!heterotypical}). It is easy to realize that a DFA is synchronizing if
 and only if it satisfies a heterotypical identity, and thus, studying \sa\ may
-be considered as a part of the equational logic of unary algebras. See
-\cite{Bogdanovic&Imreh&Ciric&Petkovic:1999} for a survey of numerous
-publications in this direction; it is fair to say, however, that so far this
-algebraic approach has not proved to be really useful for understanding the
-combinatorial nature of \sa.
+be considered as a part of the equational logic of unary algebras. In
+particular, \sa\ over a fixed alphabet form a \emph{pseudovariety} of unary
+algebras. See \cite{Bogdanovic&Imreh&Ciric&Petkovic:1999} for a survey of
+numerous publications in this direction; it is fair to say, however, that so
+far this algebraic approach has not proved to be really useful for
+understanding the combinatorial nature of \sa.
 
 
 \section{Algorithmic and complexity issues}
@@ -776,15 +777,13 @@ of~\cite{Olschewski&Ummels:2010} it follows that the problem is
 $\mathsf{FP}^\mathsf{NP[log]}$-hard but its exact complexity is
 not known yet.
 
-We mention that Pixley, Jeong and
-Hachtel~\cite{Pixley&Jeong&Hachtel:1992} suggested an heuristic
-polynomial algorithm for finding short \sws\ in \sa\ that was
-reported to perform rather satisfactory on a number of benchmarks
-from~\cite{Yang:1991}; further polynomial algorithms yielding
-short (though not necessarily shortest) \sws\ have been
-implemented by Trahtman~\cite{Trahtman:2006} and
-Roman~\cite{Roman:2009}. Some algorithms for finding \sws\ will be
-also discussed in the next section.
+We mention that Pixley, Jeong and Hachtel~\cite{Pixley&Jeong&Hachtel:1992}
+suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
+that was reported to perform rather satisfactory on a number of benchmarks
+from~\cite{Yang:1991}; further polynomial algorithms yielding short (though not
+necessarily shortest) \sws\ have been implemented by
+Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009,Roman:2009a}. Some
+algorithms for finding \sws\ will be also discussed in the next section.
 
 \section{Around the \v{C}ern\'{y} conjecture}
 
@@ -910,9 +909,9 @@ $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 If we define the \emph{\v{C}ern\'{y} function}\index{\v{C}ern\'{y} function}
 $\mathfrak{C}(n)$ as the maximum length of shortest reset words for \sa\ with
 $n$ states, the above property of the series $\{\mathcal{C}_{n}\}$,
-$n=2,3,\dotsc$, yields the inequality $C(n)\ge(n-1)^2$. The \emph{\v{C}ern\'{y}
-conjecture}\index{\v{C}ern\'{y} conjecture} is the claim that the equality
-$C(n)=(n-1)^2$ holds true.
+$n=2,3,\dotsc$, yields the inequality $\mathfrak{C}(n)\ge(n-1)^2$. The
+\emph{\v{C}ern\'{y} conjecture}\index{\v{C}ern\'{y} conjecture} is the claim
+that the equality $\mathfrak{C}(n)=(n-1)^2$ holds true.
 
 In the literature, one often refers to \v{C}ern\'{y}'s paper \cite{Cerny:1964}
 as the source of the \v{C}ern\'{y} conjecture. In fact, the conjecture was not
@@ -942,7 +941,7 @@ algorithm.
 \begin{algorithm}
   \setlength{\commentspace}{6cm}
   \begin{algorithmic}[1]
-    \FUNC{GreedyResetWord$(\mathcal{A})$}
+    \FUNC{GreedyCompression$(\mathcal{A})$}
     \STATE\algcomment{0}{Initializing the current word}$w\gets\varepsilon$
     \STATE\algcomment{0}{Initializing the current set}$P\gets Q$
     \WHILE{$|P|> 1$}
@@ -971,39 +970,116 @@ are $k$-element subsets of $Q$. Furthermore, since $|P_{\ell}\cdot
 a_{\ell}|<|P_\ell|$, there exist two distinct states $q_\ell,q'_\ell\in P_\ell$
 such that $q_{\ell}\cdot a_{\ell}=q'_{\ell}\cdot a_{\ell}$. Now define
 2-element subsets $R_i=\{q_i,q'_i\}\subseteq P_i$, $i=1,\dots,\ell$, such that
-$q_i \cdot a_i=q_{i+1}$, $q'_i \cdot a_i=q'_{i+1}$ for $i=1,\dots,\ell-1$. Then
-the condition that $v$ is a word of minimum length with $|P\cdot v|<|P|$
-implies that $R_i\nsubseteq P_j$ for $1\le j<i\le\ell$. Altogether, we arrive
-at the following purely combinatorial problem:
+$q_i \cdot a_i=q_{i+1}$, $q'_i \cdot a_i=q'_{i+1}$ for $i=1,\dots,\ell-1$.
+\begin{figure}[ht]
+\begin{center}
+\unitlength=.85mm
+\begin{picture}(85,37)\nullfont
+\drawoval(0,18,15,38,5) \drawoval(25,18,15,38,5) \drawoval(80,18,15,38,5)
+\gasset{Nframe=n,Nfill=n} \node(A)(0,10){$q_1$} \node(B)(0,26){$q'_1$}
+\node(C)(25,10){$q_2$} \node(D)(25,26){$q'_2$} \node(E)(80,10){$q_\ell$}
+\node(F)(80,26){$q'_\ell$} \node[Nframe=y](G)(105,18){} \drawedge(A,C){$a_1$}
+\drawedge(B,D){$a_1$} \drawedge(E,G){$a_\ell$} \drawedge(F,G){$a_\ell$}
+\put(-13,2){$P_1$} \put(12,2){$P_2$} \put(67,2){$P_\ell$} \node(C1)(50,10){}
+\node(D1)(50,26){} \node(E0)(55,10){} \node(F0)(55,26){} \drawedge(C,C1){$a_2$}
+\drawedge(D,D1){$a_2$} \drawedge(E0,E){$a_{\ell-1}$}
+\drawedge(F0,F){$a_{\ell-1}$} \put(51,10){\dots} \put(51,26){\dots}
+\end{picture}
+\end{center}
+\caption{Combinatorial configuration at a generic step of
+Algorithm~\ref{KV:Greedy}}\label{KV:fig:combinatorial configuration}
+\end{figure}
 
-\begin{question}
-\label{frankl} Let $Q$ be an $n$-element set, $P_1,\dots,P_\ell$ a sequence of
-its $k$-element subsets $(k>1)$ and $R_1,\dots,R_\ell$ a sequence of its
-$2$-element subsets. Suppose that $R_i\subseteq P_i$ for each $i=1,\dots,\ell$
-but $R_i\nsubseteq P_j$ for $1\le j<i\le\ell$. How big the number $\ell$ can
-be?
-\end{question}
+\noindent Then the condition that $v$ is a word of minimum length with $|P\cdot
+v|<|P|$ implies that $R_i\nsubseteq P_j$ for $1\le j<i\le\ell$. Indeed, if
+$R_i\subseteq P_j$ for some $j<i$, then already the word $a_1\cdots
+a_ja_i\cdots a_\ell$ of length $j+\ell-i<\ell$ would satisfy $|P\cdot a_1\cdots
+a_ja_i\cdots a_\ell|<|P|$ contradicting the choice of $v$. Thus, we arrive at a
+problem from combinatorics of finite sets that can be stated as follows. Let
+$1<k\le n$. A sequence of $k$-element subsets $P_1,P_2,\dots$ of an $n$-element
+set is called 2-\emph{refreshing}\index{2-refreshing sequence} if each $P_i$
+contains a 2-element subset $R_i$ such that $R_i\nsubseteq P_j$ for each $j<i$.
+What is the maximum length of a 2-refreshing sequence as a function of $n$ and
+$k$?
 
-Question~\ref{frankl} was solved by~Frankl\cite{Frankl:1982} who found the
-tight bound $\ell\le\binom{n-k+2}2$. Summing up these inequalities from $k=n$
-to $k=2$, one arrives at the aforementioned bound
+The problem was solved by Frankl~\cite{Frankl:1982} who proved the following
+result\footnote{Actually Frankl~\cite{Frankl:1982} considered and solved a more
+general problem concerning the maximum length of (analogously defined)
+$m$-refreshing sequences of $k$-element subsets in an $n$-element set for an
+arbitrary fixed $m\le k$.}.
+\begin{proposition}
+\label{KV:prop:frankl} The maximum length of a $2$-refreshing sequence of
+$k$-element subsets in an $n$-element set is equal to $\binom{n-k+2}2$.
+\end{proposition}
+Thus, if $\ell_k$ is the length of the word $v$ that Algorithm~\ref{KV:Greedy}
+appends to the current word $w$ after the iteration step that the algorithm
+enters while the current set $P$ contains $k$ states, then
+Proposition~\ref{KV:prop:frankl} guarantees that $\ell_k\le\binom{n-k+2}2$.
+Summing up all these inequalities from $k=n$ to $k=2$, one arrives at the
+aforementioned bound
 \begin{equation}
-\label{pin} C(n)\le\dfrac{n^3-n}6.
+\label{pin} \mathfrak{C}(n)\le\dfrac{n^3-n}6.
 \end{equation}
 In the literature the bound~\eqref{pin} is usually attributed to Pin who
-explained the above connection between Algorithm~\ref{KV:Greedy} and
-Question~\ref{frankl} and conjectured the estimation $\ell\le\binom{n-k+2}2$ in
-his talk at the Colloquium on Graph Theory and Combinatorics held in Marseille
-in 1981; Frankl learned Question~\ref{frankl} from that talk. Accordingly, the
-usual reference for~\eqref{pin} is the paper \cite{Pin:1983} based on the talk.
-The full story is however more complicated. Actually, the bound~\eqref{pin}
-first appeared in~\cite{Fischler&Tannenbaum:1970} where it was deduced from a
-combinatorial conjecture equivalent to Pin's one. The conjecture remained
-unproved and the paper eventually got lost in limbo. The bound~\eqref{pin} then
-reoccurred in~\cite{Kohavi&Winograd:1971,Kohavi&Winograd:1973} but the argument
-justifying it in these papers was insufficient. Later both~\eqref{pin} and
-Frankl's solution to Question~\ref{frankl} were independently rediscovered in
-\cite{Klyachko&Rystsov&Spivak:1987}.
+explained the above connection between Algorithm~\ref{KV:Greedy} and the
+combinatorial problem on the maximum length of 2-refreshing sequences and
+conjectured the estimation $\binom{n-k+2}2$ for this length in his talk at the
+Colloquium on Graph Theory and Combinatorics held in Marseille in 1981. (Frankl
+learned this conjecture from Pin---and proved it---during another colloquium on
+combinatorics held in Bielefeld in November 1981.) Accordingly, the usual
+reference for~\eqref{pin} is the paper \cite{Pin:1983} based on the talk. The
+full story is however more complicated. Actually, the bound~\eqref{pin} first
+appeared in~\cite{Fischler&Tannenbaum:1970} where it was deduced from a
+combinatorial conjecture equivalent to Pin's one. The conjecture however
+remained unproved. The bound~\eqref{pin} then reoccurred
+in~\cite{Kohavi&Winograd:1971,Kohavi&Winograd:1973} but the argument justifying
+it in these papers was insufficient. In 1987 both~\eqref{pin} and
+Proposition~\ref{KV:prop:frankl} were independently rediscovered by Klyachko,
+Rystsov and Spivak~\cite{Klyachko&Rystsov&Spivak:1987} who were aware
+of~\cite{Fischler&Tannenbaum:1970,Kohavi&Winograd:1971,Kohavi&Winograd:1973} but
+neither of~\cite{Pin:1983} nor of~\cite{Frankl:1982}.\marginpar{\textbf{If space\\
+permits!!}} We sketch here a proof of Frankl's result
+following~\cite{Klyachko&Rystsov&Spivak:1987}.
+
+\begin{proof}[Proof of Proposition~\ref{KV:prop:frankl}] Let $Q=\{1,2,\dots,n\}$.
+First, we exhibit a $2$-refreshing sequence of $k$-element subsets in $Q$ of
+length $\binom{n-k+2}2$. For this put $W=\{1,\dots,k-2\}$, list all
+$\binom{n-k+2}2$ 2-element subsets of $Q\setminus W$ and let $T_i$ be the union
+of $W$ with the $i$-th 2-element subset in the list. Clearly, the sequence
+$T_1,\dots,T_{\binom{n-k+2}2}$ is 2-refreshing.
+
+Now we assign to each $k$-element subset $S=\{s_1,\dots,s_k\}$ of $Q$ the
+following polynomial $D(S)$ in variables $x_{s_1},\dots,x_{s_k}$ over the field
+of rationals:
+$$D(S)=\begin{vmatrix}
+1 & s_1 & s_1^2 & \cdots & s_1^{k-3} & x_{s_1} & x_{s_1}^2\\
+1 & s_2 & s_2^2 & \cdots & s_2^{k-3} & x_{s_2} & x_{s_2}^2\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
+1 & s_k & s_k^2 & \cdots & s_k^{k-3} & x_{s_k} & x_{s_k}^2
+\end{vmatrix}_{k\times k}.$$
+Observe that for any 2-refreshing sequence $P_1,\dots,P_\ell$ of $k$-element
+subsets in $Q$, the polynomials $D(P_1),\dots,D(P_\ell)$ are linearly
+independent. Indeed, if they were linearly dependent, then by a basic lemma of
+linear algebra, some polynomial $D(P_j)$ should be expressible as a linear
+combination of the preceding polynomials $D(P_1),\dots,D(P_{j-1})$. By the
+definition of a 2-refreshing sequence, $P_j$ contains a 2-element subset
+$\{s,s'\}$ such that $\{s,s'\}\nsubseteq P_i$ for all $i<j$. If we substitute
+$x_s=s$, $x_{s'}=s'$ and $x_t=0$ for $t\ne s,s'$ in each polynomial
+$D(P_1),\dots,D(P_j)$, then the polynomials $D(P_1),\dots,D(P_{j-1})$ vanish
+since the two last columns in each of the resulting determinants become
+proportional. The value of $D(P_j)$ however is the determinant being the
+product of a Vandermonde $(k-2)\times(k-2)$-determinant with $\begin{vmatrix} s
+& s^2\\ s' & (s')^2\end{vmatrix}$, and thus, it is not 0. Hence $D(P_j)$ cannot
+be equal to a linear combination of $D(P_1),\dots,D(P_{j-1})$.
+
+We see that the length of any 2-refreshing sequence cannot exceed the dimension
+of the linear space over the field of rationals spanned by all polynomials of
+the form $D(S)$. In order to prove that the dimension is at most
+$\binom{n-k+2}2$, it suffices to show that the space is spanned by the
+polynomials $D(T_1),\dots,D(T_{\binom{n-k+2}2})$ where
+$T_1,\dots,T_{\binom{n-k+2}2}$ is the 2-refreshing sequence constructed in the
+first paragraph of the proof.
+\end{proof}
 
 \section{The road coloring problem}
 \label{KV:sec:rcp}
