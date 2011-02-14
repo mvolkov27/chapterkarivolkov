@@ -525,12 +525,11 @@ singleton? The latter question can be easily answered by
 breadth-first search,  see, e.g.,
 \cite[Section~22.2]{Cormen&Leiserson&Rivest&Stein:2001}.
 
-The described procedure is conceptually very simple but rather
-inefficient because the power automaton $\mathcal{P}(\mathcal{A})$
-is exponentially larger than $\mathcal{A}$. However, the following
-criterion of synchronizability~\cite[Theorem~2]{Cerny:1964} gives
+The described procedure is conceptually very simple but rather inefficient
+because the power automaton $\mathcal{P}(\mathcal{A})$ is exponentially larger
+than $\mathcal{A}$. However, the following criterion of synchronizability gives
 rise to a polynomial algorithm.
-\begin{proposition}
+\begin{proposition}[{\mdseries\cite[Theorem~2]{Cerny:1964}}]
 \label{KV:prop:quadratic} A DFA $\mathcal{A}=(Q,A)$ is synchronizing if and
 only if for every $q,q'\in Q$ there exists a word $w\in A^*$ such that $q\cdot
 w=q'\cdot w$.
@@ -550,12 +549,12 @@ at most $|Q|-1$ steps.
 One can treat Proposition~\ref{KV:prop:quadratic} as a reduction of the
 synchronizability problem to a reachability problem in the subautomaton
 $\mathcal{P}^{[2]}(\mathcal{A})$ of $\mathcal{P}(\mathcal{A})$ whose states are
-\emph{couples} (2-element subsets) and singletons of $Q$. Since the
-subautomaton has $\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves this
-problem in $O(|Q|^2\cdot|A|)$ time. This complexity bound assumes that no reset
-word is explicitly calculated. If one requires that, whenever $\mathcal{A}$
-turns out to be synchronizing, a reset word is produced, then the best of the
-known algorithms (which is basically due to Eppstein
+\emph{couples}\index{couple} (2-element subsets) and singletons of $Q$. Since
+the subautomaton has $\dfrac{|Q|(|Q|+1)}2$ states, breadth-first search solves
+this problem in $O(|Q|^2\cdot|A|)$ time. This complexity bound assumes that no
+reset word is explicitly calculated. If one requires that, whenever
+$\mathcal{A}$ turns out to be synchronizing, a reset word is produced, then the
+best of the known algorithms (which is basically due to Eppstein
 \cite[Theorem~6]{Eppstein:1990}, see also \cite[Theorem~1.15]{Sandberg:2005})
 has an implementation that consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and
 $O(|Q|^2 + |Q|\cdot|A|)$ working space, not counting the space for the output
@@ -778,6 +777,11 @@ of~\cite{Olschewski&Ummels:2010} it follows that the problem is
 $\mathsf{FP}^\mathsf{NP[log]}$-hard but its exact complexity is
 not known yet.
 
+The hardness results in~\cite{Berlinkov:2010,Olschewski&Ummels:2010} are
+obtained via suitable encodings of \textsc{SAT} in the flavor of the above
+proof of Proposition~\ref{KV:prop:complexity1}. Gerbush and
+Heeringa~\cite{Gerbush&Heeringa:2011} have observed 
+
 We mention that Pixley, Jeong and Hachtel~\cite{Pixley&Jeong&Hachtel:1992}
 suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
 that was reported to perform rather satisfactory on a number of benchmarks
@@ -838,17 +842,22 @@ shown in Figure\,\ref{KV:fig:cerny-n} on the left.
 induced by the actions of $b$ and $c=ab$}\label{KV:fig:cerny-n}
 \end{figure}
 
-The series $\mathcal{C}_n$ was rediscovered many times (see, e.g.,
+The series $\{\mathcal{C}_n\}_{n=2,3,\dots}$ was rediscovered many times (see,
+e.g.,
 \cite{Laemmel&Rudner:1969,Fischler&Tannenbaum:1970,Eppstein:1990,Frettloh&Sing2007}).
 It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
-$n(n-2)+1=(n-1)^2$ is a reset word for $\mathcal{C}_n$. There are several nice
-proofs for \v{C}ern\'{y}'s result~\cite[Lemma~1]{Cerny:1964} that
-$\mathcal{C}_n$ has no shorter \sws. Here we present a recent proof
+$n(n-2)+1=(n-1)^2$ resets $\mathcal{C}_n$.
+\begin{proposition}[{\mdseries\cite[Lemma~1]{Cerny:1964}}]
+\label{KV:prop:cerny} Any \sw\ for the automaton $\mathcal{C}_n$ has length at
+least $(n-1)^2$.
+\end{proposition}
+There are several nice proofs for this result. Here we present a recent proof
 from~\cite{Ananichev&Gusev&Volkov:2010}; it is based on a transparent idea and
 reveals an interesting connection between \v{C}ern\'{y}'s automata
 $\mathcal{C}_n$ and an extremal series of digraphs discovered in Wielandt's
 classic paper~\cite{Wielandt:1950} (see Section~\ref{KV:sec:rcp}).
 
+\begin{proof}[Proof of Proposition~\ref{KV:prop:cerny}]
 Let $w$ be a \sw\ of minimum length for $\mathcal{C}_n$. Since the
 letter $b$ acts on $Q$ as a cyclic permutation, the word $w$
 cannot end with $b$. (Otherwise removing the last letter gives a
@@ -904,8 +913,7 @@ of $c$. Since each occurrence of $c$ in $v$ corresponds to an
 occurrence of the factor $ab$ in $w'$, we conclude that the length
 of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$. Thus,
 $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
-
-\smallskip
+\end{proof}
 
 If we define the \emph{\v{C}ern\'{y} function}\index{\v{C}ern\'{y} function}
 $\mathfrak{C}(n)$ as the maximum length of shortest reset words for \sa\ with
@@ -918,7 +926,7 @@ In the literature, one often refers to \v{C}ern\'{y}'s paper \cite{Cerny:1964}
 as the source of the \v{C}ern\'{y} conjecture. In fact, the conjecture was not
 yet formulated in that paper. There \v{C}ern\'{y} only observed that
 \begin{equation}
-\label{first bound} (n-1)^2\le \mathfrak{C}(n)\le 2^n-n-1
+\label{KV:eq:first bound} (n-1)^2\le \mathfrak{C}(n)\le 2^n-n-1
 \end{equation}
 and concluded the paper with the following remark:
 \begin{quote}
@@ -927,16 +935,16 @@ sharpen them. One can expect an improvement mainly for the upper bound.''
 \end{quote}
 The conjecture in its present-day form was formulated a bit later, after the
 expectation in the above quotation was confirmed by \cite{Starke:1966}.
-(Namely, Starke improved the upper bound in~\eqref{first bound} to
+(Namely, Starke improved the upper bound in~\eqref{KV:eq:first bound} to
 $1+\frac{n(n-1)(n-2)}2$, which was the first polynomial upper bound for
 $\mathfrak{C}(n)$.) \v{C}ern\'{y} explicitly stated the conjecture
 $\mathfrak{C}(n)=(n-1)^2$ in his talks in the second half of the 1960s; in
 print the conjecture first appeared in~\cite{Cerny&Piricka&Rosenauerova:1971}.
 
-The best upper bound for the \v{C}ern\'{y} function achieved so far guarantees
-that for every \san\ with $n$ states there exists a reset word of length
-$\frac{n^3-n}6$. Such a reset word arises as the output of the following greedy
-algorithm.
+\paragraph*{An upper bound.} The best upper bound for the \v{C}ern\'{y}
+function achieved so far guarantees that for every \san\ with $n$ states there
+exists a reset word of length $\frac{n^3-n}6$. Such a reset word arises as the
+output of the following greedy algorithm.
 
 %=================================
 \begin{algorithm}
@@ -965,21 +973,23 @@ at most $n-1$ times. In order to evaluate the length of the output word $w$, we
 estimate the length of each word $v$ produced by the main loop.
 
 Consider a generic step at which $|P|=k>1$ and let $v=a_1\cdots a_\ell$ with
-$a_i\in\Sigma$, $i=1,\dots,\ell$. Then it is easy to see that the sets
-$$P_1=P,\ P_2=P_1\cdot a_1,\ \dotsc,\ P_\ell=P_{\ell-1}\cdot a_{\ell-1}$$
-are $k$-element subsets of $Q$. Furthermore, since $|P_{\ell}\cdot
-a_{\ell}|<|P_\ell|$, there exist two distinct states $q_\ell,q'_\ell\in P_\ell$
-such that $q_{\ell}\cdot a_{\ell}=q'_{\ell}\cdot a_{\ell}$. Now define couples
-$R_i=\{q_i,q'_i\}\subseteq P_i$, $i=1,\dots,\ell$, such that $q_i \cdot
-a_i=q_{i+1}$, $q'_i \cdot a_i=q'_{i+1}$ for $i=1,\dots,\ell-1$.
+$a_i\in\Sigma$, $i=1,\dots,\ell$. Then each of the sets
+\begin{displaymath}
+P_1=P,\ P_2=P_1\cdot a_1,\ \dotsc,\ P_\ell=P_{\ell-1}\cdot a_{\ell-1}
+\end{displaymath}
+contains exactly $k$ states. Furthermore, since $|P_{\ell}\cdot
+a_{\ell}|<|P_\ell|$, there exist two distinct states $p_\ell,p'_\ell\in P_\ell$
+such that $p_{\ell}\cdot a_{\ell}=p'_{\ell}\cdot a_{\ell}$. Now define couples
+$R_i=\{p_i,p'_i\}\subseteq P_i$, $i=1,\dots,\ell$, such that $p_i\cdot
+a_i=p_{i+1}$, $p'_i\cdot a_i=p'_{i+1}$ for $i=1,\dots,\ell-1$.
 \begin{figure}[ht]
 \begin{center}
 \unitlength=.85mm
 \begin{picture}(85,37)\nullfont
 \drawoval(0,18,15,38,5) \drawoval(25,18,15,38,5) \drawoval(80,18,15,38,5)
-\gasset{Nframe=n,Nfill=n} \node(A)(0,10){$q_1$} \node(B)(0,26){$q'_1$}
-\node(C)(25,10){$q_2$} \node(D)(25,26){$q'_2$} \node(E)(80,10){$q_\ell$}
-\node(F)(80,26){$q'_\ell$} \node[Nframe=y](G)(105,18){} \drawedge(A,C){$a_1$}
+\gasset{Nframe=n,Nfill=n} \node(A)(0,10){$p_1$} \node(B)(0,26){$p'_1$}
+\node(C)(25,10){$p_2$} \node(D)(25,26){$p'_2$} \node(E)(80,10){$p_\ell$}
+\node(F)(80,26){$p'_\ell$} \node[Nframe=y](G)(105,18){} \drawedge(A,C){$a_1$}
 \drawedge(B,D){$a_1$} \drawedge(E,G){$a_\ell$} \drawedge(F,G){$a_\ell$}
 \put(-13,2){$P_1$} \put(12,2){$P_2$} \put(67,2){$P_\ell$} \node(C1)(50,10){}
 \node(D1)(50,26){} \node(E0)(55,10){} \node(F0)(55,26){} \drawedge(C,C1){$a_2$}
@@ -998,17 +1008,17 @@ a_ja_i\cdots a_\ell$ of length $j+\ell-i<\ell$ would satisfy $|P\cdot a_1\cdots
 a_ja_i\cdots a_\ell|<|P|$ contradicting the choice of $v$. Thus, we arrive at a
 problem from combinatorics of finite sets that can be stated as follows. Let
 $1<k\le n$. A sequence of $k$-element subsets $P_1,P_2,\dots$ of an $n$-element
-set is called 2-\emph{renewed}\index{2-renewed sequence} if each $P_i$ contains
-a couple $R_i$ such that $R_i\nsubseteq P_j$ for each $j<i$. What is the
-maximum length of a 2-renewed sequence as a function of $n$ and $k$?
+set is called 2-\emph{renewing}\index{2-renewing sequence} if each $P_i$
+contains a couple $R_i$ such that $R_i\nsubseteq P_j$ for each $j<i$. What is
+the maximum length of a 2-renewing sequence as a function of $n$ and $k$?
 
 The problem was solved by Frankl~\cite{Frankl:1982} who proved the following
 result\footnote{Actually Frankl~\cite{Frankl:1982} considered and solved a more
 general problem concerning the maximum length of (analogously defined)
-$m$-renewed sequences of $k$-element subsets in an $n$-element set for an
+$m$-renewing sequences of $k$-element subsets in an $n$-element set for an
 arbitrary fixed $m\le k$.}.
 \begin{proposition}
-\label{KV:prop:frankl} The maximum length of a $2$-renewed sequence of
+\label{KV:prop:frankl} The maximum length of a $2$-renewing sequence of
 $k$-element subsets in an $n$-element set is equal to $\binom{n-k+2}2$.
 \end{proposition}
 Thus, if $\ell_k$ is the length of the word $v$ that Algorithm~\ref{KV:Greedy}
@@ -1018,74 +1028,139 @@ Proposition~\ref{KV:prop:frankl} guarantees that $\ell_k\le\binom{n-k+2}2$.
 Summing up all these inequalities from $k=n$ to $k=2$, one arrives at the
 aforementioned bound
 \begin{equation}
-\label{pin} \mathfrak{C}(n)\le\dfrac{n^3-n}6.
+\label{KV:eq:pin} \mathfrak{C}(n)\le\dfrac{n^3-n}6.
 \end{equation}
-In the literature the bound~\eqref{pin} is usually attributed to Pin who
+In the literature the bound~\eqref{KV:eq:pin} is usually attributed to Pin who
 explained the above connection between Algorithm~\ref{KV:Greedy} and the
-combinatorial problem on the maximum length of 2-renewed sequences and
+combinatorial problem on the maximum length of 2-renewing sequences and
 conjectured the estimation $\binom{n-k+2}2$ for this length in his talk at the
 Colloquium on Graph Theory and Combinatorics held in Marseille in 1981. (Frankl
 learned this conjecture from Pin---and proved it---during another colloquium on
 combinatorics held in Bielefeld in November 1981.) Accordingly, the usual
-reference for~\eqref{pin} is the paper \cite{Pin:1983} based on the talk. The
-full story is however more complicated. Actually, the bound~\eqref{pin} first
-appeared in~\cite{Fischler&Tannenbaum:1970} where it was deduced from a
-combinatorial conjecture equivalent to Pin's one. The conjecture however
-remained unproved. The bound~\eqref{pin} then reoccurred
-in~\cite{Kohavi&Winograd:1971,Kohavi&Winograd:1973} but the argument justifying
-it in these papers was insufficient. In 1987 both~\eqref{pin} and
-Proposition~\ref{KV:prop:frankl} were independently rediscovered by Klyachko,
-Rystsov and Spivak~\cite{Klyachko&Rystsov&Spivak:1987} who were aware
+reference for~\eqref{KV:eq:pin} is the paper \cite{Pin:1983} based on the talk.
+The full story is however more complicated. Actually, the
+bound~\eqref{KV:eq:pin} first appeared in~\cite{Fischler&Tannenbaum:1970} where
+it was deduced from a combinatorial conjecture equivalent to Pin's one. The
+conjecture however remained unproved. The bound~\eqref{KV:eq:pin} then
+reoccurred in~\cite{Kohavi&Winograd:1971,Kohavi&Winograd:1973} but the argument
+justifying it in these papers was insufficient. In 1987 both~\eqref{KV:eq:pin}
+and Proposition~\ref{KV:prop:frankl} were independently rediscovered by
+Klyachko, Rystsov and Spivak~\cite{Klyachko&Rystsov&Spivak:1987} who were aware
 of~\cite{Fischler&Tannenbaum:1970,Kohavi&Winograd:1971,Kohavi&Winograd:1973}
 but
-neither of~\cite{Pin:1983} nor of~\cite{Frankl:1982}.\marginpar{\textbf{If space\\
-permits!!}} We sketch here a proof of Frankl's result
+neither~\cite{Pin:1983} nor~\cite{Frankl:1982}.\marginpar{\textbf{If space\\
+permits!!}} We include here a proof of Frankl's result
 following~\cite{Klyachko&Rystsov&Spivak:1987}.
 
 \begin{proof}[Proof of Proposition~\ref{KV:prop:frankl}] Let $Q=\{1,2,\dots,n\}$.
-First, we exhibit a 2-renewed sequence of $k$-element subsets in $Q$ of length
+First, we exhibit a 2-renewing sequence of $k$-element subsets in $Q$ of length
 $\binom{n-k+2}2$. For this put $W=\{1,\dots,k-2\}$, list all $\binom{n-k+2}2$
 couples of $Q\setminus W$ in some order and let $T_i$ be the union of $W$ with
 the $i$-th couple in the list. Clearly, the sequence
-$T_1,\dots,T_{\binom{n-k+2}2}$ is 2-renewed.
+$T_1,\dots,T_{\binom{n-k+2}2}$ is 2-renewing.
 
 Now we assign to each $k$-element subset $S=\{s_1,\dots,s_k\}$ of $Q$ the
 following polynomial $D(S)$ in variables $x_{s_1},\dots,x_{s_k}$ over the field
 of rationals:
-$$D(S)=\begin{vmatrix}
+\begin{displaymath}
+D(S)=\begin{vmatrix}
 1 & s_1 & s_1^2 & \cdots & s_1^{k-3} & x_{s_1} & x_{s_1}^2\\
 1 & s_2 & s_2^2 & \cdots & s_2^{k-3} & x_{s_2} & x_{s_2}^2\\
 \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
 1 & s_k & s_k^2 & \cdots & s_k^{k-3} & x_{s_k} & x_{s_k}^2
-\end{vmatrix}_{k\times k}.$$
-Observe that for any 2-renewed sequence $P_1,\dots,P_\ell$ of $k$-element
-subsets in $Q$, the polynomials $D(P_1),\dots,D(P_\ell)$ are linearly
+\end{vmatrix}_{k\times k}.
+\end{displaymath}
+Observe that for any 2-renewing sequence $S_1,\dots,S_\ell$ of $k$-element
+subsets in $Q$, the polynomials $D(S_1),\dots,D(S_\ell)$ are linearly
 independent. Indeed, if they were linearly dependent, then by a basic lemma of
-linear algebra, some polynomial $D(P_j)$ should be expressible as a linear
-combination of the preceding polynomials $D(P_1),\dots,D(P_{j-1})$. By the
-definition of a 2-renewed sequence, $P_j$ contains a couple $\{s,s'\}$ such
-that $\{s,s'\}\nsubseteq P_i$ for all $i<j$. If we substitute $x_s=s$,
+linear algebra, some polynomial $D(S_j)$ should be expressible as a linear
+combination of the preceding polynomials $D(S_1),\dots,D(S_{j-1})$. By the
+definition of a 2-renewing sequence, $S_j$ contains a couple $\{s,s'\}$ such
+that $\{s,s'\}\nsubseteq S_i$ for all $i<j$. If we substitute $x_s=s$,
 $x_{s'}=s'$ and $x_t=0$ for $t\ne s,s'$ in each polynomial
-$D(P_1),\dots,D(P_j)$, then the polynomials $D(P_1),\dots,D(P_{j-1})$ vanish
+$D(S_1),\dots,D(S_j)$, then the polynomials $D(S_1),\dots,D(S_{j-1})$ vanish
 (since the two last columns in each of the resulting determinants become
 proportional) and so does any linear combination of the polynomials. The value
-of $D(P_j)$ however is the determinant being the product of a Vandermonde
-$(k-2)\times(k-2)$-determinant with $\begin{vmatrix} s & s^2\\ s' &
-(s')^2\end{vmatrix}$, and thus, it is not 0. Hence $D(P_j)$ cannot be equal to
-a linear combination of $D(P_1),\dots,D(P_{j-1})$.
+of $D(S_j)$ however is the determinant being the product of a Vandermonde
+$(k-2)\times(k-2)$-determinant with the $2\times 2$-determinant $\begin{vmatrix} s & s^2\\
+s' & (s')^2\end{vmatrix}$, whence this value is not 0. Hence $D(S_j)$ cannot be
+equal to a linear combination of $D(S_1),\dots,D(S_{j-1})$.
 
-We see that the length of any 2-renewed sequence cannot exceed the dimension of
-the linear space over the field of rationals spanned by all polynomials of the
-form $D(S)$. In order to prove that the dimension is at most $\binom{n-k+2}2$,
-it suffices to show that the space is spanned by the polynomials
-$D(T_1),\dots,D(T_{\binom{n-k+2}2})$ where $T_1,\dots,T_{\binom{n-k+2}2}$ is
-the 2-renewed sequence constructed in the first paragraph of the proof.
+We see that the length of any 2-renewing sequence cannot exceed the dimension
+of the linear space over the field of rationals spanned by all polynomials of
+the form $D(S)$. In order to prove that the dimension is at most
+$\binom{n-k+2}2$, it suffices to show that the space is spanned by the
+polynomials $D(T_1),\dots,D(T_{\binom{n-k+2}2})$, where
+$T_1,\dots,T_{\binom{n-k+2}2}$ is the 2-renewing sequence constructed in the
+first paragraph of the proof. For this, take an arbitrary $k$-element subset
+$S=\{s_1,\dots,s_k\}$ of $Q$. We claim that the polynomial $D(S)$ is a linear
+combination (with rational coefficients) of
+$D(T_1),\dots,D(T_{\binom{n-k+2}2})$. We induct on the cardinality of the set
+$S\setminus W$. If $|S\setminus W|=2$, then $S$ is the union of $W$ with some
+couple from $Q\setminus W$, whence $S=T_i$ for some $i=1,\dots,\binom{n-k+2}2$.
+Thus, $D(S)=D(T_i)$ and our claim holds true. If $|S\setminus W|>2$, there is
+$s_0\in W\setminus S$. Let $S'=S\cup\{s_0\}$. There exists a polynomial
+$p(x)=\alpha_0+\alpha_1x+\alpha_2x^2\cdots+\alpha_{k-3}x^{k-3}$ with rational
+coefficients such that $p(s_0)=1$ and $p(s)=0$ for all $s\in
+W\setminus\{s_0\}$. Consider the determinant
+\begin{displaymath}
+D=\begin{vmatrix}
+p(s_0) & 1 & s_0 & s_0^2 & \cdots & s_0^{k-3} & x_{s_0} & x_{s_0}^2\\
+p(s_1) & 1 & s_1 & s_1^2 & \cdots & s_1^{k-3} & x_{s_1} & x_{s_1}^2\\
+p(s_2) & 1 & s_2 & s_2^2 & \cdots & s_2^{k-3} & x_{s_2} & x_{s_2}^2\\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots\\
+p(s_k) & 1 & s_k & s_k^2 & \cdots & s_k^{k-3} & x_{s_k} & x_{s_k}^2
+\end{vmatrix}_{(k+1)\times (k+1)}.
+\end{displaymath}
+Clearly, $D=0$ as the first column is the sum of the next $k-2$ columns with
+the coefficients $\alpha_0,\alpha_1,\alpha_2,\dots,\alpha_{k-3}$. Thus,
+expanding $D$ by the first column gives the identity
+\begin{displaymath}
+\sum_{j=0}^{k}(-1)^jp(s_j)D(S'\setminus\{s_j\})=0.
+\end{displaymath}
+Since $p(s_0)=1$ and $S'\setminus\{s_0\}=S$, the identity rewrites as
+\begin{equation}
+\label{KV:eq:combination}
+D(S)=\sum_{j=1}^{k}(-1)^{j+1}p(s_j)D(S'\setminus\{s_j\}),
+\end{equation}
+and since $p(s)=0$ for all $s\in W\setminus\{s_0\}$ all the non-zero summands
+in the right-hand side are such that $s_j\notin W$. For each such $s_j$, we
+have
+\begin{displaymath}
+(S'\setminus\{s_j\})\setminus
+W=S'\setminus(W\cup\{s_j\})=(S\cup\{s_0\})\setminus(W\cup\{s_j\})=(S\setminus
+W)\setminus\{s_j\},
+\end{displaymath}
+whence $|(S'\setminus\{s_j\})\setminus W|=|S\setminus W|-1$ and by the
+inductive assumption, the polynomials $D(S'\setminus\{s_j\})$ are rational
+linear combinations of $D(T_1),\dots,D(T_{\binom{n-k+2}2})$. From
+\eqref{KV:eq:combination} we conclude that this holds true for the polynomial
+$D(S)$ as well.
 \end{proof}
+
+
+
+If one executes Algorithm~1 on the \v{C}ern\'{y} automaton $\mathcal{C}_{4}$
+(Fig.\,\ref{KV:fig:power automaton} is quite helpful here), one sees that the
+algorithm returns the word $ab^2abab^3a$ of length 10 which is not the shortest
+reset word for $\mathcal{C}_{4}$. This reveals one of the main intrinsic
+difficulties of the synchronization problem: the standard optimality principle
+does not apply here since it is not true that the optimal solution behaves
+optimally also in all intermediate steps. In our example, the optimal solution
+is the word $ab^3ab^3a$ but it cannot be found by the greedy algorithm because
+the algorithm chooses $v=b^2a$ rather than $v=b^3a$ on the second execution of
+the main loop. Actually, the gap between the minimum length of a \sw\ and the
+length of the word produced by the greedy algorithm may be arbitrarily large:
+for each $n>1$ there exists a \san\ with $n$ states whose shortest \sw\ has
+length $(n-1)^2$ while the greedy algorithm produces a \sw\ of length
+$\Omega(n^2\log n)$. The behaviour of the greedy algorithm on average is not
+yet understood; practically it behaves rather well.
 
 \section{The road coloring problem}
 \label{KV:sec:rcp}
 
-\section{Generalizations}
+\section{Related work}
+\label{KV:sec:related}
 
 \bibliographystyle{abbrv}
 \addcontentsline{toc}{section}{References}
