@@ -116,6 +116,13 @@ P.~Gawrychowski.
 \newblock Complexity of shortest synchronizing word.
 \newblock Private communiction, 2008.
 
+\bibitem{Gerbush&Heeringa:2011}
+M.~Gerbush and B.~Heeringa.
+\newblock Approximating minimum reset sequences.
+\newblock In M.~Domaratzki and K.~Salomaa, editors, {\em Implementation and
+  Application of Automata, CIAA'10}, volume 6482 of {\em Lecture Notes in
+  Comput. Sci.}, pages 154--162. Springer-Verlag, 2011.
+
 \bibitem{Gill:1961}
 A.~Gill.
 \newblock State-identification experiments in finite automata.
