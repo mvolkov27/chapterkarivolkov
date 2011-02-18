@@ -73,6 +73,7 @@
 \newcommand{\san}{synchronizing au\-tom\-a\-ton}
 \newcommand{\sw}{reset word}
 \newcommand{\sws}{reset words}
+\newcommand{\rt}{reset threshold}
 
 %============Additional statements ==================
 \theoremstyle{plain}
@@ -453,13 +454,14 @@ numerous publications in this direction; it is fair to say, however, that so
 far this algebraic approach has not proved to be really useful for
 understanding the combinatorial nature of \sa.
 
-
+%=====================================================
 \section{Algorithmic and complexity issues}
-
-It should be clear that not every DFA is synchronizing. Therefore,
-the very first question that we should address is the following
-one: \emph{given an automaton $\mathcal{A}$, how to determine
-whether or not $\mathcal{A}$ is synchronizing?}
+\label{KV:sec:algorithms&complexity}
+%=====================================================
+It should be clear that not every DFA is synchronizing. Therefore, the very
+first question that we should address is the following one: \emph{given an
+automaton $\mathcal{A}$, how to determine whether or not $\mathcal{A}$ is
+synchronizing?}
 
 \begin{figure}[htb]
 \begin{center}
@@ -615,8 +617,8 @@ and a special state $z$. The transitions are defined by
     z \text{ if the literal $\neg x_j$ occurs in $c_i$},\\
     q_{i,j+1} \text{ otherwise}
 \end{cases} && \text{ for $1 \le i \le m$, $1 \le j \le n$;} \\
-&q_{i,n+1}\cdot a=q_{i,n+1}\cdot b =z && \text{ for $1\le i\le
-m$;}\\  &z\cdot a=z\cdot b =z.&&
+&q_{i,n+1}\cdot a=q_{i,n+1}\cdot b =z\cdot a=z\cdot b=z && \text{ for $1\le
+i\le m$.}
 \end{align*}
 Figure~\ref{KV:fig:A2_example} shows two automata of the form
 $\mathcal{A}(\psi)$ build for the \textsc{SAT} instances
@@ -715,16 +717,15 @@ $\mathcal{A}$ is equal to $\ell$?}
 \smallskip
 
 \noindent Assigning the instance $(\mathcal{A}(\psi),n+1)$ of
-\textsc{Shortest-Reset-Word} to an arbitrary system $\psi$ of
-clauses on $n$ variables, one sees that the answer to the instance
-is ``Yes'' if and only if $\psi$ is not satisfiable. Thus, we have
-a polynomial reduction from the negation of \textsc{SAT} to
-\textsc{Shortest-Reset-Word} whence the latter problem is
-\textsf{coNP}-hard. As a corollary, \textsc{Shortest-Reset-Word}
-cannot belong to \textsf{NP} unless \textsf{NP}\,=\,\textsf{coNP}
-which is commonly considered to be very unlikely. In other words,
-even non-deterministic algorithms cannot decide the minimum length
-of a reset word for a given \san\ in polynomial time.
+\textsc{Shortest-Reset-Word} to an arbitrary system $\psi$ of clauses on $n$
+variables, one sees that the answer to the instance is ``Yes'' if and only if
+$\psi$ is not satisfiable. Thus, we have a polynomial reduction from the
+negation of \textsc{SAT} to \textsc{Shortest-Reset-Word} whence the latter
+problem is \textsf{coNP}-hard. As a corollary, \textsc{Shortest-Reset-Word}
+cannot belong to \textsf{NP} unless \textsf{NP}\,=\,\textsf{coNP} which is
+commonly considered to be very unlikely. In other words, even non-deterministic
+algorithms cannot decide the \emph{\rt}\index{reset threshold} of a given \san,
+(that is, the minimum length of its \sws) in polynomial time.
 
 The exact complexity of the problem \textsc{Shortest-Reset-Word}
 has been recently determined by
@@ -750,36 +751,45 @@ reductions between \textsc{Shortest-Reset-Word} and
 \textsc{SAT-UNSAT} obtained
 in~\cite{Gawrychowski:2008,Olschewski&Ummels:2010}.
 
-The complexity class $\mathsf{P}^\mathsf{NP[log]}$ is defined as
-the class of all problems that can be solved by a deterministic
-polynomial-time Turing machine that has an access to an oracle for
-an \textsf{NP}-complete problem, with the number of queries being
-logarithmic in the size of the input. The class \textsf{DP} is
-contained in $\mathsf{P}^\mathsf{NP[log]}$ (if fact, for every
-problem in \textsf{DP} two oracle queries suffice) and the
-inclusion is believed to be strict. Olschewski and
-Ummels~\cite{Olschewski&Ummels:2010} have shown that the problem
-of computing the minimum length of \sws\ (as opposed to deciding
-whether it is equal to a given integer) is complete for the
-functional analogue $\mathsf{FP}^\mathsf{NP[log]}$ of the class
-$\mathsf{P}^\mathsf{NP[log]}$ (see \cite{Selman:1994} for a
-discussion of functional complexity classes). Hence, this problem
-appears to be even harder than deciding the minimum length of
-\sws. Recently Berlinkov~\cite{Berlinkov:2010} has shown (assuming
-\textsf{P}\,$\ne$\,\textsf{NP}) that no polynomial algorithm can
-approximate the minimum length of \sws\ for a given \san\ within a
-constant factor.
+The complexity class $\mathsf{P}^\mathsf{NP[log]}$ consists of all problems
+solvable by a deterministic polynomial-time Turing machine that has an access
+to an oracle for an \textsf{NP}-complete problem, with the number of queries
+being logarithmic in the size of the input. The class \textsf{DP} is contained
+in $\mathsf{P}^\mathsf{NP[log]}$ (if fact, for every problem in \textsf{DP} two
+oracle queries suffice) and the inclusion is believed to be strict. Olschewski
+and Ummels~\cite{Olschewski&Ummels:2010} have shown that the problem of
+computing the \rt\ (as opposed to deciding whether it is equal to a given
+integer) is complete for the functional analogue $\mathsf{FP}^\mathsf{NP[log]}$
+of the class $\mathsf{P}^\mathsf{NP[log]}$ (see \cite{Selman:1994} for a
+discussion of functional complexity classes). Hence, this problem appears to be
+even harder than deciding the \rt. Recently Berlinkov~\cite{Berlinkov:2010} has
+shown (assuming \textsf{P}\,$\ne$\,\textsf{NP}) that no polynomial algorithm
+can approximate within a constant factor the \rt\ of a given \san\ with two
+input letters.
 
-The problem of finding a \sw\ of minimum length (as opposed to
-computing only the length without writing down the word itself)
-may be even more difficult. From the quoted result
-of~\cite{Olschewski&Ummels:2010} it follows that the problem is
-$\mathsf{FP}^\mathsf{NP[log]}$-hard but its exact complexity is
-not known yet.
+The problem of finding a \sw\ of minimum length (as opposed to computing only
+the length without writing down the word itself) may be even more difficult.
+From the cited result of~\cite{Olschewski&Ummels:2010} it follows that the
+problem is $\mathsf{FP}^\mathsf{NP[log]}$-hard but its exact complexity is not
+known yet.
 
 The hardness results in~\cite{Berlinkov:2010,Olschewski&Ummels:2010} are
 obtained via suitable encodings of \textsc{SAT} in the flavor of the above
-proof of Proposition~\cite{KV:prop:complexity1}.
+proof of Proposition~\ref{KV:prop:complexity1}. Gerbush and
+Heeringa~\cite{Gerbush&Heeringa:2011} have observed that some other well-known
+hard problems such as \textsc{SCS} (\textsc{Shortest Common Supersequence}) or
+\textsc{Set Cover} admit a transparent reduction to the problem of finding a
+\sw\ of minimum length for a given \san. In particular, since \textsc{SCS} is
+known to have no approximation within a constant factor unless
+\textsf{P}\,=\,\textsf{NP} \cite{Jiang&Li:1995}, they have deduced a similar
+conclusion for approximating the \rt\ but---in contrast to the cited result
+of~\cite{Berlinkov:2010}---without any bound on the size of the input alphabet.
+Moreover, using a recent result on \textsc{Set
+Cover}~\cite{Alon&Moshkovitz&Safra:2006}, they have concluded that the \rt\ of
+\sa\ with $n$ states and unbounded alphabet cannot be approximated within the
+factor $c\log n$ for some constant $c>0$ unless \textsf{P}\,=\,\textsf{NP}. It
+is a challenging problem to study approximation of the \rt\ within a
+logarithmic factor for \sa\ with a fixed alphabet size.
 
 We mention that Pixley, Jeong and Hachtel~\cite{Pixley&Jeong&Hachtel:1992}
 suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
@@ -789,8 +799,9 @@ necessarily shortest) \sws\ have been implemented by
 Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009,Roman:2009a}. Some
 algorithms for finding \sws\ will be also discussed in the next section.
 
+%=====================================================
 \section{Around the \v{C}ern\'{y} conjecture}
-
+%=====================================================
 \paragraph*{The \v{C}ern\'{y} conjecture.} A very natural question to ask
 is the following: \emph{given a positive integer $n$, how long can be \sws\ for
 \sa\ with $n$ states?} \v{C}ern\'{y}~\cite{Cerny:1964} found a lower bound by
@@ -847,8 +858,8 @@ e.g.,
 It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
 $n(n-2)+1=(n-1)^2$ resets $\mathcal{C}_n$.
 \begin{proposition}[{\mdseries\cite[Lemma~1]{Cerny:1964}}]
-\label{KV:prop:cerny} Any \sw\ for the automaton $\mathcal{C}_n$ has length at
-least $(n-1)^2$.
+\label{KV:prop:cerny} Any \sw\ for $\mathcal{C}_n$ has length at least
+$(n-1)^2$.
 \end{proposition}
 There are several nice proofs for this result. Here we present a recent proof
 from~\cite{Ananichev&Gusev&Volkov:2010}; it is based on a transparent idea and
@@ -857,12 +868,11 @@ $\mathcal{C}_n$ and an extremal series of digraphs discovered in Wielandt's
 classic paper~\cite{Wielandt:1950} (see Section~\ref{KV:sec:rcp}).
 
 \begin{proof}[Proof of Proposition~\ref{KV:prop:cerny}]
-Let $w$ be a \sw\ of minimum length for $\mathcal{C}_n$. Since the
-letter $b$ acts on $Q$ as a cyclic permutation, the word $w$
-cannot end with $b$. (Otherwise removing the last letter gives a
-shorter \sw.) Thus, we can write $w$ as $w = w'a$ for some
-$w'\in\{a,b\}^*$ such that the image of $Q$ under the action of
-$w'$ is precisely the set $\{0,1\}$.
+Let $w$ be a \sw\ of minimum length for $\mathcal{C}_n$. Since the letter $b$
+acts on $Q$ as a cyclic permutation, the word $w$ cannot end with $b$.
+(Otherwise removing the last letter gives a shorter \sw.) Thus, $w = w'a$ for
+some $w'\in\{a,b\}^*$ such that the image of $Q$ under the action of $w'$ is
+precisely the set $\{0,1\}$.
 
 Since the letter $a$ fixes each state in its image
 $\{1,2,\dots,n-1\}$, every occurrence of $a$ in $w$ except the
@@ -921,20 +931,18 @@ $n=2,3,\dotsc$, yields the inequality $\mathfrak{C}(n)\ge(n-1)^2$. The
 \emph{\v{C}ern\'{y} conjecture}\index{\v{C}ern\'{y} conjecture} is the claim
 that the equality $\mathfrak{C}(n)=(n-1)^2$ holds true.
 
-In the literature, one often refers to \v{C}ern\'{y}'s paper \cite{Cerny:1964}
+In the literature, one often refers to \v{C}ern\'{y}'s paper~\cite{Cerny:1964}
 as the source of the \v{C}ern\'{y} conjecture. In fact, the conjecture was not
 yet formulated in that paper. There \v{C}ern\'{y} only observed that
-\begin{equation}
-\label{KV:eq:first bound} (n-1)^2\le \mathfrak{C}(n)\le 2^n-n-1
-\end{equation}
-and concluded the paper with the following remark:
+$(n-1)^2\le \mathfrak{C}(n)\le 2^n-n-1$ and concluded the paper with the
+following remark:
 \begin{quote}
 ``The difference between the bounds increases rapidly and it is necessary to
 sharpen them. One can expect an improvement mainly for the upper bound.''
 \end{quote}
 The conjecture in its present-day form was formulated a bit later, after the
 expectation in the above quotation was confirmed by \cite{Starke:1966}.
-(Namely, Starke improved the upper bound in~\eqref{KV:eq:first bound} to
+(Namely, Starke improved the upper bound from~\cite{Cerny:1964} to
 $1+\frac{n(n-1)(n-2)}2$, which was the first polynomial upper bound for
 $\mathfrak{C}(n)$.) \v{C}ern\'{y} explicitly stated the conjecture
 $\mathfrak{C}(n)=(n-1)^2$ in his talks in the second half of the 1960s; in
@@ -943,7 +951,7 @@ print the conjecture first appeared in~\cite{Cerny&Piricka&Rosenauerova:1971}.
 \paragraph*{An upper bound.} The best upper bound for the \v{C}ern\'{y}
 function achieved so far guarantees that for every \san\ with $n$ states there
 exists a reset word of length $\frac{n^3-n}6$. Such a reset word arises as the
-output of the following greedy algorithm.
+output of the following greedy algorithm.\index{greedy algorithm!compression}
 
 %=================================
 \begin{algorithm}
@@ -962,7 +970,7 @@ output of the following greedy algorithm.
     \ENDWHILE
     \RETURN $w$
   \end{algorithmic}
-\caption{Greedy algorithm finding a \sw\ for a given DFA
+\caption{Compression algorithm calculating a \sw\ for
 $\mathcal{A}=(Q,A)$}\label{KV:Greedy}
 \end{algorithm}
 %==================================
@@ -983,17 +991,18 @@ $R_i=\{p_i,p'_i\}\subseteq P_i$, $i=1,\dots,\ell$, such that $p_i\cdot
 a_i=p_{i+1}$, $p'_i\cdot a_i=p'_{i+1}$ for $i=1,\dots,\ell-1$.
 \begin{figure}[ht]
 \begin{center}
-\unitlength=.85mm
+\unitlength=.7mm
 \begin{picture}(85,37)\nullfont
 \drawoval(0,18,15,38,5) \drawoval(25,18,15,38,5) \drawoval(80,18,15,38,5)
-\gasset{Nframe=n,Nfill=n} \node(A)(0,10){$p_1$} \node(B)(0,26){$p'_1$}
-\node(C)(25,10){$p_2$} \node(D)(25,26){$p'_2$} \node(E)(80,10){$p_\ell$}
-\node(F)(80,26){$p'_\ell$} \node[Nframe=y](G)(105,18){} \drawedge(A,C){$a_1$}
-\drawedge(B,D){$a_1$} \drawedge(E,G){$a_\ell$} \drawedge(F,G){$a_\ell$}
-\put(-13,2){$P_1$} \put(12,2){$P_2$} \put(67,2){$P_\ell$} \node(C1)(50,10){}
-\node(D1)(50,26){} \node(E0)(55,10){} \node(F0)(55,26){} \drawedge(C,C1){$a_2$}
+\gasset{Nadjust=wh,Nframe=n,Nfill=n} \node(A)(0,10){$p_1$}
+\node(B)(0,26){$p'_1$} \node(C)(25,10){$p_2$} \node(D)(25,26){$p'_2$}
+\node(E)(80,10){$p_\ell$} \node(F)(80,26){$p'_\ell$}
+\node[Nframe=y](G)(105,18){} \drawedge(A,C){$a_1$} \drawedge(B,D){$a_1$}
+\drawedge[ELside=r](E,G){$a_\ell$} \drawedge(F,G){$a_\ell$} \put(-13,2){$P_1$}
+\put(12,2){$P_2$} \put(67,2){$P_\ell$} \node(C1)(48,10){} \node(D1)(48,26){}
+\node(E0)(56,10){} \node(F0)(56,26){} \drawedge(C,C1){$a_2$}
 \drawedge(D,D1){$a_2$} \drawedge(E0,E){$a_{\ell-1}$}
-\drawedge(F0,F){$a_{\ell-1}$} \put(51,10){\dots} \put(51,26){\dots}
+\drawedge(F0,F){$a_{\ell-1}$} \put(49,10){$\dots$} \put(49,26){$\dots$}
 \end{picture}
 \end{center}
 \caption{Combinatorial configuration at a generic step of
@@ -1137,23 +1146,60 @@ linear combinations of $D(T_1),\dots,D(T_{\binom{n-k+2}2})$. From
 $D(S)$ as well.
 \end{proof}
 
+If one executes Algorithm~\ref{KV:Greedy} on the \v{C}ern\'{y} automaton
+$\mathcal{C}_{4}$ (Fig.\,\ref{KV:fig:power automaton} is quite helpful here),
+one sees that the algorithm returns the word $ab^2abab^3a$ of length 10 which
+is not the shortest reset word for $\mathcal{C}_{4}$. This reveals one of the
+main intrinsic difficulties of the synchronization problem: the standard
+optimality principle does not apply here since it is not true that the optimal
+solution behaves optimally also in all intermediate steps. In our example, the
+optimal solution is the word $ab^3ab^3a$ but it cannot be found by
+Algorithm~\ref{KV:Greedy} because the algorithm chooses $v=b^2a$ rather than
+$v=b^3a$ on the second execution of the main loop. Actually, the gap between
+the \rt\ of a \san\ and the length of the \sw\ that Algorithm~\ref{KV:Greedy}
+returns on the automaton may be arbitrarily large\footnote{We observe that this
+does not immediately follow from the non-approximation results discussed at the
+end of Section~\ref{KV:sec:algorithms&complexity} because
+Algorithm~\ref{KV:Greedy}, though polynomial, is not really deterministic.
+Indeed, in general there may be several words satisfying the conditions in
+line~7 of the algorithm and it has not been specified which one of the words
+should be taken.}: one can calculate that for the \v{C}ern\'{y} automaton
+$\mathcal{C}_{n}$ whose \rt\ is $(n-1)^2$, Algorithm~\ref{KV:Greedy} produces a
+\sw\ of length $\Omega(n^2\log n)$. The behaviour of Algorithm~\ref{KV:Greedy}
+on average is not yet understood; practically it behaves rather well.
 
+\paragraph*{The extension algorithm.} While studying Algorithm~\ref{KV:Greedy}
+has provided the best currently known upper bound for the \v{C}ern\'{y}
+function in the general case, the most impressive partial results proving the
+\v{C}ern\'{y} conjecture for some special classes of automata have been
+obtained via analysis a different algorithm. This algorithm is also operates in
+greedy manner but builds a \sw\ in the opposite direction.
 
-If one executes Algorithm~1 on the \v{C}ern\'{y} automaton $\mathcal{C}_{4}$
-(Fig.\,\ref{KV:fig:power automaton} is quite helpful here), one sees that the
-algorithm returns the word $ab^2abab^3a$ of length 10 which is not the shortest
-reset word for $\mathcal{C}_{4}$. This reveals one of the main intrinsic
-difficulties of the synchronization problem: the standard optimality principle
-does not apply here since it is not true that the optimal solution behaves
-optimally also in all intermediate steps. In our example, the optimal solution
-is the word $ab^3ab^3a$ but it cannot be found by the greedy algorithm because
-the algorithm chooses $v=b^2a$ rather than $v=b^3a$ on the second execution of
-the main loop. Actually, the gap between the minimum length of a \sw\ and the
-length of the word produced by the greedy algorithm may be arbitrarily large:
-for each $n>1$ there exists a \san\ with $n$ states whose shortest \sw\ has
-length $(n-1)^2$ while the greedy algorithm produces a \sw\ of length
-$\Omega(n^2\log n)$. The behaviour of the greedy algorithm on average is not
-yet understood; practically it behaves rather well.
+For a DFA $\mathcal{A}=(Q,A)$, a subset $P\subset Q$ and a word $w\in A^*$, we
+denote by $Pw^{-1}$ the full pre-image of $P$ under the action of $w$, that is,
+$Pw^{-1}=\{q\in Q\mid q\cdot w\in P\}$.
+
+%=================================
+\begin{algorithm}
+  \setlength{\commentspace}{6cm}
+  \begin{algorithmic}[1]
+    \FUNC{GreedyExtenstion$(\mathcal{A})$}
+    \STATE\algcomment{0}{Initializing the current word}$w\gets\varepsilon$
+    \STATE\algcomment{0}{Initializing the current set}$P\gets Q$
+    \WHILE{$|P|> 1$}
+    \IF{$|P\cdot u|=|P|$ for all $u\in A^*$}
+    \RETURN Failure
+    \ELSE\STATE{}take a word $v\in A^*$ of minimum length with $|P\cdot v|<|P|$
+    \ENDIF
+    \STATE\algcomment{1}{Updating the current word}$w\gets wv$
+    \STATE\algcomment{1}{Updating the current set}$P\gets P\cdot v$
+    \ENDWHILE
+    \RETURN $w$
+  \end{algorithmic}
+\caption{Extension algorithm calculating a \sw\ for
+$\mathcal{A}=(Q,A)$}\label{KV:Extension}
+\end{algorithm}
+%==================================
 
 \section{The road coloring problem}
 \label{KV:sec:rcp}

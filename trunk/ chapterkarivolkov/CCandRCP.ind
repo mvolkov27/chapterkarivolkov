@@ -4,17 +4,23 @@
   \item \textsc{Shortest-Reset-Word}, \hyperpage{8}
   \item \v{C}ern\'{y} conjecture, \hyperpage{11}
   \item \v{C}ern\'{y} function, \hyperpage{11}
-  \item 2-renewed sequence, \hyperpage{12}
+  \item 2-renewing sequence, \hyperpage{12}
 
   \indexspace
 
   \item automaton
-    \subitem \v{C}ern\'{y}, \hyperpage{9}
+    \subitem \v{C}ern\'{y}, \hyperpage{10}
     \subitem synchronizing, \hyperpage{1}
 
   \indexspace
 
   \item coincidence condition, \hyperpage{4}
+  \item couple, \hyperpage{6}
+
+  \indexspace
+
+  \item greedy algorithm
+    \subitem compression, \hyperpage{11}
 
   \indexspace
 
@@ -30,6 +36,7 @@
 
   \indexspace
 
+  \item reset threshold, \hyperpage{8}
   \item reset word, \hyperpage{1}
 
   \indexspace
