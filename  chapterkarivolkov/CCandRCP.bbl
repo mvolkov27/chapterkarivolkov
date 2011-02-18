@@ -2,6 +2,11 @@
   \newcommand{\etal}{et al.}
 \begin{thebibliography}{10}
 
+\bibitem{Alon&Moshkovitz&Safra:2006}
+N.~Alon, D.~Moshkovitz, and S.~Safra.
+\newblock Algorithmic construction of sets for k-restrictions.
+\newblock {\em ACM Trans. Algorithms}, 2(2):153--177, 2006.
+
 \bibitem{Ananichev&Gusev&Volkov:2010}
 D.~Ananichev, V.~Gusev, and M.~Volkov.
 \newblock Slowly synchronizing automata and digraphs.
@@ -150,6 +155,12 @@ F.~C. Hennie.
 \newblock In {\em {S}witching {C}ircuit {T}heory and {L}ogical {D}esign,
   Proceedings of the {F}ifth {A}nnual {S}ymposium}, pages 95--110. IEEE Press,
   1964.
+
+\bibitem{Jiang&Li:1995}
+T.~Jiang and M.~Li.
+\newblock {On the approximation of shortest common supersequences and longest
+  common subsequences.}
+\newblock {\em SIAM J. Comput.}, 24(5):1122--1139, 1995.
 
 \bibitem{Klyachko&Rystsov&Spivak:1987}
 A.~A. Klyachko, I.~K. Rystsov, and M.~A. Spivak.

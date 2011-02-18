@@ -27,6 +27,25 @@
   pages     = {52--59},
 }
 
+@article{Alon&Moshkovitz&Safra:2006,
+ author = {Alon, Noga and Moshkovitz, Dana and Safra, Shmuel},
+ title = {Algorithmic construction of sets for k-restrictions},
+ journal = {ACM Trans. Algorithms},
+ volume = {2},
+ number = {2},
+ year = {2006},
+ issn = {1549-6325},
+ pages = {153--177},
+ numpages = {25},
+ url = {http://doi.acm.org/10.1145/1150334.1150336},
+ doi = {http://doi.acm.org/10.1145/1150334.1150336},
+ acmid = {1150336},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {k-restriction, Derandomization, Set-Cover, almost k-wise independence, generalized hashing, group testing, splitter},
+}
+
+
 @InProceedings{Ananichev:2005,
   author =   {Ananichev, Dmitry},
   title =    {The mortality threshold for partially monotonic automata},
@@ -625,6 +644,60 @@
   publisher =AW,
   year =     1969,
 }
+
+@article{Jiang&Li:1995,
+author="Jiang, Tao and Li, Ming",
+title="{On the approximation of shortest common supersequences and longest
+    common subsequences.}",
+language="English",
+journal="SIAM J. Comput. ",
+volume="24",
+number="5",
+pages="1122-1139",
+year="1995",
+doi={10.1137/S009753979223842X},
+abstract="{Summary: The problems of finding shortest common supersequences (SCS)
+    and longest common subsequences (LCS) are two well-known NP-hard problems
+    that have applications in many areas, including computational molecular
+    biology, data compression, robot motion planning, and scheduling, text
+    editing, etc. A lot of fruitless effort has been spent in searching for good
+    approximation algorithms for these problems. In this paper, we show that
+    these problems are inherently hard to approximate in the worst case. In
+    particular, we prove that (i) SCS does not have a polynomial-time linear
+    approximation algorithm unless $\text{P}= \text{NP}$; (ii) There exists a
+    constant $\delta&gt; 0$ such that, if SCS has a polynomial-time approximation
+    algorithm with ratio $\log^\delta n$, where $n$ is the number of input
+    sequences, then NP is contained in $\text{DTIME}(2^{\text{polylog } n})$;
+    (iii) There exists a constant $\delta&gt; 0$ such that, if LCS has a
+    polynomial-time approximation algorithm with performance ratio $n^\delta$,
+    then $\text{P}= \text{NP}$. The proofs utilize the recent results of {\it A.
+    Arora}, {\it C. Lund}, {\it R. Motwani}, {\it M. Sudan} and {\it M. Szegedy}
+    [Proof verification and hardness of approximation problems, in Proc. 33rd
+    IEEE Symposium on Foundations of Computer Science, Pittsburgh, PA, 14-23
+    (1992)] on the complexity of approximation problems.\par In the second part
+    of the paper, we introduce a new method for analyzing the average-case
+    performance of algorithms for sequences, based on Kolmogorov complexity.
+    Despite the above nonapproximability results, we show that near optimal
+    solutions for both SCS and LCS can be found on the average. More precisely,
+    consider a fixed alphabet $\Sigma$ and suppose that the input sequence are
+    generated randomly according to the uniform probability distribution and are
+    of the same length $n$. Moreover, assume that the number of input sequences
+    is polynomial in $n$. Then, there are simple greedy algorithms which
+    approximate SCS and LCS with expected additive errors $O(n^{0.707})$ and
+    $O(n^{1/2+ \varepsilon})$ for any $\varepsilon&gt; 0$, respectively.\par
+    Incidentally, our analyses also provide tight upper and lower bounds on the
+    expected LCS and SCS lengths for a set of random sequences solving a
+    generalization of another well-known open question on the expected LCS
+    length for two random sequences.}",
+keywords="{shortest common supersequences; longest common subsequences; NP-hard
+    problems; Kolmogorov complexity}",
+classmath="{*68Q30 (Algorithmic information theory)
+68Q25 (Analysis of algorithms and problem complexity)
+68W10 (Parallel algorithms)
+}",
+zblreview={0853.68112},
+}
+
 
 @Article{Jiang&Ravikumar:1993,
   author =   {Tao Jiang and Bala Ravikumar},
