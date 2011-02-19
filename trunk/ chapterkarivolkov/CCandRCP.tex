@@ -773,23 +773,27 @@ From the cited result of~\cite{Olschewski&Ummels:2010} it follows that the
 problem is $\mathsf{FP}^\mathsf{NP[log]}$-hard but its exact complexity is not
 known yet.
 
-The hardness results in~\cite{Berlinkov:2010,Olschewski&Ummels:2010} are
-obtained via suitable encodings of \textsc{SAT} in the flavor of the above
+The hardness results
+in~\cite{Berlinkov:2010,Olschewski&Ummels:2010} are obtained via
+suitable encodings of \textsc{SAT} in the flavor of the above
 proof of Proposition~\ref{KV:prop:complexity1}. Gerbush and
-Heeringa~\cite{Gerbush&Heeringa:2011} have observed that some other well-known
-hard problems such as \textsc{SCS} (\textsc{Shortest Common Supersequence}) or
-\textsc{Set Cover} admit a transparent reduction to the problem of finding a
-\sw\ of minimum length for a given \san. In particular, since \textsc{SCS} is
-known to have no approximation within a constant factor unless
-\textsf{P}\,=\,\textsf{NP} \cite{Jiang&Li:1995}, they have deduced a similar
-conclusion for approximating the \rt\ but---in contrast to the cited result
-of~\cite{Berlinkov:2010}---without any bound on the size of the input alphabet.
-Moreover, using a recent result on \textsc{Set
-Cover}~\cite{Alon&Moshkovitz&Safra:2006}, they have concluded that the \rt\ of
-\sa\ with $n$ states and unbounded alphabet cannot be approximated within the
-factor $c\log n$ for some constant $c>0$ unless \textsf{P}\,=\,\textsf{NP}. It
-is a challenging problem to study approximation of the \rt\ within a
+Heeringa~\cite{Gerbush&Heeringa:2011} have observed that some
+other well-known hard problems such as \textsc{SCS}
+(\textsc{Shortest Common Supersequence}) or \textsc{Set Cover}
+admit a transparent reduction to the problem of finding a \sw\ of
+minimum length for a given \san. In particular, since \textsc{SCS}
+is known to have no approximation within a constant factor unless
+\textsf{P}\,=\,\textsf{NP} \cite{Jiang&Li:1995}, they have deduced
+a similar conclusion for approximating the \rt\ but---in contrast
+to the cited result of~\cite{Berlinkov:2010}---without any bound
+on the size of the input alphabet. Moreover, using a recent result
+on \textsc{Set Cover}~\cite{Alon&Moshkovitz&Safra:2006}, they have
+concluded that the \rt\ of \sa\ with $n$ states and unbounded
+alphabet cannot be approximated within the factor $c\log n$ for
+some constant $c>0$ unless \textsf{P}\,=\,\textsf{NP}. It is a
+challenging problem to study approximation of the \rt\ within a
 logarithmic factor for \sa\ with a fixed alphabet size.
+>>>>>>> .r21
 
 We mention that Pixley, Jeong and Hachtel~\cite{Pixley&Jeong&Hachtel:1992}
 suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
@@ -801,6 +805,7 @@ algorithms for finding \sws\ will be also discussed in the next section.
 
 %=====================================================
 \section{Around the \v{C}ern\'{y} conjecture}
+\label{KV:sec:Cerny conjecture}
 %=====================================================
 \paragraph*{The \v{C}ern\'{y} conjecture.} A very natural question to ask
 is the following: \emph{given a positive integer $n$, how long can be \sws\ for
@@ -1201,7 +1206,7 @@ pre-image of the singleton $\{q\}$.
     \WHILE{$|P|<|Q|$}
     \IF{$|Pu^{-1}|\le|P|$ for all $u\in A^*$}
     \RETURN Failure
-    \ELSE\STATE{}take a word $v\in A^*$ of minimum length with $|Pv^-1|>|P|$
+    \ELSE\STATE{}take a word $v\in A^*$ of minimum length with $|Pv^{-1}|>|P|$
     \ENDIF
     \STATE\algcomment{1}{Updating the current word}$w\gets vw$
     \STATE\algcomment{1}{Updating the current set}$P\gets Pv^{-1}$
@@ -1213,14 +1218,27 @@ $\mathcal{A}=(Q,A)$}\label{KV:Extension}
 \end{algorithm}
 %==================================
 
-If $|Q|=n$, then the main loop of Algorithm~\ref{KV:Extension} is executed at
-most $n-2$ times. If 
+If $|Q|=n$, then the main loop of Algorithm~\ref{KV:Extension} is
+executed at most $n-2$ times. Suppose that the input automaton
+$\mathcal{A}=(Q,A)$ has the following $\alpha$-\emph{extension
+property}\index{$\alpha$-extension property}: for each proper
+non-singleton subset $P\subset Q$, there exists a word $u\in A^*$
+of length at most $\alpha n$ such that $|Pu^{-1}|>|P|$. If
+Algorithm~\ref{KV:Extension} is executed on such an automaton,
+then each of at most $n-2$ words $v$ that the algorithm adds in
+its main loop has length at most $\alpha n$, whence the length 
 
+
+
+%=====================================================
 \section{The road coloring problem}
 \label{KV:sec:rcp}
+%=====================================================
 
+%=====================================================
 \section{Related work}
 \label{KV:sec:related}
+%=====================================================
 
 \bibliographystyle{abbrv}
 \addcontentsline{toc}{section}{References}
