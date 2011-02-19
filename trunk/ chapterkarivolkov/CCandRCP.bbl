@@ -10,9 +10,15 @@ N.~Alon, D.~Moshkovitz, and S.~Safra.
 \bibitem{Ananichev&Gusev&Volkov:2010}
 D.~Ananichev, V.~Gusev, and M.~Volkov.
 \newblock Slowly synchronizing automata and digraphs.
+<<<<<<< .mine
+\newblock In P.~Hlin\v{en}\'y and A.~Ku\v{c}era, editors, {\em Mathematical
+  Foundations of Computer Science, MFCS'10}, number 6281 in Lecture Notes in
+  Comput. Sci., pages 55--64. Springer-Verlag, 2010.
+=======
 \newblock In P.~Hlin\v{en}\'y and A.~Ku\v{c}era, editors, {\em Mathematical
   Foundations of Computer Science, MFCS'10}, volume 6281 of {\em Lecture Notes
   in Comput. Sci.}, pages 55--64. Springer-Verlag, 2010.
+>>>>>>> .r17
 
 \bibitem{Ashby:1956}
 W.~R. Ashby.

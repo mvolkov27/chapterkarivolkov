@@ -773,23 +773,27 @@ From the cited result of~\cite{Olschewski&Ummels:2010} it follows that the
 problem is $\mathsf{FP}^\mathsf{NP[log]}$-hard but its exact complexity is not
 known yet.
 
-The hardness results in~\cite{Berlinkov:2010,Olschewski&Ummels:2010} are
-obtained via suitable encodings of \textsc{SAT} in the flavor of the above
+The hardness results
+in~\cite{Berlinkov:2010,Olschewski&Ummels:2010} are obtained via
+suitable encodings of \textsc{SAT} in the flavor of the above
 proof of Proposition~\ref{KV:prop:complexity1}. Gerbush and
-Heeringa~\cite{Gerbush&Heeringa:2011} have observed that some other well-known
-hard problems such as \textsc{SCS} (\textsc{Shortest Common Supersequence}) or
-\textsc{Set Cover} admit a transparent reduction to the problem of finding a
-\sw\ of minimum length for a given \san. In particular, since \textsc{SCS} is
-known to have no approximation within a constant factor unless
-\textsf{P}\,=\,\textsf{NP} \cite{Jiang&Li:1995}, they have deduced a similar
-conclusion for approximating the \rt\ but---in contrast to the cited result
-of~\cite{Berlinkov:2010}---without any bound on the size of the input alphabet.
-Moreover, using a recent result on \textsc{Set
-Cover}~\cite{Alon&Moshkovitz&Safra:2006}, they have concluded that the \rt\ of
-\sa\ with $n$ states and unbounded alphabet cannot be approximated within the
-factor $c\log n$ for some constant $c>0$ unless \textsf{P}\,=\,\textsf{NP}. It
-is a challenging problem to study approximation of the \rt\ within a
+Heeringa~\cite{Gerbush&Heeringa:2011} have observed that some
+other well-known hard problems such as \textsc{SCS}
+(\textsc{Shortest Common Supersequence}) or \textsc{Set Cover}
+admit a transparent reduction to the problem of finding a \sw\ of
+minimum length for a given \san. In particular, since \textsc{SCS}
+is known to have no approximation within a constant factor unless
+\textsf{P}\,=\,\textsf{NP} \cite{Jiang&Li:1995}, they have deduced
+a similar conclusion for approximating the \rt\ but---in contrast
+to the cited result of~\cite{Berlinkov:2010}---without any bound
+on the size of the input alphabet. Moreover, using a recent result
+on \textsc{Set Cover}~\cite{Alon&Moshkovitz&Safra:2006}, they have
+concluded that the \rt\ of \sa\ with $n$ states and unbounded
+alphabet cannot be approximated within the factor $c\log n$ for
+some constant $c>0$ unless \textsf{P}\,=\,\textsf{NP}. It is a
+challenging problem to study approximation of the \rt\ within a
 logarithmic factor for \sa\ with a fixed alphabet size.
+>>>>>>> .r21
 
 We mention that Pixley, Jeong and Hachtel~\cite{Pixley&Jeong&Hachtel:1992}
 suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
@@ -801,6 +805,7 @@ algorithms for finding \sws\ will be also discussed in the next section.
 
 %=====================================================
 \section{Around the \v{C}ern\'{y} conjecture}
+\label{KV:sec:Cerny conjecture}
 %=====================================================
 \paragraph*{The \v{C}ern\'{y} conjecture.} A very natural question to ask
 is the following: \emph{given a positive integer $n$, how long can be \sws\ for
@@ -976,8 +981,13 @@ $\mathcal{A}=(Q,A)$}\label{KV:Greedy}
 %==================================
 
 If $|Q|=n$, then clearly the main loop of Algorithm~\ref{KV:Greedy} is executed
-at most $n-1$ times. In order to evaluate the length of the output word $w$, we
-estimate the length of each word $v$ produced by the main loop.
+at most $n-1$ times. Finding the word $v$ in line~7 amounts to reading the
+labels along a shortest path between a couple contained in $P$ and a singleton
+in the automaton $\mathcal{P}^{[2]}(\mathcal{A})$ (see the discussion after
+Proposition~\ref{KV:prop:quadratic}). Breadth-first search does this in
+$O(n^2\cdot|A|)$ time. Thus, Algorithm~\ref{KV:Greedy} is polynomial in the
+size of $\mathcal{A}$. In order to evaluate the length of the output word $w$,
+we estimate the length of each word $v$ produced by the main loop.
 
 Consider a generic step at which $|P|=k>1$ and let $v=a_1\cdots a_\ell$ with
 $a_i\in\Sigma$, $i=1,\dots,\ell$. Then each of the sets
@@ -1023,8 +1033,8 @@ the maximum length of a 2-renewing sequence as a function of $n$ and $k$?
 The problem was solved by Frankl~\cite{Frankl:1982} who proved the following
 result\footnote{Actually Frankl~\cite{Frankl:1982} considered and solved a more
 general problem concerning the maximum length of (analogously defined)
-$m$-renewing sequences of $k$-element subsets in an $n$-element set for an
-arbitrary fixed $m\le k$.}.
+$m$-renewing sequences of $k$-element subsets in an $n$-element set for any
+fixed $m\le k$.}.
 \begin{proposition}
 \label{KV:prop:frankl} The maximum length of a $2$-renewing sequence of
 $k$-element subsets in an $n$-element set is equal to $\binom{n-k+2}2$.
@@ -1158,41 +1168,48 @@ Algorithm~\ref{KV:Greedy} because the algorithm chooses $v=b^2a$ rather than
 $v=b^3a$ on the second execution of the main loop. Actually, the gap between
 the \rt\ of a \san\ and the length of the \sw\ that Algorithm~\ref{KV:Greedy}
 returns on the automaton may be arbitrarily large\footnote{We observe that this
-does not immediately follow from the non-approximation results discussed at the
-end of Section~\ref{KV:sec:algorithms&complexity} because
-Algorithm~\ref{KV:Greedy}, though polynomial, is not really deterministic.
-Indeed, in general there may be several words satisfying the conditions in
-line~7 of the algorithm and it has not been specified which one of the words
-should be taken.}: one can calculate that for the \v{C}ern\'{y} automaton
-$\mathcal{C}_{n}$ whose \rt\ is $(n-1)^2$, Algorithm~\ref{KV:Greedy} produces a
-\sw\ of length $\Omega(n^2\log n)$. The behaviour of Algorithm~\ref{KV:Greedy}
-on average is not yet understood; practically it behaves rather well.
+does not immediately follow from the non-approximation results discussed in
+Section~\ref{KV:sec:algorithms&complexity} because Algorithm~\ref{KV:Greedy} is
+not really deterministic. Indeed, in general there may be several words
+satisfying the conditions in line~7 of the algorithm and it has not been
+specified which one of the words should be taken.}: one can calculate that for
+the \v{C}ern\'{y} automaton $\mathcal{C}_{n}$ whose \rt\ is $(n-1)^2$,
+Algorithm~\ref{KV:Greedy} produces a \sw\ of length $\Omega(n^2\log n)$. The
+behaviour of Algorithm~\ref{KV:Greedy} on average is not yet understood;
+practically it behaves rather well.
 
 \paragraph*{The extension algorithm.} While studying Algorithm~\ref{KV:Greedy}
 has provided the best currently known upper bound for the \v{C}ern\'{y}
 function in the general case, the most impressive partial results proving the
 \v{C}ern\'{y} conjecture for some special classes of automata have been
 obtained via analysis a different algorithm. This algorithm is also operates in
-greedy manner but builds a \sw\ in the opposite direction.
+greedy manner but builds a \sw\ in the opposite direction.\index{greedy
+algorithm!extension}
 
-For a DFA $\mathcal{A}=(Q,A)$, a subset $P\subset Q$ and a word $w\in A^*$, we
-denote by $Pw^{-1}$ the full pre-image of $P$ under the action of $w$, that is,
-$Pw^{-1}=\{q\in Q\mid q\cdot w\in P\}$.
+For a DFA $\mathcal{A}=(Q,A)$, a subset $P\subseteq Q$ and a word $w\in A^*$,
+we denote by $Pw^{-1}$ the full pre-image of $P$ under the action of $w$, that
+is, $Pw^{-1}=\{q\in Q\mid q\cdot w\in P\}$. We write $qw^{^-1}$ for the full
+pre-image of the singleton $\{q\}$.
 
 %=================================
 \begin{algorithm}
   \setlength{\commentspace}{6cm}
   \begin{algorithmic}[1]
     \FUNC{GreedyExtenstion$(\mathcal{A})$}
-    \STATE\algcomment{0}{Initializing the current word}$w\gets\varepsilon$
-    \STATE\algcomment{0}{Initializing the current set}$P\gets Q$
-    \WHILE{$|P|> 1$}
-    \IF{$|P\cdot u|=|P|$ for all $u\in A^*$}
+    \IF{$|qa^{-1}|=1$ for all $q\in Q$ and $a\in A$}
     \RETURN Failure
-    \ELSE\STATE{}take a word $v\in A^*$ of minimum length with $|P\cdot v|<|P|$
+    \ELSE\STATE \algcomment{0}{Initializing the current word}$w\gets a$ such
+    that $|qa^{-1}|>1$
+    \STATE\algcomment{0}{Initializing the current set}$P\gets qa^{-1}$ such
+    that $|qa^{-1}|>1$
     \ENDIF
-    \STATE\algcomment{1}{Updating the current word}$w\gets wv$
-    \STATE\algcomment{1}{Updating the current set}$P\gets P\cdot v$
+    \WHILE{$|P|<|Q|$}
+    \IF{$|Pu^{-1}|\le|P|$ for all $u\in A^*$}
+    \RETURN Failure
+    \ELSE\STATE{}take a word $v\in A^*$ of minimum length with $|Pv^{-1}|>|P|$
+    \ENDIF
+    \STATE\algcomment{1}{Updating the current word}$w\gets vw$
+    \STATE\algcomment{1}{Updating the current set}$P\gets Pv^{-1}$
     \ENDWHILE
     \RETURN $w$
   \end{algorithmic}
@@ -1201,11 +1218,24 @@ $\mathcal{A}=(Q,A)$}\label{KV:Extension}
 \end{algorithm}
 %==================================
 
+If $|Q|=n$, then the main loop of Algorithm~\ref{KV:Extension} is
+executed at most $n-2$ times. Suppose that the input automaton
+$\mathcal{A}=(Q,A)$ has the following $\alpha$-\emph{extension
+property}\index{$\alpha$-extension property}: for each proper
+non-singleton subset $P\subset Q$, there exists a word $w\in A^*$
+of length at most $\alpha n$ such that $|Pw^{-1}|>|P|$. 
+
+
+
+%=====================================================
 \section{The road coloring problem}
 \label{KV:sec:rcp}
+%=====================================================
 
+%=====================================================
 \section{Related work}
 \label{KV:sec:related}
+%=====================================================
 
 \bibliographystyle{abbrv}
 \addcontentsline{toc}{section}{References}
