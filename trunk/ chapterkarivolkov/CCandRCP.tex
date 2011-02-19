@@ -543,9 +543,9 @@ Q$ and consider a word $w_1$ such that $q\cdot w_1=q'\cdot w_1$. Then $|Q\cdot
 w_1|<|Q|$. If $|Q\cdot w_1|=1$, then $w_1$ is a \sw\ and $\mathcal{A}$ is
 synchronizing. If $|Q\cdot w_1|>1$, take two states $p,p'\in Q\cdot w_1$ and
 consider a word $w_2$ such that $p\cdot w_2=q'\cdot w_2$. Then $|Q\cdot
-w_1w_2|<|Q\cdot w_1|$. $|Q\cdot w_1w_2|=1$, then $w_1w_2$ is a \sw; otherwise
-we repeat the process. Clearly, a \sw\ for $\mathcal{A}$ will be constructed in
-at most $|Q|-1$ steps.
+w_1w_2|<|Q\cdot w_1|$. If $|Q\cdot w_1w_2|=1$, then $w_1w_2$ is a \sw;
+otherwise we repeat the process. Clearly, a \sw\ for $\mathcal{A}$ will be
+constructed in at most $|Q|-1$ steps.
 \end{proof}
 
 One can treat Proposition~\ref{KV:prop:quadratic} as a reduction of the
@@ -793,7 +793,6 @@ alphabet cannot be approximated within the factor $c\log n$ for
 some constant $c>0$ unless \textsf{P}\,=\,\textsf{NP}. It is a
 challenging problem to study approximation of the \rt\ within a
 logarithmic factor for \sa\ with a fixed alphabet size.
->>>>>>> .r21
 
 We mention that Pixley, Jeong and Hachtel~\cite{Pixley&Jeong&Hachtel:1992}
 suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
@@ -891,18 +890,16 @@ Figure\,\ref{KV:fig:cerny-n} on the right) by $\mathcal{W}_n$.
 Since $w'$ and $v$ act on $Q$ in the same way, the word $vc$ is a
 \sw\ for $\mathcal{W}_n$ and brings the automaton to the state~2.
 
-If $u\in\{b,c\}^*$, the word $uvc$ also is a \sw\ for
-$\mathcal{W}_n$ and it also brings the automaton to~2. Hence, for
-every $\ell\ge|vc|$, there is a path of length $\ell$ in
-$\mathcal{W}_n$ from any given state $i$ to~2. In particular,
-setting $i=2$, we conclude that for every $\ell\ge|w|$ there is a
-cycle of length $\ell$ in $\mathcal{W}_n$. The underlying digraph
-of $\mathcal{W}_n$ has simple cycles only of two lengths: $n$ and
-$n-1$. Each cycle of $\mathcal{W}_n$ must consist of simple cycles
-of these two lengths whence each number $\ell\ge|w|$ must be
-expressible as a non-negative integer combination of $n$ and
-$n-1$. Here we invoke the following well-known and elementary
-result from arithmetics:
+If $u\in\{b,c\}^*$, the word $uvc$ also is a \sw\ for $\mathcal{W}_n$ and it
+also brings the automaton to~2. Hence, for every $\ell\ge|vc|$, there is a path
+of length $\ell$ in $\mathcal{W}_n$ from any given state $i$ to~2. In
+particular, setting $i=2$, we conclude that for every $\ell\ge|vc|$ there is a
+cycle of length $\ell$ in $\mathcal{W}_n$. The underlying digraph of
+$\mathcal{W}_n$ has simple cycles only of two lengths: $n$ and $n-1$. Each
+cycle of $\mathcal{W}_n$ must consist of simple cycles of these two lengths
+whence each number $\ell\ge|w|$ must be expressible as a non-negative integer
+combination of $n$ and $n-1$. Here we invoke the following well-known and
+elementary result from arithmetics:
 
 \begin{lemma}[{\mdseries\cite[Theorem 2.1.1]{RamirezAlfonsin:2005}}]
 \label{KV:lemma:sylvester} If $k_1,k_2$ are relatively prime positive integers,
@@ -1188,7 +1185,7 @@ algorithm!extension}
 
 For a DFA $\mathcal{A}=(Q,A)$, a subset $P\subseteq Q$ and a word $w\in A^*$,
 we denote by $Pw^{-1}$ the full pre-image of $P$ under the action of $w$, that
-is, $Pw^{-1}=\{q\in Q\mid q\cdot w\in P\}$. We write $qw^{^-1}$ for the full
+is, $Pw^{-1}=\{q\in Q\mid q\cdot w\in P\}$. We write $qw^{-1}$ for the full
 pre-image of the singleton $\{q\}$.
 
 %=================================
@@ -1218,16 +1215,25 @@ $\mathcal{A}=(Q,A)$}\label{KV:Extension}
 \end{algorithm}
 %==================================
 
-If $|Q|=n$, then the main loop of Algorithm~\ref{KV:Extension} is
-executed at most $n-2$ times. Suppose that the input automaton
-$\mathcal{A}=(Q,A)$ has the following $\alpha$-\emph{extension
-property}\index{$\alpha$-extension property}: for each proper
-non-singleton subset $P\subset Q$, there exists a word $u\in A^*$
-of length at most $\alpha n$ such that $|Pu^{-1}|>|P|$. If
-Algorithm~\ref{KV:Extension} is executed on such an automaton,
-then each of at most $n-2$ words $v$ that the algorithm adds in
-its main loop has length at most $\alpha n$, whence the length 
+In contrast to Algorithm~\ref{KV:Greedy}, it is not clear whether
+Algorithm~\ref{KV:Extension} admits a polynomial-time implementation. Moreover,
+in general we know no non-trivial bound on the length of the words $v$ that the
+main loop of Algorithm~\ref{KV:Extension} appends to the current word. However,
+one can isolate some cases in which rather strong bounds on $|v|$ do exist. The
+following definition is convenient for subsequent discussion. Given a number
+$\alpha>0$, a DFA $\mathcal{A}=(Q,A)$ is said to be
+$\alpha$-\emph{extensible}\index{automaton!$\alpha$-extensible} if for each
+proper non-singleton subset $P\subset Q$, there exists a word $u\in A^*$ of
+length at most $\alpha|Q|$ such that $|Pu^{-1}|>|P|$.
 
+Suppose that Algorithm~\ref{KV:Extension} is executed on an $\alpha$-extensible
+automaton with $n$ states. Then the main loop is executed at most $n-2$ times
+and words that it appends to the current word has length at most $\alpha n$.
+Hence the length of the \sw\ returned by the algorithm does not exceed
+$1+\alpha n(n-2)$. Observe that this bound is quadratic in $n$ while the
+bound~\eqref{KV:eq:pin} that we so far have in general is cubic. Moreover, if
+an automaton is 1-extensible, then its \rt\ does not exceed $1+n(n-2)=(n-1)^2$
+so we see that the \v{C}ern\'{y} conjecture holds true for such automata.
 
 
 %=====================================================

@@ -9,6 +9,7 @@
   \indexspace
 
   \item automaton
+    \subitem $\alpha$-extensible, \hyperpage{15}
     \subitem \v{C}ern\'{y}, \hyperpage{10}
     \subitem synchronizing, \hyperpage{1}
 
@@ -21,6 +22,7 @@
 
   \item greedy algorithm
     \subitem compression, \hyperpage{11}
+    \subitem extension, \hyperpage{15}
 
   \indexspace
 
