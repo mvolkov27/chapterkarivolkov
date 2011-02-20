@@ -1076,7 +1076,7 @@ $T_1,\dots,T_{\binom{n-k+2}2}$ is 2-renewing.
 
 Now we assign to each $k$-element subset $S=\{s_1,\dots,s_k\}$ of $Q$ the
 following polynomial $D(S)$ in variables $x_{s_1},\dots,x_{s_k}$ over the field
-of rationals:
+$\mathbb{R}$ of reals:
 \begin{displaymath}
 D(S)=\begin{vmatrix}
 1 & s_1 & s_1^2 & \cdots & s_1^{k-3} & x_{s_1} & x_{s_1}^2\\
@@ -1102,24 +1102,23 @@ s' & (s')^2\end{vmatrix}$, whence this value is not 0. Hence $D(S_j)$ cannot be
 equal to a linear combination of $D(S_1),\dots,D(S_{j-1})$.
 
 We see that the length of any 2-renewing sequence cannot exceed the dimension
-of the linear space over the field of rationals spanned by all polynomials of
-the form $D(S)$. In order to prove that the dimension is at most
-$\binom{n-k+2}2$, it suffices to show that the space is spanned by the
-polynomials $D(T_1),\dots,D(T_{\binom{n-k+2}2})$, where
-$T_1,\dots,T_{\binom{n-k+2}2}$ is the 2-renewing sequence constructed in the
-first paragraph of the proof. For this, take an arbitrary $k$-element subset
-$S=\{s_1,\dots,s_k\}$ of $Q$. We claim that the polynomial $D(S)$ is a linear
-combination (with rational coefficients) of
+of the linear space over $\mathbb{R}$ spanned by all polynomials of the form
+$D(S)$. In order to prove that the dimension is at most $\binom{n-k+2}2$, it
+suffices to show that the space is spanned by the polynomials
+$D(T_1),\dots,D(T_{\binom{n-k+2}2})$, where $T_1,\dots,T_{\binom{n-k+2}2}$ is
+the 2-renewing sequence constructed in the first paragraph of the proof. For
+this, take an arbitrary $k$-element subset $S=\{s_1,\dots,s_k\}$ of $Q$. We
+claim that the polynomial $D(S)$ is a linear combination of
 $D(T_1),\dots,D(T_{\binom{n-k+2}2})$. We induct on the cardinality of the set
 $S\setminus W$. If $|S\setminus W|=2$, then $S$ is the union of $W$ with some
 couple from $Q\setminus W$, whence $S=T_i$ for some $i=1,\dots,\binom{n-k+2}2$.
 Thus, $D(S)=D(T_i)$ and our claim holds true. If $|S\setminus W|>2$, there is
 $s_0\in W\setminus S$. Let $S'=S\cup\{s_0\}$. There exists a polynomial
-$p(x)=\alpha_0+\alpha_1x+\alpha_2x^2\cdots+\alpha_{k-3}x^{k-3}$ with rational
-coefficients such that $p(s_0)=1$ and $p(s)=0$ for all $s\in
+$p(x)=\alpha_0+\alpha_1x+\alpha_2x^2\cdots+\alpha_{k-3}x^{k-3}$ over
+$\mathbb{R}$ such that $p(s_0)=1$ and $p(s)=0$ for all $s\in
 W\setminus\{s_0\}$. Consider the determinant
 \begin{displaymath}
-D=\begin{vmatrix}
+\Delta=\begin{vmatrix}
 p(s_0) & 1 & s_0 & s_0^2 & \cdots & s_0^{k-3} & x_{s_0} & x_{s_0}^2\\
 p(s_1) & 1 & s_1 & s_1^2 & \cdots & s_1^{k-3} & x_{s_1} & x_{s_1}^2\\
 p(s_2) & 1 & s_2 & s_2^2 & \cdots & s_2^{k-3} & x_{s_2} & x_{s_2}^2\\
@@ -1127,9 +1126,9 @@ p(s_2) & 1 & s_2 & s_2^2 & \cdots & s_2^{k-3} & x_{s_2} & x_{s_2}^2\\
 p(s_k) & 1 & s_k & s_k^2 & \cdots & s_k^{k-3} & x_{s_k} & x_{s_k}^2
 \end{vmatrix}_{(k+1)\times (k+1)}.
 \end{displaymath}
-Clearly, $D=0$ as the first column is the sum of the next $k-2$ columns with
-the coefficients $\alpha_0,\alpha_1,\alpha_2,\dots,\alpha_{k-3}$. Thus,
-expanding $D$ by the first column gives the identity
+Clearly, $\Delta=0$ as the first column is the sum of the next $k-2$ columns
+with the coefficients $\alpha_0,\alpha_1,\alpha_2,\dots,\alpha_{k-3}$. Thus,
+expanding $\Delta$ by the first column gives the identity
 \begin{displaymath}
 \sum_{j=0}^{k}(-1)^jp(s_j)D(S'\setminus\{s_j\})=0.
 \end{displaymath}
@@ -1147,8 +1146,8 @@ W=S'\setminus(W\cup\{s_j\})=(S\cup\{s_0\})\setminus(W\cup\{s_j\})=(S\setminus
 W)\setminus\{s_j\},
 \end{displaymath}
 whence $|(S'\setminus\{s_j\})\setminus W|=|S\setminus W|-1$ and by the
-inductive assumption, the polynomials $D(S'\setminus\{s_j\})$ are rational
-linear combinations of $D(T_1),\dots,D(T_{\binom{n-k+2}2})$. From
+inductive assumption, the polynomials $D(S'\setminus\{s_j\})$ are linear
+combinations of $D(T_1),\dots,D(T_{\binom{n-k+2}2})$. From
 \eqref{KV:eq:combination} we conclude that this holds true for the polynomial
 $D(S)$ as well.
 \end{proof}
@@ -1219,18 +1218,54 @@ In contrast to Algorithm~\ref{KV:Greedy}, it is not clear whether
 Algorithm~\ref{KV:Extension} admits a polynomial-time implementation. Moreover,
 in general we know no non-trivial bound on the length of the words $v$ that the
 main loop of Algorithm~\ref{KV:Extension} appends to the current word. However,
-one can isolate some cases in which rather strong bounds on $|v|$ do exist. 
-Suppose that the input automaton $\mathcal{A}=(Q,A)$ has the following
-$\alpha$-\emph{extension property}\index{$\alpha$-extension property}: for each
+one can isolate some cases in which rather strong bounds on $|v|$ do exist. The
+following definition is convenient for subsequent discussion. Given a number
+$\alpha>0$, a DFA $\mathcal{A}=(Q,A)$ is said to be
+$\alpha$-\emph{extensible}\index{automaton!$\alpha$-extensible} if for each
 proper non-singleton subset $P\subset Q$, there exists a word $u\in A^*$ of
-length at most $\alpha n$ such that $|Pu^{-1}|>|P|$.  one the latter algorithm
-If $|Q|=n$, then the main loop of Algorithm~\ref{KV:Extension} is executed at
-most $n-2$ times. If Algorithm~\ref{KV:Extension} is executed on such an
-automaton, then each of at most $n-2$ words that the algorithm appends to the
-current word in the main loop has length at most $\alpha n$, whence the length
-of the \sw\ returned by the algorithm does not exceed $1+\alpha n(n-2)$.
+length at most $\alpha|Q|$ such that $|Pu^{-1}|>|P|$.
+
+Suppose that Algorithm~\ref{KV:Extension} is executed on an $\alpha$-extensible
+automaton with $n$ states. Then the main loop is executed at most $n-2$ times
+and each word that it appends to the current word has length at most $\alpha
+n$. Hence the length of the \sw\ returned by the algorithm does not exceed
+$1+\alpha n(n-2)$. Observe that this bound is quadratic in $n$ while the
+bound~\eqref{KV:eq:pin} that we so far have in general is cubic. Moreover, if
+an automaton is 1-extensible, then its \rt\ does not exceed $1+n(n-2)=(n-1)^2$,
+and thus, we see that the \v{C}ern\'{y} conjecture holds true for such
+automata.
+
+The approach to the \v{C}ern\'{y} conjecture via extensibility traces back to
+Pin's paper~\cite{Pin:1978} of 1978. Pin observed that every DFA
+$\mathcal{A}=(Q,A)$ such that $|Q|$ is prime and some letter acts as a cyclic
+permutation of $Q$ is 1-extensible provided some other letter acts on $Q$ as a
+non-permutation. Thus, such $\mathcal{A}$ is synchronizing and its \rt\ does
+not exceed $(|Q|-1)^2$. 20 years later Dubuc~\cite{Dubuc:1998} generalized
+Pin's result by showing that every \sa\ in which some letter acts as a cyclic
+permutation of the state set is 1-extensible. Kari~\cite{Kari:2003} proved
+1-extensibility of \sa\ whose underlying digraphs\footnote{The \emph{underlying
+digraph}\index{underlying digraph of an automaton} $D(\mathcal{A})$ of a DFA
+$\mathcal{A}=(Q,A)$ is obtained by removing the edge labels in the usual
+graphical representation of $\mathcal{A}$. More formally, $D(\mathcal{A})$ has
+$Q$ as the vertex set and an edge $q\to q'$ for each transition $q\cdot a=q'$.}
+are Eulerian. In all these papers 1-extensibility is obtained via
+linear-algebraic arguments;\marginpar{\textbf{If space\\
+permits!!}} we include here a proof from~\cite{Kari:2003} as an example of
+these linearization techniques.
+
+Given a DFA $\mathcal{A}=(Q,A)$ with $Q=\{1,2,\dots,n\}$, we assign to each
+subset $P\subseteq Q$ its \emph{characteristic vector}\index{characteristic
+vector} $[P]$ in the  linear space $\mathbb{R}^n$ of $n$-dimensional row
+vectors over $\mathbb{R}$ as follows: $i$-th entry of $[P]$ is 1 if $i\in P$,
+otherwise it is equal to 0. (For instance, $[Q]$ is the all ones row vector and
+the vectors $[1],\dots,[n]$ form the usual orthonormal basis of
+$\mathbb{R}^n$are  from the co.) Further, we assign to each word $w\in A^*$ the
+linear operator $\varphi_w$ on $\mathbb{R}^n$ defined by
 
 
+
+%Recent results in this direction are due to
+%Steinberg~\cite{Steinberg:2010,Steinberg:2010archive}
 
 %=====================================================
 \section{The road coloring problem}
