@@ -87,6 +87,12 @@ F.~M. Dekking.
   constant length.
 \newblock {\em Z. Wahrsch. Verw. Gebiete}, 41:221--239, 1978.
 
+\bibitem{Dubuc:1998}
+L.~Dubuc.
+\newblock Sur le automates circulaires et la conjecture de \v{C}ern\'y.
+\newblock {\em RAIRO Inform. Th\'eor. App.}, 32:21--34, 1998.
+\newblock (in French).
+
 \bibitem{Eppstein:1990}
 D.~Eppstein.
 \newblock Reset sequences for monotonic automata.
@@ -152,15 +158,19 @@ P.~Goral\v{c}ik and V.~Koubek.
 \bibitem{Hennie:1964}
 F.~C. Hennie.
 \newblock Fault detecting experiments for sequential circuits.
-\newblock In {\em {S}witching {C}ircuit {T}heory and {L}ogical {D}esign,
-  Proceedings of the {F}ifth {A}nnual {S}ymposium}, pages 95--110. IEEE Press,
-  1964.
+\newblock In {\em {S}witching {C}ircuit {T}heory and {L}ogical {D}esign, Proc.
+  5th {A}nnual {S}ymp.}, pages 95--110. IEEE Press, 1964.
 
 \bibitem{Jiang&Li:1995}
 T.~Jiang and M.~Li.
 \newblock {On the approximation of shortest common supersequences and longest
-  common subsequences.}
+  common subsequences}.
 \newblock {\em SIAM J. Comput.}, 24(5):1122--1139, 1995.
+
+\bibitem{Kari:2003}
+J.~Kari.
+\newblock Synchronizing finite automata on {E}ulerian digraphs.
+\newblock {\em Theoret. Comput. Sci.}, 295:223--232, 2003.
 
 \bibitem{Klyachko&Rystsov&Spivak:1987}
 A.~A. Klyachko, I.~K. Rystsov, and M.~A. Spivak.
@@ -220,6 +230,14 @@ C.~H. Papadimitriou.
 C.~H. Papadimitriou and M.~Yannakakis.
 \newblock The complexity of facets (and some facets of complexity).
 \newblock {\em J. Comput. System Sci.}, 28(2):244--259, 1984.
+
+\bibitem{Pin:1978}
+J.-E. Pin.
+\newblock Sur un cas particulier de la conjecture de \v{C}ern\'y.
+\newblock In {\em Proc. 5th Colloq. on Automata, Languages, and Programming
+  (ICALP)}, volume~62 of {\em Lecture Notes in Comput. Sci.}, pages 345--352.
+  Springer-Verlag, 1978.
+\newblock (in French).
 
 \bibitem{Pin:1983}
 J.-E. Pin.

@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  20 FEB 2011 00:34
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  21 FEB 2011 01:07
 **CCandRCP.tex
 (./CCandRCP.tex
 LaTeX2e <2001/06/01>
@@ -626,15 +626,15 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 
 ] [2] [3] [4] [5] [6] [7]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 701.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 699.
  [8] [9] [10]
-LaTeX Font Info:    Try loading font information for U+euf on input line 930.
+LaTeX Font Info:    Try loading font information for U+euf on input line 928.
 
 (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2002/01/19 v2.2g AMS font definitions
 )
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 976.
+put line 974.
  [11] [12] [13]
 [14] [15] (./CCandRCP.bbl (./CCandRCP.brf)
 \tf@brf=\write7
@@ -643,19 +643,19 @@ put line 976.
  [16]
 Missing character: There is no – in font ptmr7t!
 Missing character: There is no – in font ptmr7t!
+ [17]
 Missing character: There is no – in font ptmr7t!
- [17] [18]) (./CCandRCP.ind
-[19] [20
+ [18] [19]) (./CCandRCP.ind [20] [21
 
 
 ]) (./CCandRCP.aux) ) 
 Here is how much of TeX's memory you used:
- 9939 strings out of 50491
- 137743 string characters out of 1189754
- 288055 words of memory out of 1500001
- 12664 multiletter control sequences out of 10000+15000
+ 9957 strings out of 50491
+ 137974 string characters out of 1189754
+ 288151 words of memory out of 1500001
+ 12682 multiletter control sequences out of 10000+15000
  27530 words of font info for 89 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  38i,19n,38p,290b,780s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on CCandRCP.dvi (20 pages, 243024 bytes).
+Output written on CCandRCP.dvi (21 pages, 248500 bytes).
