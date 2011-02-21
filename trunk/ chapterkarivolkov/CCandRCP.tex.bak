@@ -562,21 +562,19 @@ has an implementation that consumes $O(|Q|^3 + |Q|^2\cdot|A|)$ time and
 $O(|Q|^2 + |Q|\cdot|A|)$ working space, not counting the space for the output
 which is $O(|Q|^3)$.
 
-For a \san, the subset automaton can be used to construct shortest
-reset words which correspond to shortest paths from the whole
-state set $Q$ to a singleton. Of course, this requires exponential
-(of $|Q|$) time in the worst case. Nevertheless, there were
-attempts to implement this approach, see, e.g.,
-\cite{Rho&Somenzi&Pixley:1993,Trahtman:2006}. One may hope that,
-as above, a suitable calculation in the ``polynomial''
-subautomaton $\mathcal{P}^{[2]}(\mathcal{A})$ may yield a
-polynomial algorithm. However, it is not the case, and moreover,
-as we will see, it is very unlikely that any reasonable algorithm
-may exist for finding shortest reset words in general \sa. In the
-following discussion we assume the reader's acquaintance with some
-basics of computational complexity (such as the definitions of the
-complexity classes \textsf{NP} and \textsf{coNP}) that can be
-found, e.g., in~\cite{Garey&Johnson:1979,Papadimitriou:1994}.
+For a \san, the subset automaton can be used to construct shortest reset words
+as they correspond to shortest paths from the whole state set $Q$ to a
+singleton. Of course, this requires exponential (of $|Q|$) time in the worst
+case. Nevertheless, there were attempts to implement this approach, see, e.g.,
+\cite{Rho&Somenzi&Pixley:1993,Trahtman:2006}. One may hope that, as above, a
+suitable calculation in the ``polynomial'' subautomaton
+$\mathcal{P}^{[2]}(\mathcal{A})$ may yield a polynomial algorithm. However, it
+is not the case, and moreover, as we will see, it is very unlikely that any
+reasonable algorithm may exist for finding shortest reset words in general \sa.
+In the following discussion we assume the reader's acquaintance with some
+basics of computational complexity (such as the definitions of the complexity
+classes \textsf{NP} and \textsf{coNP}) that can be found, e.g.,
+in~\cite{Garey&Johnson:1979,Papadimitriou:1994}.
 
 Consider the following decision
 problem:\index{\textsc{Short-Reset-Word}}
@@ -1178,14 +1176,14 @@ practically it behaves rather well.
 has provided the best currently known upper bound for the \v{C}ern\'{y}
 function in the general case, the most impressive partial results proving the
 \v{C}ern\'{y} conjecture for some special classes of automata have been
-obtained via analysis a different algorithm. This algorithm is also operates in
+obtained via analysis a different algorithm. This algorithm also operates in a
 greedy manner but builds a \sw\ in the opposite direction.\index{greedy
 algorithm!extension}
 
 For a DFA $\mathcal{A}=(Q,A)$, a subset $P\subseteq Q$ and a word $w\in A^*$,
 we denote by $Pw^{-1}$ the full pre-image of $P$ under the action of $w$, that
-is, $Pw^{-1}=\{q\in Q\mid q\cdot w\in P\}$. We write $qw^{-1}$ for the full
-pre-image of the singleton $\{q\}$.
+is, $Pw^{-1}=\{q\in Q\mid q\cdot w\in P\}$. In what follows, we denote the same
+a singleton set and its single element to lighten notation.
 
 %=================================
 \begin{algorithm}
@@ -1222,8 +1220,8 @@ one can isolate some cases in which rather strong bounds on $|v|$ do exist. The
 following definition is convenient for subsequent discussion. Given a number
 $\alpha>0$, a DFA $\mathcal{A}=(Q,A)$ is said to be
 $\alpha$-\emph{extensible}\index{automaton!$\alpha$-extensible} if for each
-proper non-singleton subset $P\subset Q$, there exists a word $u\in A^*$ of
-length at most $\alpha|Q|$ such that $|Pu^{-1}|>|P|$.
+proper non-singleton subset $S\subset Q$, there exists a word $u\in A^*$ of
+length at most $\alpha|Q|$ such that $|Su^{-1}|>|S|$.
 
 Suppose that Algorithm~\ref{KV:Extension} is executed on an $\alpha$-extensible
 automaton with $n$ states. Then the main loop is executed at most $n-2$ times
@@ -1232,8 +1230,7 @@ n$. Hence the length of the \sw\ returned by the algorithm does not exceed
 $1+\alpha n(n-2)$. Observe that this bound is quadratic in $n$ while the
 bound~\eqref{KV:eq:pin} that we so far have in general is cubic. Moreover, if
 an automaton is 1-extensible, then its \rt\ does not exceed $1+n(n-2)=(n-1)^2$,
-and thus, we see that the \v{C}ern\'{y} conjecture holds true for such
-automata.
+and thus, the \v{C}ern\'{y} conjecture holds true for such automata.
 
 The approach to the \v{C}ern\'{y} conjecture via extensibility traces back to
 Pin's paper~\cite{Pin:1978} of 1978. Pin observed that every DFA
@@ -1250,23 +1247,71 @@ graphical representation of $\mathcal{A}$. More formally, $D(\mathcal{A})$ has
 $Q$ as the vertex set and an edge $q\to q'$ for each transition $q\cdot a=q'$.}
 are Eulerian. In all these papers 1-extensibility is obtained via
 linear-algebraic arguments;\marginpar{\textbf{If space\\
-permits!!}} we include here a proof from~\cite{Kari:2003} as an example of
-these linearization techniques.
+permits!!}} we include here a proof from~\cite{Kari:2003} as a representative
+example of these linearization techniques.
 
-Given a DFA $\mathcal{A}=(Q,A)$ with $Q=\{1,2,\dots,n\}$, we assign to each
-subset $P\subseteq Q$ its \emph{characteristic vector}\index{characteristic
-vector} $[P]$ in the  linear space $\mathbb{R}^n$ of $n$-dimensional row
-vectors over $\mathbb{R}$ as follows: $i$-th entry of $[P]$ is 1 if $i\in P$,
-otherwise it is equal to 0. (For instance, $[Q]$ is the all ones row vector and
-the vectors $[1],\dots,[n]$ form the usual orthonormal basis of
-$\mathbb{R}^n$are  from the co.) Further, we assign to each word $w\in A^*$ the
-linear operator $\varphi_w$ on $\mathbb{R}^n$ defined by
+\begin{theorem}[{\mdseries\cite[Theorem~2]{Kari:2003}}]
+\label{KV:thm:eulerian} If the underlying digraph of a \sa\ $\mathcal{A}=(Q,A)$
+is Eulerian then $\mathcal{A}$ is has a \sw\ of length at most $(n-2)(n-1)+1$,
+where $n=|Q|$.
+\end{theorem}
 
+\begin{proof}
+For every vertex in an Eulerian digraph, its in-degree and its out-degree are
+equal. In the underlying graph of a DFA the out-degree of every vertex is equal
+to the cardinality of the input alphabet. Hence, if $|A|=k$, then each vertex
+in $D(\mathcal{A})$ has in-degree $k$ and for every subset $P\subseteq Q$, the
+equality
+\begin{equation}
+\label{KV:eq:eulerian} \sum_{a\in A}|Pa^{-1}|=k|P|
+\end{equation}
+holds true since the left-hand side of \eqref{KV:eq:eulerian} is the number of
+edges in $D(\mathcal{A})$ with ends in $P$. The equality \eqref{KV:eq:eulerian}
+readily implies that for each $P\subseteq Q$, one of the following alternatives
+takes place: either $|Pa^{-1}|=|P|$ for all letters $a\in A$ or $|Pb^{-1}|>|P|$
+for some $b\in A$. Now assume that a subset $S\subseteq Q$ and a word $u\in
+A^+$ are such that $|Su^{-1}|\ne|S|$ and $u$ is a word with minimum length with
+this property. We write $u=aw$ for some $a\in A$ and $w\in A^*$ and let
+$P=Sw^{-1}$. Then $|P|=|S|$ by the choice of $u$ and $Pa^{-1}=Su^{-1}$ whence
+$|Pa^{-1}|\ne|P|$. Thus, $P$ must fall into the second of the above
+alternatives and so $|Pb^{-1}|>|P|$ for some $b\in A$. The word $v=bw$ has the
+same length as $u$ and has the property that $|Sv^{-1}|>|S|$. Having this in
+mind, we now aim to prove that for every proper subset $S\subset Q$, there
+exists a word $u\in A^*$ of length at most $n-1$ such that $|Su^{-1}|\ne|S|$.
 
+It is here where linear algebra comes into the play. We may assume that
+$Q=\{1,2,\dots,n\}$. Assign to each subset $P\subseteq Q$ its
+\emph{characteristic vector}\index{characteristic vector} $[P]$ in the linear
+space $\mathbb{R}^n$ of $n$-dimensional row vectors over $\mathbb{R}$ as
+follows: $i$-th entry of $[P]$ is 1 if $i\in P$, otherwise it is equal to 0.
+For instance, $[Q]$ is the all ones row vector and the vectors $[1],\dots,[n]$
+form the usual orthonormal basis of $\mathbb{R}^n$. Observe that for any vector
+$x\in\mathbb{R}^n$, the inner product $\langle x,[Q]\rangle$ is equal to the
+sum of the coordinates of $x$ in this basis. In particular, for each subset
+$P\subseteq Q$, we have $\langle[P],[Q]\rangle=|P|$. Further, assign to each
+word $w\in A^*$ the linear operator $\varphi_w$ on $\mathbb{R}^n$ defined by
+$\varphi_w([i])=[iw^{-1}]$ for each $i\in Q$. It is then clear that
+$\varphi_w([P])=[Pw^{-1}]$ for each $P\subseteq Q$.
+
+The inequality $|Su^{-1}|\ne|S|$ that we look for can be rewritten as
+$\langle\varphi_u([S]),[Q]\rangle\ne\langle[S],[Q]\rangle$ or
+$\langle\varphi_u([S])-[S],[Q]\rangle\ne0$ . The vector $[S]$ can be uniquely
+represented as $[S]=x+\lambda[Q]$ where $x\in\mathbb{R}^n$ is a vector
+orthogonal to $[Q]$ and $\lambda\in\mathbb{R}$; observe that $x\ne0$ as $S\ne
+Q$. Since $Qu^{-1}=Q$ for every word $u$, we have $\varphi_u([Q])=[Q]$. Hence
+\begin{multline*}
+\langle\varphi_u([S])-[S],[Q]\rangle=\langle\varphi_u(x+\lambda[Q])-(x+\lambda[Q]),[Q]\rangle=\\
+\langle\varphi_u(x)+\lambda[Q]-x-\lambda[Q]),[Q]\rangle=\langle\varphi_u(x)-x,[Q]\rangle=
+\langle\varphi_u(x),[Q]\rangle
+\end{multline*}
+because  $\langle x,[Q]\rangle=0$. Thus, a word $u$ satisfies $|Su^{-1}|\ne|S|$
+if and only if the vector $\varphi_u(x)$ lies beyond the subspace $U$ of all
+vectors orthogonal to $[Q]$.
+\end{proof}
 
 %Recent results in this direction are due to
 %Steinberg~\cite{Steinberg:2010,Steinberg:2010archive}
-
+%
 %=====================================================
 \section{The road coloring problem}
 \label{KV:sec:rcp}
@@ -1289,3 +1334,4 @@ linear operator $\varphi_w$ on $\mathbb{R}^n$ defined by
 \printindex
 
 \end{document}
+g1
