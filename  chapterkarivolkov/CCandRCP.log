@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  21 FEB 2011 01:07
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  22 FEB 2011 01:58
 **CCandRCP.tex
 (./CCandRCP.tex
 LaTeX2e <2001/06/01>
@@ -636,26 +636,25 @@ File: ueuf.fd 2002/01/19 v2.2g AMS font definitions
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 974.
  [11] [12] [13]
-[14] [15] (./CCandRCP.bbl (./CCandRCP.brf)
+[14] [15] [16] (./CCandRCP.bbl (./CCandRCP.brf)
 \tf@brf=\write7
 \openout7 = `CCandRCP.brf'.
 
- [16]
-Missing character: There is no – in font ptmr7t!
-Missing character: There is no – in font ptmr7t!
  [17]
+Missing character: There is no – in font ptmr7t!
+Missing character: There is no – in font ptmr7t!
 Missing character: There is no – in font ptmr7t!
  [18] [19]) (./CCandRCP.ind [20] [21
 
 
 ]) (./CCandRCP.aux) ) 
 Here is how much of TeX's memory you used:
- 9957 strings out of 50491
- 137974 string characters out of 1189754
- 288151 words of memory out of 1500001
- 12682 multiletter control sequences out of 10000+15000
+ 9959 strings out of 50491
+ 138007 string characters out of 1189754
+ 288254 words of memory out of 1500001
+ 12684 multiletter control sequences out of 10000+15000
  27530 words of font info for 89 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  38i,19n,38p,290b,780s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on CCandRCP.dvi (21 pages, 248500 bytes).
+Output written on CCandRCP.dvi (21 pages, 253680 bytes).
