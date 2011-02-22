@@ -1270,7 +1270,7 @@ edges in $D(\mathcal{A})$ with ends in $P$. The equality \eqref{KV:eq:eulerian}
 readily implies that for each $P\subseteq Q$, one of the following alternatives
 takes place: either $|Pa^{-1}|=|P|$ for all letters $a\in A$ or $|Pb^{-1}|>|P|$
 for some $b\in A$. Now assume that a subset $S\subseteq Q$ and a word $u\in
-A^+$ are such that $|Su^{-1}|\ne|S|$ and $u$ is a word with minimum length with
+A^+$ are such that $|Su^{-1}|\ne|S|$ and $u$ is a word of minimum length with
 this property. We write $u=aw$ for some $a\in A$ and $w\in A^*$ and let
 $P=Sw^{-1}$. Then $|P|=|S|$ by the choice of $u$ and $Pa^{-1}=Su^{-1}$ whence
 $|Pa^{-1}|\ne|P|$. Thus, $P$ must fall into the second of the above
@@ -1285,28 +1285,58 @@ $Q=\{1,2,\dots,n\}$. Assign to each subset $P\subseteq Q$ its
 space $\mathbb{R}^n$ of $n$-dimensional row vectors over $\mathbb{R}$ as
 follows: $i$-th entry of $[P]$ is 1 if $i\in P$, otherwise it is equal to 0.
 For instance, $[Q]$ is the all ones row vector and the vectors $[1],\dots,[n]$
-form the usual orthonormal basis of $\mathbb{R}^n$. Observe that for any vector
+form the standard basis of $\mathbb{R}^n$. Observe that for any vector
 $x\in\mathbb{R}^n$, the inner product $\langle x,[Q]\rangle$ is equal to the
-sum of the coordinates of $x$ in this basis. In particular, for each subset
-$P\subseteq Q$, we have $\langle[P],[Q]\rangle=|P|$. Further, assign to each
-word $w\in A^*$ the linear operator $\varphi_w$ on $\mathbb{R}^n$ defined by
+sum of all entries of $x$. In particular, for each subset $P\subseteq Q$, we
+have $\langle[P],[Q]\rangle=|P|$. Further, assign to each word $w\in A^*$ the
+linear operator $\varphi_w$ on $\mathbb{R}^n$ defined by
 $\varphi_w([i])=[iw^{-1}]$ for each $i\in Q$. It is then clear that
 $\varphi_w([P])=[Pw^{-1}]$ for each $P\subseteq Q$.
 
 The inequality $|Su^{-1}|\ne|S|$ that we look for can be rewritten as
 $\langle\varphi_u([S]),[Q]\rangle\ne\langle[S],[Q]\rangle$ or
-$\langle\varphi_u([S])-[S],[Q]\rangle\ne0$ . The vector $[S]$ can be uniquely
-represented as $[S]=x+\lambda[Q]$ where $x\in\mathbb{R}^n$ is a vector
-orthogonal to $[Q]$ and $\lambda\in\mathbb{R}$; observe that $x\ne0$ as $S\ne
-Q$. Since $Qu^{-1}=Q$ for every word $u$, we have $\varphi_u([Q])=[Q]$. Hence
+$\langle\varphi_u([S])-[S],[Q]\rangle\ne0$. Let $x=[S]-\frac{|S|}n[Q]$. Then
+$x\ne0$ as $S\ne Q$ and $\langle x,[Q]\rangle=0$. Since $Qu^{-1}=Q$ for every
+word $u$, we have $\varphi_u([Q])=[Q]$. Hence
 \begin{multline*}
 \langle\varphi_u([S])-[S],[Q]\rangle=\langle\varphi_u(x+\lambda[Q])-(x+\lambda[Q]),[Q]\rangle=\\
 \langle\varphi_u(x)+\lambda[Q]-x-\lambda[Q]),[Q]\rangle=\langle\varphi_u(x)-x,[Q]\rangle=
-\langle\varphi_u(x),[Q]\rangle
+\langle\varphi_u(x),[Q]\rangle.
 \end{multline*}
-because  $\langle x,[Q]\rangle=0$. Thus, a word $u$ satisfies $|Su^{-1}|\ne|S|$
-if and only if the vector $\varphi_u(x)$ lies beyond the subspace $U$ of all
-vectors orthogonal to $[Q]$.
+Thus, a word $u$ satisfies $|Su^{-1}|\ne|S|$ if and only if the vector
+$\varphi_u(x)$ lies beyond the subspace $U$ of all vectors orthogonal to $[Q]$.
+We aim to bound the minimum length of such word $u$ but
+first we explain why words sending $x$ beyond $U$ exist.\marginpar{\textbf{There is a\\
+bug in~\cite{Kari:2003}\\ in this place}} Since the automaton $\mathcal{A}$ is
+synchronizing and its underlying digraph is strongly connected (since it is
+Eulerian), there exists a word $w\in A^*$ such that $Q\cdot w\subseteq S$---one
+can first synchronize $\mathcal{A}$ to a state $q$ and then move $q$ into $S$
+by applying a word that labels a path from $q$ to a state in $S$. Then
+\begin{displaymath}
+\varphi_w(x)=\varphi_w([S]-\frac{|S|}n[Q])=\varphi_w([S])-\frac{|S|}n\varphi_w([Q])=
+(1-\frac{|S|}n)[Q]\ne0.
+\end{displaymath}
+
+Now consider the chain of subspaces $U_0\subseteq U_1\subseteq\dotsc$, where
+$U_j$ is spanned by all vectors of form $\varphi_w(x)$ with $|w|\le j$.
+Clearly, if $U_{j+1}=U_j$ for some $\ell$ then $\varphi_a(U_j)\subseteq U_j$
+for all $a\in A$ whence $U_i=U_j$ for every $i\ge j$. Let $\ell$ be the least
+number such that $\varphi_u(x)\notin U$ for some word $u$ of length $\ell$,
+that is, the smallest $\ell$ such that $U\ell\nsubseteq U$. Then in the chain
+$U_0\subseteq U_1\subseteq\dots\subseteq U_\ell$ all inclusions are strict
+whence
+\begin{displaymath}
+1=\dim U_0 < \dim U_1 <\dots<\dim U_{\ell-1}<\dim U_\ell
+\end{displaymath}
+and, in particular, $\dim U_{\ell-1}\ge\ell$. But by our choice of $\ell$ we
+have $U_{\ell-1}\subseteq U$ whence $\dim U_{\ell-1}\le \dim U$. Since $U$ is
+the orthogonal complement of a 1-dimensional subspace, $\dim U=n-1$, and we
+conclude that $\ell\le n-1$.
+
+As shown in the first paragraph of the proof, the above implies that for every
+proper subset $S\subset Q$, there exists a word $u\in A^*$ of length at most
+$n-1$ such that $|Su^{-1}|>|S|$. Then Algorithm~\ref{KV:Extension} run on
+$\mathcal{A}$ returns a \sw\ of length at most $(n-2)(n-1)+1$.
 \end{proof}
 
 %Recent results in this direction are due to
