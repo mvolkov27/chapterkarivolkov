@@ -1,5 +1,6 @@
 \begin{theindex}
 
+  \item $a$-cycle (in an one-cluster automaton, \hyperpage{18}
   \item \textsc{Short-Reset-Word}, \hyperpage{7}
   \item \textsc{Shortest-Reset-Word}, \hyperpage{8}
   \item \v{C}ern\'{y} conjecture, \hyperpage{11}
@@ -11,6 +12,8 @@
   \item automaton
     \subitem $\alpha$-extensible, \hyperpage{15}
     \subitem \v{C}ern\'{y}, \hyperpage{10}
+    \subitem Kari, \hyperpage{17}
+    \subitem one-cluster, \hyperpage{18}
     \subitem synchronizing, \hyperpage{1}
 
   \indexspace
@@ -52,6 +55,5 @@
   \indexspace
 
   \item unary term, \hyperpage{5}
-  \item underlying digraph of an automaton, \hyperpage{16}
 
 \end{theindex}
