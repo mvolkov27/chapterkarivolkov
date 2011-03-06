@@ -11,20 +11,40 @@ N.~Alon, D.~Moshkovitz, and S.~Safra.
 D.~Ananichev, V.~Gusev, and M.~Volkov.
 \newblock Slowly synchronizing automata and digraphs.
 \newblock In P.~Hlin\v{en}\'y and A.~Ku\v{c}era, editors, {\em Mathematical
-  Foundations of Computer Science, MFCS'10}, volume 6281 of {\em Lecture Notes
-  in Comput. Sci.}, pages 55--64. Springer-Verlag, 2010.
+  Foundations of Computer Science}, volume 6281 of {\em Lecture Notes in
+  Comput. Sci.}, pages 55--64. Springer-Verlag, 2010.
 
 \bibitem{Ashby:1956}
 W.~R. Ashby.
 \newblock {\em An introduction to cybernetics}.
 \newblock Chapman \& Hall, 1956.
 
+\bibitem{Beal&Berlinkov&Perrin:2011}
+M.-P. B\'eal, M.~Berlinkov, and D.~Perrin.
+\newblock A quadratic upper bound on the size of a synchronizing word in
+  one-cluster automata.
+\newblock {\em Int. J. Foundations Comp.\ Sci.}, 22(2):277--288, 2011.
+
+\bibitem{Beal&Perrin:2009}
+M.-P. B\'eal and D.~Perrin.
+\newblock A quadratic upper bound on the size of a synchronizing word in
+  one-cluster automata.
+\newblock In V.~Diekert and D.~Nowotka, editors, {\em Developments in Language
+  Theory}, Lecture Notes in Comput. Sci., pages 81--90. Springer-Verlag, 2009.
+
 \bibitem{Berlinkov:2010}
 M.~Berlinkov.
 \newblock Approximating the minimum length of synchronizing words is hard.
 \newblock In F.~Ablayev and E.~W. Mayr, editors, {\em Computer Science in
-  Russia, CSR'10}, volume 6072 of {\em Lecture Notes in Comput. Sci.}
+  Russia}, volume 6072 of {\em Lecture Notes in Comput. Sci.}, pages 37--47.
   Springer-Verlag, 2010.
+
+\bibitem{Berlinkov:2010a}
+M.~Berlinkov.
+\newblock On a conjecture by {C}arpi and {D}'{A}lessandro.
+\newblock In Y.~Gao, H.~Lu, S.~Seki, and S.~Yu, editors, {\em Developments in
+  Language Theory}, volume 6224 of {\em Lecture Notes in Comput. Sci.}, pages
+  66--75. Springer-Verlag, 2010.
 
 \bibitem{Berstel&Perrin&Reutenauer:2009}
 J.~Berstel, D.~Perrin, and C.~Reutenauer.
@@ -36,20 +56,25 @@ J.~Berstel, D.~Perrin, and C.~Reutenauer.
 S.~Bogdanovi\'c, B.~Imreh, M.~\'Ciri\'c, and T.~Petkovi\'c.
 \newblock Directable automata and their generalizations: a survey.
 \newblock {\em Novi Sad J. Math.}, 29(2):29--69, 1999.
-\newblock Proc. 8th Int. Conf. ``Algebra \& Logic'' (Novi Sad, 1998).
 
 \bibitem{Boppana&Rajan&Takayama&Fujita:1999}
 V.~Boppana, S.~Rajan, K.~Takayama, and M.~Fujita.
 \newblock Model checking based on sequential {ATPG}.
-\newblock In {\em Computer Aided Verification, Proc.\ 11th International
-  Conference}, volume 1622 of {\em Lecture Notes in Comput. Sci.}, pages
-  418--430. Springer-Verlag, 1999.
+\newblock In {\em Computer Aided Verification}, volume 1622 of {\em Lecture
+  Notes in Comput. Sci.}, pages 418--430. Springer-Verlag, 1999.
 
 \bibitem{Capocelli&Gargano&Vaccaro:1988}
 R.~M. Capocelli, L.~Gargano, and U.~Vaccaro.
 \newblock On the characterization of statistically synchronizable
   variable-length codes.
 \newblock {\em IEEE Transactions on Information Theory}, 34(4):817--825, 1988.
+
+\bibitem{Carpi&D'Alessandro:2009}
+A.~Carpi and F.~D'Alessandro.
+\newblock The synchronization problem for locally strongly transitive automata.
+\newblock In R.~Kr{\'a}lovic and D.~Niwinski, editors, {\em Mathematical
+  Foundations of Computer Science}, volume 5734 of {\em Lecture Notes in
+  Computer Science}, pages 211--222. Springer-Verlag, 2009.
 
 \bibitem{Cerny:1964}
 J.~\Cerny.
@@ -131,8 +156,8 @@ P.~Gawrychowski.
 M.~Gerbush and B.~Heeringa.
 \newblock Approximating minimum reset sequences.
 \newblock In M.~Domaratzki and K.~Salomaa, editors, {\em Implementation and
-  Application of Automata, CIAA'10}, volume 6482 of {\em Lecture Notes in
-  Comput. Sci.}, pages 154--162. Springer-Verlag, 2011.
+  Application of Automata}, volume 6482 of {\em Lecture Notes in Comput. Sci.},
+  pages 154--162. Springer-Verlag, 2011.
 
 \bibitem{Gill:1961}
 A.~Gill.
@@ -158,14 +183,20 @@ P.~Goral\v{c}ik and V.~Koubek.
 \bibitem{Hennie:1964}
 F.~C. Hennie.
 \newblock Fault detecting experiments for sequential circuits.
-\newblock In {\em {S}witching {C}ircuit {T}heory and {L}ogical {D}esign, Proc.
-  5th {A}nnual {S}ymp.}, pages 95--110. IEEE Press, 1964.
+\newblock In {\em {S}witching {C}ircuit {T}heory and {L}ogical {D}esign}, pages
+  95--110. IEEE Press, 1964.
 
 \bibitem{Jiang&Li:1995}
 T.~Jiang and M.~Li.
 \newblock {On the approximation of shortest common supersequences and longest
   common subsequences}.
 \newblock {\em SIAM J. Comput.}, 24(5):1122--1139, 1995.
+
+\bibitem{Kari:2001}
+J.~Kari.
+\newblock A counter example to a conjecture concerning synchronizing words in
+  finite automata.
+\newblock {\em Bull. European Assoc. Theor. Comput. Sci.}, 73:146, 2001.
 
 \bibitem{Kari:2003}
 J.~Kari.
@@ -176,8 +207,8 @@ J.~Kari.
 A.~A. Klyachko, I.~K. Rystsov, and M.~A. Spivak.
 \newblock An extremal combinatorial problem associated with the bound of the
   length of a synchronizing word in an automaton.
-\newblock {\em Cybernetics and Systems Analysis}, 23(2):165--171, 1987.
-\newblock translated from Kibernetika, No 2, 1987, pp. 16--20, 25.
+\newblock {\em Cybernetics and System Analysis}, 23(2):165--171, 1987.
+\newblock translated from Kibernetika, No. 2, 1987, pp. 16--20, 25.
 
 \bibitem{Kohavi&Winograd:1971}
 Z.~Kohavi and J.~Winograd.
@@ -218,8 +249,8 @@ B.~K. Natarajan.
 J.~Olschewski and M.~Ummels.
 \newblock The complexity of finding reset words in finite automata.
 \newblock In P.~Hlin\v{en}\'y and A.~Ku\v{c}era, editors, {\em Mathematical
-  Foundations of Computer Science, MFCS'10}, number 6281 in Lecture Notes in
-  Comput. Sci., pages 568--579. Springer-Verlag, 2010.
+  Foundations of Computer Science}, number 6281 in Lecture Notes in Comput.
+  Sci., pages 568--579. Springer-Verlag, 2010.
 
 \bibitem{Papadimitriou:1994}
 C.~H. Papadimitriou.
@@ -230,6 +261,12 @@ C.~H. Papadimitriou.
 C.~H. Papadimitriou and M.~Yannakakis.
 \newblock The complexity of facets (and some facets of complexity).
 \newblock {\em J. Comput. System Sci.}, 28(2):244--259, 1984.
+
+\bibitem{Pin:1978a}
+J.-E. Pin.
+\newblock {\em Le probl\`eme de la synchronisation et la conjecture de
+  \v{C}ern{\'y}}.
+\newblock Th\`ese de 3\`eme cycle, Universit\'e Paris VI, 1978.
 
 \bibitem{Pin:1978}
 J.-E. Pin.
@@ -293,6 +330,26 @@ I.~K. Rystsov.
   75--82. Institute of Cybernetics of Ukrainian Acad. Sci., 1980.
 \newblock (in Russian).
 
+\bibitem{Rystsov:1995a}
+I.~K. Rystsov.
+\newblock Almost optimal bound of reccurent word length for regular automata.
+\newblock {\em Cybernetics and System Analysis}, 31:669--674, 1995.
+\newblock translated from Kibernetika i Sistemnyj Analiz, No. 5, 1995, pp.
+  40--48.
+
+\bibitem{Rystsov:1995}
+I.~K. Rystsov.
+\newblock Quasioptimal bound for the length of reset words for regular
+  automata.
+\newblock {\em Acta Cybernetica}, 12:145--152, 1995.
+
+\bibitem{Rystsov:2000}
+I.~K. Rystsov.
+\newblock Reset words for automata with simple idempotents.
+\newblock {\em Cybernetics and System Analysis}, 36:339--344, 2000.
+\newblock translated from Kibernetika i Sistemnyj Analiz, No. 3, 2000, pp.
+  32--39.
+
 \bibitem{Salomaa:2003}
 A.~Salomaa.
 \newblock Composition sequences for functions over a finite domain.
@@ -324,6 +381,19 @@ P.~H. Starke.
 \newblock {\em Elektronische Informationverarbeitung und Kybernetik},
   2:257--259, 1966.
 \newblock (in German).
+
+\bibitem{Steinberg:2010}
+B.~Steinberg.
+\newblock The averaging trick and the \v{C}ern{\'y} conjecture.
+\newblock In Y.~Gao, H.~Lu, S.~Seki, and S.~Yu, editors, {\em Developments in
+  Language Theory}, volume 6224 of {\em Lecture Notes in Comput. Sci.}, pages
+  423--431. Springer-Verlag, 2010.
+
+\bibitem{Steinberg:2010archive}
+B.~Steinberg.
+\newblock The \v{C}ern\'y conjecture for one-cluster automata with prime length
+  cycle.
+\newblock {\em CoRR}, abs/1005.1835, 2010.
 
 \bibitem{Trahtman:2006}
 A.~Trahtman.

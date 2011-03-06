@@ -24,4 +24,6 @@
 \indexentry{greedy algorithm!extension|hyperpage}{15}
 \indexentry{automaton!$\alpha$-extensible|hyperpage}{15}
 \indexentry{characteristic vector|hyperpage}{16}
-\indexentry{underlying digraph of an automaton|hyperpage}{16}
+\indexentry{automaton!Kari|hyperpage}{17}
+\indexentry{automaton!one-cluster|hyperpage}{18}
+\indexentry{$a$-cycle (in an one-cluster automaton|hyperpage}{18}

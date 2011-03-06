@@ -1,7 +1,7 @@
 \contentsline {section}{\numberline {1}Synchronizing automata, their origins and importance}{1}{section.1}
 \contentsline {section}{\numberline {2}Algorithmic and complexity issues}{5}{section.2}
 \contentsline {section}{\numberline {3}Around the \v {C}ern\'{y} conjecture}{10}{section.3}
-\contentsline {section}{\numberline {4}The road coloring problem}{17}{section.4}
-\contentsline {section}{\numberline {5}Related work}{17}{section.5}
-\contentsline {section}{References}{17}{section.5}
-\contentsline {section}{Index}{21}{section*.14}
+\contentsline {section}{\numberline {4}The road coloring problem}{19}{section.4}
+\contentsline {section}{\numberline {5}Related work}{19}{section.5}
+\contentsline {section}{References}{19}{section.5}
+\contentsline {section}{Index}{23}{section*.15}

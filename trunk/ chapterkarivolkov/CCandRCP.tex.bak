@@ -124,6 +124,7 @@ email:\,\url{jkari@utu.fi,Mikhail.Volkov@usu.ru}\\[4mm]
 
 %=====================================================
 \section{Synchronizing automata, their origins and importance}
+\label{KV:sec:motivation}
 %=====================================================
 A complete deterministic finite automaton (DFA) $\mathcal{A}=(Q,A)$ (here and
 below $Q$ stands for the state set and $A$ for the input alphabet) is called
@@ -378,10 +379,10 @@ of \emph{constant length}\index{substitution!of finite length} if all words
 $\sigma(x)$, $x\in X$, have the same length. One says that $\sigma$ satisfies
 the \emph{coincidence condition}\index{coincidence condition} if there exist
 positive integers $m$ and $k$ such that all words $\sigma^k(x)$ have the same
-$m$-th letter. For an example, consider the substitution $\tau$ on
-$X=\{0,1,2\}$ defined by $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 20$. Calculating
-the iterations of $\tau$ up to $\tau^4$ (see Figure~\ref{KV:fig:substituion}),
-we observe that
+letter in the $m$-th position. For an example, consider the substitution $\tau$
+on $X=\{0,1,2\}$ defined by $0\mapsto 11,\ 1\mapsto 12,\ 2\mapsto 20$.
+Calculating the iterations of $\tau$ up to $\tau^4$ (see
+Figure~\ref{KV:fig:substituion}), we observe that
 \begin{figure}[h]
 \begin{center}
 $\begin{matrix}
@@ -819,9 +820,9 @@ i &\text{if } i>0,\\
 \end{cases}\quad
 i\cdot b=i+1\!\!\pmod{n}.
 \end{displaymath}
-Our first example of \san\ (see Figure\,\ref{KV:fig:C4}) is, in
-fact, $\mathcal{C}_4$. A generic automaton $\mathcal{C}_n$ is
-shown in Figure\,\ref{KV:fig:cerny-n} on the left.
+Our first example of \san\ (see Figure~\ref{KV:fig:C4}) is, in fact,
+$\mathcal{C}_4$. A generic automaton $\mathcal{C}_n$ is shown in
+Figure~\ref{KV:fig:cerny-n} on the left.
 
 \begin{figure}[ht]
 \begin{center}
@@ -876,17 +877,15 @@ acts on $Q$ as a cyclic permutation, the word $w$ cannot end with $b$.
 some $w'\in\{a,b\}^*$ such that the image of $Q$ under the action of $w'$ is
 precisely the set $\{0,1\}$.
 
-Since the letter $a$ fixes each state in its image
-$\{1,2,\dots,n-1\}$, every occurrence of $a$ in $w$ except the
-last one is followed by an occurrence of $b$. (Otherwise $a^2$
-occurs in $w$ as a factor and reducing this factor to just $a$
-results in a shorter \sw.) Therefore, if we let $c=ab$, then the
-word $w'$ can be rewritten into a word $v$ over the alphabet
-$\{b,c\}$. The actions of $b$ and $c$ induce a new DFA on the
-state set $Q$; we denote this induced DFA (shown in
-Figure\,\ref{KV:fig:cerny-n} on the right) by $\mathcal{W}_n$.
-Since $w'$ and $v$ act on $Q$ in the same way, the word $vc$ is a
-\sw\ for $\mathcal{W}_n$ and brings the automaton to the state~2.
+Since the letter $a$ fixes each state in its image $\{1,2,\dots,n-1\}$, every
+occurrence of $a$ in $w$ except the last one is followed by an occurrence of
+$b$. (Otherwise $a^2$ occurs in $w$ as a factor and reducing this factor to
+just $a$ results in a shorter \sw.) Therefore, if we let $c=ab$, then the word
+$w'$ can be rewritten into a word $v$ over the alphabet $\{b,c\}$. The actions
+of $b$ and $c$ induce a new DFA on the state set $Q$; we denote this induced
+DFA (shown in Figure~\ref{KV:fig:cerny-n} on the right) by $\mathcal{W}_n$.
+Since $w'$ and $v$ act on $Q$ in the same way, the word $vc$ is a \sw\ for
+$\mathcal{W}_n$ and brings the automaton to the state~2.
 
 If $u\in\{b,c\}^*$, the word $uvc$ also is a \sw\ for $\mathcal{W}_n$ and it
 also brings the automaton to~2. Hence, for every $\ell\ge|vc|$, there is a path
@@ -1151,7 +1150,7 @@ $D(S)$ as well.
 \end{proof}
 
 If one executes Algorithm~\ref{KV:Greedy} on the \v{C}ern\'{y} automaton
-$\mathcal{C}_{4}$ (Fig.\,\ref{KV:fig:power automaton} is quite helpful here),
+$\mathcal{C}_{4}$ (Figure~\ref{KV:fig:power automaton} is quite helpful here),
 one sees that the algorithm returns the word $ab^2abab^3a$ of length 10 which
 is not the shortest reset word for $\mathcal{C}_{4}$. This reveals one of the
 main intrinsic difficulties of the synchronization problem: the standard
@@ -1221,16 +1220,23 @@ following definition is convenient for subsequent discussion. Given a number
 $\alpha>0$, a DFA $\mathcal{A}=(Q,A)$ is said to be
 $\alpha$-\emph{extensible}\index{automaton!$\alpha$-extensible} if for each
 proper non-singleton subset $S\subset Q$, there exists a word $u\in A^*$ of
-length at most $\alpha|Q|$ such that $|Su^{-1}|>|S|$.
+length at most $\alpha|Q|$ such that $|Su^{-1}|>|S|$. The following observation
+explains the importance of this property.
 
-Suppose that Algorithm~\ref{KV:Extension} is executed on an $\alpha$-extensible
-automaton with $n$ states. Then the main loop is executed at most $n-2$ times
-and each word that it appends to the current word has length at most $\alpha
-n$. Hence the length of the \sw\ returned by the algorithm does not exceed
-$1+\alpha n(n-2)$. Observe that this bound is quadratic in $n$ while the
-bound~\eqref{KV:eq:pin} that we so far have in general is cubic. Moreover, if
-an automaton is 1-extensible, then its \rt\ does not exceed $1+n(n-2)=(n-1)^2$,
-and thus, the \v{C}ern\'{y} conjecture holds true for such automata.
+\begin{proposition}
+\label{KV:prop:extensibility} If $\mathcal{A}$ is an $\alpha$-extensible
+automaton with $n$ states, then $\mathcal{A}$ is synchronizing and the \rt\ of
+$\mathcal{A}$ is at most $1+\alpha n(n-2)$. In particular, the \v{C}ern\'{y}
+conjecture holds true for $1$-extensible automata.
+\end{proposition}
+
+\begin{proof}
+If we run Algorithm~\ref{KV:Extension} on $\mathcal{A}$, the main loop is
+executed at most $n-2$ times and each word that it appends to the current word
+has length at most $\alpha n$. Hence the length of the \sw\ returned by the
+algorithm does not exceed $1+\alpha n(n-2)$. If $\alpha=1$, then we get the
+bound $1+n(n-2)=(n-1)^2$ which complies with the \v{C}ern\'{y} conjecture.
+\end{proof}
 
 The approach to the \v{C}ern\'{y} conjecture via extensibility traces back to
 Pin's paper~\cite{Pin:1978} of 1978. Pin observed that every DFA
@@ -1240,15 +1246,11 @@ non-permutation. Thus, such $\mathcal{A}$ is synchronizing and its \rt\ does
 not exceed $(|Q|-1)^2$. 20 years later Dubuc~\cite{Dubuc:1998} generalized
 Pin's result by showing that every \sa\ in which some letter acts as a cyclic
 permutation of the state set is 1-extensible. Kari~\cite{Kari:2003} proved
-1-extensibility of \sa\ whose underlying digraphs\footnote{The \emph{underlying
-digraph}\index{underlying digraph of an automaton} $D(\mathcal{A})$ of a DFA
-$\mathcal{A}=(Q,A)$ is obtained by removing the edge labels in the usual
-graphical representation of $\mathcal{A}$. More formally, $D(\mathcal{A})$ has
-$Q$ as the vertex set and an edge $q\to q'$ for each transition $q\cdot a=q'$.}
-are Eulerian. In all these papers 1-extensibility is obtained via
+1-extensibility of \sa\ whose underlying digraphs are Eulerian. In all these
+papers 1-extensibility is obtained via
 linear-algebraic arguments;\marginpar{\textbf{If space\\
-permits!!}} we include here a proof from~\cite{Kari:2003} as a representative
-example of these linearization techniques.
+permits!!}} we include here a proof from~\cite{Kari:2003} as quite a
+representative example of these linearization techniques.
 
 \begin{theorem}[{\mdseries\cite[Theorem~2]{Kari:2003}}]
 \label{KV:thm:eulerian} If the underlying digraph of a \sa\ $\mathcal{A}=(Q,A)$
@@ -1260,24 +1262,25 @@ where $n=|Q|$.
 For every vertex in an Eulerian digraph, its in-degree and its out-degree are
 equal. In the underlying graph of a DFA the out-degree of every vertex is equal
 to the cardinality of the input alphabet. Hence, if $|A|=k$, then each vertex
-in $D(\mathcal{A})$ has in-degree $k$ and for every subset $P\subseteq Q$, the
-equality
+in the underlying digraph of $\mathcal{A}$ has in-degree $k$ and for every
+subset $P\subseteq Q$, the equality
 \begin{equation}
 \label{KV:eq:eulerian} \sum_{a\in A}|Pa^{-1}|=k|P|
 \end{equation}
 holds true since the left-hand side of \eqref{KV:eq:eulerian} is the number of
-edges in $D(\mathcal{A})$ with ends in $P$. The equality \eqref{KV:eq:eulerian}
-readily implies that for each $P\subseteq Q$, one of the following alternatives
-takes place: either $|Pa^{-1}|=|P|$ for all letters $a\in A$ or $|Pb^{-1}|>|P|$
-for some $b\in A$. Now assume that a subset $S\subseteq Q$ and a word $u\in
-A^+$ are such that $|Su^{-1}|\ne|S|$ and $u$ is a word of minimum length with
-this property. We write $u=aw$ for some $a\in A$ and $w\in A^*$ and let
-$P=Sw^{-1}$. Then $|P|=|S|$ by the choice of $u$ and $Pa^{-1}=Su^{-1}$ whence
-$|Pa^{-1}|\ne|P|$. Thus, $P$ must fall into the second of the above
-alternatives and so $|Pb^{-1}|>|P|$ for some $b\in A$. The word $v=bw$ has the
-same length as $u$ and has the property that $|Sv^{-1}|>|S|$. Having this in
-mind, we now aim to prove that for every proper subset $S\subset Q$, there
-exists a word $u\in A^*$ of length at most $n-1$ such that $|Su^{-1}|\ne|S|$.
+edges in the underlying digraph of $\mathcal{A}$ with ends in $P$. The equality
+\eqref{KV:eq:eulerian} readily implies that for each $P\subseteq Q$, one of the
+following alternatives takes place: either $|Pa^{-1}|=|P|$ for all letters
+$a\in A$ or $|Pb^{-1}|>|P|$ for some $b\in A$. Now assume that a subset
+$S\subseteq Q$ and a word $u\in A^+$ are such that $|Su^{-1}|\ne|S|$ and $u$ is
+a word of minimum length with this property. We write $u=aw$ for some $a\in A$
+and $w\in A^*$ and let $P=Sw^{-1}$. Then $|P|=|S|$ by the choice of $u$ and
+$Pa^{-1}=Su^{-1}$ whence $|Pa^{-1}|\ne|P|$. Thus, $P$ must fall into the second
+of the above alternatives and so $|Pb^{-1}|>|P|$ for some $b\in A$. The word
+$v=bw$ has the same length as $u$ and has the property that $|Sv^{-1}|>|S|$.
+Having this in mind, we now aim to prove that for every proper subset $S\subset
+Q$, there exists a word $u\in A^*$ of length at most $n-1$ such that
+$|Su^{-1}|\ne|S|$.
 
 It is here where linear algebra comes into the play. We may assume that
 $Q=\{1,2,\dots,n\}$. Assign to each subset $P\subseteq Q$ its
@@ -1308,10 +1311,10 @@ $\varphi_u(x)$ lies beyond the subspace $U$ of all vectors orthogonal to $[Q]$.
 We aim to bound the minimum length of such word $u$ but
 first we explain why words sending $x$ beyond $U$ exist.\marginpar{\textbf{There is a\\
 bug in~\cite{Kari:2003}\\ in this place}} Since the automaton $\mathcal{A}$ is
-synchronizing and its underlying digraph is strongly connected (since it is
-Eulerian), there exists a word $w\in A^*$ such that $Q\cdot w\subseteq S$---one
-can first synchronize $\mathcal{A}$ to a state $q$ and then move $q$ into $S$
-by applying a word that labels a path from $q$ to a state in $S$. Then
+synchronizing and its underlying digraph is strongly connected (as the digraph
+is Eulerian), there exists a word $w\in A^*$ such that $Q\cdot w\subseteq
+S$---one can first synchronize $\mathcal{A}$ to a state $q$ and then move $q$
+into $S$ by applying a word that labels a path from $q$ to a state in $S$. Then
 \begin{displaymath}
 \varphi_w(x)=\varphi_w([S]-\frac{|S|}n[Q])=\varphi_w([S])-\frac{|S|}n\varphi_w([Q])=
 (1-\frac{|S|}n)[Q]\ne0.
@@ -1322,7 +1325,7 @@ $U_j$ is spanned by all vectors of form $\varphi_w(x)$ with $|w|\le j$.
 Clearly, if $U_{j+1}=U_j$ for some $\ell$ then $\varphi_a(U_j)\subseteq U_j$
 for all $a\in A$ whence $U_i=U_j$ for every $i\ge j$. Let $\ell$ be the least
 number such that $\varphi_u(x)\notin U$ for some word $u$ of length $\ell$,
-that is, the smallest $\ell$ such that $U\ell\nsubseteq U$. Then in the chain
+that is, the smallest $\ell$ such that $U_\ell\nsubseteq U$. Then in the chain
 $U_0\subseteq U_1\subseteq\dots\subseteq U_\ell$ all inclusions are strict
 whence
 \begin{displaymath}
@@ -1339,9 +1342,97 @@ $n-1$ such that $|Su^{-1}|>|S|$. Then Algorithm~\ref{KV:Extension} run on
 $\mathcal{A}$ returns a \sw\ of length at most $(n-2)(n-1)+1$.
 \end{proof}
 
+We mention in passing that the upper bound provided by
+Theorem~\ref{KV:thm:eulerian} is far from being tight. So far experiments have
+discovered no $n$-state \san\ $(n\ge4)$ with Eulerian underlying digraph and
+\rt\ that would exceed $\lfloor\frac{n^2-5}2\rfloor$.
+
+Return to our discussion of extensibility. Even though the approach to the
+\v{C}ern\'{y} conjecture via 1-exten\-sibil\-ity has proved to be productive in
+several special cases, it cannot resolve the general case because there exist
+\sa\ that are not 1-extensible. The first example here was the 6-state
+automaton $\mathcal{K}_6$\index{automaton!Kari} discovered by
+Kari~\cite{Kari:2001}, see Figure~\ref{KV:fig:Kari}. This automaton is
+synchronizing with \rt\ 25, the shortest \sw\ being
+$ba(ab)^3a^2b(ba)^3ab(ba^2)ab$. Kari found $\mathcal{K}_6$ as a counter example
+to a generalized form of the \v{C}ern\'{y} conjecture proposed in Pin's thesis
+\cite{Pin:1978a} but the automaton is remarkable in several other respects.
+\begin{figure}[tbh]
+\begin{center}
+\unitlength=0.85mm
+\begin{picture}(80,55)(0,5)
+\node(A)(0,50){0} \node(B)(30,50){1} \node(C)(60,50){2} \node(D)(60,20){3}
+\node(E)(30,20){4} \node(F)(0,20){5} \drawedge[ELside=r](A,B){$a$}
+\drawedge[ELside=r](B,C){$a$} \drawedge[ELside=r,curvedepth=-7](C,A){$a$}
+\drawedge[ELside=r](F,E){$a$} \drawedge[ELside=r](E,D){$a$}
+\drawedge[curvedepth=7](D,F){$a$} \drawedge[ELside=r,curvedepth=-3](D,C){$b$}
+\drawedge[ELside=r,curvedepth=-3](C,D){$b$} \drawedge(E,C){$b$}
+\drawloop[loopangle=-90](B){$b$} \drawloop[loopangle=180](A){$b$}
+\drawloop[loopangle=180](F){$b$}
+\end{picture}
+\caption{Kari's automaton $\mathcal{K}_6$}\label{KV:fig:Kari}
+\end{center}
+\end{figure}
+In particular, one can verify that no word $v$ of length~6 or~7 is such that
+the full pre-image of the set $\{2,3,4,5\}$ under the action of $v$ has more
+than 4 elements.
+
+Recently Berlinkov~\cite{Berlinkov:2010a} has constructed a series of \sa\ that
+for each $\alpha<2$ contains an automaton that is not $\alpha$-extensible. The
+question of whether or not all \sa\ are 2-extensible remains open.
+2-extensibility (and thus---by Proposition~\ref{KV:prop:extensibility}---a
+quadratic in the state number upper bound for the \rt) has been established for
+several classes of \sa\ by
+Rystsov~\cite{Rystsov:1995a,Rystsov:1995,Rystsov:2000}.
+
+Recently a slightly relaxed version of 2-extensibility has been shown by
+B\'eal, Ber\-lin\-kov and
+Perrin~\cite{Beal&Perrin:2009,Beal&Berlinkov&Perrin:2011} for the important
+class of the so-called one-cluster automata. A DFA $\mathcal{A}=(Q,A)$ is
+called \emph{one-cluster}\index{automaton!one-cluster} if there exist $a\in A$
+and $q\in Q$ such that each state in $Q$ is connected to $q$ by a path with all
+edges labelled by $a$. (For instance, the automata $\mathcal{C}_n$ and
+$\mathcal{W}_n$ shown in Figure~\ref{KV:fig:cerny-n} are one-cluster while
+Kari's automaton $\mathcal{K}_6$ shown in Figure~\ref{KV:fig:Kari}, is not. A
+mass example of one-cluster automata is provided by the decoders of finite
+maximal prefix codes discussed in Section~\ref{KV:sec:motivation}.) Let $C$ be
+the set of all states $q$ with the latter property. Then it is easy to see that
+$Q\cdot a^{|Q|-|C|}=C$, and one can modify Algorithm~\ref{KV:Extension} as
+follows.
+
+%=================================
+\begin{algorithm}
+  \setlength{\commentspace}{6cm}
+  \begin{algorithmic}[1]
+    \FUNC{RelativeExtenstion$(\mathcal{A},C,a)$}
+    \STATE \algcomment{0}{Initializing the current word}$w\gets\varepsilon$
+    \STATE\algcomment{0}{Initializing the current set}$P\gets \{q\}$ such
+    that $q\in C$
+    \WHILE{$|P|<|C|$}
+    \IF{$|Pu^{-1}\cap C|\le|P|$ for all $u\in A^*$}
+    \RETURN Failure
+    \ELSE\STATE{}take a word $v\in A^*$ of minimum length with $|Pv^{-1}\cap C|>|P|$
+    \ENDIF
+    \STATE\algcomment{1}{Updating the current word}$w\gets vw$
+    \STATE\algcomment{1}{Updating the current set}$P\gets Pv^{-1}\cap C$
+    \ENDWHILE
+    \RETURN $a^{|Q|-|C|}w$
+  \end{algorithmic}
+\caption{Modified extension algorithm for one-cluster
+automata}\label{KV:One-cluster}
+\end{algorithm}
+%==================================
+
+In~\cite{Beal&Perrin:2009,Beal&Berlinkov&Perrin:2011} it has been shown that
+the length of each word $v$ appended by the main loop of
+Algorithm~\ref{KV:One-cluster} does not exceed $2|Q|$, and this clearly implies
+a quadratic in $|Q|$ upper bound on the \rt\ for one-cluster \sa.
+Steinberg~\cite{Steinberg:2010,Steinberg:2010archive} has generalized the above
+approach and slightly improved the upper bound. Namely, 
+
+
 %Recent results in this direction are due to
-%Steinberg~\cite{Steinberg:2010,Steinberg:2010archive}
-%
+%%
 %=====================================================
 \section{The road coloring problem}
 \label{KV:sec:rcp}
