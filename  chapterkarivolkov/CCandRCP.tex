@@ -539,14 +539,16 @@ w=q'\cdot w$.
 \end{proposition}
 
 \begin{proof}
-Of course, only sufficiency needs a proof. For this, take two states $q,q'\in
-Q$ and consider a word $w_1$ such that $q\cdot w_1=q'\cdot w_1$. Then $|Q\cdot
-w_1|<|Q|$. If $|Q\cdot w_1|=1$, then $w_1$ is a \sw\ and $\mathcal{A}$ is
-synchronizing. If $|Q\cdot w_1|>1$, take two states $p,p'\in Q\cdot w_1$ and
-consider a word $w_2$ such that $p\cdot w_2=q'\cdot w_2$. Then $|Q\cdot
-w_1w_2|<|Q\cdot w_1|$. If $|Q\cdot w_1w_2|=1$, then $w_1w_2$ is a \sw;
-otherwise we repeat the process. Clearly, a \sw\ for $\mathcal{A}$ will be
-constructed in at most $|Q|-1$ steps.
+Of course, only sufficiency needs a proof. For this, take two
+states $q,q'\in Q$ and consider a word $w_1$ such that $q\cdot
+w_1=q'\cdot w_1$. Then $|Q\cdot w_1|<|Q|$. If $|Q\cdot w_1|=1$,
+then $w_1$ is a \sw\ and $\mathcal{A}$ is synchronizing. If
+$|Q\cdot w_1|>1$, take two states $p,p'\in Q\cdot w_1$ and
+consider a word $w_2$ such that $p\cdot w_2=p'\cdot w_2$. Then
+$|Q\cdot w_1w_2|<|Q\cdot w_1|$. If $|Q\cdot w_1w_2|=1$, then
+$w_1w_2$ is a \sw; otherwise we repeat the process. Clearly, a
+\sw\ for $\mathcal{A}$ will be constructed in at most $|Q|-1$
+steps.
 \end{proof}
 
 One can treat Proposition~\ref{KV:prop:quadratic} as a reduction of the
@@ -750,21 +752,25 @@ reductions between \textsc{Shortest-Reset-Word} and
 \textsc{SAT-UNSAT} obtained
 in~\cite{Gawrychowski:2008,Olschewski&Ummels:2010}.
 
-The complexity class $\mathsf{P}^\mathsf{NP[log]}$ consists of all problems
-solvable by a deterministic polynomial-time Turing machine that has an access
-to an oracle for an \textsf{NP}-complete problem, with the number of queries
-being logarithmic in the size of the input. The class \textsf{DP} is contained
-in $\mathsf{P}^\mathsf{NP[log]}$ (if fact, for every problem in \textsf{DP} two
-oracle queries suffice) and the inclusion is believed to be strict. Olschewski
-and Ummels~\cite{Olschewski&Ummels:2010} have shown that the problem of
-computing the \rt\ (as opposed to deciding whether it is equal to a given
-integer) is complete for the functional analogue $\mathsf{FP}^\mathsf{NP[log]}$
-of the class $\mathsf{P}^\mathsf{NP[log]}$ (see \cite{Selman:1994} for a
-discussion of functional complexity classes). Hence, this problem appears to be
-even harder than deciding the \rt. Recently Berlinkov~\cite{Berlinkov:2010} has
-shown (assuming \textsf{P}\,$\ne$\,\textsf{NP}) that no polynomial algorithm
-can approximate within a constant factor the \rt\ of a given \san\ with two
-input letters.
+The complexity class $\mathsf{P}^\mathsf{NP[log]}$ consists of all
+problems solvable by a deterministic polynomial-time Turing
+machine that has an access to an oracle for an
+\textsf{NP}-complete problem, with the number of queries being
+logarithmic in the size of the input. The class \textsf{DP} is
+contained in $\mathsf{P}^\mathsf{NP[log]}$ (in fact, for every
+problem in \textsf{DP} two oracle queries suffice) and the
+inclusion is believed to be strict. Olschewski and
+Ummels~\cite{Olschewski&Ummels:2010} have shown that the problem
+of computing the \rt\ (as opposed to deciding whether it is equal
+to a given integer) is complete for the functional analogue
+$\mathsf{FP}^\mathsf{NP[log]}$ of the class
+$\mathsf{P}^\mathsf{NP[log]}$ (see \cite{Selman:1994} for a
+discussion of functional complexity classes). Hence, this problem
+appears to be even harder than deciding the \rt. Recently
+Berlinkov~\cite{Berlinkov:2010} has shown (assuming
+\textsf{P}\,$\ne$\,\textsf{NP}) that no polynomial algorithm can
+approximate within a constant factor the \rt\ of a given \san\
+with two input letters.
 
 The problem of finding a \sw\ of minimum length (as opposed to computing only
 the length without writing down the word itself) may be even more difficult.

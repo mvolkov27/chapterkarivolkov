@@ -539,14 +539,16 @@ w=q'\cdot w$.
 \end{proposition}
 
 \begin{proof}
-Of course, only sufficiency needs a proof. For this, take two states $q,q'\in
-Q$ and consider a word $w_1$ such that $q\cdot w_1=q'\cdot w_1$. Then $|Q\cdot
-w_1|<|Q|$. If $|Q\cdot w_1|=1$, then $w_1$ is a \sw\ and $\mathcal{A}$ is
-synchronizing. If $|Q\cdot w_1|>1$, take two states $p,p'\in Q\cdot w_1$ and
-consider a word $w_2$ such that $p\cdot w_2=q'\cdot w_2$. Then $|Q\cdot
-w_1w_2|<|Q\cdot w_1|$. If $|Q\cdot w_1w_2|=1$, then $w_1w_2$ is a \sw;
-otherwise we repeat the process. Clearly, a \sw\ for $\mathcal{A}$ will be
-constructed in at most $|Q|-1$ steps.
+Of course, only sufficiency needs a proof. For this, take two
+states $q,q'\in Q$ and consider a word $w_1$ such that $q\cdot
+w_1=q'\cdot w_1$. Then $|Q\cdot w_1|<|Q|$. If $|Q\cdot w_1|=1$,
+then $w_1$ is a \sw\ and $\mathcal{A}$ is synchronizing. If
+$|Q\cdot w_1|>1$, take two states $p,p'\in Q\cdot w_1$ and
+consider a word $w_2$ such that $p\cdot w_2=p'\cdot w_2$. Then
+$|Q\cdot w_1w_2|<|Q\cdot w_1|$. If $|Q\cdot w_1w_2|=1$, then
+$w_1w_2$ is a \sw; otherwise we repeat the process. Clearly, a
+\sw\ for $\mathcal{A}$ will be constructed in at most $|Q|-1$
+steps.
 \end{proof}
 
 One can treat Proposition~\ref{KV:prop:quadratic} as a reduction of the
@@ -1385,7 +1387,7 @@ quadratic in the state number upper bound for the \rt) has been established for
 several classes of \sa\ by
 Rystsov~\cite{Rystsov:1995a,Rystsov:1995,Rystsov:2000}.
 
-Recently a slightly relaxed version of 2-extensibility has been shown by
+Recently a slightly relaxed version of 2-extensibility has been verified by
 B\'eal, Ber\-lin\-kov and
 Perrin~\cite{Beal&Perrin:2009,Beal&Berlinkov&Perrin:2011} for the important
 class of the so-called one-cluster automata. A DFA $\mathcal{A}=(Q,A)$ is
@@ -1396,9 +1398,10 @@ $\mathcal{W}_n$ shown in Figure~\ref{KV:fig:cerny-n} are one-cluster while
 Kari's automaton $\mathcal{K}_6$ shown in Figure~\ref{KV:fig:Kari}, is not. A
 mass example of one-cluster automata is provided by the decoders of finite
 maximal prefix codes discussed in Section~\ref{KV:sec:motivation}.) Let $C$ be
-the set of all states $q$ with the latter property. Then it is easy to see that
-$Q\cdot a^{|Q|-|C|}=C$, and one can modify Algorithm~\ref{KV:Extension} as
-follows.
+the set of all states $q$ with the latter property. Clearly, $a$ acts on $C$ as
+a cyclic permutation so we refer to $C$ as the $a$-\emph{cycle}\index{$a$-cycle
+(in an one-cluster automaton}. It is easy to see that $Q\cdot a^{|Q|-|C|}=C$,
+and one can modify Algorithm~\ref{KV:Extension} as follows.
 
 %=================================
 \begin{algorithm}
@@ -1406,8 +1409,7 @@ follows.
   \begin{algorithmic}[1]
     \FUNC{RelativeExtenstion$(\mathcal{A},C,a)$}
     \STATE \algcomment{0}{Initializing the current word}$w\gets\varepsilon$
-    \STATE\algcomment{0}{Initializing the current set}$P\gets \{q\}$ such
-    that $q\in C$
+    \STATE\algcomment{0}{Initializing the current set}$P\gets \{q\}$ where $q\in C$
     \WHILE{$|P|<|C|$}
     \IF{$|Pu^{-1}\cap C|\le|P|$ for all $u\in A^*$}
     \RETURN Failure
@@ -1418,17 +1420,22 @@ follows.
     \ENDWHILE
     \RETURN $a^{|Q|-|C|}w$
   \end{algorithmic}
-\caption{Modified extension algorithm for one-cluster
-automata}\label{KV:One-cluster}
+\caption{Modified extension algorithm for a one-cluster automaton
+$\mathcal{A}=(Q,A)$ with $a$-cycle $C$}\label{KV:One-cluster}
 \end{algorithm}
 %==================================
 
 In~\cite{Beal&Perrin:2009,Beal&Berlinkov&Perrin:2011} it has been shown that
 the length of each word $v$ appended by the main loop of
 Algorithm~\ref{KV:One-cluster} does not exceed $2|Q|$, and this clearly implies
-a quadratic in $|Q|$ upper bound on the \rt\ for one-cluster \sa.
+a quadratic in $|Q|$ upper bound on the \rt\ for one-cluster \sa. A similar
+result has been obtained by Carpi and
+D'Alessandro~\cite{Carpi&D'Alessandro:2009}.
 Steinberg~\cite{Steinberg:2010,Steinberg:2010archive} has generalized the above
-approach and slightly improved the upper bound. Namely, 
+approach and slightly improved the upper bound. Namely, Steinberg has proved
+that a one-cluster \san\ with $n$ states has a \sw\ of length at most
+$2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
+\sa\ with $a$-cycles of prime cardinality.
 
 
 %Recent results in this direction are due to
