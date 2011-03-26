@@ -2,6 +2,16 @@
   \newcommand{\etal}{et al.}
 \begin{thebibliography}{10}
 
+\bibitem{Adler&Goodwyn&Weiss:1977}
+R.~L. Adler, L.~W. Goodwyn, and B.~Weiss.
+\newblock Equivalence of topological markov shifts.
+\newblock {\em Israel J. Math}, 27(1):49--63, 1977.
+
+\bibitem{Adler&Weiss:1970}
+R.~L. Adler and B.~Weiss.
+\newblock Similarity of automorphisms of the torus.
+\newblock {\em Memoirs Amer. Math. Soc.}, 98, 1970.
+
 \bibitem{Alon&Moshkovitz&Safra:2006}
 N.~Alon, D.~Moshkovitz, and S.~Safra.
 \newblock Algorithmic construction of sets for k-restrictions.
@@ -105,6 +115,11 @@ H.~Cho, S.-W. Jeong, F.~Somenzi, and C.~Pixley.
 T.~H. Cormen, C.~E. Leiserson, R.~L. Rivest, and C.~Stein.
 \newblock {\em Introduction to algorithms}.
 \newblock MIT Press and McGraw-Hill, 2001.
+
+\bibitem{Culik&Karhumaki&Kari:2002}
+K.~Culik~II, J.~Karhum\"aki, and J.~Kari.
+\newblock A note on synchronized automata and {R}oad {C}oloring {P}roblem.
+\newblock {\em Int. J. Found. Comput. Sci.}, 13:459--471, 2002.
 
 \bibitem{Dekking:1978}
 F.~M. Dekking.
@@ -402,6 +417,11 @@ A.~Trahtman.
 \newblock In R.~Kr\'alovi\v{c} and P.~Urzyczyn, editors, {\em 31st Int.\ Symp.\
   Math.\ Foundations of Comput.\ Sci.}, volume 4162 of {\em Lecture Notes in
   Comput. Sci.}, pages 789--800. Springer-Verlag, 2006.
+
+\bibitem{Trahtman:2009}
+A.~Trahtman.
+\newblock The {R}oad {C}oloring {P}roblem.
+\newblock {\em Israel J. Math.}, 172(1):51--60, 2009.
 
 \bibitem{Volkov:2008}
 M.~Volkov.
