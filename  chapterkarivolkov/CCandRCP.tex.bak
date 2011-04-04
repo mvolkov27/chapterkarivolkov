@@ -1328,8 +1328,8 @@ into $S$ by applying a word that labels a path from $q$ to a state in $S$. Then
 
 Now consider the chain of subspaces $U_0\subseteq U_1\subseteq\dotsc$, where
 $U_j$ is spanned by all vectors of form $\varphi_w(x)$ with $|w|\le j$.
-Clearly, if $U_{j+1}=U_j$ for some $\ell$ then $\varphi_a(U_j)\subseteq U_j$
-for all $a\in A$ whence $U_i=U_j$ for every $i\ge j$. Let $\ell$ be the least
+Clearly, if $U_{j+1}=U_j$ for some $j$ then $\varphi_a(U_j)\subseteq U_j$ for
+all $a\in A$ whence $U_i=U_j$ for every $i\ge j$. Let $\ell$ be the least
 number such that $\varphi_u(x)\notin U$ for some word $u$ of length $\ell$,
 that is, the smallest $\ell$ such that $U_\ell\nsubseteq U$. Then in the chain
 $U_0\subseteq U_1\subseteq\dots\subseteq U_\ell$ all inclusions are strict
@@ -1442,8 +1442,6 @@ $2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
 \sa\ with $a$-cycles of prime cardinality.
 
 
-%Recent results in this direction are due to
-%%
 %=====================================================
 \section{The road coloring problem}
 \label{KV:sec:rcp}
@@ -1459,9 +1457,8 @@ and finally the problem was solved (in the affirmative) in August
 in~\cite{Trahtman:2009}.
 
 Trahtman's proof heavily depends on a neat idea of
-\emph{stability} which is due to Culik, Karhum\"aki and Kari (A
-note on synchronized automata and Road Coloring Problem, Int.\ J.
-Found.\ Comput.\ Sci., 13 (2002) 459--471).
+\emph{stability} which is due to Culik, Karhum\"aki and
+Kari~\cite{Culik&Karhumaki&Kari:2002}.
 
 
 %=====================================================

@@ -1308,8 +1308,8 @@ $\langle\varphi_u([S])-[S],[Q]\rangle\ne0$. Let $x=[S]-\frac{|S|}n[Q]$. Then
 $x\ne0$ as $S\ne Q$ and $\langle x,[Q]\rangle=0$. Since $Qu^{-1}=Q$ for every
 word $u$, we have $\varphi_u([Q])=[Q]$. Hence
 \begin{multline*}
-\langle\varphi_u([S])-[S],[Q]\rangle=\langle\varphi_u(x+\lambda[Q])-(x+\lambda[Q]),[Q]\rangle=\\
-\langle\varphi_u(x)+\lambda[Q]-x-\lambda[Q]),[Q]\rangle=\langle\varphi_u(x)-x,[Q]\rangle=
+\langle\varphi_u([S])-[S],[Q]\rangle=\langle\varphi_u(x+\frac{|S|}n[Q])-(x+\frac{|S|}n[Q]),[Q]\rangle=\\
+\langle\varphi_u(x)+\frac{|S|}n[Q]-x-\frac{|S|}n[Q]),[Q]\rangle=\langle\varphi_u(x)-x,[Q]\rangle=
 \langle\varphi_u(x),[Q]\rangle.
 \end{multline*}
 Thus, a word $u$ satisfies $|Su^{-1}|\ne|S|$ if and only if the vector
@@ -1328,8 +1328,8 @@ into $S$ by applying a word that labels a path from $q$ to a state in $S$. Then
 
 Now consider the chain of subspaces $U_0\subseteq U_1\subseteq\dotsc$, where
 $U_j$ is spanned by all vectors of form $\varphi_w(x)$ with $|w|\le j$.
-Clearly, if $U_{j+1}=U_j$ for some $\ell$ then $\varphi_a(U_j)\subseteq U_j$
-for all $a\in A$ whence $U_i=U_j$ for every $i\ge j$. Let $\ell$ be the least
+Clearly, if $U_{j+1}=U_j$ for some $j$ then $\varphi_a(U_j)\subseteq U_j$ for
+all $a\in A$ whence $U_i=U_j$ for every $i\ge j$. Let $\ell$ be the least
 number such that $\varphi_u(x)\notin U$ for some word $u$ of length $\ell$,
 that is, the smallest $\ell$ such that $U_\ell\nsubseteq U$. Then in the chain
 $U_0\subseteq U_1\subseteq\dots\subseteq U_\ell$ all inclusions are strict
@@ -1442,8 +1442,6 @@ $2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
 \sa\ with $a$-cycles of prime cardinality.
 
 
-%Recent results in this direction are due to
-%%
 %=====================================================
 \section{The road coloring problem}
 \label{KV:sec:rcp}
