@@ -4,7 +4,7 @@
 
 \bibitem{Adler&Goodwyn&Weiss:1977}
 R.~L. Adler, L.~W. Goodwyn, and B.~Weiss.
-\newblock Equivalence of topological markov shifts.
+\newblock Equivalence of topological {M}arkov shifts.
 \newblock {\em Israel J. Math}, 27(1):49--63, 1977.
 
 \bibitem{Adler&Weiss:1970}
@@ -34,6 +34,11 @@ M.-P. B\'eal, M.~Berlinkov, and D.~Perrin.
 \newblock A quadratic upper bound on the size of a synchronizing word in
   one-cluster automata.
 \newblock {\em Int. J. Foundations Comp.\ Sci.}, 22(2):277--288, 2011.
+
+\bibitem{Beal&Perrin:2008}
+M.-P. B\'eal and D.~Perrin.
+\newblock {A quadratic algorithm for road coloring}.
+\newblock Technical report, Universit\'e Paris-Est, 2008.
 
 \bibitem{Beal&Perrin:2009}
 M.-P. B\'eal and D.~Perrin.
@@ -78,6 +83,11 @@ R.~M. Capocelli, L.~Gargano, and U.~Vaccaro.
 \newblock On the characterization of statistically synchronizable
   variable-length codes.
 \newblock {\em IEEE Transactions on Information Theory}, 34(4):817--825, 1988.
+
+\bibitem{Carbone:2001}
+A.~Carbone.
+\newblock Cycles of relatively prime length and the road coloring problem.
+\newblock {\em Israel J. Math.}, 123:303--316, 2001.
 
 \bibitem{Carpi&D'Alessandro:2009}
 A.~Carpi and F.~D'Alessandro.
@@ -150,11 +160,16 @@ P.~Frankl.
 \newblock An extremal problem for two families of sets.
 \newblock {\em European J. Combinatorics}, 3:125–--127, 1982.
 
-\bibitem{Frettloh&Sing2007}
+\bibitem{Frettloh&Sing:2007}
 D.~Frettl\"oh and B.~Sing.
 \newblock Computing modular coincidences for substitution tilings and point
   sets.
 \newblock {\em Discrete Comput. Geom.}, 37:381--–407, 2007.
+
+\bibitem{Friedman:1990}
+J.~Friedman.
+\newblock On the road coloring problem.
+\newblock {\em Proc. Amer. Math. Soc.}, 110:1133--1135, 1990.
 
 \bibitem{Garey&Johnson:1979}
 M.~R. Garey and D.~S. Johnson.
@@ -207,11 +222,21 @@ T.~Jiang and M.~Li.
   common subsequences}.
 \newblock {\em SIAM J. Comput.}, 24(5):1122--1139, 1995.
 
+\bibitem{Jonoska&Suen:1995}
+N.~Jonoska and S.~Suen.
+\newblock Monocyclic decomposition of graphs and the road coloring problem.
+\newblock {\em Congressum numerantium}, 110:201--209, 1995.
+
 \bibitem{Kari:2001}
 J.~Kari.
 \newblock A counter example to a conjecture concerning synchronizing words in
   finite automata.
 \newblock {\em Bull. European Assoc. Theor. Comput. Sci.}, 73:146, 2001.
+
+\bibitem{Kari:2002}
+J.~Kari.
+\newblock Synchronization and stability of finite automata.
+\newblock {\em J. Universal Comp.\ Sci.}, 2:270--277, 2002.
 
 \bibitem{Kari:2003}
 J.~Kari.
@@ -260,6 +285,11 @@ B.~K. Natarajan.
 \newblock Some paradigms for the automated design of parts feeders.
 \newblock {\em Internat.\ J. Robotics Research}, 8(6):89--109, 1989.
 
+\bibitem{O'Brien:1981}
+G.~L. O'Brien.
+\newblock The road coloring problem.
+\newblock {\em Israel J. of Math.}, 39:145--154, 1981.
+
 \bibitem{Olschewski&Ummels:2010}
 J.~Olschewski and M.~Ummels.
 \newblock The complexity of finding reset words in finite automata.
@@ -276,6 +306,13 @@ C.~H. Papadimitriou.
 C.~H. Papadimitriou and M.~Yannakakis.
 \newblock The complexity of facets (and some facets of complexity).
 \newblock {\em J. Comput. System Sci.}, 28(2):244--259, 1984.
+
+\bibitem{Perrin&Schutzenberger:1992}
+D.~Perrin and M.~P. Sch\"utzenberger.
+\newblock Synchronizing prefix codes and automata and the road coloring
+  problem.
+\newblock In {\em Symbolic dynamics and its applications}, volume 135 of {\em
+  Contemporary Mathematics}, pages 295–--318. Amer. Math. Soc., 1992.
 
 \bibitem{Pin:1978a}
 J.-E. Pin.

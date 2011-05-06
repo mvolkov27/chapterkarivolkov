@@ -1,31 +1,35 @@
 \begin{theindex}
 
-  \item $a$-cycle (in an one-cluster automaton, \hyperpage{18}
-  \item \textsc{Short-Reset-Word}, \hyperpage{7}
-  \item \textsc{Shortest-Reset-Word}, \hyperpage{8}
-  \item \v{C}ern\'{y} conjecture, \hyperpage{11}
-  \item \v{C}ern\'{y} function, \hyperpage{11}
-  \item 2-renewing sequence, \hyperpage{12}
+  \item 2-renewing sequence, \hyperpage{13}
 
   \indexspace
 
   \item automaton
     \subitem $\alpha$-extensible, \hyperpage{15}
     \subitem \v{C}ern\'{y}, \hyperpage{10}
-    \subitem Kari, \hyperpage{17}
+    \subitem Kari, \hyperpage{18}
     \subitem one-cluster, \hyperpage{18}
     \subitem synchronizing, \hyperpage{1}
 
   \indexspace
 
-  \item characteristic vector, \hyperpage{16}
+  \item \v{C}ern\'{y} conjecture, \hyperpage{11}
+  \item \v{C}ern\'{y} function, \hyperpage{11}
+  \item characteristic vector, \hyperpage{17}
   \item coincidence condition, \hyperpage{4}
-  \item couple, \hyperpage{6}
+  \item coloring (of a graph), \hyperpage{19}
+  \item compressible pair, \hyperpage{22}
+  \item compressible set, \hyperpage{22}
+  \item couple, \hyperpage{7}
 
   \indexspace
 
+  \item graph, \hyperpage{6}
+    \subitem of a letter, \hyperpage{22}
+    \subitem of constant outdegree, \hyperpage{19}
+    \subitem primitive, \hyperpage{20}
   \item greedy algorithm
-    \subitem compression, \hyperpage{11}
+    \subitem compression, \hyperpage{12}
     \subitem extension, \hyperpage{15}
 
   \indexspace
@@ -33,6 +37,8 @@
   \item identity of unary algebras, \hyperpage{5}
     \subitem heterotypical, \hyperpage{5}
     \subitem homotypical, \hyperpage{5}
+  \item incompressible pair, \hyperpage{22}
+  \item incompressible set, \hyperpage{22}
 
   \indexspace
 
@@ -42,11 +48,19 @@
 
   \indexspace
 
-  \item reset threshold, \hyperpage{8}
+  \item reachability relation, \hyperpage{26}
+  \item reset threshold, \hyperpage{9}
   \item reset word, \hyperpage{1}
+  \item Road Coloring Conjecture, \hyperpage{21}
+  \item Road Coloring Problem, \hyperpage{19}
 
   \indexspace
 
+  \item \textsc{Short-Reset-Word}, \hyperpage{7}
+  \item \textsc{Shortest-Reset-Word}, \hyperpage{8}
+  \item stability relation, \hyperpage{21}
+  \item stable pair, \hyperpage{21}
+  \item strongly connected component, \hyperpage{26}
   \item subset automaton, \hyperpage{6}
   \item substitution, \hyperpage{4}
     \subitem of finite length, \hyperpage{4}
@@ -55,5 +69,11 @@
   \indexspace
 
   \item unary term, \hyperpage{5}
+  \item underlying graph (of an automaton), \hyperpage{6}
+
+  \indexspace
+
+  \item vertex
+    \subitem ramified, \hyperpage{23}
 
 \end{theindex}
