@@ -74,6 +74,8 @@
 \newcommand{\sw}{reset word}
 \newcommand{\sws}{reset words}
 \newcommand{\rt}{reset threshold}
+\newcommand{\scc}{strongly connected component}
+\newcommand{\scn}{strongly connected}
 
 %============Additional statements ==================
 \theoremstyle{plain}
@@ -514,18 +516,25 @@ the state set of $\mathcal{P}(\mathcal{A})$.) Figure~\ref{KV:fig:power
 automaton} presents the subset automaton for the DFA $\mathcal{C}_4$ shown in
 Figure~\ref{KV:fig:C4}.
 
-Now it is obvious that a word $w\in A^*$ is a reset word for the
-DFA $\mathcal{A}$ if and only if $w$ labels a path in
-$\mathcal{P}(\mathcal{A})$ starting at $Q$ and ending at a
-singleton. (For instance, the bold path in
-Figure~\ref{KV:fig:power automaton} represents the shortest reset
-word $ab^3ab^3a$ of the automaton $\mathcal{C}_4$.) Thus, the
-question of whether or not a given DFA $\mathcal{A}$ is
-synchronizing reduces to the following reachability question in
-the underlying digraph of the subset automaton
-$\mathcal{P}(\mathcal{A})$: is there a path from $Q$ to a
-singleton? The latter question can be easily answered by
-breadth-first search,  see, e.g.,
+Now it is obvious that a word $w\in A^*$ is a reset word for the DFA
+$\mathcal{A}$ if and only if $w$ labels a path in $\mathcal{P}(\mathcal{A})$
+starting at $Q$ and ending at a singleton. (For instance, the bold path in
+Figure~\ref{KV:fig:power automaton} represents the shortest reset word
+$ab^3ab^3a$ of the automaton $\mathcal{C}_4$.) Thus, the question of whether or
+not a given DFA $\mathcal{A}$ is synchronizing reduces to the following
+reachability question in the underlying graph\footnote{By a
+\emph{graph}\index{graph} we mean a quadruple of sets and maps: the set of
+\emph{vertices} $V$, the set of \emph{edges} $E$, a map $t: E\to V$ that maps
+every edge to its \emph{tail} vertex, and a map $h:E\to V$ that maps every edge
+to its \emph{head} vertex. Notice that in a graph, there may be several edges
+with the same tail and head. (Thus, our graphs are in fact directed multigraphs
+but since no other graph species show up in this chapter, we use a short name.)
+We assume the reader's acquaintance with basic notions of graph theory such as
+path, cycle, etc. The \emph{underlying graph} of an automaton $\mathcal{A}$ is
+the graph obtained from $\mathcal{A}$ by forgetting edge
+labels.\index{underlying graph (of an automaton)}} of the subset automaton
+$\mathcal{P}(\mathcal{A})$: is there a path from $Q$ to a singleton? The latter
+question can be easily answered by breadth-first search, see, e.g.,
 \cite[Section~22.2]{Cormen&Leiserson&Rivest&Stein:2001}.
 
 The described procedure is conceptually very simple but rather inefficient
@@ -579,8 +588,7 @@ basics of computational complexity (such as the definitions of the complexity
 classes \textsf{NP} and \textsf{coNP}) that can be found, e.g.,
 in~\cite{Garey&Johnson:1979,Papadimitriou:1994}.
 
-Consider the following decision
-problem:\index{\textsc{Short-Reset-Word}}
+Consider the following decision problem:\index{Short@\textsc{Short-Reset-Word}}
 
 \smallskip
 
@@ -702,11 +710,11 @@ following.
 \textsf{NP}-complete.\qed
 \end{proposition}
 
-In fact, as observed by Samotij~\cite{Samotij:2007}, the above
-construction yields slightly more\footnote{Actually, the reduction
-in~\cite{Samotij:2007} is not correct but the result claimed can
-be easily recovered as shown below.}. Consider the following
-decision problem:\index{\textsc{Shortest-Reset-Word}}
+In fact, as observed by Samotij~\cite{Samotij:2007}, the above construction
+yields slightly more\footnote{Actually, the reduction in~\cite{Samotij:2007} is
+not correct but the result claimed can be easily recovered as shown below.}.
+Consider the following decision
+problem:\index{Shorthest@\textsc{Shortest-Reset-Word}}
 
 \smallskip
 
@@ -863,7 +871,7 @@ induced by the actions of $b$ and $c=ab$}\label{KV:fig:cerny-n}
 
 The series $\{\mathcal{C}_n\}_{n=2,3,\dots}$ was rediscovered many times (see,
 e.g.,
-\cite{Laemmel&Rudner:1969,Fischler&Tannenbaum:1970,Eppstein:1990,Frettloh&Sing2007}).
+\cite{Laemmel&Rudner:1969,Fischler&Tannenbaum:1970,Eppstein:1990,Frettloh&Sing:2007}).
 It is easy to see that the word $(ab^{n-1})^{n-2}a$ of length
 $n(n-2)+1=(n-1)^2$ resets $\mathcal{C}_n$.
 \begin{proposition}[{\mdseries\cite[Lemma~1]{Cerny:1964}}]
@@ -873,7 +881,7 @@ $(n-1)^2$.
 There are several nice proofs for this result. Here we present a recent proof
 from~\cite{Ananichev&Gusev&Volkov:2010}; it is based on a transparent idea and
 reveals an interesting connection between \v{C}ern\'{y}'s automata
-$\mathcal{C}_n$ and an extremal series of digraphs discovered in Wielandt's
+$\mathcal{C}_n$ and an extremal series of graphs discovered in Wielandt's
 classic paper~\cite{Wielandt:1950} (see Section~\ref{KV:sec:rcp}).
 
 \begin{proof}[Proof of Proposition~\ref{KV:prop:cerny}]
@@ -897,7 +905,7 @@ If $u\in\{b,c\}^*$, the word $uvc$ also is a \sw\ for $\mathcal{W}_n$ and it
 also brings the automaton to~2. Hence, for every $\ell\ge|vc|$, there is a path
 of length $\ell$ in $\mathcal{W}_n$ from any given state $i$ to~2. In
 particular, setting $i=2$, we conclude that for every $\ell\ge|vc|$ there is a
-cycle of length $\ell$ in $\mathcal{W}_n$. The underlying digraph of
+cycle of length $\ell$ in $\mathcal{W}_n$. The underlying graph of
 $\mathcal{W}_n$ has simple cycles only of two lengths: $n$ and $n-1$. Each
 cycle of $\mathcal{W}_n$ must consist of simple cycles of these two lengths
 whence each number $\ell\ge|w|$ must be expressible as a non-negative integer
@@ -929,12 +937,12 @@ of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$. Thus,
 $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 \end{proof}
 
-If we define the \emph{\v{C}ern\'{y} function}\index{\v{C}ern\'{y} function}
-$\mathfrak{C}(n)$ as the maximum length of shortest reset words for \sa\ with
-$n$ states, the above property of the series $\{\mathcal{C}_{n}\}$,
+If we define the \emph{\v{C}ern\'{y} function}\index{Cerny@\v{C}ern\'{y}
+function} $\mathfrak{C}(n)$ as the maximum length of shortest reset words for
+\sa\ with $n$ states, the above property of the series $\{\mathcal{C}_{n}\}$,
 $n=2,3,\dotsc$, yields the inequality $\mathfrak{C}(n)\ge(n-1)^2$. The
-\emph{\v{C}ern\'{y} conjecture}\index{\v{C}ern\'{y} conjecture} is the claim
-that the equality $\mathfrak{C}(n)=(n-1)^2$ holds true.
+\emph{\v{C}ern\'{y} conjecture}\index{Cerny@\v{C}ern\'{y} conjecture} is the
+claim that the equality $\mathfrak{C}(n)=(n-1)^2$ holds true.
 
 In the literature, one often refers to \v{C}ern\'{y}'s paper~\cite{Cerny:1964}
 as the source of the \v{C}ern\'{y} conjecture. In fact, the conjecture was not
@@ -1252,29 +1260,33 @@ non-permutation. Thus, such $\mathcal{A}$ is synchronizing and its \rt\ does
 not exceed $(|Q|-1)^2$. 20 years later Dubuc~\cite{Dubuc:1998} generalized
 Pin's result by showing that every \sa\ in which some letter acts as a cyclic
 permutation of the state set is 1-extensible. Kari~\cite{Kari:2003} proved
-1-extensibility of \sa\ whose underlying digraphs are Eulerian. In all these
-papers 1-extensibility is obtained via
+1-extensibility of Eulerian\footnote{A graph is  \emph{strongly connected} if
+for every pair of its vertices, there exists a path from one to the other. A
+graph is \emph{Eulerian} if it is strongly connected and each of its vertices
+serves as the tail and as the head for the same number of edges. A DFA is said
+to be \emph{Eulerian} if so is its underlying graph. More generally, we freely
+transfer graph notions (such strong connectivity) from graphs to automata they
+underlie.} \sa. In all these papers 1-extensibility is obtained via
 linear-algebraic arguments;\marginpar{\textbf{If space\\
 permits!!}} we include here a proof from~\cite{Kari:2003} as quite a
 representative example of these linearization techniques.
 
 \begin{theorem}[{\mdseries\cite[Theorem~2]{Kari:2003}}]
-\label{KV:thm:eulerian} If the underlying digraph of a \sa\ $\mathcal{A}=(Q,A)$
-is Eulerian then $\mathcal{A}$ is has a \sw\ of length at most $(n-2)(n-1)+1$,
-where $n=|Q|$.
+\label{KV:thm:eulerian} If a \san\ $\mathcal{A}=(Q,A)$ is Eulerian, then it has
+a \sw\ of length at most $(n-2)(n-1)+1$, where $n=|Q|$.
 \end{theorem}
 
 \begin{proof}
-For every vertex in an Eulerian digraph, its in-degree and its out-degree are
+For every vertex in an Eulerian graph, its in-degree and its out-degree are
 equal. In the underlying graph of a DFA the out-degree of every vertex is equal
 to the cardinality of the input alphabet. Hence, if $|A|=k$, then each vertex
-in the underlying digraph of $\mathcal{A}$ has in-degree $k$ and for every
-subset $P\subseteq Q$, the equality
+in the underlying graph of $\mathcal{A}$ has in-degree $k$ and for every subset
+$P\subseteq Q$, the equality
 \begin{equation}
 \label{KV:eq:eulerian} \sum_{a\in A}|Pa^{-1}|=k|P|
 \end{equation}
 holds true since the left-hand side of \eqref{KV:eq:eulerian} is the number of
-edges in the underlying digraph of $\mathcal{A}$ with ends in $P$. The equality
+edges in the underlying graph of $\mathcal{A}$ with ends in $P$. The equality
 \eqref{KV:eq:eulerian} readily implies that for each $P\subseteq Q$, one of the
 following alternatives takes place: either $|Pa^{-1}|=|P|$ for all letters
 $a\in A$ or $|Pb^{-1}|>|P|$ for some $b\in A$. Now assume that a subset
@@ -1308,8 +1320,8 @@ $\langle\varphi_u([S])-[S],[Q]\rangle\ne0$. Let $x=[S]-\frac{|S|}n[Q]$. Then
 $x\ne0$ as $S\ne Q$ and $\langle x,[Q]\rangle=0$. Since $Qu^{-1}=Q$ for every
 word $u$, we have $\varphi_u([Q])=[Q]$. Hence
 \begin{multline*}
-\langle\varphi_u([S])-[S],[Q]\rangle=\langle\varphi_u(x+\lambda[Q])-(x+\lambda[Q]),[Q]\rangle=\\
-\langle\varphi_u(x)+\lambda[Q]-x-\lambda[Q]),[Q]\rangle=\langle\varphi_u(x)-x,[Q]\rangle=
+\langle\varphi_u([S])-[S],[Q]\rangle=\langle\varphi_u(x+\frac{|S|}n[Q])-(x+\frac{|S|}n[Q]),[Q]\rangle=\\
+\langle\varphi_u(x)+\frac{|S|}n[Q]-x-\frac{|S|}n[Q]),[Q]\rangle=\langle\varphi_u(x)-x,[Q]\rangle=
 \langle\varphi_u(x),[Q]\rangle.
 \end{multline*}
 Thus, a word $u$ satisfies $|Su^{-1}|\ne|S|$ if and only if the vector
@@ -1317,10 +1329,10 @@ $\varphi_u(x)$ lies beyond the subspace $U$ of all vectors orthogonal to $[Q]$.
 We aim to bound the minimum length of such word $u$ but
 first we explain why words sending $x$ beyond $U$ exist.\marginpar{\textbf{There is a\\
 bug in~\cite{Kari:2003}\\ in this place}} Since the automaton $\mathcal{A}$ is
-synchronizing and its underlying digraph is strongly connected (as the digraph
-is Eulerian), there exists a word $w\in A^*$ such that $Q\cdot w\subseteq
-S$---one can first synchronize $\mathcal{A}$ to a state $q$ and then move $q$
-into $S$ by applying a word that labels a path from $q$ to a state in $S$. Then
+synchronizing and its underlying graph is strongly connected (as the graph is
+Eulerian), there exists a word $w\in A^*$ such that $Q\cdot w\subseteq S$---one
+can first synchronize $\mathcal{A}$ to a state $q$ and then move $q$ into $S$
+by applying a word that labels a path from $q$ to a state in $S$. Then
 \begin{displaymath}
 \varphi_w(x)=\varphi_w([S]-\frac{|S|}n[Q])=\varphi_w([S])-\frac{|S|}n\varphi_w([Q])=
 (1-\frac{|S|}n)[Q]\ne0.
@@ -1350,8 +1362,8 @@ $\mathcal{A}$ returns a \sw\ of length at most $(n-2)(n-1)+1$.
 
 We mention in passing that the upper bound provided by
 Theorem~\ref{KV:thm:eulerian} is far from being tight. So far experiments have
-discovered no $n$-state \san\ $(n\ge4)$ with Eulerian underlying digraph and
-\rt\ that would exceed $\lfloor\frac{n^2-5}2\rfloor$.
+discovered no Eulerian \san\ $(n\ge4)$ with $n$ states whose \rt\ would exceed
+$\lfloor\frac{n^2-5}2\rfloor$.
 
 Return to our discussion of extensibility. Even though the approach to the
 \v{C}ern\'{y} conjecture via 1-exten\-sibil\-ity has proved to be productive in
@@ -1395,17 +1407,15 @@ Recently a slightly relaxed version of 2-extensibility has been verified by
 B\'eal, Ber\-lin\-kov and
 Perrin~\cite{Beal&Perrin:2009,Beal&Berlinkov&Perrin:2011} for the important
 class of the so-called one-cluster automata. A DFA $\mathcal{A}=(Q,A)$ is
-called \emph{one-cluster}\index{automaton!one-cluster} if there exist $a\in A$
-and $q\in Q$ such that each state in $Q$ is connected to $q$ by a path with all
-edges labelled by $a$. (For instance, the automata $\mathcal{C}_n$ and
-$\mathcal{W}_n$ shown in Figure~\ref{KV:fig:cerny-n} are one-cluster while
-Kari's automaton $\mathcal{K}_6$ shown in Figure~\ref{KV:fig:Kari}, is not. A
-mass example of one-cluster automata is provided by the decoders of finite
-maximal prefix codes discussed in Section~\ref{KV:sec:motivation}.) Let $C$ be
-the set of all states $q$ with the latter property. Clearly, $a$ acts on $C$ as
-a cyclic permutation so we refer to $C$ as the $a$-\emph{cycle}\index{$a$-cycle
-(in an one-cluster automaton}. It is easy to see that $Q\cdot a^{|Q|-|C|}=C$,
-and one can modify Algorithm~\ref{KV:Extension} as follows.
+called \emph{one-cluster}\index{automaton!one-cluster} if there exist a letter
+$a\in A$ that labels only one simple cycle. (For instance, the automata
+$\mathcal{C}_n$ and $\mathcal{W}_n$ shown in Figure~\ref{KV:fig:cerny-n} are
+one-cluster while Kari's automaton $\mathcal{K}_6$ shown in
+Figure~\ref{KV:fig:Kari}, is not. A mass example of one-cluster automata is
+provided by the decoders of finite maximal prefix codes discussed in
+Section~\ref{KV:sec:motivation}.) If $C$ is this cycle, then it is easy to see
+that $Q\cdot a^{|Q|-|C|}=C$, and one can modify Algorithm~\ref{KV:Extension} as
+follows.
 
 %=================================
 \begin{algorithm}
@@ -1425,7 +1435,8 @@ and one can modify Algorithm~\ref{KV:Extension} as follows.
     \RETURN $a^{|Q|-|C|}w$
   \end{algorithmic}
 \caption{Modified extension algorithm for a one-cluster automaton
-$\mathcal{A}=(Q,A)$ with $a$-cycle $C$}\label{KV:One-cluster}
+$\mathcal{A}=(Q,A)$ with $C$ being a unique simple cycle labelled $a$
+}\label{KV:One-cluster}
 \end{algorithm}
 %==================================
 
@@ -1443,22 +1454,525 @@ $2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
 
 
 %=====================================================
-\section{The road coloring problem}
+\section{The Road Coloring Problem}
 \label{KV:sec:rcp}
 %=====================================================
 
-The Road Coloring Conjecture was explicitly stated by Adler,
-Goodwyn and Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977. In an
-implicit form it was present already in an earlier memoir by Adler
-and Weiss~\cite{Adler&Weiss:1970}. The conjecture has attracted
-much attention. There were several interesting partial results,
-and finally the problem was solved (in the affirmative) in August
-2007 by Trahtman. The solution is published
-in~\cite{Trahtman:2009}.
+A graph $\Gamma$ in which each vertex has the same out-degree (say, $k$) is
+called a \emph{graph of constant outdegree}\index{graph!of constant outdegree}
+and the number $k$ is referred to as the outdegree of $\Gamma$. If we take an
+alphabet $A$ whose of size is equal to the outdegree of $\Gamma$, then we can
+label the edges of $\Gamma$ by letters of $A$ such that the resulting automaton
+will be complete and deterministic. Any DFA obtained this way is referred to as
+a \emph{coloring}\index{coloring (of a graph)} $\Gamma$.
 
-Trahtman's proof heavily depends on a neat idea of
-\emph{stability} which is due to Culik, Karhum\"aki and
-Kari~\cite{Culik&Karhumaki&Kari:2002}.
+Given a graph, it is reasonable to ask under which conditions it admits a
+coloring satisfying some ``good'' properties. In this section we analyze the
+so-called \emph{Road Coloring Problem}\index{Road Coloring Problem} that is
+certainly the most famous question within this framework. The Road Coloring
+Problem asks under which conditions graphs of constant outdegree admit a
+synchronizing coloring.
+
+The problem was explicitly stated by Adler, Goodwyn and
+Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977; in an implicit form it was
+present already in an earlier memoir by Adler and
+Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered only \scn\
+graphs; as we shall see below this is quite a natural assumption since the
+general case easily reduces to the case of \scn\ graphs. The name of the
+problem suggested in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following
+interpretation. In a \san\ $\mathcal{A}=(Q,A)$ whose underlying graph is \scn,
+one can assign to every vertex $q\in Q$  an instruction (a \sw) $w_q$ such that
+following $w_q$ one will surely arrive at $q$ from any initial vertex. (Indeed,
+for this one should first follow an arbitrary \sw\ leading to some vertex $p$,
+say, and then follow a word that labels a path connecting $p$ and $q$---such a
+path exists because of strong connectivity.) Thus, in order to help a traveler
+lost on a given \scn\ graph $\Gamma$ of constant outdegree to find his/her way
+from wherever he/she could be, we should if possible color (that is, label) the
+edges of $\Gamma$ such that $\Gamma$ becomes a \san\ and then tell the traveler
+the magic sequence of colors representing a \sw\ leading to the traveler's
+destination.
+
+The original motivation in~\cite{Adler&Weiss:1970,Adler&Goodwyn&Weiss:1977}
+came from symbolic dynamics. However, the Road Coloring Problem is quite
+natural also from the viewpoint of the ``reverse engineering'' of \sa: we aim
+to relate geometric properties of graphs to combinatorial properties of
+automata built on those graphs.
+
+The following necessary condition was found in~\cite{Adler&Goodwyn&Weiss:1977}:
+\begin{proposition}
+\label{KV:prop:primitivity} If a \scn\ graph $\Gamma$ admits a synchronizing
+coloring, then the g.c.d. of lengths of all cycles in $\Gamma$ is equal to $1$.
+\end{proposition}
+
+\begin{proof}
+Arguing by contradiction, let $k>1$ be a common divisor of lengths of the
+cycles in $\Gamma$. Let $V$ denote the vertex set of $\Gamma$. Take a~vertex
+$v_0\in V$ and, for $i=0,1,\dots,k-1$, let
+$$V_i=\{v\in V\mid \text{there exists a path from } v_0 \text{ to } v \text{ of length }
+i\!\!\pmod{k}\}.$$ Clearly, $V=\bigcup\limits_{i=0}^{k-1} V_i$. We claim that
+$V_i\cap V_j=\varnothing$ if $i\ne j$.
+
+Let $v\in V_i\cap V_j$ where $i\ne j$. This means that in $\Gamma$ there are
+two paths from $v_0$ to $v$: of length $\ell\equiv i\!\!\pmod{k}$ and of length
+$m\equiv j\!\!\pmod{k}$. Since $\Gamma$ is \scn, there exists also a path from
+$v$ to $v_0$ of length $n$, say. Combining it with each of the two paths above
+we get a cycle of length $\ell+n$ and a cycle of length $m+n$. Since $k$
+divides the length of any cycle in $\Gamma$, we have $\ell+n\equiv i+n\equiv
+0\!\!\pmod{k}$ and $m+n\equiv j+n\equiv 0\!\!\pmod{k}$, whence $i\equiv
+j\!\!\pmod{k}$, a contradiction.
+
+Thus, $V$ is a disjoint union of $V_0,V_1,\dots,V_{k-1}$, and by the definition
+each edge in $\Gamma$ leads from $V_i$ to $V_{i+1\!\!\pmod{k}}$. Then $\Gamma$
+definitely cannot be converted into a \san\ by any coloring of its edges: no
+paths of the same length $\ell$ originated in $V_0$ and $V_1$ can terminate in
+the same vertex because they end in $V_{\ell\!\!\pmod{k}}$ and in
+$V_{\ell+1\!\!\pmod{k}}$ respectively.
+\end{proof}
+
+Graphs satisfying the conclusion of Proposition~\ref{KV:prop:primitivity} are
+called \emph{primitive}\footnote{In the literature such graphs are sometimes
+called \emph{aperiodic}. The term ``primitive'' comes from the notion of a
+primitive matrix in the Perron-Frobenius theory of non-negative matrices: it is
+known (and easy to see) that a graph is primitive if and only if so is its
+incidence matrix.}.\index{graph!primitive} Adler, Goodwyn and
+Weiss~\cite{Adler&Goodwyn&Weiss:1977} conjectured that primitivity is not only
+necessary for a graph to have a synchronizing coloring but also sufficient. In
+other word, they suggested the following \emph{Road Coloring
+Conjecture}\index{Road Coloring Conjecture}: every \scn\ primitive graph with
+constant out-degree admits a synchronizing coloring.
+
+The Road Coloring Conjecture has attracted much attention. There were several
+interesting partial results, and finally the problem was solved (in the
+affirmative) in August 2007 by Trahtman~\cite{Trahtman:2009}.
+
+Trahtman's proof heavily depends on a neat idea of \emph{stability} which is
+due to Culik, Karhum\"aki and Kari~\cite{Culik&Karhumaki&Kari:2002}. Let
+$\mathcal{A}=(Q,A)$ be a DFA. We define the \emph{stability
+relation}\index{stability relation} $\sim$ on $Q$ as follows:
+$$q\sim q' \Longleftrightarrow\forall u\in A^*\ \exists v\in A^*\ \ q\cdot uv=q'\cdot uv.$$
+Any pair $(q,q')$ such that $q\ne q'$ and $q\sim q'$ is called
+\emph{stable}.\index{stable pair} The key observation by Culik, Karhum\"aki and
+Kari~\cite{Culik&Karhumaki&Kari:2002} was the following:
+
+\begin{proposition}
+\label{KV:prop:ckk} If every \scn\ primitive graph with constant out-degree and
+more than one vertex has a coloring with a stable pair of vertices, then the
+Road Coloring Conjecture is true.
+\end{proposition}
+
+\begin{proof}
+Let $\Gamma$ be a \scn\ primitive graph with constant out-degree. We show that
+$\Gamma$ has a synchronizing coloring by induction on the number of vertices in
+$\Gamma$. If $\Gamma$ has only one vertex, there is nothing to prove. If
+$\Gamma$ has more than one vertex, then it admits a coloring with a stable pair
+of vertices by the letters of some alphabet $A$. Let $\mathcal{A}$ be the
+automaton resulting from this coloring. It is easy to check that the stability
+relation is a congruence of $\mathcal{A}$. Since the relation is non-trivial,
+the quotient automaton $\mathcal{A}/\!{\sim}$ has fewer vertices. It is clear
+that the underlying graph $\Gamma/\!\!\!\sim$ of $\mathcal{A}/\!{\sim}$ is
+\scn, moreover, since each cycle in $\Gamma$ induces a cycle of the same length
+in $\Gamma/\!\!\!\sim$, the latter graph is primitive as well. Therefore, the
+graph $\Gamma/\!\!\!\sim$ admits a synchronizing coloring by the induction
+assumption. We lift this coloring to a coloring of $\Gamma$ in the following
+natural way. Every transition $p\xrightarrow{a}q$ in the automaton
+$\mathcal{A}$ induces the transition $[p]\xrightarrow{a}[q]$ in
+$\mathcal{A}/\!{\sim}$ (here $[p]$ and $[q]$ stand for the $\sim$-classes of
+the vertices $p$ and respectively $q$). Now, if the transition
+$[p]\xrightarrow{a}[q]$ is being recolored to $[p]\xrightarrow{a'}[q]$ for some
+$a'\in A$, then the transition $p\xrightarrow{a}q$ becomes
+$p\xrightarrow{a'}q$. A crucial feature of this recoloring procedure is that it
+is consistent with the stability relation $\sim$ in the following sense.
+Suppose $p\xrightarrow{a}q$ and $p'\xrightarrow{a}q'$ are two transitions with
+the same label in $\mathcal{A}$ such that $p\sim p'$ and $q\sim q'$. Then
+$[p]=[p']$, $[q]=[q']$ and the two transitions induce the same transition
+$[p]\xrightarrow{a}[q]$ in $\mathcal{A}/\!{\sim}$. If it is being recolored to
+$[p]\xrightarrow{a'}[q]$ for some $a'\in A$, then the two transitions are being
+changed in the same way such that the resulting transitions
+$p\xrightarrow{a'}q$ and $p'\xrightarrow{a'}q'$ still have a common label.
+
+Let $\mathcal{B}$ be the automaton resulting from the described recoloring; we
+want to show that $\mathcal{B}$ is synchronizing. Take a \sw\ $w$ for the
+synchronizing coloring of $\Gamma/\!\!\!\sim$ that we started with. If we apply
+$w$ to the states of the automaton $\mathcal{B}$, it will lead them all into a
+set $S$ that is contained in a single class of the relation $\sim$. We induct
+on $|S|$. If $|S|=1$, then $w$ is a \sw\ for $\mathcal{B}$. If $|S|>1$, take
+two states $q,q'\in S$. Since they form a stable pair in $\mathcal{A}$, there
+exists a word $v$ such that $q\cdot_{\mathcal{A}}v=q'\cdot_{\mathcal{A}}v$.
+(Here and below subscripts indicate the automaton in which paths are being
+considered.) As discussed above, since $q\sim q'$, the paths started at $q$ and
+$q'$ and labelled $v$ in $\mathcal{A}$ have a common label $v'$, say, in
+$\mathcal{B}$ as well. Thus, $q\cdot_{\mathcal{B}}v'=q'\cdot_{\mathcal{B}} v'$.
+Consider the set $S\cdot_{\mathcal{B}}v'$ of the end points of all paths in
+$\mathcal{B}$ that originate in $S$ and are labelled $v'$. Observe that
+$|S\cdot_{\mathcal{B}}v'|<|S|$ and, since
+$S\cdot_{\mathcal{B}}v'=S\cdot_{\mathcal{A}}v$, the set is still contained in a
+single class of the relation $\sim$. Therefore the induction assumption
+applies.
+\end{proof}
+
+Proposition~\ref{KV:prop:ckk} ``localizes'' the initial task: while
+synchronization is a ``global'' property in which all vertices are involved,
+the proposition shows that we may look at some pair of vertices. We need a
+further localization that allows us to concentrate on the action of a single
+letter. For this, we need some auxiliary notions and results.
+
+Let $\mathcal{A}=(Q,A)$ be a DFA. A pair $(p,q)$ of distinct vertices is
+\emph{compressible} if $p\cdot w=q\cdot w$ for some $w\in A^*$; otherwise it
+is\index{compressible pair} \emph{incompressible}.\index{incompressible pair} A
+subset $P\subseteq Q$ is said to be \emph{compressible}\index{compressible set}
+if $P$ contains a compressible pair and to be \emph{incompressible} if every
+pair of distinct vertices in $P$ is incompressible.\index{incompressible set}
+Clearly, if $P$ is incompressible, then for every word $u\in A^*$, the set
+$P\cdot u=\{p\cdot u\mid p\in P\}$ also is incompressible and $|P|=|P\cdot u|$.
+
+\begin{lemma}
+\label{KV:lemma:maximal incompressible} Let $\mathcal{A}=(Q,A)$ be a DFA and
+let $P\subseteq Q$ be an incompressible set of maximum size in $\mathcal{A}$.
+Suppose that there exists a word $w\in A^*$ that fixes all but one states in
+$P$. Then $\mathcal{A}$ has a stable pair.
+\end{lemma}
+
+\begin{proof}
+Let $q\in P$ be such that $q'=q\cdot w\ne q$ but $p\cdot w=p$ for all $p\in
+P'=P\setminus\{q\}$. Take an arbitrary word $u\in A^*$; we aim to show that
+$q\cdot uv=q'\cdot uv$ for a suitable word $v\in A^*$. Clearly, we may assume
+that $q\cdot u\ne q'\cdot u$. Since the set $P\cdot wu$ is incompressible, the
+state $q'\cdot u=q\cdot wu$ forms an incompressible pair with every state in
+$P'\cdot u=P'\cdot wu$. Similarly, since the set $P\cdot u$ is incompressible,
+the state $q\cdot u$ also forms an incompressible pair with every state in
+$P'\cdot u$, and of course every pair of distinct states in $P'\cdot u$ is
+incompressible too. Now $P'\cdot u\cup\{q\cdot u,q'\cdot u\}$ has more than
+$|P|$ elements so it must be compressible, and the above analysis shows that
+the only pair in $P'\cdot u\cup\{q\cdot u,q'\cdot u\}$ which may be
+compressible is the pair $(q\cdot u,q'\cdot u)$. Thus, there is a word $v\in
+A^*$ such that $q\cdot uv=q'\cdot uv$, and the pair $(q,q')$ is stable.
+\end{proof}
+
+Suppose that $\mathcal{A}=(Q,A)$ is a DFA. Fix a letter $a\in A$ and remove all
+edges of $\mathcal{A}$ except those labelled $a$. The remaining graph is called
+the \emph{underlying graph of $a$}\index{graph!of a letter} or simply the
+$a$-\emph{graph}. Thus, in the $a$-graph every vertex is the tail of exactly
+one edge. From every state $q\in Q$, one can start a path in the $a$-graph:
+$$q\xrightarrow{a} q\cdot
+a\xrightarrow{a}q\cdot a^2\dots\xrightarrow{a} q\cdot a^k\dotsc.$$ Since the
+set $Q$ is finite, states in this path eventually begin repeating, that is, for
+some non-negative integer $\ell$ and some integer $m>\ell$ we have $q\cdot
+a^\ell=q\cdot a^m$.
+\begin{figure}[ht]
+\begin{center}
+\unitlength=1.7mm
+\begin{picture}(90,15)(13,0)
+\multiput(15,9)(10,0){3}{\circle*{1}} \multiput(16,9)(10,0){2}{\vector(1,0){8}}
+\multiput(20,10)(10,0){2}{$a$} \multiput(38,9)(2,0){3}{\circle*{0.2}}
+\multiput(45,9)(10,0){2}{\circle*{1}} \put(46,9){\vector(1,0){8}}
+\put(50,10){$a$} \put(67,11.5){$a$} \put(56,9.5){\vector(2,1){6.4}}
+\multiput(63,13)(10,0){2}{\circle*{1}} \put(64,13){\vector(1,0){8}}
+\put(59,9.5){$a$} \put(74,12.5){\vector(2,-1){6.4}} \put(76,9.5){$a$}
+\put(82,9){\circle*{1}} \put(81,8.5){\vector(-2,-1){6.4}} \put(77,7.5){$a$}
+\multiput(63.3,5)(10,0){2}{\circle*{1}} \multiput(66,5)(2,0){3}{\circle*{0.2}}
+\put(62.5,5.5){\vector(-2,1){6.4}} \put(60,7.5){$a$} \small \put(14.3,6){$q$}
+\put(23.6,6){$q\cdot a$} \put(33.6,6){$q\cdot a^2$} \put(43.4,6){$q\cdot
+a^{\ell-1}$} \put(53.5,6){$q\cdot a^{\ell}$} \put(61.3,2){$q\cdot a^{m-1}$}
+\put(61.3,14.5){$q\cdot a^{\ell+1}$} \put(71.4,14.5){$q\cdot a^{\ell+2}$}
+\put(80.4,6){$q\cdot a^{\ell+3}$} \put(71.4,2){$q\cdot a^{\ell+4}$}
+\end{picture}
+\caption{The orbit of a state in the underlying graph of a
+letter}\label{KV:fig:a-orbit}
+\end{center}
+\end{figure}
+In other words, each path in the $a$-graph eventually arrives at a cycle, see
+Fig.\,\ref{KV:fig:a-orbit}. The least non-negative integer $\ell$ such that
+$q\cdot a^\ell=q\cdot a^m$ for some $m>\ell$ is called the $a$-\emph{level} of
+the state $q$ and the state $q\cdot a^{\ell}$ is called the \emph{root} of $q$.
+The cycles of the $a$-graph are referred to as $a$-\emph{cycles}.
+
+\begin{lemma}
+\label{KV:lemma:common root} Let $\mathcal{A}=(Q,A)$ be a \scn\ DFA. Suppose
+that there is a letter $a\in A$ such that all states of maximal $a$-level $L>0$
+have the same root. Then $\mathcal{A}$ has a stable pair.
+\end{lemma}
+
+
+\begin{proof}
+Let $M$ be the set of all states of $a$-level $L$. Then $q\cdot a^L=q'\cdot
+a^L$ for all $q,q'\in M$ whence no pair of vertices from $M$ is incompressible.
+Thus, any incompressible set in $\mathcal{A}$ has at most one common state with
+$M$. Take  an incompressible set $S$ of maximum size in $\mathcal{A}$ and
+choose any state $p\in S$. Since the automaton is $\mathcal{A}$ \scn, there is
+a path from $p$ to a state in $M$. If $u\in A^*$ is the word that labels this
+path, then $S'=S\cdot u$ is an incompressible set of maximum size and it has
+exactly one common state with $M$ (namely, $p\cdot u$). Then $S''=S'.a^{L-1}$
+is an incompressible set of maximum size that has all its states except one
+(namely, $p\cdot ua^{L-1}$) in some $a$-cycles---the latter conclusion is
+ensured by our choice of $L$. If $m$ is the l.c.m. of the lengths of all simple
+$a$-cycles, then $a^m$ fixes all states in every $a$-cycle but $(p\cdot
+ua^{L-1})\cdot a=p\cdot ua^{L}\ne p\cdot ua^{L-1}$. We see that
+Lemma~\ref{KV:lemma:maximal incompressible} applies (with $S''$ in the role $P$
+and $a^m$ in the role of $w$).
+\end{proof}
+
+Now we are ready to prove
+\begin{theorem}[{\mdseries\cite{Trahtman:2009}}]
+\label{KV:thm:road coloring} Every \scn\ primitive graph $\Gamma$ with constant
+out-degree admits a synchronizing coloring.
+\end{theorem}
+
+\begin{proof}
+If $\Gamma$ has just one vertex, it is nothing to prove. Thus, we assume that
+$\Gamma$ has more than one vertex and prove that it admits a coloring with a
+stable pair of states---the result will then follow from
+Proposition~\ref{KV:prop:ckk}.
+
+Fix an arbitrary coloring of $\Gamma$ by letters from an alphabet $A$ and take
+an arbitrary letter $a\in A$. We induct on the number $N$ of states that do not
+lie on any $a$-cycle in the chosen coloring.
+
+We say that a vertex $p$ of $\Gamma$ is \emph{ramified}\index{vertex!ramified}
+if it serves as the tail for some edges with different heads.
+
+Suppose that $N=0$. This means that all states lie on the $a$-cycles. If we
+suppose that no vertex in $\Gamma$ is ramified, then there is just one
+$a$-cycle (since $\Gamma$ is \scn) and all cycles in $\Gamma$ have the same
+length. This contradicts the assumption that $\Gamma$ is
+primitive\footnote{This is the only place in the whole proof where primitivity
+is used!}.
+
+Thus, let $p$ be a vertex which is ramified. Then there exists a letter $b\in
+A$ such that the states $q = p\cdot a$ and  $r = p\cdot b$ are not equal. We
+exchange the labels of the edges $p\stackrel{a}{\to}q$ and
+$p\stackrel{b}{\to}r$, see Fig.\,\ref{KV:fig:rcp-basis}.
+\begin{figure}[h]
+\begin{center}
+\unitlength .7mm
+\begin{picture}(200,40)(13.5,-15)
+\node(A)(20,-5){} \node(B)(30,15){} \node(C)(55,22){$p$} \node(D)(80,15){$q$}
+\node(E)(90,-5){} \node(X)(65,5){$r$} \drawedge(A,B){$a$} \drawedge(B,C){$a$}
+\drawedge(D,E){$a$} \drawedge[dash={1.5}0,ELside=r,curvedepth=5](E,A){$a^k$}
+\drawedge(C,D){$a$} \drawedge[linewidth=.6](C,X){$b$} \node(A1)(120,-5){}
+\node(B1)(130,15){} \node(C1)(155,22){$p$} \node(D1)(180,15){$q$}
+\node(E1)(190,-5){} \node(X1)(165,5){$r$} \drawedge[linewidth=.6](C1,D1){$b$}
+\drawedge(C1,X1){$a$} \drawedge(A1,B1){$a$} \drawedge(B1,C1){$a$}
+\drawedge(D1,E1){$a$}
+\drawedge[dash={1.5}0,ELside=r,curvedepth=5](E1,A1){$a^k$}
+\end{picture}
+\end{center}
+\caption{Recoloring in the induction basis}\label{KV:fig:rcp-basis}
+\end{figure}
+It is clear that in the new coloring there is only one state of maximal
+$a$-level, namely, the state $q$. Thus, Lemma~\ref{KV:lemma:common root}
+applies and the induction basis is verified.
+
+Now suppose that $N>0$. We denote by $L$ the maximum $a$-level of the states in
+the chosen coloring. Observe that $N>0$ implies $L>0$.
+
+Let $p$ be a state of level $L$. Since $\Gamma$ is strongly connected, there is
+an edge $p'\to p$ with $p'\ne p$, and by the choice of $p$, the label of this
+edge is some letter $b\ne a$. Let $t=p'\cdot a$. One has $t\ne p$. Let $r =
+p\cdot a^L$ be the root of $p$ and let $C$ be the $a$-cycle on which $r$ lies.
+
+The following considerations split in several cases. In each case except one we
+can recolor $\Gamma$ by swapping the labels of two edges so that the new
+coloring either satisfies the premise of Lemma~\ref{KV:lemma:common root} (all
+states of maximal $a$-level have the same root) or has more states on the
+$a$-cycles (and the induction assumption applies). In the remaining case
+finding a stable pair will be easy.
+
+\medskip
+
+ \textbf{Case 1: $p'$ is not on $C$.}
+
+\begin{figure}[h]
+\begin{center}
+\unitlength .9mm
+\begin{picture}(130,24)
+\node(A)(0,10){$p'$} \node(B)(15,20){$p$} \node(C)(15,0){$t$}
+\node(D)(40,20){$r$} \drawedge[dash={1.5}0](B,D){$a^L$}
+\drawloop[dash={1.5}0,loopangle=0](D){$a^k$} \drawedge[linewidth=.6](A,B){$b$}
+\drawedge(A,C){$a$} \node(A1)(80,10){$p'$} \node(B1)(95,20){$p$}
+\node(C1)(95,0){$t$} \node(D1)(120,20){$r$}
+\drawedge[dash={1.5}0](B1,D1){$a^L$}
+\drawloop[dash={1.5}0,loopangle=0](D1){$a^k$} \drawedge(A1,B1){$a$}
+\drawedge[linewidth=.6](A1,C1){$b$}
+\end{picture}
+\end{center}
+\caption{Recoloring in Case 1}\label{fig:rcp-case1}
+\end{figure}
+
+We swap the labels of $p'\stackrel{b}{\to}p$ and $p'\stackrel{a}{\to}t$, see
+Fig.\,\ref{fig:rcp-case1}. If $p'$ was on the $a$-path from $p$ to $r$, then
+the swapping creates a new $a$-cycle increasing the number of states on the
+$a$-cycles. If $p'$ was not on the $a$-path from $p$ to $r$, then the $a$-level
+of $p'$ becomes $L+1$ whence all states of maximal $a$-level in the new
+automaton are $a$-ascendants of $p'$ and thus have $r$ as the common root.
+
+\medskip
+
+\textbf{Case 2: $p'$ is on $C$.} Let $k_1$ be the least integer such that
+$r\cdot a^{k_1}=p'$. The state $t=p'\cdot a$ is also on $C$. Let $k_2$ be the
+least integer such that $t\cdot a^{k_2}=r$. Then the length of $C$ is
+$k_1+k_2+1$.
+
+\begin{figure}[h]
+\begin{center}
+\unitlength .9mm
+\begin{picture}(130,24)
+\node(A)(0,15){$p'$} \node(B)(15,15){$p$} \node(C)(15,0){$t$}
+\node(D)(40,15){$r$} \drawedge[dash={1.5}0](B,D){$a^L$}
+\drawedge[dash={1.5}0,curvedepth=-8,ELside=r](D,A){$a^{k_1}$}
+\drawedge[dash={1.5}0,curvedepth=-3,ELside=r](C,D){$a^{k_2}$}
+\drawedge[linewidth=.6](A,B){$b$} \drawedge(A,C){$a$} \node(A1)(80,15){$p'$}
+\node(B1)(95,15){$p$} \node(C1)(95,0){$t$} \node(D1)(120,15){$r$}
+\drawedge[dash={1.5}0](B1,D1){$a^L$}
+\drawedge[dash={1.5}0,curvedepth=-8,ELside=r](D1,A1){$a^{k_1}$}
+\drawedge[dash={1.5}0,curvedepth=-3,ELside=r](C1,D1){$a^{k_2}$}
+\drawedge(A1,B1){$a$} \drawedge[linewidth=.6](A1,C1){$b$}
+\end{picture}
+\end{center}
+\caption{Recoloring in Subcase 2.1}\label{KV:fig:rcp-subcase21}
+\end{figure}
+
+\textbf{Subcase 2.1: $k_2\ne L$.} Again, we swap the labels of
+$p'\stackrel{b}{\to}p$ and $p'\stackrel{a}{\to}t$, see
+Fig.\,\ref{KV:fig:rcp-subcase21}. If $k_2<L$, then the swapping creates an
+$a$-cycle of length $k_1+L+1>k_1+k_2+1$ increasing the number of states on the
+$a$-cycles. If $k_2>L$, then the $a$-level of $t$ becomes $k_2$ whence all
+states of maximal $a$-level in the new automaton are $a$-ascendants of $t$ and
+thus have the same root.
+
+\medskip
+
+Let $s$ be the state of $C$ such that $s\cdot a=r$.
+
+\textbf{Subcase 2.2: $k_2=L$ and $s$ is ramified.} Since $s$ is ramified, there
+is a letter $c$ such that $s'=s\cdot c\ne r$.
+
+\begin{figure}[h]
+\begin{center}
+\unitlength .9mm
+\begin{picture}(135,26)(0,-2)
+\node(A)(0,15){$p'$} \node(B)(15,15){$p$} \node(C)(0,0){$t$}
+\node(D)(40,15){$r$} \node(E)(30,0){$s$} \node(F)(45,0){$s'$}
+\drawedge[dash={1.5}0](B,D){$a^L$}
+\drawedge[dash={1.5}0,curvedepth=-8,ELside=r](D,A){$a^{k_1}$}
+\drawedge[dash={1.5}0,ELside=r](C,E){$a^{k_2-1}$} \drawedge(E,D){$a$}
+\drawedge[linewidth=.6](E,F){$c$} \drawedge(A,B){$b$} \drawedge(A,C){$a$}
+\node(A1)(85,15){$p'$} \node(B1)(100,15){$p$} \node(C1)(85,0){$t$}
+\node(D1)(125,15){$r$} \node(E1)(115,0){$s$} \node(F1)(130,0){$s'$}
+\drawedge[dash={1.5}0](B1,D1){$a^L$}
+\drawedge[dash={1.5}0,curvedepth=-8,ELside=r](D1,A1){$a^{k_1}$}
+\drawedge[dash={1.5}0,ELside=r](C1,E1){$a^{k_2-1}$}
+\drawedge[linewidth=.6](E1,D1){$c$} \drawedge(E1,F1){$a$} \drawedge(A1,B1){$b$}
+\drawedge(A1,C1){$a$}
+\end{picture}
+\end{center}
+\caption{Recoloring in Subcase 2.2}\label{KV:fig:rcp-subcase22}
+\end{figure}
+
+We swap the labels of $s\stackrel{c}{\to}s'$ and $s\stackrel{a}{\to}r$, see
+Fig.\,\ref{KV:fig:rcp-subcase21}. If $r$ still lies on an $a$-cycle, then the
+length of the $a$-cycle is at least $k_1+k_2+2$ and the number of states on the
+$a$-cycles increases. Otherwise, the $a$-level of $r$  becomes at least
+$k_1+k_2+1>L$ whence all states of maximal $a$-level in the new automaton are
+$a$-ascendants of $r$ and have a common root.
+
+\medskip
+
+Let $q$ be the state on the $a$-path from $p$ to $r$ such that $q\cdot a=r$.
+
+\textbf{Subcase 2.3: $k_2=L$ and $q$ is ramified.} Since $q$ is ramified, there
+is a letter $c$ such that $q'=q\cdot c\ne r$.
+
+\begin{figure}[h]
+\begin{center}
+\unitlength .9mm
+\begin{picture}(135,28)(0,-2)
+\node(A)(0,15){$p'$} \node(B)(15,15){$p$} \node(C)(0,0){$t$}
+\node(D)(50,15){$r$} \node(E)(35,15){$q$} \node(F)(25,5){$q'$}
+\drawedge[dash={1.5}0](B,E){$a^{L-1}$}
+\drawedge[dash={1.5}0,curvedepth=-8,ELside=r](D,A){$a^{k_1}$}
+\drawedge[dash={1.5}0,ELside=r,ELpos=70,curvedepth=-10](C,D){$a^{k_2}$}
+\drawedge(E,D){$a$} \drawedge(E,F){$c$} \drawedge[linewidth=.6](A,B){$b$}
+\drawedge(A,C){$a$} \node(A1)(85,15){$p'$} \node(B1)(100,15){$p$}
+\node(C1)(85,0){$t$} \node(D1)(135,15){$r$} \node(E1)(120,15){$q$}
+\node(F1)(110,5){$q'$} \drawedge[dash={1.5}0](B1,E1){$a^{L-1}$}
+\drawedge[dash={1.5}0,curvedepth=-8,ELside=r](D1,A1){$a^{k_1}$}
+\drawedge[dash={1.5}0,ELside=r,ELpos=70,curvedepth=-10](C1,D1){$a^{k_2}$}
+\drawedge(E1,D1){$a$} \drawedge(E1,F1){$c$} \drawedge(A1,B1){$a$}
+\drawedge[linewidth=.6](A1,C1){$b$}
+\end{picture}
+\end{center}
+\caption{Recoloring reducing Subcase 2.3 to Subcase
+2.2}\label{KV:fig:rcp-subcase23}
+\end{figure}
+
+If we swap the labels of $p'\stackrel{b}{\to}p$ and $p'\stackrel{a}{\to}t$,
+then we find ourselves in the conditions of Subcase~2.2 (with $q$ and $q'$
+playing the roles of $s$ and $s'$ respectively), see
+Fig.\,\ref{KV:fig:rcp-subcase23}.
+
+\medskip
+
+\textbf{Subcase 2.4: $k_2=L$ and neither $s$ nor $q$ is ramified.}
+
+\begin{figure}[h]
+\begin{center}
+\unitlength .9mm
+\begin{picture}(50,30)(0,-7.5)
+\node(A)(0,15){$p'$} \node(B)(15,15){$p$} \node(C)(0,-5){$t$}
+\node(D)(50,5){$r$} \node(E)(35,15){$q$} \node(F)(35,-5){$s$}
+\drawedge[dash={1.5}0](B,E){$a^{L-1}$}
+\drawedge[dash={1.5}0,curvedepth=5,ELside=r](D,A){$a^{k_1}$}
+\drawedge[dash={1.5}0](C,F){$a^{k_2-1}$} \drawedge(E,D){}
+\drawedge[curvedepth=3](E,D){$a$} \drawedge[curvedepth=-3](E,D){}
+\drawedge(A,B){$b$} \drawedge(A,C){$a$} \drawedge(F,D){}
+\drawedge[curvedepth=3](F,D){} \drawedge[curvedepth=-3,ELside=r](F,D){$a$}
+\end{picture}
+\end{center}
+\caption{Subcase 2.4}\label{KV:fig:rcp-subcase24}
+\end{figure}
+
+In this subcase it is clear that $q$ and $s$ form a stable pair whichever
+coloring of $\Gamma$ is chosen, see~Fig.\,\ref{KV:fig:rcp-subcase24}. This
+completes the proof.
+\end{proof}
+
+The above proof of Theorem~\ref{KV:thm:road coloring} is constructive and can
+be ``unfolded'' to an algorithm that, given a \scn\ primitive graph $\Gamma$
+with constant out-degree, finds a synchronizing coloring of $\Gamma$; moreover,
+this can be done in time quadratic in the number of vertices in $\Gamma$,
+see~\cite{Beal&Perrin:2008}.
+
+If one drops the primitivity condition, one can prove (basically by the same
+method) the following generalization of the Road Coloring Theorem,
+see~\cite{Beal&Perrin:2008}:
+
+\begin{theorem}
+\label{KV:thm:rcp-imprimitive} Suppose that $d$ is the g.c.d. of the lengths of
+cycles in a \scn\ graph $\Gamma=(V,E)$ with constant out-degree.  Then $\Gamma$
+admits a coloring for which there is a word $w$ such that $|V\cdot w|=d$.
+\end{theorem}
+
+Finally, we discuss a general version of the Road Coloring Problem in which
+graphs are not assumed to be \scn. Given an arbitrary graph $\Gamma$, a vertex
+$q$ is said to be \emph{reachable} from a vertex $p$ if there is a path from
+$p$ to $q$. Clearly,  the \emph{reachability relation}\index{reachability
+relation} is transitive, and the mutual reachability relation is an equivalence
+on the vertex set of $\Gamma$. The subgraphs induced on the classes of the
+mutual reachability relation are \scn\ and are called the \emph{\scn\
+components} of the graph $\Gamma$.\index{strongly connected component} The
+reachability relation induces a partial order on the set of the \scn\
+components: a component $\Gamma_1$ precedes a component $\Gamma_2$ in this
+order if some vertex of $\Gamma_1$ is reachable from some vertex of $\Gamma_2$.
+The following result shows that the general case of the Road Coloring Problem
+easily reduces to its \scn\ case (solved by Theorem~\ref{KV:thm:road
+coloring}):
+
+\begin{corollary}
+\label{KV:cor:rcp-general} A graph $\Gamma$ with constant out-degree admits a
+synchronizing coloring if and only if $\Gamma$ has the least \scn\ component
+and this component is primitive.
+\end{corollary}
+
 
 
 %=====================================================

@@ -12,18 +12,34 @@
 \indexentry{identity of unary algebras!homotypical|hyperpage}{5}
 \indexentry{identity of unary algebras!heterotypical|hyperpage}{5}
 \indexentry{subset automaton|hyperpage}{6}
-\indexentry{couple|hyperpage}{6}
-\indexentry{\textsc{Short-Reset-Word}|hyperpage}{7}
-\indexentry{\textsc{Shortest-Reset-Word}|hyperpage}{8}
-\indexentry{reset threshold|hyperpage}{8}
+\indexentry{graph|hyperpage}{6}
+\indexentry{underlying graph (of an automaton)|hyperpage}{6}
+\indexentry{couple|hyperpage}{7}
+\indexentry{Short@\textsc{Short-Reset-Word}|hyperpage}{7}
+\indexentry{Shorthest@\textsc{Shortest-Reset-Word}|hyperpage}{8}
+\indexentry{reset threshold|hyperpage}{9}
 \indexentry{automaton!\v{C}ern\'{y}|hyperpage}{10}
-\indexentry{\v{C}ern\'{y} function|hyperpage}{11}
-\indexentry{\v{C}ern\'{y} conjecture|hyperpage}{11}
-\indexentry{greedy algorithm!compression|hyperpage}{11}
-\indexentry{2-renewing sequence|hyperpage}{12}
+\indexentry{Cerny@\v{C}ern\'{y} function|hyperpage}{11}
+\indexentry{Cerny@\v{C}ern\'{y} conjecture|hyperpage}{11}
+\indexentry{greedy algorithm!compression|hyperpage}{12}
+\indexentry{2-renewing sequence|hyperpage}{13}
 \indexentry{greedy algorithm!extension|hyperpage}{15}
 \indexentry{automaton!$\alpha$-extensible|hyperpage}{15}
-\indexentry{characteristic vector|hyperpage}{16}
-\indexentry{automaton!Kari|hyperpage}{17}
+\indexentry{characteristic vector|hyperpage}{17}
+\indexentry{automaton!Kari|hyperpage}{18}
 \indexentry{automaton!one-cluster|hyperpage}{18}
-\indexentry{$a$-cycle (in an one-cluster automaton|hyperpage}{18}
+\indexentry{graph!of constant outdegree|hyperpage}{19}
+\indexentry{coloring (of a graph)|hyperpage}{19}
+\indexentry{Road Coloring Problem|hyperpage}{19}
+\indexentry{graph!primitive|hyperpage}{20}
+\indexentry{Road Coloring Conjecture|hyperpage}{21}
+\indexentry{stability relation|hyperpage}{21}
+\indexentry{stable pair|hyperpage}{21}
+\indexentry{compressible pair|hyperpage}{22}
+\indexentry{incompressible pair|hyperpage}{22}
+\indexentry{compressible set|hyperpage}{22}
+\indexentry{incompressible set|hyperpage}{22}
+\indexentry{graph!of a letter|hyperpage}{22}
+\indexentry{vertex!ramified|hyperpage}{23}
+\indexentry{reachability relation|hyperpage}{26}
+\indexentry{strongly connected component|hyperpage}{26}
