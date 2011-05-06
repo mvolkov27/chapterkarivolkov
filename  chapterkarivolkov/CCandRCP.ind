@@ -13,6 +13,11 @@
 
   \indexspace
 
+  \item \textsc{Bounded-Synchronizing-\protect\\ Coloring}, 
+		\hyperpage{27}
+
+  \indexspace
+
   \item \v{C}ern\'{y} conjecture, \hyperpage{11}
   \item \v{C}ern\'{y} function, \hyperpage{11}
   \item characteristic vector, \hyperpage{17}
@@ -28,6 +33,7 @@
     \subitem of a letter, \hyperpage{22}
     \subitem of constant outdegree, \hyperpage{19}
     \subitem primitive, \hyperpage{20}
+    \subitem Wielandt, \hyperpage{26}
   \item greedy algorithm
     \subitem compression, \hyperpage{12}
     \subitem extension, \hyperpage{15}

@@ -149,20 +149,23 @@ a \emph{reset}\index{reset word} word for the automaton.
 \caption{The automaton $\mathcal{C}_4$}\label{KV:fig:C4}
 \end{center}
 \end{figure}
-Figure~\ref{KV:fig:C4} shows a \san\ with 4~states denoted by $\mathcal{C}_4$.
-The reader can easily verify that the word $ab^3ab^3a$ resets the automaton
-leaving it in the state 1. With somewhat more effort one can also check that
-$ab^3ab^3a$ is the shortest reset word for $\mathcal{C}_4$. The example in
-Figure~\ref{KV:fig:C4} is due to \v{C}ern\'{y}, a Slovak computer scientist, in
-whose pioneering paper~\cite{Cerny:1964} the notion of a \san\ explicitly
-appeared for the first time. (\v{C}ern\'{y} called such automata
-\emph{directable}.  The word \emph{synchronizing} in this context was probably
-introduced by Hennie~\cite{Hennie:1964}.) \marginpar{\textbf{Needs
-double-checking!!}} Implicitly, however, this concept has been around since the
-earliest days of automata theory. The very first \san\ that we were able to
-trace back in the literature appeared in Ashby's classic
-book~\cite[pp.\,60--61]{Ashby:1956}, see \cite[Section~1]{Volkov:2008} for a
-discussion.
+Figure~\ref{KV:fig:C4} shows a \san\ with 4~states\footnote{Here and below we
+adopt the convention that edges bearing multiple labels represent bunches of
+parallel edges. In particular, the edge $0\xrightarrow{a,b}1$ in
+Figure\,\ref{KV:fig:C4} represents the two parallel edges $0\xrightarrow{a}1$
+and $0\xrightarrow{b}1$.} denoted by $\mathcal{C}_4$. The reader can easily
+verify that the word $ab^3ab^3a$ resets the automaton leaving it in the state
+1. With somewhat more effort one can also check that $ab^3ab^3a$ is the
+shortest reset word for $\mathcal{C}_4$. The example in Figure~\ref{KV:fig:C4}
+is due to \v{C}ern\'{y}, a Slovak computer scientist, in whose pioneering
+paper~\cite{Cerny:1964} the notion of a \san\ explicitly appeared for the first
+time. (\v{C}ern\'{y} called such automata \emph{directable}.  The word
+\emph{synchronizing} in this context was probably introduced by
+Hennie~\cite{Hennie:1964}.) \marginpar{\textbf{Needs double-checking!!}}
+Implicitly, however, this concept has been around since the earliest days of
+automata theory. The very first \san\ that we were able to trace back in the
+literature appeared in Ashby's classic book~\cite[pp.\,60--61]{Ashby:1956}, see
+\cite[Section~1]{Volkov:2008} for a discussion.
 
 In~\cite{Cerny:1964} the notion of a \san\ arose within the classic framework
 of Moore's ``Gedanken-experiments''~\cite{Moore:1956}. For Moore and his
@@ -1329,10 +1332,10 @@ $\varphi_u(x)$ lies beyond the subspace $U$ of all vectors orthogonal to $[Q]$.
 We aim to bound the minimum length of such word $u$ but
 first we explain why words sending $x$ beyond $U$ exist.\marginpar{\textbf{There is a\\
 bug in~\cite{Kari:2003}\\ in this place}} Since the automaton $\mathcal{A}$ is
-synchronizing and its underlying graph is strongly connected (as the graph is
-Eulerian), there exists a word $w\in A^*$ such that $Q\cdot w\subseteq S$---one
-can first synchronize $\mathcal{A}$ to a state $q$ and then move $q$ into $S$
-by applying a word that labels a path from $q$ to a state in $S$. Then
+synchronizing and strongly connected (as it is Eulerian), there exists a word
+$w\in A^*$ such that $Q\cdot w\subseteq S$---one can first synchronize
+$\mathcal{A}$ to a state $q$ and then move $q$ into $S$ by applying a word that
+labels a path from $q$ to a state in $S$. Then
 \begin{displaymath}
 \varphi_w(x)=\varphi_w([S]-\frac{|S|}n[Q])=\varphi_w([S])-\frac{|S|}n\varphi_w([Q])=
 (1-\frac{|S|}n)[Q]\ne0.
@@ -1480,17 +1483,16 @@ Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered only \scn\
 graphs; as we shall see below this is quite a natural assumption since the
 general case easily reduces to the case of \scn\ graphs. The name of the
 problem suggested in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following
-interpretation. In a \san\ $\mathcal{A}=(Q,A)$ whose underlying graph is \scn,
-one can assign to every vertex $q\in Q$  an instruction (a \sw) $w_q$ such that
-following $w_q$ one will surely arrive at $q$ from any initial vertex. (Indeed,
-for this one should first follow an arbitrary \sw\ leading to some vertex $p$,
-say, and then follow a word that labels a path connecting $p$ and $q$---such a
-path exists because of strong connectivity.) Thus, in order to help a traveler
-lost on a given \scn\ graph $\Gamma$ of constant outdegree to find his/her way
-from wherever he/she could be, we should if possible color (that is, label) the
-edges of $\Gamma$ such that $\Gamma$ becomes a \san\ and then tell the traveler
-the magic sequence of colors representing a \sw\ leading to the traveler's
-destination.
+interpretation. In every \scn \san\ $\mathcal{A}=(Q,A)$, one can assign to
+state $q\in Q$ an instruction (a \sw) $w_q$ such that following $w_q$ one will
+surely arrive at $q$ from any initial state. (Indeed, for this one should first
+follow an arbitrary \sw\ leading to some state $p$, say, and then follow a word
+that labels a path connecting $p$ and $q$---such a path exists because of
+strong connectivity.) Thus, in order to help a traveler lost on a given \scn\
+graph $\Gamma$ of constant outdegree to find his/her way from wherever he/she
+could be, we should if possible color (that is, label) the edges of $\Gamma$
+such that $\Gamma$ becomes a \san\ and then tell the traveler the magic
+sequence of colors representing a \sw\ leading to the traveler's destination.
 
 The original motivation in~\cite{Adler&Weiss:1970,Adler&Goodwyn&Weiss:1977}
 came from symbolic dynamics. However, the Road Coloring Problem is quite
@@ -1567,30 +1569,30 @@ Let $\Gamma$ be a \scn\ primitive graph with constant out-degree. We show that
 $\Gamma$ has a synchronizing coloring by induction on the number of vertices in
 $\Gamma$. If $\Gamma$ has only one vertex, there is nothing to prove. If
 $\Gamma$ has more than one vertex, then it admits a coloring with a stable pair
-of vertices by the letters of some alphabet $A$. Let $\mathcal{A}$ be the
+of states by the letters of some alphabet $A$. Let $\mathcal{A}$ be the
 automaton resulting from this coloring. It is easy to check that the stability
 relation is a congruence of $\mathcal{A}$. Since the relation is non-trivial,
 the quotient automaton $\mathcal{A}/\!{\sim}$ has fewer vertices. It is clear
-that the underlying graph $\Gamma/\!\!\!\sim$ of $\mathcal{A}/\!{\sim}$ is
-\scn, moreover, since each cycle in $\Gamma$ induces a cycle of the same length
-in $\Gamma/\!\!\!\sim$, the latter graph is primitive as well. Therefore, the
-graph $\Gamma/\!\!\!\sim$ admits a synchronizing coloring by the induction
-assumption. We lift this coloring to a coloring of $\Gamma$ in the following
-natural way. Every transition $p\xrightarrow{a}q$ in the automaton
-$\mathcal{A}$ induces the transition $[p]\xrightarrow{a}[q]$ in
-$\mathcal{A}/\!{\sim}$ (here $[p]$ and $[q]$ stand for the $\sim$-classes of
-the vertices $p$ and respectively $q$). Now, if the transition
-$[p]\xrightarrow{a}[q]$ is being recolored to $[p]\xrightarrow{a'}[q]$ for some
-$a'\in A$, then the transition $p\xrightarrow{a}q$ becomes
-$p\xrightarrow{a'}q$. A crucial feature of this recoloring procedure is that it
-is consistent with the stability relation $\sim$ in the following sense.
-Suppose $p\xrightarrow{a}q$ and $p'\xrightarrow{a}q'$ are two transitions with
-the same label in $\mathcal{A}$ such that $p\sim p'$ and $q\sim q'$. Then
-$[p]=[p']$, $[q]=[q']$ and the two transitions induce the same transition
-$[p]\xrightarrow{a}[q]$ in $\mathcal{A}/\!{\sim}$. If it is being recolored to
-$[p]\xrightarrow{a'}[q]$ for some $a'\in A$, then the two transitions are being
-changed in the same way such that the resulting transitions
-$p\xrightarrow{a'}q$ and $p'\xrightarrow{a'}q'$ still have a common label.
+that $\mathcal{A}/\!{\sim}$ is \scn, moreover, since each cycle in
+$\mathcal{A}$ induces a cycle of the same length in $\mathcal{A}/\!\sim$, the
+underlying graph of the latter automaton is primitive as well. Therefore, the
+graph admits a synchronizing coloring by the induction assumption. We lift this
+coloring to a coloring of $\Gamma$ in the following natural way. Every
+transition $p\xrightarrow{a}q$ in the automaton $\mathcal{A}$ induces the
+transition $[p]\xrightarrow{a}[q]$ in $\mathcal{A}/\!{\sim}$ (here $[p]$ and
+$[q]$ stand for the $\sim$-classes of the vertices $p$ and respectively $q$).
+Now, if the transition $[p]\xrightarrow{a}[q]$ is being recolored to
+$[p]\xrightarrow{a'}[q]$ for some $a'\in A$, then the transition
+$p\xrightarrow{a}q$ becomes $p\xrightarrow{a'}q$. A crucial feature of this
+recoloring procedure is that it is consistent with the stability relation
+$\sim$ in the following sense. Suppose $p\xrightarrow{a}q$ and
+$p'\xrightarrow{a}q'$ are two transitions with the same label in $\mathcal{A}$
+such that $p\sim p'$ and $q\sim q'$. Then $[p]=[p']$, $[q]=[q']$ and the two
+transitions induce the same transition $[p]\xrightarrow{a}[q]$ in
+$\mathcal{A}/\!{\sim}$. If it is being recolored to $[p]\xrightarrow{a'}[q]$
+for some $a'\in A$, then the two transitions are being changed in the same way
+such that the resulting transitions $p\xrightarrow{a'}q$ and
+$p'\xrightarrow{a'}q'$ still have a common label.
 
 Let $\mathcal{B}$ be the automaton resulting from the described recoloring; we
 want to show that $\mathcal{B}$ is synchronizing. Take a \sw\ $w$ for the
@@ -1981,7 +1983,70 @@ admitting a synchronizing coloring may have many colorings and reset thresholds
 of the resulting \sa\ may drastically differ. For instance, it is easy  to see
 that the \v{C}ern\'y automaton $\mathcal{C}_n$ whose \rt\ $(n-1)^2$ is believed
 to be maximum possible for an $n$-state automaton admits a recoloring with \rt\
-is as low as $(n-1)$.
+is as low as $(n-1)$ (and moreover, every \scn\ graph $\Gamma$ with constant
+out-degree that has a loop admits a synchronizing coloring whose \rt\ is less
+that the number of vertices of $\Gamma$.) Nevertheless, there exist graphs
+whose synchronizing coloring are ``slowly'' \sa. As an example, consider the
+\emph{Wielandt graph}\index{graph!Wielandt} $W_n$ shown in
+Figure~\ref{KV:fig:Wielandt}.
+\begin{figure}[ht]
+\begin{center}
+\unitlength .45mm
+\begin{picture}(72,72)(0,-72)
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){1} \node(n1)(4.0,-40.0){$0$}
+\node(n2)(68.0,-40.0){2} \node(n3)(16.0,-72.0){$n{-}1$}
+\node(n4)(56.0,-72.0){3} \drawedge(n1,n0){} \drawedge[curvedepth=2](n2,n4){}
+\drawedge[curvedepth=-2](n2,n4){} \drawedge[curvedepth=2](n0,n2){}
+\drawedge[curvedepth=-2](n0,n2){} \drawedge[curvedepth=2](n3,n1){}
+\drawedge[curvedepth=-2](n3,n1){} \drawedge(n1,n2){} \put(32,-73){$\dots$}
+\end{picture}
+\end{center}
+\caption{The graph $W_n$}\label{KV:fig:Wielandt}
+\end{figure}
+It has $n$ vertices $0,1,\dots,n-1$, say, and $2n$ edges: two edges from $i$ to
+$i+1\pmod n$ for each $i=1,\dots,n-1$, and the edges from $0$ to $1$ and $2$.
+The graph (more precisely, its incidence matrix) first appeared in Wielandt's
+seminal paper~\cite{Wielandt:1950} where Wielandt stated that for every
+primitive non-negative $n\times n$-matrix $M$, the matrix $M^{(n-1)^2+1}$ is
+positive. The incidence matrix of $W_n$ was used to show that this bound is
+tight (that is, its $(n-1)^2$-th power still has some 0 entries); later it was
+observed to be the only (up to a simultaneous permutation of rows and columns)
+matrix with this property, see~\cite{Dulmage&Mendelson:1964}.
+
+It is easy to realize that every coloring of the graph $W_n$ is isomorphic to
+the automaton $\mathcal{W}_n$ shown in Figure~\ref{KV:fig:cerny-n} on the
+right. Since $W_n$ is \scn\ and primitive, the Road Coloring Theorem implies
+that $\mathcal{W}_n$ is synchronizing (of course, this can also be verified
+directly). In \cite{Ananichev&Gusev&Volkov:2010} it is shown that the \rt\ of
+$\mathcal{W}_n$ is $n^2-3n+3$, see the proof of Proposition~\ref{KV:prop:cerny}
+above. The aforementioned extremal property of the Wielandt graphs gives some
+evidence for conjecturing that this series of graphs may yield the extremal
+value also for the \rt\ of synchronizing colorings of $n$-vertex graph. In
+other words, we suggest a conjecture that is in a sense parallel to the
+\v{C}ern\'{y} one.
+\begin{conjecture}
+\label{KV:conj:hybrid} Every \scn\ primitive graph with constant outdegree and
+$n$ vertices admits a synchronizing coloring that can be reset by a word of
+length $n^2-3n+3$.
+\end{conjecture}
+We observe that while there is a clear analogy between
+Conjecture~\ref{KV:conj:hybrid} and the \v{C}ern\'{y} conjecture, the validity
+of none of them immediately implies the validity of the other.
+
+Some first partial results related to Conjecture~\ref{KV:conj:hybrid} can be
+found in~\cite{Steinberg:2010archive,Carpi&D'Alessandro:2010}.
+Roman~\cite{Roman:2011} has shown that the problem of finding the optimal
+synchronizing coloring for a given graph is computationally hard. Namely, the
+following decision problem
+\index{Bounded@\textsc{Bounded-Synchronizing-\protect\\ Coloring}} is
+\textsf{NP}-complete:
+
+\smallskip
+
+\hangindent=\parindent \noindent \textsc{Bounded-Synchronizing-Coloring:}
+\emph{Given a \scn\ primitive graph $\Gamma$ with constant outdegree, is it
+true that $\Gamma$ has a synchronizing coloring with a reset word of length
+$8$?}
 
 %=====================================================
 \section{Related work}
@@ -2000,4 +2065,3 @@ is as low as $(n-1)$.
 \printindex
 
 \end{document}
-g1

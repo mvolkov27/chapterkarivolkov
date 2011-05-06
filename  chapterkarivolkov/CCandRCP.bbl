@@ -96,6 +96,14 @@ A.~Carpi and F.~D'Alessandro.
   Foundations of Computer Science}, volume 5734 of {\em Lecture Notes in
   Computer Science}, pages 211--222. Springer-Verlag, 2009.
 
+\bibitem{Carpi&D'Alessandro:2010}
+A.~Carpi and F.~D'Alessandro.
+\newblock On the hybrid \v{C}ern{\'y}-{R}oad {C}oloring {P}roblem and
+  {H}amiltonian paths.
+\newblock In Y.~Gao, H.~Lu, S.~Seki, and S.~Yu, editors, {\em Developments in
+  Language Theory}, volume 6224 of {\em Lecture Notes in Computer Science},
+  pages 124--135. Springer-Verlag, 2010.
+
 \bibitem{Cerny:1964}
 J.~\Cerny.
 \newblock Pozn\'{a}mka k homog\'{e}nnym eksperimentom s kone\v{c}n\'{y}mi
@@ -142,6 +150,11 @@ L.~Dubuc.
 \newblock Sur le automates circulaires et la conjecture de \v{C}ern\'y.
 \newblock {\em RAIRO Inform. Th\'eor. App.}, 32:21--34, 1998.
 \newblock (in French).
+
+\bibitem{Dulmage&Mendelson:1964}
+A.~L. Dulmage and N.~S. Mendelsohn.
+\newblock Gaps in the exponent set of primitive matrices.
+\newblock {\em Ill.\ J. Math.}, 8:642--656, 1964.
 
 \bibitem{Eppstein:1990}
 D.~Eppstein.
@@ -374,6 +387,11 @@ A.~Roman.
 A.~Roman.
 \newblock Synchronizing finite automata with short reset words.
 \newblock {\em Applied Mathematics and Computation}, 209(1):125--136, 2009.
+
+\bibitem{Roman:2011}
+A.~Roman.
+\newblock The {NP}-completeness of the {R}oad {C}oloring {P}roblem.
+\newblock {\em Inf. Process. Lett.}, 111(7):342--347, 2011.
 
 \bibitem{Rystsov:1980}
 I.~K. Rystsov.

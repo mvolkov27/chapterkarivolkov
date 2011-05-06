@@ -8,8 +8,8 @@
 \backcite {Ginsburg:1958}{{2}{1}{figure.caption.2}}
 \backcite {Cho&Jeong&Somenzi&Pixley:1993, Boppana&Rajan&Takayama&Fujita:1999}{{2}{1}{figure.caption.2}}
 \backcite {Sandberg:2005}{{2}{1}{figure.caption.2}}
-\backcite {Berstel&Perrin&Reutenauer:2009}{{2}{1}{figure.caption.2}}
-\backcite {Gill:1961}{{2}{1}{Hfootnote.1}}
+\backcite {Gill:1961}{{2}{2}{Hfootnote.2}}
+\backcite {Berstel&Perrin&Reutenauer:2009}{{3}{1}{figure.caption.2}}
 \backcite {Capocelli&Gargano&Vaccaro:1988}{{3}{1}{figure.caption.2}}
 \backcite {Natarajan:1986, Natarajan:1989}{{4}{1}{figure.caption.4}}
 \backcite {Volkov:2008}{{4}{1}{figure.caption.4}}
@@ -17,7 +17,7 @@
 \backcite {Dekking:1978}{{4}{1}{figure.caption.5}}
 \backcite {PytheasFogg:2002}{{4}{1}{figure.caption.5}}
 \backcite {Bogdanovic&Imreh&Ciric&Petkovic:1999}{{5}{1}{figure.caption.6}}
-\backcite {Rabin&Scott:1959}{{5}{2}{figure.caption.7}}
+\backcite {Rabin&Scott:1959}{{6}{2}{figure.caption.7}}
 \backcite {Cormen&Leiserson&Rivest&Stein:2001}{{6}{2}{figure.caption.7}}
 \backcite {Cerny:1964}{{6}{2.1}{theorem.2.1}}
 \backcite {Eppstein:1990}{{7}{2}{theorem.2.1}}
@@ -27,7 +27,7 @@
 \backcite {Rystsov:1980,Eppstein:1990,Goralcik&Koubek:1995,Salomaa:2003,Samotij:2007}{{7}{2}{theorem.2.1}}
 \backcite {Eppstein:1990}{{7}{2}{theorem.2.1}}
 \backcite {Samotij:2007}{{8}{2}{theorem.2.2}}
-\backcite {Samotij:2007}{{8}{3}{Hfootnote.3}}
+\backcite {Samotij:2007}{{8}{4}{Hfootnote.4}}
 \backcite {Gawrychowski:2008}{{9}{2}{theorem.2.2}}
 \backcite {Olschewski&Ummels:2010}{{9}{2}{theorem.2.2}}
 \backcite {Papadimitriou&Yannakakis:1984}{{9}{2}{theorem.2.2}}
@@ -64,7 +64,7 @@
 \backcite {Pin:1983}{{13}{3}{equation.3.1}}
 \backcite {Frankl:1982}{{13}{3}{equation.3.1}}
 \backcite {Klyachko&Rystsov&Spivak:1987}{{13}{3}{equation.3.1}}
-\backcite {Frankl:1982}{{13}{4}{Hfootnote.4}}
+\backcite {Frankl:1982}{{13}{5}{Hfootnote.5}}
 \backcite {Pin:1978}{{16}{3}{theorem.3.4}}
 \backcite {Dubuc:1998}{{16}{3}{theorem.3.4}}
 \backcite {Kari:2003}{{16}{3}{theorem.3.4}}
@@ -92,3 +92,8 @@
 \backcite {Trahtman:2009}{{23}{4.5}{theorem.4.5}}
 \backcite {Beal&Perrin:2008}{{26}{4}{figure.caption.21}}
 \backcite {Beal&Perrin:2008}{{26}{4}{figure.caption.21}}
+\backcite {Wielandt:1950}{{27}{4}{figure.caption.22}}
+\backcite {Dulmage&Mendelson:1964}{{27}{4}{figure.caption.22}}
+\backcite {Ananichev&Gusev&Volkov:2010}{{27}{4}{figure.caption.22}}
+\backcite {Steinberg:2010archive,Carpi&D'Alessandro:2010}{{27}{4}{theorem.4.8}}
+\backcite {Roman:2011}{{27}{4}{theorem.4.8}}
