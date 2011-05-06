@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  5 MAY 2011 20:55
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  7 MAY 2011 02:44
 **CCandRCP.tex
 (./CCandRCP.tex
 LaTeX2e <2001/06/01>
@@ -626,29 +626,29 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 
 ] [2] [3] [4] [5] [6] [7]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 710.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 713.
  [8] [9] [10]
-LaTeX Font Info:    Try loading font information for U+euf on input line 941.
+LaTeX Font Info:    Try loading font information for U+euf on input line 944.
 
 (c:/Program Files/TeXLive/texmf/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2002/01/19 v2.2g AMS font definitions
 ) [11]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 987.
+put line 990.
  [12] [13]
 [14] [15] [16] [17] [18] [19] [20] [21]
-Overfull \hbox (79.66557pt too wide) in paragraph at lines 1680--1682
+Overfull \hbox (79.66557pt too wide) in paragraph at lines 1682--1684
  [] 
  []
 
 [22]
-Overfull \hbox (2.51747pt too wide) in paragraph at lines 1718--1720
+Overfull \hbox (2.51747pt too wide) in paragraph at lines 1720--1722
 [][]\OT1/ptm/m/it/10 Every strongly con-nected prim-i-tive graph $\OT1/cmr/m/n/
 10 ^^@$ \OT1/ptm/m/it/10 with con-stant out-degree
  []
 
 
-Overfull \hbox (42.67735pt too wide) in paragraph at lines 1759--1760
+Overfull \hbox (42.67735pt too wide) in paragraph at lines 1761--1762
  [] 
  []
 
@@ -663,26 +663,27 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[25] (./CCandRCP.bbl (./CCandRCP.brf)
+[25] [26] (./CCandRCP.bbl (./CCandRCP.brf)
 \tf@brf=\write7
 \openout7 = `CCandRCP.brf'.
 
- [26] [27]
+ [27] [28]
 Missing character: There is no – in font ptmr7t!
 Missing character: There is no – in font ptmr7t!
 Missing character: There is no – in font ptmr7t!
- [28]
+ [29]
 Missing character: There is no – in font ptmr7t!
- [29] [30]) (./CCandRCP.ind [31] [32
+ [30] [31])
+(./CCandRCP.ind [32] [33
 
 ]) (./CCandRCP.aux) ) 
 Here is how much of TeX's memory you used:
- 10158 strings out of 50491
- 141457 string characters out of 1189754
- 290386 words of memory out of 1500001
- 12880 multiletter control sequences out of 10000+15000
+ 10178 strings out of 50491
+ 141889 string characters out of 1189754
+ 290967 words of memory out of 1500001
+ 12900 multiletter control sequences out of 10000+15000
  28380 words of font info for 92 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  38i,19n,38p,290b,780s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on CCandRCP.dvi (32 pages, 369336 bytes).
+Output written on CCandRCP.dvi (33 pages, 382036 bytes).
