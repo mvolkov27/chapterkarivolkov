@@ -1484,16 +1484,15 @@ graphs; as we shall see below this is quite a natural assumption since the
 general case easily reduces to the case of \scn\ graphs. The name of the
 problem suggested in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following
 interpretation. In every \scn \san\ $\mathcal{A}=(Q,A)$, one can assign to
-state vertex $q\in Q$ an instruction (a \sw) $w_q$ such that following $w_q$
-one will surely arrive at $q$ from any initial state. (Indeed, for this one
-should first follow an arbitrary \sw\ leading to some state $p$, say, and then
-follow a word that labels a path connecting $p$ and $q$---such a path exists
-because of strong connectivity.) Thus, in order to help a traveler lost on a
-given \scn\ graph $\Gamma$ of constant outdegree to find his/her way from
-wherever he/she could be, we should if possible color (that is, label) the
-edges of $\Gamma$ such that $\Gamma$ becomes a \san\ and then tell the traveler
-the magic sequence of colors representing a \sw\ leading to the traveler's
-destination.
+state $q\in Q$ an instruction (a \sw) $w_q$ such that following $w_q$ one will
+surely arrive at $q$ from any initial state. (Indeed, for this one should first
+follow an arbitrary \sw\ leading to some state $p$, say, and then follow a word
+that labels a path connecting $p$ and $q$---such a path exists because of
+strong connectivity.) Thus, in order to help a traveler lost on a given \scn\
+graph $\Gamma$ of constant outdegree to find his/her way from wherever he/she
+could be, we should if possible color (that is, label) the edges of $\Gamma$
+such that $\Gamma$ becomes a \san\ and then tell the traveler the magic
+sequence of colors representing a \sw\ leading to the traveler's destination.
 
 The original motivation in~\cite{Adler&Weiss:1970,Adler&Goodwyn&Weiss:1977}
 came from symbolic dynamics. However, the Road Coloring Problem is quite
@@ -1570,7 +1569,7 @@ Let $\Gamma$ be a \scn\ primitive graph with constant out-degree. We show that
 $\Gamma$ has a synchronizing coloring by induction on the number of vertices in
 $\Gamma$. If $\Gamma$ has only one vertex, there is nothing to prove. If
 $\Gamma$ has more than one vertex, then it admits a coloring with a stable pair
-of vertices by the letters of some alphabet $A$. Let $\mathcal{A}$ be the
+of states by the letters of some alphabet $A$. Let $\mathcal{A}$ be the
 automaton resulting from this coloring. It is easy to check that the stability
 relation is a congruence of $\mathcal{A}$. Since the relation is non-trivial,
 the quotient automaton $\mathcal{A}/\!{\sim}$ has fewer vertices. It is clear
@@ -1984,9 +1983,9 @@ admitting a synchronizing coloring may have many colorings and reset thresholds
 of the resulting \sa\ may drastically differ. For instance, it is easy  to see
 that the \v{C}ern\'y automaton $\mathcal{C}_n$ whose \rt\ $(n-1)^2$ is believed
 to be maximum possible for an $n$-state automaton admits a recoloring with \rt\
-is as low as $(n-1)$ (and moreover, every \scn\ graph $\Gamma$ with constant
+is as low as $n-1$ (and moreover, every \scn\ graph $\Gamma$ with constant
 out-degree that has a loop admits a synchronizing coloring whose \rt\ is less
-that the number of vertices of $\Gamma$.) Nevertheless, there exist graphs
+than the number of vertices of $\Gamma$). Nevertheless, there exist graphs
 whose synchronizing coloring are ``slowly'' \sa. As an example, consider the
 \emph{Wielandt graph}\index{graph!Wielandt} $W_n$ shown in
 Figure~\ref{KV:fig:Wielandt}.
@@ -1994,17 +1993,60 @@ Figure~\ref{KV:fig:Wielandt}.
 \begin{center}
 \unitlength .45mm
 \begin{picture}(72,72)(0,-72)
-\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){0}
-\node(n1)(4.0,-40.0){$n{-}1$} \node(n2)(68.0,-40.0){1}
-\node(n3)(16.0,-72.0){$n{-}2$} \node(n4)(56.0,-72.0){2} \drawedge(n1,n0){}
-\drawedge[curvedepth=2](n2,n4){} \drawedge[curvedepth=-2](n2,n4){}
-\drawedge[curvedepth=2](n0,n2){} \drawedge[curvedepth=-2](n0,n2){}
-\drawedge[curvedepth=2](n3,n1){} \drawedge[curvedepth=-2](n3,n1){}
-\drawedge(n1,n2){} \put(32,-73){$\dots$}
+\gasset{Nw=16,Nh=16,Nmr=8} \node(n0)(36.0,-16.0){1} \node(n1)(4.0,-40.0){$0$}
+\node(n2)(68.0,-40.0){2} \node(n3)(16.0,-72.0){$n{-}1$}
+\node(n4)(56.0,-72.0){3} \drawedge(n1,n0){} \drawedge[curvedepth=2](n2,n4){}
+\drawedge[curvedepth=-2](n2,n4){} \drawedge[curvedepth=2](n0,n2){}
+\drawedge[curvedepth=-2](n0,n2){} \drawedge[curvedepth=2](n3,n1){}
+\drawedge[curvedepth=-2](n3,n1){} \drawedge(n1,n2){} \put(32,-73){$\dots$}
 \end{picture}
 \end{center}
 \caption{The graph $W_n$}\label{KV:fig:Wielandt}
 \end{figure}
+It has $n$ vertices $0,1,\dots,n-1$, say, and $2n$ edges: two edges from $i$ to
+$i+1\pmod n$ for each $i=1,\dots,n-1$, and the edges from $0$ to $1$ and $2$.
+The graph (more precisely, its incidence matrix) first appeared in Wielandt's
+seminal paper~\cite{Wielandt:1950} where Wielandt stated that for every
+primitive non-negative $n\times n$-matrix $M$, the matrix $M^{(n-1)^2+1}$ is
+positive. The incidence matrix of $W_n$ was used to show that this bound is
+tight (that is, its $(n-1)^2$-th power still has some 0 entries); later it was
+observed to be the only (up to a simultaneous permutation of rows and columns)
+matrix with this property, see~\cite{Dulmage&Mendelson:1964}.
+
+It is easy to realize that every coloring of the graph $W_n$ is isomorphic to
+the automaton $\mathcal{W}_n$ shown in Figure~\ref{KV:fig:cerny-n} on the
+right. Since $W_n$ is \scn\ and primitive, the Road Coloring Theorem implies
+that $\mathcal{W}_n$ is synchronizing (of course, this can also be verified
+directly). In \cite{Ananichev&Gusev&Volkov:2010} it is shown that the \rt\ of
+$\mathcal{W}_n$ is $n^2-3n+3$, see the proof of Proposition~\ref{KV:prop:cerny}
+above. The aforementioned extremal property of the Wielandt graphs gives some
+evidence for conjecturing that this series of graphs may yield the extremal
+value also for the \rt\ of synchronizing colorings of $n$-vertex graph. In
+other words, we suggest a conjecture that is in a sense parallel to the
+\v{C}ern\'{y} one.
+\begin{conjecture}
+\label{KV:conj:hybrid} Every \scn\ primitive graph with constant outdegree and
+$n$ vertices admits a synchronizing coloring that can be reset by a word of
+length $n^2-3n+3$.
+\end{conjecture}
+We observe that while there is a clear analogy between
+Conjecture~\ref{KV:conj:hybrid} and the \v{C}ern\'{y} conjecture, the validity
+of none of them immediately implies the validity of the other.
+
+Some first partial results related to Conjecture~\ref{KV:conj:hybrid} can be
+found in~\cite{Steinberg:2010archive,Carpi&D'Alessandro:2010}.
+Roman~\cite{Roman:2011} has shown that the problem of finding the optimal
+synchronizing coloring for a given graph is computationally hard. Namely, the
+following decision problem
+\index{Bounded@\textsc{Bounded-Synchronizing-\protect\\ Coloring}} is
+\textsf{NP}-complete:
+
+\smallskip
+
+\hangindent=\parindent \noindent \textsc{Bounded-Synchronizing-Coloring:}
+\emph{Given a \scn\ primitive graph $\Gamma$ with constant outdegree, is it
+true that $\Gamma$ has a synchronizing coloring with a reset word of length
+$8$?}
 
 %=====================================================
 \section{Related work}
@@ -2023,4 +2065,3 @@ Figure~\ref{KV:fig:Wielandt}.
 \printindex
 
 \end{document}
-g1
