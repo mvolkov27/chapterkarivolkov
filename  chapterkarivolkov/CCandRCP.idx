@@ -22,12 +22,15 @@
 \indexentry{Cerny@\v{C}ern\'{y} function|hyperpage}{11}
 \indexentry{Cerny@\v{C}ern\'{y} conjecture|hyperpage}{11}
 \indexentry{greedy algorithm!compression|hyperpage}{12}
-\indexentry{2-renewing sequence|hyperpage}{13}
+\indexentry{2-renewing sequence|hyperpage}{12}
 \indexentry{greedy algorithm!extension|hyperpage}{15}
 \indexentry{automaton!$\alpha$-extensible|hyperpage}{15}
+\indexentry{graph!strongly connected|hyperpage}{16}
+\indexentry{graph!Eulerian|hyperpage}{16}
+\indexentry{automaton!Eulerian|hyperpage}{16}
 \indexentry{characteristic vector|hyperpage}{17}
 \indexentry{automaton!Kari|hyperpage}{18}
-\indexentry{automaton!one-cluster|hyperpage}{18}
+\indexentry{automaton!one-cluster|hyperpage}{19}
 \indexentry{graph!of constant outdegree|hyperpage}{19}
 \indexentry{coloring (of a graph)|hyperpage}{19}
 \indexentry{Road Coloring Problem|hyperpage}{19}

@@ -1268,8 +1268,8 @@ for every pair of its vertices, there exists a path from one to the other. A
 graph is \emph{Eulerian} if it is strongly connected and each of its vertices
 serves as the tail and as the head for the same number of edges. A DFA is said
 to be \emph{Eulerian} if so is its underlying graph. More generally, we freely
-transfer graph notions (such strong connectivity) from graphs to automata they
-underlie.} \sa. In all these papers 1-extensibility is obtained via
+transfer graph notions (such as strong connectivity) from graphs to automata
+they underlie.} \sa. In all these papers 1-extensibility is obtained via
 linear-algebraic arguments;\marginpar{\textbf{If space\\
 permits!!}} we include here a proof from~\cite{Kari:2003} as quite a
 representative example of these linearization techniques.
@@ -1406,19 +1406,21 @@ quadratic in the state number upper bound for the \rt) has been established for
 several classes of \sa\ by
 Rystsov~\cite{Rystsov:1995a,Rystsov:1995,Rystsov:2000}.
 
-Recently a slightly relaxed version of 2-extensibility has been verified by
-B\'eal, Ber\-lin\-kov and
-Perrin~\cite{Beal&Perrin:2009,Beal&Berlinkov&Perrin:2011} for the important
-class of the so-called one-cluster automata. A DFA $\mathcal{A}=(Q,A)$ is
-called \emph{one-cluster}\index{automaton!one-cluster} if there exist a letter
-$a\in A$ that labels only one simple cycle. (For instance, the automata
-$\mathcal{C}_n$ and $\mathcal{W}_n$ shown in Figure~\ref{KV:fig:cerny-n} are
-one-cluster while Kari's automaton $\mathcal{K}_6$ shown in
-Figure~\ref{KV:fig:Kari}, is not. A mass example of one-cluster automata is
-provided by the decoders of finite maximal prefix codes discussed in
-Section~\ref{KV:sec:motivation}.) If $C$ is this cycle, then it is easy to see
-that $Q\cdot a^{|Q|-|C|}=C$, and one can modify Algorithm~\ref{KV:Extension} as
-follows.
+Recently a slightly relaxed version of 2-extensibility has been
+verified by B\'eal, Ber\-lin\-kov and
+Perrin~\cite{Beal&Perrin:2009,Beal&Berlinkov&Perrin:2011} for the
+important class of the so-called one-cluster automata. A DFA
+$\mathcal{A}=(Q,A)$ is called
+\emph{one-cluster}\index{automaton!one-cluster} if there exists a
+letter $a\in A$ that labels only one simple cycle. (For instance,
+the automata $\mathcal{C}_n$ and $\mathcal{W}_n$ shown in
+Figure~\ref{KV:fig:cerny-n} are one-cluster while Kari's automaton
+$\mathcal{K}_6$ shown in Figure~\ref{KV:fig:Kari}, is not. A mass
+example of one-cluster automata is provided by the decoders of
+finite maximal prefix codes discussed in
+Section~\ref{KV:sec:motivation}.) If $C$ is this cycle, then it is
+easy to see that $Q\cdot a^{|Q|-|C|}=C$, and one can modify
+Algorithm~\ref{KV:Extension} as follows.
 
 %=================================
 \begin{algorithm}
@@ -1449,7 +1451,7 @@ Algorithm~\ref{KV:One-cluster} does not exceed $2|Q|$, and this clearly implies
 a quadratic in $|Q|$ upper bound on the \rt\ for one-cluster \sa. A similar
 result has been obtained by Carpi and
 D'Alessandro~\cite{Carpi&D'Alessandro:2009}.
-Steinberg~\cite{Steinberg:2010,Steinberg:2010archive} has generalized the above
+Steinberg~\cite{Steinberg:2010,Steinberg:2011} has generalized the above
 approach and slightly improved the upper bound. Namely, Steinberg has proved
 that a one-cluster \san\ with $n$ states has a \sw\ of length at most
 $2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
@@ -1477,22 +1479,25 @@ Problem asks under which conditions graphs of constant outdegree admit a
 synchronizing coloring.
 
 The problem was explicitly stated by Adler, Goodwyn and
-Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977; in an implicit form it was
-present already in an earlier memoir by Adler and
-Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered only \scn\
-graphs; as we shall see below this is quite a natural assumption since the
-general case easily reduces to the case of \scn\ graphs. The name of the
-problem suggested in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following
-interpretation. In every \scn \san\ $\mathcal{A}=(Q,A)$, one can assign to
-state $q\in Q$ an instruction (a \sw) $w_q$ such that following $w_q$ one will
-surely arrive at $q$ from any initial state. (Indeed, for this one should first
-follow an arbitrary \sw\ leading to some state $p$, say, and then follow a word
-that labels a path connecting $p$ and $q$---such a path exists because of
-strong connectivity.) Thus, in order to help a traveler lost on a given \scn\
-graph $\Gamma$ of constant outdegree to find his/her way from wherever he/she
-could be, we should if possible color (that is, label) the edges of $\Gamma$
-such that $\Gamma$ becomes a \san\ and then tell the traveler the magic
-sequence of colors representing a \sw\ leading to the traveler's destination.
+Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977; in an implicit form
+it was present already in an earlier memoir by Adler and
+Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered
+only \scn\ graphs; as we shall see below this is quite a natural
+assumption since the general case easily reduces to the case of
+\scn\ graphs. The name of the problem suggested
+in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following
+interpretation. In every \scn\ \san\ $\mathcal{A}=(Q,A)$, one can
+assign to state $q\in Q$ an instruction (a \sw) $w_q$ such that
+following $w_q$ one will surely arrive at $q$ from any initial
+state. (Indeed, for this one should first follow an arbitrary \sw\
+leading to some state $p$, say, and then follow a word that labels
+a path connecting $p$ and $q$---such a path exists because of
+strong connectivity.) Thus, in order to help a traveler lost on a
+given \scn\ graph $\Gamma$ of constant outdegree to find his/her
+way from wherever he/she could be, we should if possible color
+(that is, label) the edges of $\Gamma$ such that $\Gamma$ becomes
+a \san\ and then tell the traveler the magic sequence of colors
+representing a \sw\ leading to the traveler's destination.
 
 The original motivation in~\cite{Adler&Weiss:1970,Adler&Goodwyn&Weiss:1977}
 came from symbolic dynamics. However, the Road Coloring Problem is quite

@@ -223,6 +223,13 @@ P.~Goral\v{c}ik and V.~Koubek.
 \newblock Rank problems for composite transformations.
 \newblock {\em Internat. J. Algebra Comput.}, 5:309--316, 1995.
 
+\bibitem{Gusev:2011}
+V.~Gusev.
+\newblock Lower bounds for the length of reset words in {E}ulerian automata.
+\newblock In G.~Delzanno and I.~Potapov, editors, {\em Reachability Problems},
+  volume 6945 of {\em Lecture Notes in Comput. Sci.}, pages 180--190.
+  Springer-Verlag, 2011.
+
 \bibitem{Hennie:1964}
 F.~C. Hennie.
 \newblock Fault detecting experiments for sequential circuits.
@@ -459,11 +466,11 @@ B.~Steinberg.
   Language Theory}, volume 6224 of {\em Lecture Notes in Comput. Sci.}, pages
   423--431. Springer-Verlag, 2010.
 
-\bibitem{Steinberg:2010archive}
+\bibitem{Steinberg:2011}
 B.~Steinberg.
 \newblock The \v{C}ern\'y conjecture for one-cluster automata with prime length
   cycle.
-\newblock {\em CoRR}, abs/1005.1835, 2010.
+\newblock {\em TCS}, 412:5487--5491, 2011.
 
 \bibitem{Trahtman:2006}
 A.~Trahtman.
@@ -477,6 +484,14 @@ A.~Trahtman.
 A.~Trahtman.
 \newblock The {R}oad {C}oloring {P}roblem.
 \newblock {\em Israel J. Math.}, 172(1):51--60, 2009.
+
+\bibitem{Trahtman:2011}
+A.~Trahtman.
+\newblock Modifying the upper bound on the length of minimal synchronizing
+  word.
+\newblock In O.~Owe, M.~Steffen, and J.~Telle, editors, {\em Fundamentals of
+  Computation Theory}, volume 6914 of {\em Lecture Notes in Comput. Sci.},
+  pages 173--180. Springer-Verlag, 2011.
 
 \bibitem{Volkov:2008}
 M.~Volkov.
