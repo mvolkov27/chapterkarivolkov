@@ -815,7 +815,7 @@ suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
 that was reported to perform rather satisfactory on a number of benchmarks
 from~\cite{Yang:1991}; further polynomial algorithms yielding short (though not
 necessarily shortest) \sws\ have been implemented by
-Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009,Roman:2009a}. Some
+Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009a,Roman:2009}. Some
 algorithms for finding \sws\ will be also discussed in the next section.
 
 %=====================================================
@@ -940,7 +940,7 @@ of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$. Thus,
 $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 \end{proof}
 
-If we define the \emph{\v{C}ern\'{y} function}\index{Cerny@\v{C}ern\'{y}
+If we define the \emph{\v{C}ern\'y function}\index{Cerny@\v{C}ern\'{y}
 function} $\mathfrak{C}(n)$ as the maximum length of shortest reset words for
 \sa\ with $n$ states, the above property of the series $\{\mathcal{C}_{n}\}$,
 $n=2,3,\dotsc$, yields the inequality $\mathfrak{C}(n)\ge(n-1)^2$. The
@@ -957,7 +957,7 @@ following remark:
 sharpen them. One can expect an improvement mainly for the upper bound.''
 \end{quote}
 The conjecture in its present-day form was formulated a bit later, after the
-expectation in the above quotation was confirmed by \cite{Starke:1966}.
+expectation in the above quotation was confirmed by Starke \cite{Starke:1966}.
 (Namely, Starke improved the upper bound from~\cite{Cerny:1964} to
 $1+\frac{n(n-1)(n-2)}2$, which was the first polynomial upper bound for
 $\mathfrak{C}(n)$.) \v{C}ern\'{y} explicitly stated the conjecture
@@ -965,9 +965,12 @@ $\mathfrak{C}(n)=(n-1)^2$ in his talks in the second half of the 1960s; in
 print the conjecture first appeared in~\cite{Cerny&Piricka&Rosenauerova:1971}.
 
 \paragraph*{An upper bound.} The best upper bound for the \v{C}ern\'{y}
-function achieved so far guarantees that for every \san\ with $n$ states there
-exists a reset word of length $\frac{n^3-n}6$. Such a reset word arises as the
-output of the following greedy algorithm.\index{greedy algorithm!compression}
+function achieved so far\footnote{Trahtman~\cite{Trahtman:2011} has published a
+sligthly better upper bound, namely $\frac{n(7n^2+6n-16)}{48}$. Unfortunately,
+the proof in~\cite{Trahtman:2011} contains an error.} guarantees that for every
+\san\ with $n$ states there exists a reset word of length $\frac{n^3-n}6$. Such
+a reset word arises as the output of the following greedy
+algorithm.\index{greedy algorithm!compression}
 
 %=================================
 \begin{algorithm}
@@ -1263,13 +1266,15 @@ non-permutation. Thus, such $\mathcal{A}$ is synchronizing and its \rt\ does
 not exceed $(|Q|-1)^2$. 20 years later Dubuc~\cite{Dubuc:1998} generalized
 Pin's result by showing that every \sa\ in which some letter acts as a cyclic
 permutation of the state set is 1-extensible. Kari~\cite{Kari:2003} proved
-1-extensibility of Eulerian\footnote{A graph is  \emph{strongly connected} if
-for every pair of its vertices, there exists a path from one to the other. A
-graph is \emph{Eulerian} if it is strongly connected and each of its vertices
-serves as the tail and as the head for the same number of edges. A DFA is said
-to be \emph{Eulerian} if so is its underlying graph. More generally, we freely
-transfer graph notions (such as strong connectivity) from graphs to automata
-they underlie.} \sa. In all these papers 1-extensibility is obtained via
+1-extensibility of Eulerian\footnote{A graph is  \emph{strongly
+connected}\index{graph!strongly connected} if for every pair of its vertices,
+there exists a path from one to the other. A graph is
+\emph{Eulerian}\index{graph!Eulerian} if it is strongly connected and each of
+its vertices serves as the tail and as the head for the same number of edges. A
+DFA is said to be \emph{Eulerian}\index{automaton!Eulerian} if so is its
+underlying graph. More generally, we freely transfer graph notions (such as
+strong connectivity) from graphs to automata they underlie.} \sa. In all these
+papers 1-extensibility is obtained via
 linear-algebraic arguments;\marginpar{\textbf{If space\\
 permits!!}} we include here a proof from~\cite{Kari:2003} as quite a
 representative example of these linearization techniques.
@@ -1366,7 +1371,9 @@ $\mathcal{A}$ returns a \sw\ of length at most $(n-2)(n-1)+1$.
 We mention in passing that the upper bound provided by
 Theorem~\ref{KV:thm:eulerian} is far from being tight. So far experiments have
 discovered no Eulerian \san\ $(n\ge4)$ with $n$ states whose \rt\ would exceed
-$\lfloor\frac{n^2-5}2\rfloor$.
+$\lfloor\frac{n^2-5}2\rfloor$ and the best theoretical lower bound for the
+restriction of the \v{C}ern\'{y} function to the class of Eulerian \sa\
+published so far is $\frac{n^2-3n+4}2$, see~\cite{Gusev:2011}.
 
 Return to our discussion of extensibility. Even though the approach to the
 \v{C}ern\'{y} conjecture via 1-exten\-sibil\-ity has proved to be productive in
@@ -1451,7 +1458,7 @@ Algorithm~\ref{KV:One-cluster} does not exceed $2|Q|$, and this clearly implies
 a quadratic in $|Q|$ upper bound on the \rt\ for one-cluster \sa. A similar
 result has been obtained by Carpi and
 D'Alessandro~\cite{Carpi&D'Alessandro:2009}.
-Steinberg~\cite{Steinberg:2010,Steinberg:2010archive} has generalized the above
+Steinberg~\cite{Steinberg:2010,Steinberg:2011} has generalized the above
 approach and slightly improved the upper bound. Namely, Steinberg has proved
 that a one-cluster \san\ with $n$ states has a \sw\ of length at most
 $2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
@@ -2039,10 +2046,9 @@ Conjecture~\ref{KV:conj:hybrid} and the \v{C}ern\'{y} conjecture, the validity
 of none of them immediately implies the validity of the other.
 
 Some first partial results related to Conjecture~\ref{KV:conj:hybrid} can be
-found in~\cite{Steinberg:2010archive,Carpi&D'Alessandro:2010}.
-Roman~\cite{Roman:2011} has shown that the problem of finding the optimal
-synchronizing coloring for a given graph is computationally hard. Namely, the
-following decision problem
+found in~\cite{Carpi&D'Alessandro:2010,Steinberg:2011}. Roman~\cite{Roman:2011}
+has shown that the problem of finding the optimal synchronizing coloring for a
+given graph is computationally hard. Namely, the following decision problem
 \index{Bounded@\textsc{Bounded-Synchronizing-\protect\\ Coloring}} is
 \textsf{NP}-complete:
 

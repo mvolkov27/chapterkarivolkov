@@ -1,14 +1,15 @@
 \begin{theindex}
 
-  \item 2-renewing sequence, \hyperpage{13}
+  \item 2-renewing sequence, \hyperpage{12}
 
   \indexspace
 
   \item automaton
     \subitem $\alpha$-extensible, \hyperpage{15}
     \subitem \v{C}ern\'{y}, \hyperpage{10}
+    \subitem Eulerian, \hyperpage{16}
     \subitem Kari, \hyperpage{18}
-    \subitem one-cluster, \hyperpage{18}
+    \subitem one-cluster, \hyperpage{19}
     \subitem synchronizing, \hyperpage{1}
 
   \indexspace
@@ -30,9 +31,11 @@
   \indexspace
 
   \item graph, \hyperpage{6}
+    \subitem Eulerian, \hyperpage{16}
     \subitem of a letter, \hyperpage{22}
     \subitem of constant outdegree, \hyperpage{19}
     \subitem primitive, \hyperpage{20}
+    \subitem strongly connected, \hyperpage{16}
     \subitem Wielandt, \hyperpage{26}
   \item greedy algorithm
     \subitem compression, \hyperpage{12}
