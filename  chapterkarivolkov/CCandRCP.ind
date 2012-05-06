@@ -33,7 +33,7 @@
   \item graph, \hyperpage{6}
     \subitem Eulerian, \hyperpage{16}
     \subitem of a letter, \hyperpage{22}
-    \subitem of constant outdegree, \hyperpage{19}
+    \subitem of constant out-degree, \hyperpage{19}
     \subitem primitive, \hyperpage{20}
     \subitem strongly connected, \hyperpage{16}
     \subitem Wielandt, \hyperpage{26}
