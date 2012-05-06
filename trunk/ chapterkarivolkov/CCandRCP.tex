@@ -97,8 +97,8 @@
 \address{$^1$Department of Mathematics\\
 FI-20014 University of Turku\\
 Turku, Finland\\[2mm]
-$^2$Department of Mathematics and Mechanics\\
-620083 Ural State University\\
+$^2$Institute of Mathematics and Computer Science\\
+620000 Ural Federal University\\
 Ekaterinburg, Russia\\
 email:\,\url{jkari@utu.fi,Mikhail.Volkov@usu.ru}\\[4mm]
 \upshape{\dateandtime}}
@@ -1470,41 +1470,25 @@ $2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
 \label{KV:sec:rcp}
 %=====================================================
 
-A graph $\Gamma$ in which each vertex has the same out-degree (say, $k$) is
-called a \emph{graph of constant outdegree}\index{graph!of constant outdegree}
-and the number $k$ is referred to as the outdegree of $\Gamma$. If we take an
-alphabet $A$ whose of size is equal to the outdegree of $\Gamma$, then we can
-label the edges of $\Gamma$ by letters of $A$ such that the resulting automaton
-will be complete and deterministic. Any DFA obtained this way is referred to as
-a \emph{coloring}\index{coloring (of a graph)} $\Gamma$.
+A graph $\Gamma$ in which each vertex has the same out-degree (say, $k$) is called a \emph{graph of constant out-degree}\index{graph!of
+constant out-degree} and the number $k$ is referred to as the out-degree of $\Gamma$. If we take an alphabet $A$ whose size is equal to the
+out-degree of $\Gamma$, then we can label the edges of $\Gamma$ by letters of $A$ such that the resulting automaton will be complete and
+deterministic. Any DFA obtained this way is referred to as a \emph{coloring}\index{coloring (of a graph)} of $\Gamma$.
 
-Given a graph, it is reasonable to ask under which conditions it admits a
-coloring satisfying some ``good'' properties. In this section we analyze the
-so-called \emph{Road Coloring Problem}\index{Road Coloring Problem} that is
-certainly the most famous question within this framework. The Road Coloring
-Problem asks under which conditions graphs of constant outdegree admit a
-synchronizing coloring.
+Given a graph, it is reasonable to ask under which conditions it admits a coloring satisfying some ``good'' properties. In this section we
+analyze the so-called \emph{Road Coloring Problem}\index{Road Coloring Problem} that is certainly the most famous question within this
+framework. The Road Coloring Problem asks under which conditions graphs of constant out-degree admit a synchronizing coloring.
 
-The problem was explicitly stated by Adler, Goodwyn and
-Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977; in an implicit form
-it was present already in an earlier memoir by Adler and
-Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered
-only \scn\ graphs; as we shall see below this is quite a natural
-assumption since the general case easily reduces to the case of
-\scn\ graphs. The name of the problem suggested
-in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following
-interpretation. In every \scn\ \san\ $\mathcal{A}=(Q,A)$, one can
-assign to state $q\in Q$ an instruction (a \sw) $w_q$ such that
-following $w_q$ one will surely arrive at $q$ from any initial
-state. (Indeed, for this one should first follow an arbitrary \sw\
-leading to some state $p$, say, and then follow a word that labels
-a path connecting $p$ and $q$---such a path exists because of
-strong connectivity.) Thus, in order to help a traveler lost on a
-given \scn\ graph $\Gamma$ of constant outdegree to find his/her
-way from wherever he/she could be, we should if possible color
-(that is, label) the edges of $\Gamma$ such that $\Gamma$ becomes
-a \san\ and then tell the traveler the magic sequence of colors
-representing a \sw\ leading to the traveler's destination.
+The problem was explicitly stated by Adler, Goodwyn and Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977; in an implicit form it was present
+already in an earlier memoir by Adler and Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered only \scn\ graphs; as we shall
+see below this is quite a natural assumption since the general case easily reduces to the case of \scn\ graphs. The name of the problem
+suggested in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following interpretation. In every \scn\ \san\ $\mathcal{A}=(Q,A)$, one can
+assign to state $q\in Q$ an instruction (a \sw) $w_q$ such that following $w_q$ one will surely arrive at $q$ from any initial state.
+(Indeed, for this one should first follow an arbitrary \sw\ leading to some state $p$, say, and then follow a word that labels a path
+connecting $p$ and $q$---such a path exists because of strong connectivity.) Thus, in order to help a traveler lost on a given \scn\ graph
+$\Gamma$ of constant out-degree to find his/her way from wherever he/she could be, we should if possible color (that is, label) the edges
+of $\Gamma$ such that $\Gamma$ becomes a \san\ and then tell the traveler the magic sequence of colors representing a \sw\ leading to the
+traveler's destination.
 
 The original motivation in~\cite{Adler&Weiss:1970,Adler&Goodwyn&Weiss:1977}
 came from symbolic dynamics. However, the Road Coloring Problem is quite
@@ -2037,9 +2021,8 @@ value also for the \rt\ of synchronizing colorings of $n$-vertex graph. In
 other words, we suggest a conjecture that is in a sense parallel to the
 \v{C}ern\'{y} one.
 \begin{conjecture}
-\label{KV:conj:hybrid} Every \scn\ primitive graph with constant outdegree and
-$n$ vertices admits a synchronizing coloring that can be reset by a word of
-length $n^2-3n+3$.
+\label{KV:conj:hybrid} Every \scn\ primitive graph with constant out-degree and $n$ vertices admits a synchronizing coloring that can be
+reset by a word of length $n^2-3n+3$.
 \end{conjecture}
 We observe that while there is a clear analogy between
 Conjecture~\ref{KV:conj:hybrid} and the \v{C}ern\'{y} conjecture, the validity
@@ -2054,10 +2037,8 @@ given graph is computationally hard. Namely, the following decision problem
 
 \smallskip
 
-\hangindent=\parindent \noindent \textsc{Bounded-Synchronizing-Coloring:}
-\emph{Given a \scn\ primitive graph $\Gamma$ with constant outdegree, is it
-true that $\Gamma$ has a synchronizing coloring with a reset word of length
-$8$?}
+\hangindent=\parindent \noindent \textsc{Bounded-Synchronizing-Coloring:} \emph{Given a \scn\ primitive graph $\Gamma$ with constant
+out-degree, is it true that $\Gamma$ has a synchronizing coloring with a reset word of length $8$?}
 
 %=====================================================
 \section{Related work}

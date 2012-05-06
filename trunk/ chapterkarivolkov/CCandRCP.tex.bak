@@ -815,7 +815,7 @@ suggested an heuristic polynomial algorithm for finding short \sws\ in \sa\
 that was reported to perform rather satisfactory on a number of benchmarks
 from~\cite{Yang:1991}; further polynomial algorithms yielding short (though not
 necessarily shortest) \sws\ have been implemented by
-Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009,Roman:2009a}. Some
+Trahtman~\cite{Trahtman:2006} and Roman~\cite{Roman:2009a,Roman:2009}. Some
 algorithms for finding \sws\ will be also discussed in the next section.
 
 %=====================================================
@@ -940,7 +940,7 @@ of $w'$ over $\{a,b\}$ is at least $n^2-3n+2+n-2=n^2-2n$. Thus,
 $|w|=|w'a|\ge n^2-2n+1=(n-1)^2$.
 \end{proof}
 
-If we define the \emph{\v{C}ern\'{y} function}\index{Cerny@\v{C}ern\'{y}
+If we define the \emph{\v{C}ern\'y function}\index{Cerny@\v{C}ern\'{y}
 function} $\mathfrak{C}(n)$ as the maximum length of shortest reset words for
 \sa\ with $n$ states, the above property of the series $\{\mathcal{C}_{n}\}$,
 $n=2,3,\dotsc$, yields the inequality $\mathfrak{C}(n)\ge(n-1)^2$. The
@@ -957,7 +957,7 @@ following remark:
 sharpen them. One can expect an improvement mainly for the upper bound.''
 \end{quote}
 The conjecture in its present-day form was formulated a bit later, after the
-expectation in the above quotation was confirmed by \cite{Starke:1966}.
+expectation in the above quotation was confirmed by Starke \cite{Starke:1966}.
 (Namely, Starke improved the upper bound from~\cite{Cerny:1964} to
 $1+\frac{n(n-1)(n-2)}2$, which was the first polynomial upper bound for
 $\mathfrak{C}(n)$.) \v{C}ern\'{y} explicitly stated the conjecture
@@ -965,9 +965,12 @@ $\mathfrak{C}(n)=(n-1)^2$ in his talks in the second half of the 1960s; in
 print the conjecture first appeared in~\cite{Cerny&Piricka&Rosenauerova:1971}.
 
 \paragraph*{An upper bound.} The best upper bound for the \v{C}ern\'{y}
-function achieved so far guarantees that for every \san\ with $n$ states there
-exists a reset word of length $\frac{n^3-n}6$. Such a reset word arises as the
-output of the following greedy algorithm.\index{greedy algorithm!compression}
+function achieved so far\footnote{Trahtman~\cite{Trahtman:2011} has published a
+sligthly better upper bound, namely $\frac{n(7n^2+6n-16)}{48}$. Unfortunately,
+the proof in~\cite{Trahtman:2011} contains an error.} guarantees that for every
+\san\ with $n$ states there exists a reset word of length $\frac{n^3-n}6$. Such
+a reset word arises as the output of the following greedy
+algorithm.\index{greedy algorithm!compression}
 
 %=================================
 \begin{algorithm}
@@ -1263,13 +1266,15 @@ non-permutation. Thus, such $\mathcal{A}$ is synchronizing and its \rt\ does
 not exceed $(|Q|-1)^2$. 20 years later Dubuc~\cite{Dubuc:1998} generalized
 Pin's result by showing that every \sa\ in which some letter acts as a cyclic
 permutation of the state set is 1-extensible. Kari~\cite{Kari:2003} proved
-1-extensibility of Eulerian\footnote{A graph is  \emph{strongly connected} if
-for every pair of its vertices, there exists a path from one to the other. A
-graph is \emph{Eulerian} if it is strongly connected and each of its vertices
-serves as the tail and as the head for the same number of edges. A DFA is said
-to be \emph{Eulerian} if so is its underlying graph. More generally, we freely
-transfer graph notions (such as strong connectivity) from graphs to automata
-they underlie.} \sa. In all these papers 1-extensibility is obtained via
+1-extensibility of Eulerian\footnote{A graph is  \emph{strongly
+connected}\index{graph!strongly connected} if for every pair of its vertices,
+there exists a path from one to the other. A graph is
+\emph{Eulerian}\index{graph!Eulerian} if it is strongly connected and each of
+its vertices serves as the tail and as the head for the same number of edges. A
+DFA is said to be \emph{Eulerian}\index{automaton!Eulerian} if so is its
+underlying graph. More generally, we freely transfer graph notions (such as
+strong connectivity) from graphs to automata they underlie.} \sa. In all these
+papers 1-extensibility is obtained via
 linear-algebraic arguments;\marginpar{\textbf{If space\\
 permits!!}} we include here a proof from~\cite{Kari:2003} as quite a
 representative example of these linearization techniques.
@@ -1366,7 +1371,9 @@ $\mathcal{A}$ returns a \sw\ of length at most $(n-2)(n-1)+1$.
 We mention in passing that the upper bound provided by
 Theorem~\ref{KV:thm:eulerian} is far from being tight. So far experiments have
 discovered no Eulerian \san\ $(n\ge4)$ with $n$ states whose \rt\ would exceed
-$\lfloor\frac{n^2-5}2\rfloor$.
+$\lfloor\frac{n^2-5}2\rfloor$ and the best theoretical lower bound for the
+restriction of the \v{C}ern\'{y} function to the class of Eulerian \sa\
+published so far is $\frac{n^2-3n+4}2$, see~\cite{Gusev:2011}.
 
 Return to our discussion of extensibility. Even though the approach to the
 \v{C}ern\'{y} conjecture via 1-exten\-sibil\-ity has proved to be productive in
@@ -1463,41 +1470,25 @@ $2n^2-9n+14$. He also has verified the \v{C}ern\'y conjecture for one-cluster
 \label{KV:sec:rcp}
 %=====================================================
 
-A graph $\Gamma$ in which each vertex has the same out-degree (say, $k$) is
-called a \emph{graph of constant outdegree}\index{graph!of constant outdegree}
-and the number $k$ is referred to as the outdegree of $\Gamma$. If we take an
-alphabet $A$ whose of size is equal to the outdegree of $\Gamma$, then we can
-label the edges of $\Gamma$ by letters of $A$ such that the resulting automaton
-will be complete and deterministic. Any DFA obtained this way is referred to as
-a \emph{coloring}\index{coloring (of a graph)} $\Gamma$.
+A graph $\Gamma$ in which each vertex has the same out-degree (say, $k$) is called a \emph{graph of constant out-degree}\index{graph!of
+constant out-degree} and the number $k$ is referred to as the out-degree of $\Gamma$. If we take an alphabet $A$ whose size is equal to the
+out-degree of $\Gamma$, then we can label the edges of $\Gamma$ by letters of $A$ such that the resulting automaton will be complete and
+deterministic. Any DFA obtained this way is referred to as a \emph{coloring}\index{coloring (of a graph)} of $\Gamma$.
 
-Given a graph, it is reasonable to ask under which conditions it admits a
-coloring satisfying some ``good'' properties. In this section we analyze the
-so-called \emph{Road Coloring Problem}\index{Road Coloring Problem} that is
-certainly the most famous question within this framework. The Road Coloring
-Problem asks under which conditions graphs of constant outdegree admit a
-synchronizing coloring.
+Given a graph, it is reasonable to ask under which conditions it admits a coloring satisfying some ``good'' properties. In this section we
+analyze the so-called \emph{Road Coloring Problem}\index{Road Coloring Problem} that is certainly the most famous question within this
+framework. The Road Coloring Problem asks under which conditions graphs of constant out-degree admit a synchronizing coloring.
 
-The problem was explicitly stated by Adler, Goodwyn and
-Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977; in an implicit form
-it was present already in an earlier memoir by Adler and
-Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered
-only \scn\ graphs; as we shall see below this is quite a natural
-assumption since the general case easily reduces to the case of
-\scn\ graphs. The name of the problem suggested
-in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following
-interpretation. In every \scn\ \san\ $\mathcal{A}=(Q,A)$, one can
-assign to state $q\in Q$ an instruction (a \sw) $w_q$ such that
-following $w_q$ one will surely arrive at $q$ from any initial
-state. (Indeed, for this one should first follow an arbitrary \sw\
-leading to some state $p$, say, and then follow a word that labels
-a path connecting $p$ and $q$---such a path exists because of
-strong connectivity.) Thus, in order to help a traveler lost on a
-given \scn\ graph $\Gamma$ of constant outdegree to find his/her
-way from wherever he/she could be, we should if possible color
-(that is, label) the edges of $\Gamma$ such that $\Gamma$ becomes
-a \san\ and then tell the traveler the magic sequence of colors
-representing a \sw\ leading to the traveler's destination.
+The problem was explicitly stated by Adler, Goodwyn and Weiss~\cite{Adler&Goodwyn&Weiss:1977} in 1977; in an implicit form it was present
+already in an earlier memoir by Adler and Weiss~\cite{Adler&Weiss:1970}. Adler, Goodwyn and Weiss considered only \scn\ graphs; as we shall
+see below this is quite a natural assumption since the general case easily reduces to the case of \scn\ graphs. The name of the problem
+suggested in~\cite{Adler&Goodwyn&Weiss:1977} comes from the following interpretation. In every \scn\ \san\ $\mathcal{A}=(Q,A)$, one can
+assign to state $q\in Q$ an instruction (a \sw) $w_q$ such that following $w_q$ one will surely arrive at $q$ from any initial state.
+(Indeed, for this one should first follow an arbitrary \sw\ leading to some state $p$, say, and then follow a word that labels a path
+connecting $p$ and $q$---such a path exists because of strong connectivity.) Thus, in order to help a traveler lost on a given \scn\ graph
+$\Gamma$ of constant out-degree to find his/her way from wherever he/she could be, we should if possible color (that is, label) the edges
+of $\Gamma$ such that $\Gamma$ becomes a \san\ and then tell the traveler the magic sequence of colors representing a \sw\ leading to the
+traveler's destination.
 
 The original motivation in~\cite{Adler&Weiss:1970,Adler&Goodwyn&Weiss:1977}
 came from symbolic dynamics. However, the Road Coloring Problem is quite
@@ -2030,28 +2021,24 @@ value also for the \rt\ of synchronizing colorings of $n$-vertex graph. In
 other words, we suggest a conjecture that is in a sense parallel to the
 \v{C}ern\'{y} one.
 \begin{conjecture}
-\label{KV:conj:hybrid} Every \scn\ primitive graph with constant outdegree and
-$n$ vertices admits a synchronizing coloring that can be reset by a word of
-length $n^2-3n+3$.
+\label{KV:conj:hybrid} Every \scn\ primitive graph with constant out-degree and $n$ vertices admits a synchronizing coloring that can be
+reset by a word of length $n^2-3n+3$.
 \end{conjecture}
 We observe that while there is a clear analogy between
 Conjecture~\ref{KV:conj:hybrid} and the \v{C}ern\'{y} conjecture, the validity
 of none of them immediately implies the validity of the other.
 
 Some first partial results related to Conjecture~\ref{KV:conj:hybrid} can be
-found in~\cite{Steinberg:2010archive,Carpi&D'Alessandro:2010}.
-Roman~\cite{Roman:2011} has shown that the problem of finding the optimal
-synchronizing coloring for a given graph is computationally hard. Namely, the
-following decision problem
+found in~\cite{Carpi&D'Alessandro:2010,Steinberg:2011}. Roman~\cite{Roman:2011}
+has shown that the problem of finding the optimal synchronizing coloring for a
+given graph is computationally hard. Namely, the following decision problem
 \index{Bounded@\textsc{Bounded-Synchronizing-\protect\\ Coloring}} is
 \textsf{NP}-complete:
 
 \smallskip
 
-\hangindent=\parindent \noindent \textsc{Bounded-Synchronizing-Coloring:}
-\emph{Given a \scn\ primitive graph $\Gamma$ with constant outdegree, is it
-true that $\Gamma$ has a synchronizing coloring with a reset word of length
-$8$?}
+\hangindent=\parindent \noindent \textsc{Bounded-Synchronizing-Coloring:} \emph{Given a \scn\ primitive graph $\Gamma$ with constant
+out-degree, is it true that $\Gamma$ has a synchronizing coloring with a reset word of length $8$?}
 
 %=====================================================
 \section{Related work}

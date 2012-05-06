@@ -1,4 +1,4 @@
-This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  4 OCT 2011 00:47
+This is TeX, Version 3.14159 (Web2c 7.3.7x) (format=latex 2006.11.20)  6 MAY 2012 22:33
 **CCandRCP.tex
 (./CCandRCP.tex
 LaTeX2e <2001/06/01>
@@ -637,18 +637,18 @@ Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 993.
  [12] [13]
 [14] [15] [16] [17] [18] [19] [20] [21]
-Overfull \hbox (79.66557pt too wide) in paragraph at lines 1694--1696
+Overfull \hbox (79.66557pt too wide) in paragraph at lines 1678--1680
  [] 
  []
 
 [22]
-Overfull \hbox (2.51747pt too wide) in paragraph at lines 1732--1734
+Overfull \hbox (2.51747pt too wide) in paragraph at lines 1716--1718
 [][]\OT1/ptm/m/it/10 Every strongly con-nected prim-i-tive graph $\OT1/cmr/m/n/
 10 ^^@$ \OT1/ptm/m/it/10 with con-stant out-degree
  []
 
 
-Overfull \hbox (42.67735pt too wide) in paragraph at lines 1773--1774
+Overfull \hbox (42.67735pt too wide) in paragraph at lines 1757--1758
  [] 
  []
 
@@ -680,10 +680,10 @@ Missing character: There is no – in font ptmr7t!
 Here is how much of TeX's memory you used:
  10190 strings out of 50491
  142031 string characters out of 1189754
- 291029 words of memory out of 1500001
+ 291037 words of memory out of 1500001
  12912 multiletter control sequences out of 10000+15000
  28380 words of font info for 92 fonts, out of 400000 for 1000
  288 hyphenation exceptions out of 1000
  38i,19n,38p,290b,780s stack positions out of 1500i,500n,1500p,200000b,5000s
 
-Output written on CCandRCP.dvi (33 pages, 384308 bytes).
+Output written on CCandRCP.dvi (33 pages, 384364 bytes).
