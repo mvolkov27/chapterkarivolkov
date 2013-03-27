@@ -438,18 +438,31 @@ substitution, the number of iterations at which the coincidence first occurs is
 equal to the minimum length of \sw\ for the corresponding automaton.
 
 We mention in passing a purely algebraic framework\marginpar{\textbf{If space\\
-permits!!}} within which \sa\ also appear in a natural way. One may treat DFAs as unary algebras since each letter of the input alphabet
-defines a unary operation on the state set. A \emph{term}\index{unary term} in the language of such unary algebras is an expression $t$ of
-the form $x\cdot w$, where $x$ is a variable and $w$ is a word over an alphabet $A$. An \emph{identity}\index{identity of unary algebras}
-is a formal equality between two terms. A DFA $\mathcal{A}=(Q,A)$ \emph{satisfies} an identity $t_1=t_2$, where the words involved in the
-terms $t_1$ and $t_2$ are over $A$, if $t_1$ and $t_2$ take the same value under each interpretation of their variables in the set $Q$.
-Identities of unary algebras can be of the form either $x\cdot u=x\cdot v$ (\emph{homotypical} identities\index{identity of unary
-algebras!homotypical}) or $x\cdot u=y\cdot v$ with $x\ne y$ (\emph{heterotypical} identities\index{identity of unary
-algebras!heterotypical}). It is easy to realize that a DFA is synchronizing if and only if it satisfies a heterotypical identity, and thus,
-studying \sa\ may be considered as a part of the equational logic of unary algebras. In particular, \sa\ over a fixed alphabet form a
-\emph{pseudovariety} of unary algebras. See \cite{Bogdanovic&Imreh&Ciric&Petkovic:1999} for a survey of numerous publications in this
-direction; it is fair to say, however, that so far this algebraic approach has not proved to be really useful for understanding the
-combinatorial nature of \sa.
+permits!!}} within which \sa\ also appear in a natural way. One
+may treat DFAs as unary algebras since each letter of the input
+alphabet defines a unary operation on the state set. A
+\emph{term}\index{unary term} in the language of such unary
+algebras is an expression $t$ of the form $x\cdot w$, where $x$ is
+a variable and $w$ is a word over an alphabet $A$. An
+\emph{identity}\index{identity of unary algebras} is a formal
+equality between two terms. A DFA $\mathcal{A}=(Q,A)$
+\emph{satisfies} an identity $t_1=t_2$, where the words involved
+in the terms $t_1$ and $t_2$ are over $A$, if $t_1$ and $t_2$ take
+the same value under each interpretation of their variables in the
+set $Q$. Identities of unary algebras can be of the form either
+$x\cdot u=x\cdot v$ (\emph{homotypical} identities\index{identity
+of unary algebras!homotypical}) or $x\cdot u=y\cdot v$ with $x\ne
+y$ (\emph{heterotypical} identities\index{identity of unary
+algebras!heterotypical}). It is easy to realize that a DFA is
+synchronizing if and only if it satisfies a heterotypical
+identity, and thus, studying \sa\ may be considered as a part of
+the equational logic of unary algebras. In particular, \sa\ over a
+fixed alphabet form a \emph{pseudovariety} of unary algebras. See
+\cite{Bogdanovic&Imreh&Ciric&Petkovic:1999} for a survey of
+numerous publications in this direction; it is fair to say,
+however, that so far this algebraic approach has not proved to be
+really useful for understanding the combinatorial nature of \sa.
+>>>>>>> .r42
 
 %=====================================================
 \section{Algorithmic and complexity issues}
